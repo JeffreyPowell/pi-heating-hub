@@ -1,1 +1,1 @@
-# pi-heating-hub
+# pi-heating-controller
