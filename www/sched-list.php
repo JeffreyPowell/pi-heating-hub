@@ -118,7 +118,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "<td>".$row["name"]."</td>";
     echo "<td>".$row["start"]."</td>";
     echo "<td>".$row["end"]."</td>";
-    echo "<td>".$row["repeat"]."</td>";
+    echo "<td>".$row["dow"]."</td>";
     echo "<td>".$row["value"]."</td>";
     echo "<td><form method='post' action='sched-edit.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='edit' value='Edit'></form></td>";
