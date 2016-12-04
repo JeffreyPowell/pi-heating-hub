@@ -3,8 +3,8 @@
 <head>
 <style>
 .error {color: #FF0000;}
-.tcolname {color: #FFFF00;}
-.ccolname {color: #FF00FF;}
+.tcolname {font-family: ariel; color: black; font-size: large;}
+.ccolname {font-family: ariel; color: black; font-size: medium;}
 </style>
 </head>
 <body>  
