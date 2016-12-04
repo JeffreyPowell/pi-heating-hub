@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
     for ($i=1; $i<8; $i++) {
       echo $i;
       }
-    echo "<td><span class='ccolvalue'>".$row["value"]."</span></td>";
+    echo "<td><span class='ccolvalue'>".decbin($row["value"])."</span></td>";
     
     echo "<td><form method='post' action='sched-edit.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='edit' value='Edit'></form></td>";
