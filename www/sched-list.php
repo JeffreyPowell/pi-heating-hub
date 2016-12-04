@@ -125,9 +125,10 @@ if (mysqli_num_rows($result) > 0) {
     echo "<td><form method='post' action='sched_delete.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='delete' value='Delete'></form></td>";
     echo "</tr>";
-      
+  }    
+  
   echo "</table>";
-  }
+  
 } else {
     echo "0 results";
 }
