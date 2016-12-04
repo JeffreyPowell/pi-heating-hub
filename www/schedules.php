@@ -110,9 +110,24 @@ $sql = "SELECT * FROM schedules";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
+  
+  echo "<table><tr><th>Schedule Name</th><th>Start Time</th><th>End Time</th><th>Repeat</th><th>Status</th><th></th><th></th></tr>";
+  
+  while($row = mysqli_fetch_assoc($result)) {
+    echo "<tr>";
+    echo "<td>".$row["name"]."</td>";
+    echo "<td>".$row["start"]."</td>";
+    echo "<td>".$row["end"]."</td>";
+    echo "<td>".$row["repeat"]."</td>";
+    echo "<td>".$row["value"]."</td>";
+    echo "<td><form method='post' action='sched_edit.php?id=".$row["id"]."'>";
+    echo "<input type='submit' name='edit' value='Edit'></form></td>";
+    echo "<td><form method='post' action='sched_delete.php?id=".$row["id"]."'>";
+    echo "<input type='submit' name='delete' value='Delete'></form></td>";
+    echo "</tr>";
+      
+  echo "</table>";
+  }
 } else {
     echo "0 results";
 }
