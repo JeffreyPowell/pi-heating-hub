@@ -117,7 +117,7 @@ if (mysqli_num_rows($result) > 0) {
   
   while($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
-    echo "<td><span class='tcolname'>".$row["name"]."</span></td>";
+    echo "<td><span class='ccolname'>".$row["name"]."</span></td>";
     echo "<td>".$row["start"]."</td>";
     echo "<td>".$row["end"]."</td>";
     echo "<td>".$row["dow"]."</td>";
