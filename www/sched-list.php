@@ -3,6 +3,8 @@
 <head>
 <style>
 .error {color: #FF0000;}
+.tcolname {color: #FFFF00;}
+.ccolname {color: #FF00FF;}
 </style>
 </head>
 <body>  
@@ -111,11 +113,11 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
   
-  echo "<table><tr><th>Schedule Name</th><th>Start Time</th><th>End Time</th><th>Repeat</th><th>Status</th><th></th><th></th></tr>";
+  echo "<table><tr><th><span class='tcolname'>Schedule Name</span></th><th>Start Time</th><th>End Time</th><th>Repeat</th><th>Status</th><th></th><th></th></tr>";
   
   while($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
-    echo "<td>".$row["name"]."</td>";
+    echo "<td><span class='tcolname'>".$row["name"]."</span></td>";
     echo "<td>".$row["start"]."</td>";
     echo "<td>".$row["end"]."</td>";
     echo "<td>".$row["dow"]."</td>";
@@ -133,11 +135,12 @@ if (mysqli_num_rows($result) > 0) {
     echo "0 results";
 }
   
-echo "<form method='post' action='sched-new.php'>";
-echo "<input type='submit' name='add' value='Add new'></form>";
-  
 mysqli_close($conn);
 ?>  
+
+<form method='post' action='sched-new.php'>
+<input type='submit' name='add' value='Add new'>
+</form>
   
 </body>
 </html>
