@@ -118,10 +118,10 @@ if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
     echo "<td><span class='ccolname'>".$row["name"]."</span></td>";
-    echo "<td>".$row["start"]."</td>";
-    echo "<td>".$row["end"]."</td>";
-    echo "<td>".$row["dow"]."</td>";
-    echo "<td>".$row["value"]."</td>";
+    echo "<td><span class='ccolstart'>".$row["start"]."</span></td>";
+    echo "<td><span class='ccolend'>".$row["end"]."</span></td>";
+    echo "<td><span class='ccoldow'>".$row["dow"]."</span></td>";
+    echo "<td><span class='ccolvalue'>".$row["value"]."</span></td>";
     echo "<td><form method='post' action='sched-edit.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='edit' value='Edit'></form></td>";
     echo "<td><form method='post' action='sched-delete.php?id=".$row["id"]."'>";
