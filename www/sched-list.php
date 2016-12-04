@@ -134,7 +134,7 @@ if (mysqli_num_rows($result) > 0) {
 }
   
 echo "<form method='post' action='sched-new.php'>";
-echo "<input type='submit' name='add' value='Add'></form>";
+echo "<input type='submit' name='add' value='Add new'></form>";
   
 mysqli_close($conn);
 ?>  
