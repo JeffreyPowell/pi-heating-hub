@@ -3,10 +3,10 @@
 <head>
 <style>
 .error {color: #FF0000;}
-.tcolname {font-family: ariel; color: black; font-size: xx-large;}
-.ccolname {font-family: ariel; color: black; font-size: large;}
-.ccoldowun {font-family: ariel; color: black; font-size: large;}
-.ccoldowse {font-family: ariel; color: black; font-size: large;}
+.tcolname {font-family: arial; color: black; font-size: xx-large;}
+.ccolname {font-family: arial; color: black; font-size: large;}
+.ccoldowun {font-family: arial; color: black; font-size: large;}
+.ccoldowse {font-family: arial; color: black; font-size: large;}
 </style>
 </head>
 <body>  
