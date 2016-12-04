@@ -39,7 +39,7 @@ if (mysqli_num_rows($result) > 0) {
     sprintf( "%07d", decbin($row["dow"]));
 
     for ($i=1; $i<8; $i++) {
-      echo $i;
+ //     echo $i;
       }
     echo "</span></td>";
       
