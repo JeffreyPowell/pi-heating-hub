@@ -132,6 +132,10 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "0 results";
 }
+  
+echo "<form method='post' action='sched-new.php'>";
+echo "<input type='submit' name='add' value='Add'></form>";
+  
 mysqli_close($conn);
 ?>  
   
