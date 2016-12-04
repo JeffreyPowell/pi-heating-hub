@@ -35,10 +35,12 @@ if (mysqli_num_rows($result) > 0) {
     echo "<td><span class='ccolstart'>".$row["start"]."</span></td>";
     echo "<td><span class='ccolend'>".$row["end"]."</span></td>";
     echo "<td><span class='ccoldow'>".$row["dow"]."</span></td>";
+      
+    echo "<td><span class='ccolvalue'>".decbin($row["value"]);
     for ($i=1; $i<8; $i++) {
       echo $i;
       }
-    echo "<td><span class='ccolvalue'>".decbin($row["value"])."</span></td>";
+    echo "</span></td>";
     
     echo "<td><form method='post' action='sched-edit.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='edit' value='Edit'></form></td>";
