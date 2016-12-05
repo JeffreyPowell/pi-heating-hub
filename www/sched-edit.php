@@ -24,12 +24,19 @@ if (!$conn) {
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result_sched = mysqli_query($conn, $sql);
 echo var_dump( $result_sched ); 
-  
+
+echo <br><br>;
+
 $sql = "SELECT * FROM devices";
-$result_device = mysqli_query($conn, $sql);
+$result_devices = mysqli_query($conn, $sql);
 echo var_dump( $result_devices );
               
+echo <br><br>;
 
+$sql = "SELECT * FROM sched_device";
+$result_sched_device = mysqli_query($conn, $sql);
+echo var_dump( $result_sched_devices );
+              
   
 mysqli_close($conn);
 ?>  
