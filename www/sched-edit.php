@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
 
 echo '<br><br>';
 
-$sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
+$sql = "SELECT * FROM devices";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
@@ -47,7 +47,7 @@ if (mysqli_num_rows($result) > 0) {
 
 echo '<br><br>';
 
- $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
+ $sql = "SELECT * FROM sched_device";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
