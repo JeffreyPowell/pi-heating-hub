@@ -27,6 +27,7 @@ echo implode( ",", $result_sched );
 
 echo '<br><br>';
 
+/*
 $sql = "SELECT * FROM devices";
 $result_devices = mysqli_query($conn, $sql);
 echo implode( ",", $result_devices );
@@ -37,7 +38,7 @@ $sql = "SELECT * FROM sched_device";
 $result_sched_device = mysqli_query($conn, $sql);
 echo implode( ",", $result_sched_device );
               
-  
+*/
 mysqli_close($conn);
 ?>  
 
