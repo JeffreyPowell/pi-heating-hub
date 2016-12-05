@@ -23,19 +23,19 @@ if (!$conn) {
     
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result_sched = mysqli_query($conn, $sql);
-echo implode( ', ', $result_sched ); 
+echo implode( ", ", $result_sched ); 
 
 echo '<br><br>';
 
 $sql = "SELECT * FROM devices";
 $result_devices = mysqli_query($conn, $sql);
-echo implode( ', ', $result_devices );
+echo implode( ", ", $result_devices );
               
 echo '<br><br>';
 
 $sql = "SELECT * FROM sched_device";
 $result_sched_device = mysqli_query($conn, $sql);
-echo implode( ', ', $result_sched_devices );
+echo implode( ", ", $result_sched_device );
               
   
 mysqli_close($conn);
