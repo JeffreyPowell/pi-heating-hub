@@ -20,11 +20,15 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+    
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result_sched = mysqli_query($conn, $sql);
-
 echo var_dump( $result_sched ); 
   
+$sql = "SELECT * FROM devices";
+$result_device = mysqli_query($conn, $sql);
+echo var_dump( $result_devices );
+              
 
   
 mysqli_close($conn);
