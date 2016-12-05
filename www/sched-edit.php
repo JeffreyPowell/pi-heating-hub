@@ -24,6 +24,8 @@ if (!$conn) {
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result_sched = mysqli_query($conn, $sql);
 echo implode( ",", (array)$result_sched ); 
+    
+echo var_dump ( $result_sched );
 
 echo '<br><br>';
 
