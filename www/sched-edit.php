@@ -86,7 +86,7 @@ if (mysqli_num_rows($result) > 0) {
 
 echo '<br><br>';
 
-$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.id=sched_device.device_id WHERE id=".$SCHED_ID.";";
+$sql = "SELECT * FROM devices WHERE id=".$SCHED_ID." LEFT JOIN sched_device ON devices.id=sched_device.device_id;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
