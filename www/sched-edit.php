@@ -73,7 +73,31 @@ if (mysqli_num_rows($result) > 0) {
 
 echo '<br><br>';
     
-    
+$sql = "SELECT * FROM devices JOIN sched_device ON devices.id=sched_device.device_id";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo var_dump($row)."<br>";
+    }
+    } else {
+        echo "0 results"; 
+    }
+
+echo '<br><br>';
+
+$sql = "SELECT * FROM devices OUTER JOIN sched_device ON devices.id=sched_device.device_id";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo var_dump($row)."<br>";
+    }
+    } else {
+        echo "0 results"; 
+    }
+echo '<br><br>';
+      
     
     
     
