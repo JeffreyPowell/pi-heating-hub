@@ -19,28 +19,47 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
-}
+    }
     
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result = mysqli_query($conn, $sql);
-echo implode( ",", (array)$result ); 
-    
-echo var_dump ( $result );
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo var_dump($row)."<br>";
+    }
+    } else {
+        echo "0 results"; 
+    }
 
 echo '<br><br>';
 
-/*
-$sql = "SELECT * FROM devices";
-$result_devices = mysqli_query($conn, $sql);
-echo implode( ",", $result_devices );
-              
+$sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo var_dump($row)."<br>";
+    }
+    } else {
+        echo "0 results"; 
+    }
+
 echo '<br><br>';
 
-$sql = "SELECT * FROM sched_device";
-$result_sched_device = mysqli_query($conn, $sql);
-echo implode( ",", $result_sched_device );
-              
-*/
+ $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo var_dump($row)."<br>";
+    }
+    } else {
+        echo "0 results"; 
+    }
+
+echo '<br><br>';
+
 mysqli_close($conn);
 ?>  
 
