@@ -12,13 +12,15 @@ $servername = "localhost";
 $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
+$SCHED_ID = '1';
+    
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT * FROM schedules";
+$sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
