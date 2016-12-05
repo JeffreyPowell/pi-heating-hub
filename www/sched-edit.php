@@ -23,7 +23,7 @@ if (!$conn) {
     
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result_sched = mysqli_query($conn, $sql);
-echo implode( ",", $result_sched ); 
+echo implode( ",", (array)$result_sched ); 
 
 echo '<br><br>';
 
