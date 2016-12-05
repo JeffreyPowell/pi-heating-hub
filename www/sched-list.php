@@ -37,8 +37,7 @@ if (mysqli_num_rows($result) > 0) {
       
     echo "<td><span class='ccoldow'>";
 
-    echo str_pad(decbin($row["dow"]), 10, "0", STR_PAD_LEFT);
-    echo decbin($row["dow"]);
+    echo str_pad(decbin($row["dow"]), 7, "0", STR_PAD_LEFT);
       
     for ($i=1; $i<8; $i++) {
  //     echo $i;
