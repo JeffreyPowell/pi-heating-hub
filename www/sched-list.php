@@ -36,8 +36,8 @@ if (mysqli_num_rows($result) > 0) {
     echo "<td><span class='ccolend'>".$row["end"]."</span></td>";
       
     echo "<td><span class='ccoldow'>";
-    sprintf( "%08d", decbin($row["dow"]));
-    sprintf( decbin($row["dow"]));
+
+    echo str_pad(decbin($row["dow"]), 10, "0", STR_PAD_LEFT);
     echo decbin($row["dow"]);
       
     for ($i=1; $i<8; $i++) {
