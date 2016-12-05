@@ -5,8 +5,8 @@
 .error {color: #FF0000;}
 .tcolname {font-family: arial; color: black; font-size: xx-large;}
 .ccolname {font-family: arial; color: black; font-size: large;}
-.ccoldowun {font-family: arial; color: black; font-size: large;}
-.ccoldowse {font-family: arial; color: black; font-size: large;}
+.ccoldowun {font-family: courier; color: black; font-size: large;}
+.ccoldowse {font-family: courier; color: black; font-size: large;}
 </style>
 </head>
 <body>  
@@ -35,7 +35,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "<td><span class='ccolstart'>".$row["start"]."</span></td>";
     echo "<td><span class='ccolend'>".$row["end"]."</span></td>";
       
-    echo "<td><span class='ccoldow'>";
+    echo "<td><span class='ccoldowun'>";
 
     echo str_pad(decbin($row["dow"]), 7, "0", STR_PAD_LEFT);
       
