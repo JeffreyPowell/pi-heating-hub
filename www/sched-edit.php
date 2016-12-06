@@ -261,6 +261,8 @@ echo '</form>';
     
 mysqli_close($conn);
 ?>
-
+<form action="home.php">
+    <input type="submit" value="Done" />
+</form>
 </body>
 </html>
