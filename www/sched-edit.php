@@ -41,24 +41,24 @@ echo '<h2>'.$SCHED_NAME.'</h2>';
 
 $SCHED_DOW1 = $row["dow1"]; if ( $SCHED_DOW1 == '1' ) { $SCHED_DOW1_CHK = 'checked="checked"'; }
 $SCHED_DOW2 = $row["dow2"]; if ( $SCHED_DOW2 == '1' ) { $SCHED_DOW2_CHK = 'checked="checked"'; }
-$SCHED_DOW3 = $row["dow3"];
-$SCHED_DOW4 = $row["dow4"];
-$SCHED_DOW5 = $row["dow5"];
-$SCHED_DOW6 = $row["dow6"];
-$SCHED_DOW7 = $row["dow7"];
+$SCHED_DOW3 = $row["dow3"]; if ( $SCHED_DOW3 == '1' ) { $SCHED_DOW3_CHK = 'checked="checked"'; }
+$SCHED_DOW4 = $row["dow4"]; if ( $SCHED_DOW4 == '1' ) { $SCHED_DOW4_CHK = 'checked="checked"'; }
+$SCHED_DOW5 = $row["dow5"]; if ( $SCHED_DOW5 == '1' ) { $SCHED_DOW5_CHK = 'checked="checked"'; }
+$SCHED_DOW6 = $row["dow6"]; if ( $SCHED_DOW6 == '1' ) { $SCHED_DOW6_CHK = 'checked="checked"'; }
+$SCHED_DOW7 = $row["dow7"]; if ( $SCHED_DOW7 == '1' ) { $SCHED_DOW7_CHK = 'checked="checked"'; }
     
 echo '<br><br>';
 echo '<form action="checkbox-form.php" method="post">';
 echo 'Repeat every :<br />';
 echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
 echo '<tr>';
-echo '<td><input type="checkbox" name="formDoor[]" value="mon" '.$SCHED_DOW1_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="tue" '.$SCHED_DOW2_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="wed" '.$SCHED_DOW3_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="thu" '.$SCHED_DOW4_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="fri" '.$SCHED_DOW5_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="sat" '.$SCHED_DOW6_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="sun" '.$SCHED_DOW7_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
 echo '</tr></table>';
 echo '<br><br>';
 echo '<input type="submit" name="formSubmit" value="Submit" />';
