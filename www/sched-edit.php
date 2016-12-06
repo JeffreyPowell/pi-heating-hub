@@ -29,16 +29,7 @@ if (mysqli_num_rows($result) == 0) {
     }
     
 $row = mysqli_fetch_assoc($result);
-    
-$SCHED_NAME = $row["name"];
-echo '<h1>#'.$SCHED_NAME.'#</h1>';
 
-$SCHED_START = $row["start"];
-echo '<h2>'.$SCHED_START.'</h2>';
-
-$SCHED_END = $row["end"];
-echo '<h2>'.$SCHED_END.'</h2>';
-    
 echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br><br>';
 echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
 echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'"><br>';
