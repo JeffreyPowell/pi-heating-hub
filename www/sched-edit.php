@@ -34,32 +34,6 @@ if (mysqli_num_rows($result) > 0) {
 
 echo '<br><br>';
 
-$sql = "SELECT * FROM devices";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-    } else {
-        echo "0 results"; 
-    }
-
-echo '<br><br>';
-
-$sql = "SELECT * FROM sched_device";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-    } else {
-        echo "0 results"; 
-    }
-
-echo '<br><br>';
-
 $sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
