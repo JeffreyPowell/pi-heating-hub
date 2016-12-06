@@ -39,9 +39,9 @@ echo '<h2>'.$SCHED_START.'</h2>';
 $SCHED_END = $row["end"];
 echo '<h2>'.$SCHED_END.'</h2>';
     
-echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'">';
-echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'">';
-echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'">';
+echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br><br>';
+echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
+echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'"><br>';
 
 $SCHED_DOW1 = $row["dow1"]; if ( $SCHED_DOW1 == '1' ) { $SCHED_DOW1_CHK = 'checked="checked"'; }
 $SCHED_DOW2 = $row["dow2"]; if ( $SCHED_DOW2 == '1' ) { $SCHED_DOW2_CHK = 'checked="checked"'; }
