@@ -3,21 +3,6 @@
 <head>
 <style>
 .fixedsmall {font-family: courier; color: black; font-size: xx-small;}
-label {
-  display: block;
-  padding-left: 15px;
-  text-indent: -15px;
-}
-input {
-  width: 13px;
-  height: 13px;
-  padding: 0;
-  margin:0;
-  vertical-align: bottom;
-  position: relative;
-  top: -1px;
-  *overflow: hidden;
-}
 </style>
 </head>
 <body class='fixedsmall'>  
@@ -53,7 +38,7 @@ echo '<form action="checkbox-form.php" method="post">';
  
 echo 'Repeat every :<br />';
 echo '<label><input type="checkbox" name="formDoor[]" value="1" checked="checked" />Mon</label>';
-echo '<label><input type="checkbox" name="formDoor[]" value="2" />Tue</label>';
+echo '<label><input type="checkbox" name="formDoor[]" value="2" style="vertical-align: -2px;" />Tue</label>';
 echo '<label><input type="checkbox" name="formDoor[]" value="3" />Wed</label>';
 echo '<label><input type="checkbox" name="formDoor[]" value="4" />Thu</label>';
 echo '<label><input type="checkbox" name="formDoor[]" value="5" checked="checked" />Fri</label>';
