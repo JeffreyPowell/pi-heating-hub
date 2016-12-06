@@ -42,7 +42,7 @@ if (mysqli_num_rows($result) > 0) {
         echo var_dump($row)."<br>";
     }
     } else {
-        echo "0 results"; 
+        echo "devices 0 results"; 
     }
 echo '<br><br>';
       
@@ -54,7 +54,7 @@ if (mysqli_num_rows($result) > 0) {
         echo var_dump($row)."<br>";
     }
     } else {
-        echo "0 results"; 
+        echo "sensors 0 results"; 
     }
 echo '<br><br>';
       
@@ -66,7 +66,7 @@ if (mysqli_num_rows($result) > 0) {
         echo var_dump($row)."<br>";
     }
     } else {
-        echo "0 results"; 
+        echo "sensors LEFT JOIN sched_sensor 0 results"; 
     }
 echo '<br><br>';
 
@@ -78,7 +78,7 @@ if (mysqli_num_rows($result) > 0) {
         echo var_dump($row)."<br>";
     }
     } else {
-        echo "0 results"; 
+        echo "modes LEFT JOIN sched_mode 0 results"; 
     }
 echo '<br><br>';
       
@@ -90,7 +90,7 @@ if (mysqli_num_rows($result) > 0) {
         echo var_dump($row)."<br>";
     }
     } else {
-        echo "0 results"; 
+        echo "timers LEFT JOIN sched_timer 0 results"; 
     }
 echo '<br><br>';
       
