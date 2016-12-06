@@ -104,22 +104,24 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results"; 
     }
-    
+echo '<table><tr>';
+
 while($row = mysqli_fetch_assoc($result)) {
     $SENSOR_ACTIVE = $row["sched_id"]; if ( $SENSOR_ACTIVE != null ) { $SENSOR_OPP = $row["opp"]; }else{ $SENSOR_OPP = ''; }
-    echo $row["name"];
+    echo '<td>'.$row["name"].'</td>';
 
-    echo '<select name="opperand">';
-    echo '<option value="lt" selected >&lt;</option>';
-    echo '<option value="=">=</option>';
-    echo '<option value="!=">not</option>';
-    echo '<option value="gt">&gt;</option>';
-    echo '</select>';
+    echo '<td><select name="sensor_opp">';
+    echo '<option value="lt" selected >IS LESS THAN</option>';
+    echo '<option value="eq">IS EQUAL TO</option>';
+    echo '<option value="ne">IS NOT EQUAL TO</option>';
+    echo '<option value="gt">IS GREATER THAN</option>';
+    echo '</select></td>';
 
 
-    echo '<input type="checkbox" name="formDoor[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
+    echo '<td><input type="checkbox" name="formDoor[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'</td>';
     }
-
+echo '</tr></table>';
+    
 echo '<br><br>'; 
    
       
