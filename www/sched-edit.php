@@ -69,9 +69,32 @@ if (mysqli_num_rows($result) > 0) {
         echo "0 results"; 
     }
 echo '<br><br>';
+
+$sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo var_dump($row)."<br>";
+    }
+    } else {
+        echo "0 results"; 
+    }
+echo '<br><br>';
+      
+$sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo var_dump($row)."<br>";
+    }
+    } else {
+        echo "0 results"; 
+    }
+echo '<br><br>';
       
      
-    
     
     
 mysqli_close($conn);
