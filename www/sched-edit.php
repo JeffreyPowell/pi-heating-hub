@@ -41,7 +41,7 @@ $SCHED_START = $row["start"];
 $SCHED_END = $row["end"];
     
 echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
-echo '<h2>Schedule Details</h2><br>';
+echo '<h2>Schedule</h2><br>';
     
 echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br>';
 echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
@@ -85,16 +85,20 @@ while($row = mysqli_fetch_assoc($result)) {
 
 echo '<br><br>'; 
     
-$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-    } else {
-        echo "devices 0 results"; 
-    }
+#$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
+#$result = mysqli_query($conn, $sql);
+#if (mysqli_num_rows($result) > 0) {
+#    // output data of each row
+#    while($row = mysqli_fetch_assoc($result)) {
+#        echo var_dump($row)."<br>";
+#    }
+#    } else {
+#        echo "devices 0 results"; 
+#    }
+
+    
+echo '<h2>When Sensors</h2><br>';
+
 echo '<br><br>';
 echo '<br><br>';    
     
