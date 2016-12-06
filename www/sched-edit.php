@@ -12,7 +12,7 @@ $servername = "localhost";
 $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
-$SCHED_ID = '1';
+$SCHED_ID = $_GET['id'];
     
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
