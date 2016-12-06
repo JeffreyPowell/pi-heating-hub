@@ -18,8 +18,11 @@ $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
 $SCHED_ID = $_GET['id'];
-if ( $SCHED_ID < 0 ) { $SCHED_ID = '1'; }
     
+if ( $SCHED_ID < 0 ) { header('Location: sched-list.php'); exit(); }
+
+
+
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
