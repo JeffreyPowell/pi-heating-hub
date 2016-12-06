@@ -32,7 +32,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "0 results"; 
     }
 $SCHED_NAME = $row["name"];
-echo '<h1>'.$SCHED_NAME.'</h1>';
+echo '<h1>#'.$SCHED_NAME.'#</h1>';
 
 $SCHED_START = $row["start"];
 echo '<h2>'.$SCHED_NAME.'</h2>';
@@ -40,6 +40,13 @@ echo '<h2>'.$SCHED_NAME.'</h2>';
 $SCHED_END = $row["end"];
 echo '<h2>'.$SCHED_NAME.'</h2>';
 
+$SCHED_DOW1 = $row["dow1"];
+$SCHED_DOW2 = $row["dow2"];
+$SCHED_DOW3 = $row["dow3"];
+$SCHED_DOW4 = $row["dow4"];
+$SCHED_DOW5 = $row["dow5"];
+$SCHED_DOW6 = $row["dow6"];
+$SCHED_DOW7 = $row["dow7"];
     
 echo '<br><br>';
 echo '<form action="checkbox-form.php" method="post">';
