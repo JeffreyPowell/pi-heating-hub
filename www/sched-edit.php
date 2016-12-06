@@ -39,8 +39,8 @@ echo '<h2>'.$SCHED_NAME.'</h2>';
 $SCHED_END = $row["end"];
 echo '<h2>'.$SCHED_NAME.'</h2>';
 
-$SCHED_DOW1 = $row["dow1"];
-$SCHED_DOW2 = $row["dow2"];
+$SCHED_DOW1 = $row["dow1"]; if ( $SCHED_DOW1 == '1' ) { $SCHED_DOW1_CHK = 'checked="checked"'; }
+$SCHED_DOW2 = $row["dow2"]; if ( $SCHED_DOW2 == '1' ) { $SCHED_DOW2_CHK = 'checked="checked"'; }
 $SCHED_DOW3 = $row["dow3"];
 $SCHED_DOW4 = $row["dow4"];
 $SCHED_DOW5 = $row["dow5"];
@@ -52,13 +52,13 @@ echo '<form action="checkbox-form.php" method="post">';
 echo 'Repeat every :<br />';
 echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
 echo '<tr>';
-echo '<td><input type="checkbox" name="formDoor[]" value="mon" checked="checked" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="tue" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="wed" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="thu" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="fri" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="sat" checked="checked" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="sun" /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="mon" '.$SCHED_DOW1_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="tue" '.$SCHED_DOW2_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="wed" '.$SCHED_DOW3_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="thu" '.$SCHED_DOW4_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="fri" '.$SCHED_DOW5_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="sat" '.$SCHED_DOW6_CHK.' /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="sun" '.$SCHED_DOW7_CHK.' /></td>';
 echo '</tr></table>';
 echo '<br><br>';
 echo '<input type="submit" name="formSubmit" value="Submit" />';
