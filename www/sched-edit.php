@@ -81,7 +81,7 @@ if (mysqli_num_rows($result) == 0) {
     
 while($row = mysqli_fetch_assoc($result)) {
         $DEVICE_ACTIVE = $row["sched_id"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }
-        echo '<input type="checkbox" name="formDoor[]" value="'.$row['name'].'" '.$DEVICE_ACTIVE_CHK.' /><br>';
+        echo '<input type="checkbox" name="formDoor[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' /><br>';
     }
 
 echo '<br><br>'; 
