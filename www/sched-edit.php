@@ -36,7 +36,7 @@ echo '<br><br>';
     
 echo '<form action="checkbox-form.php" method="post">';
  
-echo 'Which buildings do you want access to?<br />';
+echo 'Repeat every :<br />';
 echo '<input type="checkbox" name="formDoor[]" value="1" />Mon<br />';
 echo '<input type="checkbox" name="formDoor[]" value="2" />Tue<br />';
 echo '<input type="checkbox" name="formDoor[]" value="3" />Wed<br />';
