@@ -33,7 +33,22 @@ if (mysqli_num_rows($result) > 0) {
     }
 
 echo '<br><br>';
+    
+echo '<form action="checkbox-form.php" method="post">';
+ 
+echo 'Which buildings do you want access to?<br />';
+echo '<input type="checkbox" name="formDoor[]" value="A" />Acorn Building<br />';
+echo '<input type="checkbox" name="formDoor[]" value="B" />Brown Hall<br />';
+echo '<input type="checkbox" name="formDoor[]" value="C" />Carnegie Complex<br />';
+echo '<input type="checkbox" name="formDoor[]" value="D" />Drake Commons<br />';
+echo '<input type="checkbox" name="formDoor[]" value="E" />Elliot House';
+ 
+echo '<input type="submit" name="formSubmit" value="Submit" />';
+ 
+echo '</form>';
 
+echo '<br><br>';
+    
 $sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
