@@ -132,20 +132,50 @@ echo '</table>';
 echo '<br><br>'; 
    
       
-$sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-    } else {
-        echo "sensors LEFT JOIN sched_sensor 0 results"; 
-    }
-echo '<br><br>';
+#$sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
+#$result = mysqli_query($conn, $sql);
+#if (mysqli_num_rows($result) > 0) {
+#    // output data of each row
+#    while($row = mysqli_fetch_assoc($result)) {
+#        echo var_dump($row)."<br>";
+##    }
+#    } else {
+#        echo "sensors LEFT JOIN sched_sensor 0 results"; 
+#    }
+#echo '<br><br>';
 
 echo '<h2>AND Modes</h2><br>';
-    
+
+$sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) == 0) {
+        echo "sensors 0 results"; 
+    }
+echo '<table>';
+
+while($row = mysqli_fetch_assoc($result)) {
+
+    echo '<tr><td>'.$row["name"].'</td>';
+
+    $SENSOR_OPP = $row["opp"];
+    if ( $SENSOR_OPP == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+    if ( $SENSOR_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
+    if ( $SENSOR_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
+    if ( $SENSOR_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
+    if ( $SENSOR_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
+
+    echo '<td><select name="sensor_opp">';
+    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+    echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
+    echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
+    echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
+    echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
+    echo '</select></td>';
+
+    echo '<td><input type="text" name="name" value="'.$row["value"].'"></td></tr>';
+    }
+echo '</table>';
+
 $sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
