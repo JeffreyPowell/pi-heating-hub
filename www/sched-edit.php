@@ -179,8 +179,8 @@ while($row = mysqli_fetch_assoc($result)) {
     
     echo '<td><select name="mode_value">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    echo '<option value="true" '.$T_SELECTED.' >TRUE</option>';
-    echo '<option value="false" '.$F_SELECTED.' >FALSE</option>';;
+    echo '<option value="true" '.$T_SELECTED.' >ON</option>';
+    echo '<option value="false" '.$F_SELECTED.' >OFF</option>';;
     echo '</select></td>';
     
     }
