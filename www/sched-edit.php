@@ -99,22 +99,29 @@ echo '<br><br>';
     
 echo '<h2>When Sensors</h2><br>';
 
-echo '<br><br>';
-echo '<br><br>';    
-    
-    
-    
-$sql = "SELECT * FROM sensors;";
+$sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-    } else {
+if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results"; 
     }
-echo '<br><br>';
+    
+while($row = mysqli_fetch_assoc($result)) {
+    $SENSOR_ACTIVE = $row["sched_id"]; if ( $SENSOR_ACTIVE != null ) { $SENSOR_OPP = $row["opp"]; }else{ $SENSOR_OPP = ''; }
+    echo $row["name"];
+    
+    <datalist id="opperand">
+ <option>select</option>
+ <option>&lt;</option> 
+ <option>=</option> 
+ <option>&gt;</option> 
+</datalist>
+    
+    
+    echo '<input type="checkbox" name="formDoor[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
+    }
+
+echo '<br><br>'; 
+   
       
 $sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
