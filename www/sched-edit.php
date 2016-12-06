@@ -41,8 +41,8 @@ echo '<input type="checkbox" name="formDoor[]" value="1" checked="checked" /><la
 echo '<input type="checkbox" name="formDoor[]" value="2" style="vertical-align: -2px;" /><label>Tue</label>';
 echo '<input type="checkbox" name="formDoor[]" value="3" /><label>Wed</label>';
 echo '<input type="checkbox" name="formDoor[]" value="4" /><label>Thu</label>';
-echo '<input type="checkbox" name="formDoor[]" value="5" checked="checked" /><label>Fri</label>';
-echo '<input type="checkbox" name="formDoor[]" value="6" /><label>Sat</label>';
+echo '<input type="checkbox" name="formDoor[]" value="5" /><label>Fri</label>';
+echo '<input type="checkbox" name="formDoor[]" value="6" checked="checked" /><label>Sat</label>';
 echo '<label><input type="checkbox" name="formDoor[]" value="7" /><br>Sun</label>';
 
 echo '<br><br>';
