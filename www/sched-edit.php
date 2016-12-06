@@ -120,7 +120,7 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '</select></td>';
 
 
-    echo '<td><input type="text" name="name" value="'.$row["value"].'">.'</td></tr>';
+    echo '<td><input type="text" name="name" value="'.$row["value"].'"></td></tr>';
     }
 echo '</table>';
     
