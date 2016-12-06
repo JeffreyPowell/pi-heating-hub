@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-.fixedsmall {font-family: courier; color: black; font-size: small;}
+.fixedsmall {font-family: courier; color: black; font-size: xx-small;}
 </style>
 </head>
 <body class='fixedsmall'>  
