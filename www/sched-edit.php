@@ -128,6 +128,8 @@ if (mysqli_num_rows($result) > 0) {
     }
 echo '<br><br>';
 
+echo '<h2>AND Modes</h2><br>';
+    
 $sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
@@ -139,7 +141,9 @@ if (mysqli_num_rows($result) > 0) {
         echo "modes LEFT JOIN sched_mode 0 results"; 
     }
 echo '<br><br>';
-      
+
+echo '<h2>AND Timers</h2><br>';
+    
 $sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
