@@ -37,13 +37,13 @@ echo '<br><br>';
 echo '<form action="checkbox-form.php" method="post">';
  
 echo 'Repeat every :<br />';
-echo '<label><input type="checkbox" name="formDoor[]" value="1" checked="checked" />Mon</label>';
-echo '<label><input type="checkbox" name="formDoor[]" value="2" style="vertical-align: -2px;" />Tue</label>';
-echo '<label><input type="checkbox" name="formDoor[]" value="3" />Wed</label>';
-echo '<label><input type="checkbox" name="formDoor[]" value="4" />Thu</label>';
-echo '<label><input type="checkbox" name="formDoor[]" value="5" checked="checked" />Fri</label>';
-echo '<label><input type="checkbox" name="formDoor[]" value="6" />Sat</label>';
-echo '<label><input type="checkbox" name="formDoor[]" value="7" />Sun</label>';
+echo '<input type="checkbox" name="formDoor[]" value="1" checked="checked" /><label>Mon</label>';
+echo '<input type="checkbox" name="formDoor[]" value="2" style="vertical-align: -2px;" /><label>Tue</label>';
+echo '<input type="checkbox" name="formDoor[]" value="3" /><label>Wed</label>';
+echo '<input type="checkbox" name="formDoor[]" value="4" /><label>Thu</label>';
+echo '<input type="checkbox" name="formDoor[]" value="5" checked="checked" /><label>Fri</label>';
+echo '<input type="checkbox" name="formDoor[]" value="6" /><label>Sat</label>';
+echo '<input type="checkbox" name="formDoor[]" value="7" /><label>Sun</label>';
 
 echo '<br><br>';
 
