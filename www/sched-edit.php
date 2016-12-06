@@ -70,14 +70,11 @@ echo '<td><input type="checkbox" name="formDoor[]" value="dow7" '.$SCHED_DOW7_CH
 echo '</tr></table>';
 echo '<br><br>';
 
-echo '<br><br>';
 
 echo '<h2>Activate Devices</h2><br>';
 
-
 $sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
-
 if (mysqli_num_rows($result) == 0) {
         echo "devices 0 results"; 
     }
@@ -87,7 +84,10 @@ while($row = mysqli_fetch_assoc($result)) {
         echo '<input type="checkbox" name="formDoor[]" value="'.$row['name'].'" '.$DEVICE_ACTIVE_CHK.' /><br>';
     }
 
-
+echo '<br><br>'; 
+    
+$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
+$result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
@@ -97,6 +97,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "devices 0 results"; 
     }
 echo '<br><br>';
+echo '<br><br>';    
     
     
     
