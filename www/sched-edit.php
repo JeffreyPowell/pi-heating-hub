@@ -30,7 +30,11 @@ if (mysqli_num_rows($result) == 0) {
     
 $row = mysqli_fetch_assoc($result);
 
-echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br><br>';
+echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
+
+echo '<form action="sched-edit.php" method="post">';
+
+echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br>';
 echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
 echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'"><br>';
 
@@ -43,7 +47,6 @@ $SCHED_DOW6 = $row["dow6"]; if ( $SCHED_DOW6 == '1' ) { $SCHED_DOW6_CHK = 'check
 $SCHED_DOW7 = $row["dow7"]; if ( $SCHED_DOW7 == '1' ) { $SCHED_DOW7_CHK = 'checked="checked"'; }
     
 echo '<br><br>';
-echo '<form action="checkbox-form.php" method="post">';
 echo 'Repeat every :<br />';
 echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
 echo '<tr>';
