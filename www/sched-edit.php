@@ -22,15 +22,14 @@ if (!$conn) {
     }
     
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
+
 $result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-    } else {
+if (mysqli_num_rows($result) = 0) {
         echo "0 results"; 
     }
+    
+$row = mysqli_fetch_assoc($result);
+    
 $SCHED_NAME = $row["name"];
 echo '<h1>#'.$SCHED_NAME.'#</h1>';
 
