@@ -240,16 +240,16 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 echo '</table>';
 
-$sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-    } else {
-        echo "timers LEFT JOIN sched_timer 0 results"; 
-    }
+#$sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
+#$result = mysqli_query($conn, $sql);
+#if (mysqli_num_rows($result) > 0) {
+#    // output data of each row
+#    while($row = mysqli_fetch_assoc($result)) {
+#        echo var_dump($row)."<br>";
+#    }
+#    } else {
+#        echo "timers LEFT JOIN sched_timer 0 results"; 
+#    }
 echo '<br><br>';
       
 echo '<input type="submit" name="formSubmit" value="Save" />';
@@ -258,7 +258,6 @@ echo '</form>';
     
 mysqli_close($conn);
 ?>
-
 
 </body>
 </html>
