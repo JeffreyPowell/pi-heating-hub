@@ -30,14 +30,19 @@ if (mysqli_num_rows($result) == 0) {
     
 $row = mysqli_fetch_assoc($result);
 
+
+    
+
+
+echo '<form action="sched-edit.php" method="post">';
+    
 $SCHED_NAME = $row["name"];
 $SCHED_START = $row["start"];
 $SCHED_END = $row["end"];
     
 echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
-
-echo '<form action="sched-edit.php" method="post">';
-
+echo '<h2>Schedule Details</h2><br>';
+    
 echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br>';
 echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
 echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'"><br>';
@@ -63,12 +68,25 @@ echo '<td><input type="checkbox" name="formDoor[]" value="dow6" '.$SCHED_DOW6_CH
 echo '<td><input type="checkbox" name="formDoor[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
 echo '</tr></table>';
 echo '<br><br>';
-echo '<input type="submit" name="formSubmit" value="Submit" />';
-echo '</form>';
+
 echo '<br><br>';
-    
+
+echo '<h2>Activate Devices</h2><br>';
+
+
 $sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) == 0) {
+        echo "devices 0 results"; 
+    }
+    
+while($row = mysqli_fetch_assoc($result)) {
+        $DEVICE_ACTIVE = $row["sched_id"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }
+        echo '<input type="checkbox" name="formDoor[]" value="'.$row['name'].'" '.$DEVICE_ACTIVE_CHK.' /><br>';
+    }
+
+
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
@@ -78,7 +96,9 @@ if (mysqli_num_rows($result) > 0) {
         echo "devices 0 results"; 
     }
 echo '<br><br>';
-      
+    
+    
+    
 $sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
@@ -127,7 +147,8 @@ if (mysqli_num_rows($result) > 0) {
     }
 echo '<br><br>';
       
-     
+echo '<input type="submit" name="formSubmit" value="Save" />';
+echo '</form>';     
     
     
 mysqli_close($conn);
