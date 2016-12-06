@@ -13,6 +13,7 @@ $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
 $SCHED_ID = $_GET['id'];
+if ( $SCHED_ID < 0 ) { $SCHED_ID = '1'; }
     
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
