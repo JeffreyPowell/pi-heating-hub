@@ -227,14 +227,14 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '</select></td>';
 
     $TIMER_VALUE = $row["value"];
-    if ( $MODE_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    if ( $MODE_VALUE == "0" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
-    if ( $MODE_VALUE == "1" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+    if ( $TIMER_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+    if ( $TIMER_VALUE == "0" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
+    if ( $TIMER_VALUE == "1" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
     
     echo '<td><select name="mode_value">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    echo '<option value="true" '.$T_SELECTED.' >ON</option>';
-    echo '<option value="false" '.$F_SELECTED.' >OFF</option>';;
+    echo '<option value="true" '.$T_SELECTED.' >RUNNING</option>';
+    echo '<option value="false" '.$F_SELECTED.' >STOPPED</option>';;
     echo '</select></td>';
     
     }
