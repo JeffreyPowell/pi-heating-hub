@@ -110,15 +110,20 @@ while($row = mysqli_fetch_assoc($result)) {
 
     echo '<tr><td>'.$row["name"].'</td>';
 
-    $SENSOR_ACTIVE = $row["sched_id"]; if ( $SENSOR_ACTIVE != null ) { $SENSOR_OPP = $row["opp"]; }else{ $SENSOR_OPP = ''; }
+    $SENSOR_OPP = $row["opp"];
+    if ( $SENSOR_OPP == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+    if ( $SENSOR_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
+    if ( $SENSOR_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
+    if ( $SENSOR_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
+    if ( $SENSOR_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
 
     echo '<td><select name="sensor_opp">';
-    echo '<option value="lt" selected >IS LESS THAN</option>';
-    echo '<option value="eq">IS EQUAL TO</option>';
-    echo '<option value="ne">IS NOT EQUAL TO</option>';
-    echo '<option value="gt">IS GREATER THAN</option>';
+    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+    echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
+    echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
+    echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
+    echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
     echo '</select></td>';
-
 
     echo '<td><input type="text" name="name" value="'.$row["value"].'"></td></tr>';
     }
