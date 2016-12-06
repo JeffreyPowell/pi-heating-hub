@@ -3,6 +3,21 @@
 <head>
 <style>
 .fixedsmall {font-family: courier; color: black; font-size: xx-small;}
+label {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+input {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+  *overflow: hidden;
+}
 </style>
 </head>
 <body class='fixedsmall'>  
@@ -37,14 +52,16 @@ echo '<br><br>';
 echo '<form action="checkbox-form.php" method="post">';
  
 echo 'Repeat every :<br />';
-echo '<input type="checkbox" name="formDoor[]" value="1" checked="checked" />Mon<br />';
-echo '<input type="checkbox" name="formDoor[]" value="2" />Tue<br />';
-echo '<input type="checkbox" name="formDoor[]" value="3" />Wed<br />';
-echo '<input type="checkbox" name="formDoor[]" value="4" />Thu<br />';
-echo '<input type="checkbox" name="formDoor[]" value="5" />Fri<br />';
-echo '<input type="checkbox" name="formDoor[]" value="6" />Sat<br />';
-echo '<input type="checkbox" name="formDoor[]" value="7" />Sun<br />';
-    
+echo '<label><input type="checkbox" name="formDoor[]" value="1" checked="checked" />Mon</label>';
+echo '<label><input type="checkbox" name="formDoor[]" value="2" />Tue</label>';
+echo '<label><input type="checkbox" name="formDoor[]" value="3" />Wed</label>';
+echo '<label><input type="checkbox" name="formDoor[]" value="4" />Thu</label>';
+echo '<label><input type="checkbox" name="formDoor[]" value="5" />Fri</label>';
+echo '<label><input type="checkbox" name="formDoor[]" value="6" />Sat</label>';
+echo '<label><input type="checkbox" name="formDoor[]" value="7" />Sun</label>';
+
+echo '<br><br>';
+
 echo '<input type="submit" name="formSubmit" value="Submit" />';
  
 echo '</form>';
