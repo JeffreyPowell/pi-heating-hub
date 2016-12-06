@@ -21,21 +21,15 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
     }
+echo '<form action="sched-edit.php" method="post">';
     
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
-
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "0 results"; 
     }
     
 $row = mysqli_fetch_assoc($result);
-
-
-    
-
-
-echo '<form action="sched-edit.php" method="post">';
     
 $SCHED_NAME = $row["name"];
 $SCHED_START = $row["start"];
