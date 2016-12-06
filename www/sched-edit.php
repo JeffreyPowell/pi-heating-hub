@@ -2,10 +2,10 @@
 <html>
 <head>
 <style>
-.error {color: #FF0000;}
+.fixedsmall {font-family: courier; color: black; font-size: small;}
 </style>
 </head>
-<body>  
+<body class='fixedsmall'>  
 
 <?php
 $servername = "localhost";
