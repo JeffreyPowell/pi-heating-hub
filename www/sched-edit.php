@@ -33,19 +33,26 @@ if (mysqli_num_rows($result) > 0) {
     }
 $SCHED_NAME = $row["name"];
 echo '<h1>'.$SCHED_NAME.'</h1>';
+
+$SCHED_START = $row["start"];
+echo '<h2>'.$SCHED_NAME.'</h2>';
+
+$SCHED_END = $row["end"];
+echo '<h2>'.$SCHED_NAME.'</h2>';
+
     
 echo '<br><br>';
 echo '<form action="checkbox-form.php" method="post">';
 echo 'Repeat every :<br />';
 echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
 echo '<tr>';
-echo '<td><input type="checkbox" name="formDoor[]" value="1" checked="checked" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="2" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="3" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="4" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="5" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="6" checked="checked" /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="7" /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="mon" checked="checked" /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="tue" /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="wed" /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="thu" /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="fri" /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="sat" checked="checked" /></td>';
+echo '<td><input type="checkbox" name="formDoor[]" value="sun" /></td>';
 echo '</tr></table>';
 echo '<br><br>';
 echo '<input type="submit" name="formSubmit" value="Submit" />';
