@@ -108,15 +108,15 @@ if (mysqli_num_rows($result) == 0) {
 while($row = mysqli_fetch_assoc($result)) {
     $SENSOR_ACTIVE = $row["sched_id"]; if ( $SENSOR_ACTIVE != null ) { $SENSOR_OPP = $row["opp"]; }else{ $SENSOR_OPP = ''; }
     echo $row["name"];
-    
-    <datalist id="opperand">
- <option>select</option>
- <option>&lt;</option> 
- <option>=</option> 
- <option>&gt;</option> 
-</datalist>
-    
-    
+
+    echo '<select name="opperand">';
+    echo '<option value="lt" selected >&lt;</option>';
+    echo '<option value="=">=</option>';
+    echo '<option value="!=">not</option>';
+    echo '<option value="gt">&gt;</option>';
+    echo '</select>';
+
+
     echo '<input type="checkbox" name="formDoor[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
     }
 
