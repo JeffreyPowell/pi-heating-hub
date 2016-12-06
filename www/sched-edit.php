@@ -104,11 +104,13 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results"; 
     }
-echo '<table><tr>';
+echo '<table>';
 
 while($row = mysqli_fetch_assoc($result)) {
+
+    echo '<tr><td>'.$row["name"].'</td>';
+
     $SENSOR_ACTIVE = $row["sched_id"]; if ( $SENSOR_ACTIVE != null ) { $SENSOR_OPP = $row["opp"]; }else{ $SENSOR_OPP = ''; }
-    echo '<td>'.$row["name"].'</td>';
 
     echo '<td><select name="sensor_opp">';
     echo '<option value="lt" selected >IS LESS THAN</option>';
@@ -118,9 +120,9 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '</select></td>';
 
 
-    echo '<td><input type="checkbox" name="formDoor[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'</td>';
+    echo '<td><input type="checkbox" name="formDoor[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'</td></tr>';
     }
-echo '</tr></table>';
+echo '</table>';
     
 echo '<br><br>'; 
    
