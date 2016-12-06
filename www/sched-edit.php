@@ -34,10 +34,10 @@ $SCHED_NAME = $row["name"];
 echo '<h1>#'.$SCHED_NAME.'#</h1>';
 
 $SCHED_START = $row["start"];
-echo '<h2>'.$SCHED_NAME.'</h2>';
+echo '<h2>'.$SCHED_START.'</h2>';
 
 $SCHED_END = $row["end"];
-echo '<h2>'.$SCHED_NAME.'</h2>';
+echo '<h2>'.$SCHED_END.'</h2>';
 
 $SCHED_DOW1 = $row["dow1"]; if ( $SCHED_DOW1 == '1' ) { $SCHED_DOW1_CHK = 'checked="checked"'; }
 $SCHED_DOW2 = $row["dow2"]; if ( $SCHED_DOW2 == '1' ) { $SCHED_DOW2_CHK = 'checked="checked"'; }
