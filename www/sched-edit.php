@@ -30,6 +30,10 @@ if (mysqli_num_rows($result) == 0) {
     
 $row = mysqli_fetch_assoc($result);
 
+$SCHED_NAME = $row["name"];
+$SCHED_START = $row["start"];
+$SCHED_END = $row["end"];
+    
 echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
 
 echo '<form action="sched-edit.php" method="post">';
