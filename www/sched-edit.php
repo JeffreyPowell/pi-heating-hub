@@ -55,7 +55,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
     }
 
-echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">';
+echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'/?id='.$SCHED_ID.'">';
 
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result = mysqli_query($conn, $sql);
@@ -72,7 +72,7 @@ $SCHED_END = $row["end"];
 echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
 echo '<h2>Schedule</h2><br>';
 echo '<br><br>';    
-echo htmlspecialchars($_SERVER["PHP_SELF"]);
+echo htmlspecialchars($_SERVER["PHP_SELF"]).'/?id='.$SCHED_ID;
 echo '<br><br>';    
 echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br>';
 echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
