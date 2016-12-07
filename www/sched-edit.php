@@ -25,11 +25,7 @@ $SCHED_ID = $_GET['id'];
     print_r("<BR>------------------------<BR>");
     
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
-    #header('Location: /sched-list.php');
-    #exit();
-    print_r("<BR>------------------------<BR>");
-    print_r($_POST);
-    print_r("<BR>------------------------<BR>");
+    header('Location: /sched-list.php');
     exit();
     }
 
@@ -298,8 +294,6 @@ echo '</form>';
 
 mysqli_close($conn);
 ?>
-<form action="/sched-list.php">
-    <input type="submit" value="Done" />
-</form>
+
 </body>
 </html>
