@@ -61,10 +61,13 @@ echo $sql;
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
  
-    if ( !isset($_POST["devices"]) ) {
-        $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
+    if ( isset($_POST["devices"]) ) {
+        foreach( $_POST["devices"] as $device ) { 
+            print_r($device);
+            }
+        #$sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
     } else {
-        $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
+        #$sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
     }
     
     echo $sql;
