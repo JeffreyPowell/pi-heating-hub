@@ -40,13 +40,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         }
 
     $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
-
     if (mysqli_query($conn, $sql)) {
         echo "<br><br>Schedule updated successfully";
     } else {
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
+    $sql = "UPDATE schedules SET dow1 = '".in_array("dow1", $repeat_dow)."' WHERE id='".$SCHED_ID."';";
+    if (mysqli_query($conn, $sql)) {
+        echo "<br><br>Schedule updated successfully";
+    } else {
+        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    
+    
     mysqli_close($conn);
 }
 
@@ -113,7 +120,7 @@ if (mysqli_num_rows($result) == 0) {
     
 while($row = mysqli_fetch_assoc($result)) {
         $DEVICE_ACTIVE = $row["sched_id"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
-        echo '<input type="checkbox" name="devices[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
+        echo '<input type="checkbox" name="devices[]" value="'.$row["id"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
     }
 
 echo '<br><br>'; 
