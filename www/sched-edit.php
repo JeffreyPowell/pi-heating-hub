@@ -20,7 +20,10 @@ $dbname = "pi_heating_db";
 $SCHED_ID = $_GET['id'];
     
 #if ( $SCHED_ID < 1 ) { header('Location: /sched-list.php'); exit(); }
-
+    print_r("<BR>------------------------<BR>");
+    print_r($_POST);
+    print_r("<BR>------------------------<BR>");
+    
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST[formSubmit] == "Done" ) {
     #header('Location: /sched-list.php');
     #exit();
