@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
-    $sql = "UPDATE schedules SET dow1 = '".in_array("dow1", $repeat_dow)."' WHERE id='".$SCHED_ID."';";
+    $sql = "UPDATE schedules SET dow1 = '".in_array("dow1", $_POST["repeat_dow")."' WHERE id='".$SCHED_ID."';";
     if (mysqli_query($conn, $sql)) {
         echo "<br><br>Schedule updated successfully";
     } else {
