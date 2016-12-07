@@ -27,9 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
     }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
-    print_r("<BR>------------------------<BR>");
+    print_r("<pre><BR>------------------------<BR>");
     print_r($_POST);
-    print_r("<BR>------------------------<BR>");
+    print_r("<BR>------------------------<BR></pre>");
 
         
     // Create connection
