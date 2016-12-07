@@ -254,14 +254,13 @@ echo '</table>';
 #        echo "timers LEFT JOIN sched_timer 0 results"; 
 #    }
 echo '<br><br>';
-      
+
 echo '<input type="submit" name="formSubmit" value="Save" />';
 echo '</form>';     
-    
-    
+
 mysqli_close($conn);
 ?>
-<form action="home.php">
+<form action="sched-list.php">
     <input type="submit" value="Done" />
 </form>
 </body>
