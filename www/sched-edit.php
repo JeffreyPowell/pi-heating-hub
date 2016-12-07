@@ -23,11 +23,10 @@ $SCHED_ID = $_GET['id'];
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r("------------------------");
+    print_r("<BR>------------------------<BR>");
     print_r($_POST);
-    print_r("------------------------");
-    print_r($_GET);
-    print_r("------------------------");
+    print_r("<BR>------------------------<BR>");
+
         
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
