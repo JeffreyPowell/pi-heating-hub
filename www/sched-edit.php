@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE schedules SET name = '$_POST[name]' WHERE id='$SCHED_ID';";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<br><br>New record created successfully";
+        echo "<br><br>Schedule updated successfully";
     } else {
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
