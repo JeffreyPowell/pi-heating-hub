@@ -33,15 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     // Check connection
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+        die("<br><br>Connection failed: " . mysqli_connect_error());
         }
 
     $sql = "UPDATE schedules SET name = '$_POST[name]' WHERE id='$SCHED_ID';";
 
     if (mysqli_query($conn, $sql)) {
-        echo "New record created successfully";
+        echo "<br><br>New record created successfully";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
     mysqli_close($conn);
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    die("<br><br>Connection failed: " . mysqli_connect_error());
     }
 
 echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$SCHED_ID.'">';
