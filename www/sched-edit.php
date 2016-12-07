@@ -61,21 +61,34 @@ echo $sql;
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
  
+    $sql = "DELETE FROM sched_device WHERE sched_id = '".$SCHED_ID."';";
+    if (mysqli_query($conn, $sql)) {
+        #echo "<br><br>Schedule updated successfully";
+    } else {
+        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+    
     if ( isset($_POST["devices"]) ) {
         print_r($_POST["devices"]);
         
-        foreach( $_POST["devices"] as $device ) { 
-            print_r($device);
+        foreach( $_POST["devices"] as $DEVICE_ID ) { 
+            print_r($DEVICE_ID);
+
+            $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
+            
+            if (mysqli_query($conn, $sql)) {
+                #echo "<br><br>Schedule updated successfully";
+            } else {
+                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
             }
-        #$sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
-    } else {
+        }
         #$sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
     }
     
-    echo $sql;
+#    echo $sql;
     
 #    if (mysqli_query($conn, $sql)) {
-#        echo "<br><br>Schedule updated successfully";
+#        #echo "<br><br>Schedule updated successfully";
 #    } else {
 #        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
 #    }
