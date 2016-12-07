@@ -290,7 +290,7 @@ echo '</table>';
 echo '<br><br>';
 
 echo '<input type="submit" name="formSubmit" value="Save" />';
-echo '<input type="submit" name="formSubmit" value="Done />';
+echo '<input type="submit" name="formSubmit" value="Done" />';
 echo '</form>';     
 
 mysqli_close($conn);
