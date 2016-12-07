@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST[formSubmit] == "Done" ) {
     exit();
     }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") && $_POST[formSubmit] == "Save" ) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST[formSubmit] == "Save" ) {
     print_r("<BR>------------------------<BR>");
     print_r($_POST);
     print_r("<BR>------------------------<BR>");
