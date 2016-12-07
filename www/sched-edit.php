@@ -21,8 +21,16 @@ $SCHED_ID = $_GET['id'];
     
 #if ( $SCHED_ID < 1 ) { header('Location: /sched-list.php'); exit(); }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST[formSubmit] == "Done" ) {
+    #header('Location: /sched-list.php');
+    #exit();
+    print_r("<BR>------------------------<BR>");
+    print_r($_POST);
+    print_r("<BR>------------------------<BR>");
+    exit();
+    }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") && $_POST[formSubmit] == "Save" ) {
     print_r("<BR>------------------------<BR>");
     print_r($_POST);
     print_r("<BR>------------------------<BR>");
@@ -88,13 +96,13 @@ echo '<br><br>';
 echo 'Repeat every :<br />';
 echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
 echo '<tr>';
-echo '<td><input type="checkbox" name="formDoor[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
-echo '<td><input type="checkbox" name="formDoor[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
+echo '<td><input type="checkbox" name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
+echo '<td><input type="checkbox" name="repeat_dow[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
+echo '<td><input type="checkbox" name="repeat_dow[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
+echo '<td><input type="checkbox" name="repeat_dow[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
+echo '<td><input type="checkbox" name="repeat_dow[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
+echo '<td><input type="checkbox" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
+echo '<td><input type="checkbox" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
 echo '</tr></table>';
 echo '<br><br>';
 
@@ -109,7 +117,7 @@ if (mysqli_num_rows($result) == 0) {
     
 while($row = mysqli_fetch_assoc($result)) {
         $DEVICE_ACTIVE = $row["sched_id"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
-        echo '<input type="checkbox" name="formDoor[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
+        echo '<input type="checkbox" name="devices[]" value="'.$row["name"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
     }
 
 echo '<br><br>'; 
@@ -282,6 +290,7 @@ echo '</table>';
 echo '<br><br>';
 
 echo '<input type="submit" name="formSubmit" value="Save" />';
+echo '<input type="submit" name="formSubmit" value="Done />';
 echo '</form>';     
 
 mysqli_close($conn);
