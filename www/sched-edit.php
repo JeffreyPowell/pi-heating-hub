@@ -22,6 +22,12 @@ $SCHED_ID = $_GET['id'];
 if ( $SCHED_ID < 1 ) { header('Location: sched-list.php'); exit(); }
 
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    print_r($_SERVER);
+    print_r($_POST);
+    print_r($_GET);
+    print_r($_FILES);
+}
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
