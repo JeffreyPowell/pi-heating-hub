@@ -24,16 +24,11 @@ $SCHED_ID = $_GET['id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r("------------------------");
-    print_r($_SERVER);
-    print_r("------------------------");
     print_r($_POST);
     print_r("------------------------");
     print_r($_GET);
     print_r("------------------------");
-    print_r($_FILES);
-    print_r("------------------------");
-    
-/*    
+        
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     // Check connection
@@ -41,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
         }
 
-    $sql = "INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')";
+    $sql = "INSERT INTO schedules (name, start, end) VALUES ($_POST[name], $_POST[start], $_POST[end])";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
@@ -50,7 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     mysqli_close($conn);
-*/
 }
 
 // Create connection
