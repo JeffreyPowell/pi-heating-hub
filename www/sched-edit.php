@@ -24,7 +24,7 @@ $SCHED_ID = $_GET['id'];
     print_r($_POST);
     print_r("<BR>------------------------<BR>");
     
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST[formSubmit] == "Done" ) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
     #header('Location: /sched-list.php');
     #exit();
     print_r("<BR>------------------------<BR>");
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST[formSubmit] == "Done" ) {
     exit();
     }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST[formSubmit] == "Save" ) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     print_r("<BR>------------------------<BR>");
     print_r($_POST);
     print_r("<BR>------------------------<BR>");
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST[formSubmit] == "Save" ) {
         die("<br><br>Connection failed: " . mysqli_connect_error());
         }
 
-    $sql = "UPDATE schedules SET name = '$_POST[name]', start = '$_POST[start]', end = '$_POST[end]' WHERE id='$SCHED_ID';";
+    $sql = "UPDATE schedules SET name = '$_POST["name"]', start = '$_POST["start"]', end = '$_POST["end"]' WHERE id='$SCHED_ID';";
 
     if (mysqli_query($conn, $sql)) {
         echo "<br><br>Schedule updated successfully";
