@@ -288,7 +288,7 @@ echo '</form>';
 
 mysqli_close($conn);
 ?>
-<form action="sched-list.php">
+<form action="/sched-list.php">
     <input type="submit" value="Done" />
 </form>
 </body>
