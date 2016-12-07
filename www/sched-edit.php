@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
 echo $sql;
     if (mysqli_query($conn, $sql)) {
-        echo "<br><br>Schedule updated successfully";
+        #echo "<br><br>Schedule updated successfully";
     } else {
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
@@ -56,7 +56,7 @@ echo $sql;
     echo $sql;
     
     if (mysqli_query($conn, $sql)) {
-        echo "<br><br>Schedule updated successfully";
+        #echo "<br><br>Schedule updated successfully";
     } else {
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
