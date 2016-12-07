@@ -19,7 +19,7 @@ $password = "password";
 $dbname = "pi_heating_db";
 $SCHED_ID = $_GET['id'];
     
-if ( $SCHED_ID < 1 ) { header('Location: sched-list.php'); exit(); }
+#if ( $SCHED_ID < 1 ) { header('Location: sched-list.php'); exit(); }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
