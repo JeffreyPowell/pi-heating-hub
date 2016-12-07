@@ -23,10 +23,15 @@ $SCHED_ID = $_GET['id'];
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    print_r("------------------------");
     print_r($_SERVER);
+    print_r("------------------------");
     print_r($_POST);
+    print_r("------------------------");
     print_r($_GET);
+    print_r("------------------------");
     print_r($_FILES);
+    print_r("------------------------");
     
 /*    
     // Create connection
@@ -55,7 +60,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
     }
 
-echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'/?id='.$SCHED_ID.'">';
+echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$SCHED_ID.'">';
 
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result = mysqli_query($conn, $sql);
