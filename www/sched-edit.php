@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
         }
 
-    $sql = "INSERT INTO schedules (name, start, end) VALUES ($_POST[name], $_POST[start], $_POST[end])";
+    $sql = "INSERT INTO schedules (name, start, end) VALUES ('$_POST[name]', '$_POST[start]', '$_POST[end]')";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
