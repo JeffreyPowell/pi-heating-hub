@@ -35,7 +35,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
     }
-echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'";?>';
+echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">';
 
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result = mysqli_query($conn, $sql);
