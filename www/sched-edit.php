@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("<br><br>Connection failed: " . mysqli_connect_error());
         }
 
-    $sql = "UPDATE schedules SET 'name' = '$_POST[name]', 'start' = '$_POST[start]', 'end' = '$_POST[end]' WHERE id='$SCHED_ID';";
+    $sql = "UPDATE schedules SET name = '$_POST[name]', start = '$_POST[start]', end = '$_POST[end]' WHERE id='$SCHED_ID';";
 
     if (mysqli_query($conn, $sql)) {
         echo "<br><br>Schedule updated successfully";
