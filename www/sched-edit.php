@@ -62,9 +62,9 @@ echo $sql;
     }
  
     if ( !isset($_POST["devices"]) ) {
-        $sql = "UPDATE sched_device SET dow1 = '0', dow2 = '0', dow3 = '0', dow4 = '0', dow5 = '0', dow6 = '0', dow7 = '0' WHERE id='".$SCHED_ID."';";
+        $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.";";
     } else {
-        $sql = "UPDATE sched_device SET dow1 = '".in_array("dow1", $_POST["repeat_dow"])."', dow2 = '".in_array("dow2", $_POST["repeat_dow"])."', dow3 = '".in_array("dow3", $_POST["repeat_dow"])."', dow4 = '".in_array("dow4", $_POST["repeat_dow"])."', dow5 = '".in_array("dow5", $_POST["repeat_dow"])."', dow6 = '".in_array("dow6", $_POST["repeat_dow"])."', dow7 = '".in_array("dow7", $_POST["repeat_dow"])."' WHERE id='".$SCHED_ID."';";
+        $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.";";
     }
     
     echo $sql;
