@@ -62,6 +62,8 @@ echo $sql;
     }
  
     if ( isset($_POST["devices"]) ) {
+        print_r($_POST["devices"]);
+        
         foreach( $_POST["devices"] as $device ) { 
             print_r($device);
             }
