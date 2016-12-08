@@ -39,8 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         die("<br><br>Connection failed: " . mysqli_connect_error());
         }
 
+    # schedules
+    
     $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
-echo $sql;
     if (mysqli_query($conn, $sql)) {
         #echo "<br><br>Schedule updated successfully";
     } else {
@@ -52,37 +53,27 @@ echo $sql;
     } else {
         $sql = "UPDATE schedules SET dow1 = '".in_array("dow1", $_POST["repeat_dow"])."', dow2 = '".in_array("dow2", $_POST["repeat_dow"])."', dow3 = '".in_array("dow3", $_POST["repeat_dow"])."', dow4 = '".in_array("dow4", $_POST["repeat_dow"])."', dow5 = '".in_array("dow5", $_POST["repeat_dow"])."', dow6 = '".in_array("dow6", $_POST["repeat_dow"])."', dow7 = '".in_array("dow7", $_POST["repeat_dow"])."' WHERE id='".$SCHED_ID."';";
     }
-    
-    echo $sql;
-    
+        
     if (mysqli_query($conn, $sql)) {
         #echo "<br><br>Schedule updated successfully";
     } else {
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
  
+    # devices
+    
     $sql = "DELETE FROM sched_device WHERE sched_id = '".$SCHED_ID."';";
-    if (mysqli_query($conn, $sql)) {
-        #echo "<br><br>Schedule updated successfully";
-    } else {
+    if (!mysqli_query($conn, $sql)) {
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
     
-    if ( isset($_POST["devices"]) ) {
-        print_r($_POST["devices"]);
-        
+    if ( isset($_POST["devices"]) ) {        
         foreach( $_POST["devices"] as $DEVICE_ID ) { 
-            print_r($DEVICE_ID);
-
             $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
-            
-            if (mysqli_query($conn, $sql)) {
-                #echo "<br><br>Schedule updated successfully";
-            } else {
+            if (!mysqli_query($conn, $sql)) {
                 echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
             }
         }
-        #$sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
     }
     
 #    echo $sql;
@@ -168,19 +159,18 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 
 echo '<br><br>'; 
-    
-$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-    } else {
-        echo "devices 0 results"; 
-    }
 
-    
+#$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
+#$result = mysqli_query($conn, $sql);
+#if (mysqli_num_rows($result) > 0) {
+#    // output data of each row
+#    while($row = mysqli_fetch_assoc($result)) {
+#        echo var_dump($row)."<br>";
+#    }
+#    } else {
+#        echo "devices 0 results"; 
+#    }
+
 echo '<h2>When Sensors</h2><br>';
 
 $sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
