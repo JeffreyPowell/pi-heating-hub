@@ -23,8 +23,13 @@ MYSQL_PASSWORD="PASSWORD"
 def poll_all_sensors():
   import datetime
   import mysql.connector
+  
+  servername = "localhost";
+  username = "pi";
+  password = "password";
+  dbname = "pi_heating_db";
 
-  cnx = MySQLdb.connect(host="localhost", user="pi", passwd="password", db="pi_heating_db")
+  cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
   cursor = cnx.cursor()
 
   query = ("SELECT * FROM sensors")
@@ -54,9 +59,10 @@ def action_all_schedules():
 
 ### BEGIN MAIN PROCEDURE ###
 
-db = MySQLdb.connect(host="localhost", user="pi", passwd="password", db="pi-heating-hub")
+#db = MySQLdb.connect(host="localhost", user="pi", passwd="password", db="pi-heating-hub")
 
-poll_all_sensors(db)
-update_all_timers(db)
+poll_all_sensors()
 
-action_all_schedules(db)
+update_all_timers()
+
+action_all_schedules()
