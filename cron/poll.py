@@ -18,19 +18,7 @@ MYSQL_PASSWORD="PASSWORD"
 #
 # check locally if IP has changed
 #
-def check_ip_file(public_ip):
-  if os.path.exists(IPFILE):
-    # Open a file
-    fo = open(IPFILE, "r")
-    old_ip = fo.read(50)
-    fo.close()
-    #print "Read String is : ", str
-    # Close opend file
-    if old_ip == public_ip:
-      print "ip is the same.. not doing anything"
-      return 1
-  # return if no file exists, or the IP is new
-  return
+
  
 def poll_all_sensors():
   import datetime
@@ -39,15 +27,11 @@ def poll_all_sensors():
   cnx = MySQLdb.connect(host="localhost", user="pi", passwd="password", db="pi-heating-hub")
   cursor = cnx.cursor()
 
-  query = ("SELECT first_name, last_name, hire_date FROM employees "
-          "WHERE hire_date BETWEEN %s AND %s")
+  query = ("SELECT * FROM sensors")
 
-  hire_start = datetime.date(1999, 1, 1)
-  hire_end = datetime.date(1999, 12, 31)
+  cursor.execute(query)
 
-  cursor.execute(query, (hire_start, hire_end))
-
-  for (first_name, last_name, hire_date) in cursor:
+  for (id, ref, ip) in cursor:
     print("{}, {} was hired on {:%d %b %Y}".format(last_name, first_name, hire_date))
 
   cursor.close()
