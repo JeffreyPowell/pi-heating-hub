@@ -30,11 +30,14 @@ def poll_all_sensors():
   query = ("SELECT * FROM sensors")
 
   cursor.execute(query)
-
-  for (id, ref, ip) in cursor:
-    print("{}, {} was hired on {:%d %b %Y}".format(last_name, first_name, hire_date))
-
+  
+  results =cursor.fetchall()
   cursor.close()
+  
+  for i in results:
+       print i
+
+
   cnx.close()
   
   # read list of sensors
