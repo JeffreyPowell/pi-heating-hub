@@ -33,47 +33,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     print_r($_POST);
     print_r("<BR>------------------------<BR></pre>");
 */        
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    // Check connection
-    if (!$conn) {
-        die("<br><br>Connection failed: " . mysqli_connect_error());
-        }
-    # schedules
-    
-    $sql = "SELECT * from sensors WHERE id = '".$SENSOR_ID."';";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) == 0) {
-        echo "devices 0 results"; 
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("<br><br>Connection failed: " . mysqli_connect_error());
     }
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo var_dump($row)."<br>";
-    }
-/*
+
+echo '<table width =100%><tr><td width=30%></td><td width=30%></td><td width=30%></td></tr>';
     
-    
-    $sql = "SELECT * FROM sensors WHERE id = '".$SENSOR_ID."';";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) == 0) {
-        echo "devices 0 results"; 
-    }   
-    while($row = mysqli_fetch_assoc($result)) {
-        $SENSOR_NAME = $row["name"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
-        echo '<input type="checkbox" name="devices[]" value="'.$row["d_id"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
+$sql = "SELECT * from sensors WHERE id = '".$SENSOR_ID."';";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) == 0) {
+    echo "devices 0 results"; 
     }
-*/    
-    echo '<br><br>'; 
+  
+while($row = mysqli_fetch_assoc($result)) {
+    $SENSOR_NAME =  $row["name"];
+    $SENSOR_VALUE = $row["value"];
+    }
+    
+echo $SENSOR_NAME, $SENSOR_VALUE;
+echo '<br><br>'; 
     
   
     
     
     
     
-    mysqli_close($conn);
-
-
-
+mysqli_close($conn);
 ?>
 
 </body>
