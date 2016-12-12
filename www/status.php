@@ -40,11 +40,6 @@ if (!$conn) {
     die("<br><br>Connection failed: " . mysqli_connect_error());
     }
 
-echo '<table width =100%>';
-echo '<table width =100%><tr><td width=30%>1</td><td width=30%>2</td><td width=30%>3</td></tr>';
-echo '<tr><td width=30%>4</td><td width=30%>5</td><td width=30%>6</td></tr>';
-echo '<tr><td width=30%>7</td><td width=30%>8</td><td width=30%>9</td></tr>';
-echo '</table>';
     
 $sql = "SELECT * from sensors WHERE id = '".$SENSOR_ID."';";
 $result = mysqli_query($conn, $sql);
@@ -61,7 +56,11 @@ echo $SENSOR_NAME, $SENSOR_VALUE;
 echo '<br><br>'; 
     
   
-    
+echo "<table width =100%>";
+echo "<table width =100%><tr><td width=30%>1</td><td width=30%>".$SENSOR_NAME.$SENSOR_VALUE."</td><td width=30%>3</td></tr>";
+echo "<tr><td width=30%>4</td><td width=30%>5</td><td width=30%>6</td></tr>";
+echo "<tr><td width=30%>7</td><td width=30%>8</td><td width=30%>9</td></tr>";
+echo "</table>";
     
     
     
