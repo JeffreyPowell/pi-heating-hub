@@ -19,7 +19,7 @@ $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
     
-$SENSOR_ID = $_GET['sid'];
+$SENSOR_ID = isset($_GET['sid']) ? $_GET['sid'] : '1';
 $GRAPH_ID = $_GET['gid'];
 $GRAPH_SP = $_GET['gsp'];
     
