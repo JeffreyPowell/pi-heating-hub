@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     
     
     mysqli_close($conn);
-}
+
 
 
 ?>
