@@ -50,10 +50,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     while($row = mysqli_fetch_assoc($result)) {
         echo var_dump($row)."<br>";
     }
-
+/*
     
     
-    $sql = "SELECT * from sensors WHERE id = '".$SENSOR_ID."';";
+    $sql = "SELECT * FROM sensors WHERE id = '".$SENSOR_ID."';";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) == 0) {
         echo "devices 0 results"; 
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         $SENSOR_NAME = $row["name"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
         echo '<input type="checkbox" name="devices[]" value="'.$row["d_id"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
     }
-    
+*/    
     echo '<br><br>'; 
     
   
