@@ -5,7 +5,9 @@
 #import logging
 #import pif
 import MySQLdb
-
+import datetime
+import mysql.connector
+ 
 # https://dev.mysql.com/doc/connector-python/en/connector-python-example-connecting.html
 
 
@@ -21,8 +23,8 @@ MYSQL_PASSWORD="PASSWORD"
 
  
 def poll_all_sensors():
-  import datetime
-  import mysql.connector
+  #import datetime
+  #import mysql.connector
   
   servername = "localhost";
   username = "pi";
