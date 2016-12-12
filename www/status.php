@@ -2,8 +2,8 @@
 <html>
 <head>
 <style>
-.sensorvalue {font-family: courier; color: green; font-size: xx-large;}
-.sensorname {font-family: courier; color: green; font-size: large;}
+.sensorvalue {font-family: courier; color: green; font-size:80px;}
+.sensorname {font-family: courier; color: green; font-size:40px;}
 .fixedsmall {font-family: courier; color: black; font-size: xx-small;}
 </style>
 </head>
@@ -62,6 +62,7 @@ echo "<table width='100%' border='1'>";
 echo "<tr><td width=30%>1</td><td width=30%>";
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 echo "<span class='sensorvalue'>".$SENSOR_VALUE."</span></td>";
+echo "<td width=30%>3</td></tr>";
 echo "<tr><td width=30%>4</td><td width=30%>5</td><td width=30%>6</td></tr>";
 echo "<tr><td width=30%>7</td><td width=30%>8</td><td width=30%>9</td></tr>";
 echo "</table>";
