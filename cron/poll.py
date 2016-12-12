@@ -25,11 +25,12 @@ MYSQL_PASSWORD="PASSWORD"
 def poll_all_sensors():
   #import datetime
   #import mysql.connector
+  import MySQLdb
   
-  servername = "localhost";
-  username = "pi";
-  password = "password";
-  dbname = "pi_heating_db";
+  servername = "localhost"
+  username = "pi"
+  password = "password"
+  dbname = "pi_heating_db"
 
   cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
   cursor = cnx.cursor()
