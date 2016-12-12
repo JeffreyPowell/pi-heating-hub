@@ -48,7 +48,7 @@ def poll_all_sensors():
     sensor_ref = i[2]
     
     sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
-    sensor_url = "htp://bbc.co.uk/news"
+    sensor_url = "http://bbc.co.uk/news"
     data = urllib2.urlopen(sensor_url).read()
     
     print data
