@@ -24,7 +24,7 @@ def poll_all_sensors():
   import datetime
   import mysql.connector
 
-  cnx = MySQLdb.connect(host="localhost", user="pi", passwd="password", db="pi-heating-hub")
+  cnx = MySQLdb.connect(host="localhost", user="pi", passwd="password", db="pi_heating_db")
   cursor = cnx.cursor()
 
   query = ("SELECT * FROM sensors")
