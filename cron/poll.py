@@ -12,8 +12,8 @@ import datetime
 
 
 # GLOBALS
-MYSQL_USERNAME="pi"
-MYSQL_PASSWORD="PASSWORD"
+#MYSQL_USERNAME="pi"
+#MYSQL_PASSWORD="PASSWORD"
 
 
  
@@ -43,7 +43,8 @@ def poll_all_sensors():
   cursor.close()
   
   for i in results:
-       print i
+      sensor_ip = i[3]
+      print sensor_ip
 
 
   cnx.close()
