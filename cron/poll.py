@@ -43,8 +43,12 @@ def poll_all_sensors():
   cursor.close()
   
   for i in results:
-      sensor_ip = i[3]
-      print sensor_ip
+    sensor_ip = i[3]
+    sensor_ref = i[2]
+    
+    data = urllib2.urlopen(sensor_ip+":8080/value.php?id="+sensor_ref).read()
+    
+    print data
 
 
   cnx.close()
