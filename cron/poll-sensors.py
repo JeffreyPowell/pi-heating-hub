@@ -10,6 +10,8 @@ username = "pi"
 password = "password"
 dbname = "pi_heating_db"
 
+t = datetime.datetime.now().strftime('%s')
+
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 cursorread = cnx.cursor()
 
