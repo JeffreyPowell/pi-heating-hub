@@ -59,7 +59,7 @@ for i in results:
       RRA:MAX:0.5:5:51840 \
       RRA:MAX:0.5:60:8760')
 
-  os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+data)
+  os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
 
 
 cnx.close()
