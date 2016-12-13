@@ -39,7 +39,7 @@ for i in results:
     
   cursorwrite = cnx.cursor()
 
-  cursowrite.execute("UPDATE sensors SET value=%s WHERE ='%s' " % (data, sensor_id))
+  cursorwrite.execute("UPDATE sensors SET value=%s WHERE ='%s' " % (data, sensor_id))
 
   cnx.commit()
 
