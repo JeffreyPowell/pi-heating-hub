@@ -33,7 +33,7 @@ for i in results:
 
   print sensor_url
     
-  data = urllib2.urlopen(sensor_url).read()
+  data = float( urllib2.urlopen(sensor_url).read() )
     
   print data
     
