@@ -19,9 +19,9 @@ cursorread = cnx.cursor()
 
 query = ("SELECT * FROM sensors")
 
-cursor.execute(query)
+cursorread.execute(query)
   
-results =cursor.fetchall()
+results =cursorread.fetchall()
 cursorread.close()
   
 for i in results:
