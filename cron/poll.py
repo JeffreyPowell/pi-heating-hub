@@ -45,7 +45,7 @@ def poll_all_sensors():
   
   for i in results:
     sensor_ip = i[3]
-    sensor_ref = i[2]
+    sensor_ref = i[1]
     
     sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
 
