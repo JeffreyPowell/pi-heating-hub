@@ -40,7 +40,7 @@ for i in results:
   cnx.commit()
   
   
-  filename = '/home/pi/pi-heating-hub/data/s-'+string(sensor_id)+'.rrd'
+  filename = '/home/pi/pi-heating-hub/data/s-'+str(sensor_id)+'.rrd'
 
   if( not os.path.exists( filename ) ):
       print ( os.path.exists( filename ))
