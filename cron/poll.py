@@ -1,13 +1,8 @@
 #!/usr/bin/env python
 
-#import sys
-#import os
-#import logging
-#import pif
 import MySQLdb
 import datetime
 import urllib2
-
   
 servername = "localhost"
 username = "pi"
