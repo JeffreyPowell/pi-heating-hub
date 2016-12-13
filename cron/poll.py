@@ -7,47 +7,41 @@
 import MySQLdb
 import datetime
 import urllib2
-#import mysql.connector
- 
 
-  #import datetime
-  #import mysql.connector
-  #import MySQLdb
   
-  servername = "localhost"
-  username = "pi"
-  password = "password"
-  dbname = "pi_heating_db"
+servername = "localhost"
+username = "pi"
+password = "password"
+dbname = "pi_heating_db"
 
-  cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
-  cursorread = cnx.cursor()
+cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
+cursorread = cnx.cursor()
 
-  query = ("SELECT * FROM sensors")
+query = ("SELECT * FROM sensors")
 
-  cursor.execute(query)
+cursor.execute(query)
   
-  results =cursor.fetchall()
-  cursorread.close()
+results =cursor.fetchall()
+cursorread.close()
   
-  for i in results:
-    sensor_ip = i[3]
-    sensor_ref = i[1]
-    sensor_id = i[0]
+for i in results:
+  sensor_ip = i[3]
+  sensor_ref = i[1]
+  sensor_id = i[0]
     
-    sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
+  sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
 
-    print sensor_url
+  print sensor_url
     
-    data = urllib2.urlopen(sensor_url).read()
+  data = urllib2.urlopen(sensor_url).read()
     
-    print data
-
+  print data
     
-    cursorwrite = cnx.cursor()
+  cursorwrite = cnx.cursor()
 
-    cursowrite.execute("UPDATE sensors SET value=%s WHERE ='%s' " % (data, sensor_id))
+  cursowrite.execute("UPDATE sensors SET value=%s WHERE ='%s' " % (data, sensor_id))
 
-    cnx.commit()
+  cnx.commit()
 
 
-  cnx.close()
+cnx.close()
