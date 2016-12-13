@@ -3,6 +3,7 @@
 import MySQLdb
 import datetime
 import urllib2
+import os
   
 servername = "localhost"
 username = "pi"
