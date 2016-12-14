@@ -1,66 +1,52 @@
 <?php
 
-create_graph("calls-gw-usw-halfday-wall.png", 	"-12h", 	"Calls last 12 hours",	 	   "200", "1100");
-create_graph("calls-gw-usw-month-wall.png",    	"-1m",          "Calls last 1 month",              "150", "1100");
-create_graph("calls-gw-usw-year-wall.png",     	"-1y",          "Calls last 1 year",               "150", "1100");
+$servername = "localhost";
+$username = "pi";
+$password = "password";
+$dbname = "pi_heating_db";
 
-echo "<html><head>";
-#echo "<style> div.outer {display:block; margin-left:auto; margin-right:auto;}</style>";
-echo "<meta http-equiv=\"refresh\" content=\"30\">";
-echo "</head><body bgcolor='#080808'>";
+    
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+$sql = "SELECT * FROM sensors";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+  echo "<html><head>";
+  #echo "<style> div.outer {display:block; margin-left:auto; margin-right:auto;}</style>";
+  echo "<meta http-equiv=\"refresh\" content=\"30\">";
+  echo "</head><body bgcolor='#080808'>";
+   // output data of each row
 
-echo "<font color='#808080' size ='9' face='verdana'>US West Gateway </font>";
-echo "<font color='#608080' size ='2' face='verdana'>timezone : ";
-date_default_timezone_set('America/Los_Angeles');
-echo date('T');
-echo "</font>";
+ 
+  echo "<font color='#808080' size ='9' face='verdana'>US West Gateway </font>";
+  echo "<font color='#608080' size ='2' face='verdana'>timezone : ";
+  date_default_timezone_set('America/Los_Angeles');
+  echo date('T');
+  echo "</font>";
 
-echo "<div align='center'>";
+  echo "<div align='center'>";
 
-#echo "<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>";
+  #echo "<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>";
 
-echo "<table>";
-echo "<tr><td>";
-echo "<img src='calls-gw-usw-halfday-wall.png' alt='Generated RRD image'>";
-echo "</td></tr>";
-echo "</table>";
+  echo "<table>";
+  create_graph("calls-gw-usw-halfday-wall.png", 	"-12h", 	"Calls last 12 hours",	 	   "200", "1100");
 
-#echo "<BR>";
+  echo "<tr><td>";
+  echo "<img src='calls-gw-usw-halfday-wall.png' alt='Generated RRD image'>";
+  echo "</td></tr>";
+  echo "</table>";
 
-echo "<table>";
-echo "<tr><td>";
-echo "<img src='calls-gw-usw-month-wall.png' alt='Generated RRD image'>";
-echo "</td></tr>";
-echo "</table>";
 
-#echo "<BR>";
 
-echo "<table>";
-echo "<tr><td>";
-echo "<img src='calls-gw-usw-year-wall.png' alt='Generated RRD image'>";
-echo "</td></tr>";
-echo "</table>";
+  echo "</div>";
 
-echo "</div>";
+  echo "<BR>";
 
-echo "<BR>";
 
-echo "<font color='#606080' size ='2' face='verdana'>last update : ";
-
-date_default_timezone_set('Europe/London');
-echo date('H:i T');
-echo "   ,   ";
-
-date_default_timezone_set('Europe/Berlin');
-echo date('H:i T');
-echo "   ,   ";
-
-date_default_timezone_set('Europe/Tallinn');
-echo date('H:i T');
-echo "   ,   ";
-
-date_default_timezone_set('Asia/Tokyo');
-echo date('H:i T');
 
 echo "</font>";
 
