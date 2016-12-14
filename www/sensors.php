@@ -48,6 +48,8 @@ if (mysqli_num_rows($result) > 0) {
 
   echo "</body></html>";
 
+mysqli_close($conn);
+    
 }
 
 exit;
