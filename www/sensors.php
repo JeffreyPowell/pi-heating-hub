@@ -49,7 +49,7 @@ if (mysqli_num_rows($result) > 0) {
   echo "</font>";
 
   echo "</body></html>";
-}
+
 }
 
 exit;
