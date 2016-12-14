@@ -57,7 +57,7 @@ if (mysqli_num_rows($result) > 0) {
 echo "</font>";
 
 echo "</body></html>";
-
+}
 exit;
 
 function create_graph($output, $start, $title, $height, $width) {
