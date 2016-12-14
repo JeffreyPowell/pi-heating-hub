@@ -14,6 +14,14 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+echo "<html><head>";
+echo "<meta http-equiv=\"refresh\" content=\"30\">";
+echo "</head><body bgcolor='#080808'>";
+ 
+echo "<font color='#808080' size ='9' face='verdana'>US West Gateway </font>";
+echo "<div align='center'>";
+
 $sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
@@ -43,14 +51,14 @@ if (mysqli_num_rows($result) > 0) {
     }
 
   echo "</table>";
-
-  echo "</div>";
-
-  echo "</body></html>";
-
-mysqli_close($conn);
     
 }
+
+echo "</div>";
+
+echo "</body></html>";
+
+mysqli_close($conn);
 
 exit;
 
