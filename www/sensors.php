@@ -1,3 +1,5 @@
+<!DOCTYPE HTML>
+
 <?php
 
 $servername = "localhost";
