@@ -12,7 +12,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT * FROM sensors";
+$sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
   echo "<html><head>";
@@ -23,10 +23,6 @@ if (mysqli_num_rows($result) > 0) {
 
  
   echo "<font color='#808080' size ='9' face='verdana'>US West Gateway </font>";
-  echo "<font color='#608080' size ='2' face='verdana'>timezone : ";
-  date_default_timezone_set('America/Los_Angeles');
-  echo date('T');
-  echo "</font>";
 
   echo "<div align='center'>";
 
@@ -46,18 +42,16 @@ if (mysqli_num_rows($result) > 0) {
 
   echo "</table>";
 
-
-
   echo "</div>";
 
   echo "<BR>";
 
+  echo "</font>";
 
-
-echo "</font>";
-
-echo "</body></html>";
+  echo "</body></html>";
 }
+}
+
 exit;
 
 function create_graph($output, $start, $title, $height, $width) {
