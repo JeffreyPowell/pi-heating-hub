@@ -22,35 +22,23 @@ echo "</head><body bgcolor='#080808'>";
 echo "<font color='#808080' size ='9' face='verdana'>US West Gateway </font>";
 echo "<div align='center'>";
 
-$sql = "SELECT * FROM sensors;";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-  echo "<html><head>";
-  #echo "<style> div.outer {display:block; margin-left:auto; margin-right:auto;}</style>";
-  echo "<meta http-equiv=\"refresh\" content=\"30\">";
-  echo "</head><body bgcolor='#080808'>";
-   // output data of each row
+//$sql = "SELECT * FROM sensors;";
+//$result = mysqli_query($conn, $sql);
+//if (mysqli_num_rows($result) > 0) {
 
- 
-  echo "<font color='#808080' size ='9' face='verdana'>US West Gateway </font>";
+//  echo '<table>';
 
-  echo "<div align='center'>";
+//  while($row = mysqli_fetch_assoc($result)) {
 
-  #echo "<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>";
-
-  echo '<table>';
-
-  while($row = mysqli_fetch_assoc($result)) {
-
-    echo '<tr><td>'.$row["name"].$row["id"].'</td></tr>';
+//    echo '<tr><td>'.$row["name"].$row["id"].'</td></tr>';
 
     //create_graph("calls-gw-usw-halfday-wall.png", 	"-12h", 	"Calls last 12 hours",	 	   "200", "1100");
 
     //echo "<img src='calls-gw-usw-halfday-wall.png' alt='Generated RRD image'>";
 
-    }
+//    }
 
-  echo "</table>";
+//  echo "</table>";
     
 }
 
