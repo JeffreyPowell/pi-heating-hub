@@ -2,25 +2,25 @@
 
 <?php
 
-$servername = "localhost";
-$username = "pi";
-$password = "password";
-$dbname = "pi_heating_db";
+//$servername = "localhost";
+//$username = "pi";
+//$password = "password";
+//$dbname = "pi_heating_db";
 
     
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+//$conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+//if (!$conn) {
+//    die("Connection failed: " . mysqli_connect_error());
+//}
 
 echo "<html><head>";
 echo "<meta http-equiv=\"refresh\" content=\"30\">";
 echo "</head><body bgcolor='#080808'>";
  
 echo "<font color='#808080' size ='9' face='verdana'>US West Gateway </font>";
-echo "<div align='center'>";
+//echo "<div align='center'>";
 
 //$sql = "SELECT * FROM sensors;";
 //$result = mysqli_query($conn, $sql);
@@ -42,11 +42,11 @@ echo "<div align='center'>";
     
 //}
 
-echo "</div>";
+//echo "</div>";
 
 echo "</body></html>";
 
-mysqli_close($conn);
+//mysqli_close($conn);
 
 exit;
 
