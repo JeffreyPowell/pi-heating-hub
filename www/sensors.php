@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '<tr><td>'.$row["name"].$row["id"].'<br>';
     $span = "-12h";
     
-    create_graph("images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." 12 hours",	 	   "200", "1100");
+    create_graph(("home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." 12 hours",	 	   "200", "1100");
 
     echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
 
@@ -52,8 +52,8 @@ mysqli_close($conn);
 //exit;
 
 
-function create_graph($output, $start, $title, $height, $width) {
-
+function create_graph($rrdfile, $output, $start, $title, $height, $width) {
+    
   $options = array(
     "--slope-mode",
     "--start", $start,
@@ -75,7 +75,7 @@ function create_graph($output, $start, $title, $height, $width) {
     "-y 1:5",
     "-cFRAME#ffffff",
     "-cARROW#000000",
-    "DEF:callmax=/home/pi/pi-heating-hub/data/jcall-gw-usw.rrd:callstot:MAX",
+    "DEF:callmax=$rrdfile:callstot:MAX",
     "CDEF:transcalldatamax=callmax,1,*",
     "AREA:transcalldatamax#a0b84240",
     "LINE4:transcalldatamax#a0b842:Calls",
