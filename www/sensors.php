@@ -51,7 +51,7 @@ mysqli_close($conn);
 
 //exit;
 
-/*
+
 function create_graph($output, $start, $title, $height, $width) {
 
   $options = array(
@@ -90,7 +90,7 @@ function create_graph($output, $start, $title, $height, $width) {
     echo "<b>Graph error: </b>".rrd_error()."\n";
   }
 }
-*/
+
 
 ?>
 
