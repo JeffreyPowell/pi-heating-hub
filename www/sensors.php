@@ -31,12 +31,14 @@ if (mysqli_num_rows($result) > 0) {
 
   while($row = mysqli_fetch_assoc($result)) {
 
-    echo '<tr><td>'.$row["name"].$row["id"].'</td></tr>';
+    echo '<tr><td>'.$row["name"].$row["id"].'<br>';
     $span = "-12h";
     //create_graph("calls-gw-usw-halfday-wall.png", 	"-12h", 	"Calls last 12 hours",	 	   "200", "1100");
 
     echo "<img src='chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
 
+    echo '</td></tr>';
+      
     }
 
   echo "</table>";
