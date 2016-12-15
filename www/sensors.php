@@ -75,7 +75,7 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
     "-y 1:5",
     "-cFRAME#ffffff",
     "-cARROW#000000",
-    "DEF:callmax=$rrdfile:callstot:MAX",
+    "DEF:callmax=$rrdfile:data:MAX",
     "CDEF:transcalldatamax=callmax,1,*",
     "AREA:transcalldatamax#a0b84240",
     "LINE4:transcalldatamax#a0b842:Calls",
