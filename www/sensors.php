@@ -39,19 +39,19 @@ if (mysqli_num_rows($result) > 0) {
       
     echo '<td>';
     $span = "-3h";
-    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 3 hours",	 	   "200", "1100");
+    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 3 hours",	 	   "120", "200");
     echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
     echo '</td>';
       
     echo '<td>';
     $span = "-24h";
-    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "200", "1100");
+    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "120", "200");
     echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
     echo '</td>';
   
     echo '<td>';
     $span = "-7d";
-    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." 7 days",	 	   "200", "1100");
+    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." 7 days",	 	   "120", "200");
     echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
     echo '</td>';
       
