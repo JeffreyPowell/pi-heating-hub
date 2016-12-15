@@ -23,10 +23,10 @@ echo "<font color='#808080' size ='9' face='verdana'>Sensors</font>";
 echo "<div align='center'>";
 
 $sql = "SELECT * FROM sensors;";
-//$result = mysqli_query($conn, $sql);
-//if (mysqli_num_rows($result) > 0) {
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
 
-//  echo '<table>';
+  echo '<table>';
 
 //  while($row = mysqli_fetch_assoc($result)) {
 
@@ -38,15 +38,15 @@ $sql = "SELECT * FROM sensors;";
 
 //    }
 
-//  echo "</table>";
+  echo "</table>";
     
-//}
+}
 
 echo "</div>";
 
 echo "</body></html>";
 
-//mysqli_close($conn);
+mysqli_close($conn);
 
 //exit;
 
