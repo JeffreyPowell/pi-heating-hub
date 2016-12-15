@@ -65,6 +65,7 @@ echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 echo "<span class='sensorvalue'>";
    
 printf('%2.1f', $SENSOR_VALUE);
+echo "<BR>XX<BR>";  
 sprintf('%2.1f', $SENSOR_VALUE);
     
 echo "</span></td>";
