@@ -20,10 +20,10 @@ echo "<meta http-equiv=\"refresh\" content=\"30\">";
 echo "</head><body bgcolor='#080808'>";
  
 echo "<font color='#808080' size ='9' face='verdana'>Sensors</font>";
-//echo "<div align='center'>"
+echo "<div align='center'>"
 
-//$sql = "SELECT * FROM sensors;";
-//$result = mysqli_query($conn, $sql);
+$sql = "SELECT * FROM sensors;";
+$result = mysqli_query($conn, $sql);
 //if (mysqli_num_rows($result) > 0) {
 
 //  echo '<table>';
@@ -42,7 +42,7 @@ echo "<font color='#808080' size ='9' face='verdana'>Sensors</font>";
     
 //}
 
-//echo "</div>";
+echo "</div>";
 
 echo "</body></html>";
 
