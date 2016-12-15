@@ -54,9 +54,10 @@ while($row = mysqli_fetch_assoc($result)) {
     $SENSOR_VALUE = $row["value"];
     }
     
-echo $SENSOR_NAME;
+echo $SENSOR_NAME ;
     
-sprintf('%0.2f', $SENSOR_VALUE)
+sprintf('%0.2f', $SENSOR_VALUE);
+    
 echo '<br><br>';
     
     
