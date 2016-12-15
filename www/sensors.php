@@ -19,8 +19,8 @@ echo "<html><head>";
 echo "<meta http-equiv=\"refresh\" content=\"30\">";
 echo "</head><body bgcolor='#080808'>";
  
-echo "<font color='#808080' size ='9' face='verdana'>US West Gateway </font>";
-//echo "<div align='center'>";
+echo "<font color='#808080' size ='9' face='verdana'>Sensors</font>";
+//echo "<div align='center'>"
 
 //$sql = "SELECT * FROM sensors;";
 //$result = mysqli_query($conn, $sql);
@@ -48,7 +48,7 @@ echo "</body></html>";
 
 //mysqli_close($conn);
 
-exit;
+//exit;
 
 /*
 function create_graph($output, $start, $title, $height, $width) {
