@@ -59,7 +59,17 @@ echo '<br><br>';
     
   
 echo "<table width='100%' border='1'>";
-echo "<tr><td width=30%>1</td><td width=30%>";
+echo "<tr><td width=30%>";
+
+<form id="formName" action="<?php echo $_SERVER['PHP_SELF'];?>" method="get">
+    <input type ="checkbox" name="cBox[]" value = "3" onchange="document.getElementById('formName').submit()">3</input>
+    <input type ="checkbox" name="cBox[]" value = "4" onchange="document.getElementById('formName').submit()">4</input>
+    <input type ="checkbox" name="cBox[]" value = "5" onchange="document.getElementById('formName').submit()">5</input>
+    <input type="submit" name="submit" value="Search" />
+</form>
+
+
+echo "</td><td width=30%>";
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 
 echo "<span class='sensorvalue'>";
