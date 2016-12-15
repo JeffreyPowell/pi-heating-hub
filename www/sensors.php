@@ -6,18 +6,18 @@
     
 <?php
 
-//$servername = "localhost";
-//$username = "pi";
-//$password = "password";
-//$dbname = "pi_heating_db";
+$servername = "localhost";
+$username = "pi";
+$password = "password";
+$dbname = "pi_heating_db";
 
     
 // Create connection
-//$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
-//if (!$conn) {
-//    die("Connection failed: " . mysqli_connect_error());
-//}
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
  
 echo "<font color='#808080' size ='9' face='verdana'>Sensors</font>";
 echo "<div align='center'>";
