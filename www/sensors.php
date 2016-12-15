@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '<tr><td>'.$row["name"].$row["id"].'<br>';
     $span = "-12h";
     
-    create_graph( "home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." 12 hours",	 	   "200", "1100");
+    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." 12 hours",	 	   "200", "1100");
 
     echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
 
