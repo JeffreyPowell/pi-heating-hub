@@ -65,10 +65,10 @@ echo "<td width=30%>";
     
 echo '<form id="formFlags" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
-echo "<input type ='checkbox' name='cBox[]' value = '3' onchange='document.getElementById('formFlags').submit()'>3</input>";
+echo "<input type ='checkbox' name='cBox[]' value = '3' onchange='document.getElementById(\"formFlags\").submit()'>3</input>";
     
 echo '<input type ="checkbox" name="cBox[]" value = "4" onchange="document.getElementById(\"formFlags\").submit()">4</input>';
-echo '<input type ="checkbox" name="cBox[]" value = "5" onchange="document.getElementById("formFlags").submit()">5</input>';
+echo '<input type ="checkbox" name="cBox[]" value = "5" onchange="document.getElementById(\"formFlags\").submit()">5</input>';
 
 echo '<input type="submit" name="submit" value="Search" />';
 
