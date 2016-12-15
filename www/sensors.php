@@ -3,6 +3,7 @@
 <html><head>
 <meta http-equiv="refresh" content="30">
 </head><body bgcolor='#080808'>
+<font color='#808080' size ='9' face='verdana'>
     
 <?php
 
@@ -42,9 +43,6 @@ if (mysqli_num_rows($result) > 0) {
     
 }
 
-echo "</div>";
-
-echo "</body></html>";
 
 mysqli_close($conn);
 
@@ -92,3 +90,8 @@ function create_graph($output, $start, $title, $height, $width) {
 */
 
 ?>
+
+</font>
+</div>
+</body>
+</html>
