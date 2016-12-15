@@ -3,7 +3,7 @@
 <html><head>
 <meta http-equiv="refresh" content="30">
 </head><body bgcolor='#080808'>
-<font color='#808080' size ='9pt' face='verdana'>
+<font color='#808080' size ='4' face='verdana'>
     
 <?php
 
@@ -32,10 +32,10 @@ if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
 
     echo '<tr><td>'.$row["name"].$row["id"].'</td></tr>';
-
+    $span = "-12h";
     //create_graph("calls-gw-usw-halfday-wall.png", 	"-12h", 	"Calls last 12 hours",	 	   "200", "1100");
 
-    //echo "<img src='calls-gw-usw-halfday-wall.png' alt='Generated RRD image'>";
+    echo "<img src='chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
 
     }
 
