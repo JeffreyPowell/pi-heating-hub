@@ -66,7 +66,14 @@ echo '<br><br>';
 echo "<table width='100%' border='1'>";
 echo "<tr><td width=30%>1</td><td width=30%>";
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
+echo "<span class='sensorvalue'>";
+   
+printf('%2.1f', $SENSOR_VALUE);
+sprintf('%2.1f', $SENSOR_VALUE);
+    
+echo "</span></td>";
 echo "<span class='sensorvalue'>".$SENSOR_VALUE."</span></td>";
+
 echo "<td width=30%>3</td></tr>";
 echo "<tr><td width=30%>4</td><td width=30%>5</td><td width=30%>6</td></tr>";
 echo "<tr><td width=30%>7</td><td width=30%>8</td><td width=30%>9</td></tr>";
