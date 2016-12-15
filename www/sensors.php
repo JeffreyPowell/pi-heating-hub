@@ -3,7 +3,7 @@
 <html><head>
 <meta http-equiv="refresh" content="30">
 </head><body bgcolor='#080808'>
-<font color='#808080' size ='9' face='verdana'>
+<font color='#808080' size ='9pt' face='verdana'>
     
 <?php
 
