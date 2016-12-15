@@ -95,10 +95,12 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
     "DEF:callmax=$rrdfile:data:MAX",
     "CDEF:transcalldatamax=callmax,1,*",
     "AREA:transcalldatamax#a0b84240",
-    "LINE4:transcalldatamax#a0b842:Calls",
-    "COMMENT:\\n",
+    "LINE4:transcalldatamax#a0b842",
+#    "LINE4:transcalldatamax#a0b842:Calls",
+#    "COMMENT:\\n",
 #    "GPRINT:transcalldatamax:LAST:Calls Now %6.2lf",
-    "GPRINT:transcalldatamax:MAX:Calls Max %6.2lf"
+#    "GPRINT:transcalldatamax:MAX:Data %6.2lf"
+    "COMMENT:\\n"
   );
 
  $ret = rrd_graph( $output, $options );
