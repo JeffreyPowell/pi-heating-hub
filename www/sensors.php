@@ -22,6 +22,7 @@ echo "</head><body bgcolor='#080808'>";
 echo "<font color='#808080' size ='9' face='verdana'>Sensors</font>";
 echo "<div align='center'>"
 
+$sql = "DELETE FROM sched_device WHERE sched_id = '".$SCHED_ID."';";
 $sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
 //if (mysqli_num_rows($result) > 0) {
