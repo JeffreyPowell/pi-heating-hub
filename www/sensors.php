@@ -34,9 +34,9 @@ if (mysqli_num_rows($result) > 0) {
     echo '<tr><td>'.$row["name"].$row["id"].'<br>';
     $span = "-12h";
     
-    create_graph("chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." 12 hours",	 	   "200", "1100");
+    create_graph("images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." 12 hours",	 	   "200", "1100");
 
-    echo "<img src='chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
+    echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
 
     echo '</td></tr>';
       
@@ -84,7 +84,7 @@ function create_graph($output, $start, $title, $height, $width) {
     "GPRINT:transcalldatamax:MAX:Calls Max %6.2lf"
   );
 
- $ret = rrd_graph($output, $options, count($options));
+ $ret = rrd_graph( $output, $options );
 
   if (! $ret) {
     echo "<b>Graph error: </b>".rrd_error()."\n";
