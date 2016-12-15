@@ -59,17 +59,24 @@ echo '<br><br>';
     
   
 echo "<table width='100%' border='1'>";
-echo "<tr><td width=30%>";
+echo "<tr>";
 
-<form id="formName" action="<?php echo $_SERVER['PHP_SELF'];?>" method="get">
-    <input type ="checkbox" name="cBox[]" value = "3" onchange="document.getElementById('formName').submit()">3</input>
-    <input type ="checkbox" name="cBox[]" value = "4" onchange="document.getElementById('formName').submit()">4</input>
-    <input type ="checkbox" name="cBox[]" value = "5" onchange="document.getElementById('formName').submit()">5</input>
-    <input type="submit" name="submit" value="Search" />
-</form>
+echo "<td width=30%>"    
+    
+echo '<form id="formFlags" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
+echo '<input type ="checkbox" name="cBox[]" value = "3" onchange="document.getElementById("formName").submit()">3</input>';
+echo '<input type ="checkbox" name="cBox[]" value = "4" onchange="document.getElementById("formName").submit()">4</input>';
+echo '<input type ="checkbox" name="cBox[]" value = "5" onchange="document.getElementById("formName").submit()">5</input>';
 
-echo "</td><td width=30%>";
+echo '<input type="submit" name="submit" value="Search" />';
+
+echo '</form>';
+
+echo "</td>";
+
+    
+echo "<td width=30%>";
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 
 echo "<span class='sensorvalue'>";
@@ -78,10 +85,26 @@ printf('%2.1f', $SENSOR_VALUE);
 echo "<BR>XX<BR>";  
 echo sprintf('%2.1f', $SENSOR_VALUE);
     
-echo "</span></td>";
+echo "</span>";
+    
+echo "</td>";
 
+echo "<td width=30%>"    
+    
+echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
-echo "<td width=30%>3</td></tr>";
+echo '<input type ="checkbox" name="cBox[]" value = "3" onchange="document.getElementById("formName").submit()">3</input>';
+echo '<input type ="checkbox" name="cBox[]" value = "4" onchange="document.getElementById("formName").submit()">4</input>';
+echo '<input type ="checkbox" name="cBox[]" value = "5" onchange="document.getElementById("formName").submit()">5</input>';
+
+echo '<input type="submit" name="submit" value="Search" />';
+
+echo '</form>';
+
+echo "</td>";
+
+echo "</tr>";
+    
 echo "<tr><td width=30%>4</td><td width=30%>5</td><td width=30%>6</td></tr>";
 echo "<tr><td width=30%>7</td><td width=30%>8</td><td width=30%>9</td></tr>";
 echo "</table>";
