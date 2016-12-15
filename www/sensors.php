@@ -23,7 +23,7 @@ echo "<font color='#808080' size ='9' face='verdana'>Sensors</font>";
 echo "<div align='center'>";
 
 $sql = "SELECT * FROM sensors;";
-$result = mysqli_query($conn, $sql);
+//$result = mysqli_query($conn, $sql);
 //if (mysqli_num_rows($result) > 0) {
 
 //  echo '<table>';
