@@ -34,6 +34,13 @@ if (mysqli_num_rows($result) > 0) {
     echo '<td>';
     
     echo '* '$row["id"].' * '$row["name"].' * '$row["value"].' *';
+      
+    echo "<form method='get' action='/timer-edit.php?id=".$row["id"]."'>";
+    echo "<input type='submit' name='edit' value='Edit'></form>";
+
+    echo "<form method='get action='/timer-delete.php?id=".$row["id"]."'>";
+    echo "<input type='submit' name='delete' value='Delete'></form>";
+      
     echo '</td>';
       
     echo '<td>';
