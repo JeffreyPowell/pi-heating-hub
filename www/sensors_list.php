@@ -34,25 +34,39 @@ if (mysqli_num_rows($result) > 0) {
   echo '<table>';
 
   while($row = mysqli_fetch_assoc($result)) {
+      
+    $id = $row["id"];
+    $name = $row["name"];
+      
+    $img_dir = '/var/www/pi-heating-hub/images/chart-sensor-';
+    $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
 
     echo '<tr>';
       
     echo '<td>';
+    echo "<form method='get' action='/sensor-edit.php?id=".$id."'>";
+    echo "<input type='submit' name='edit' value='Edit'></form>";
+    echo '</td>';
+
+    echo "<form method='get action='/sensor-delete.php?id=".$id."'>";
+    echo "<input type='submit' name='delete' value='Delete'></form>";
+      
+    echo '<td>';
     $span = "-24h";
-    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "120", "500");
-    echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
+    create_graph( $rrd_dir.$id.".rrd", $img_dir.$id.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "120", "500");
+    echo "<img src='".$rrd_dir.$id.$span.".png' alt='RRD image'>";
     echo '</td>';
       
     echo '<td>';
     $span = "-7d";
-    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 7 days",	 	   "120", "300");
-    echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
+    create_graph( $rrd_dir.$row["id"].".rrd", $img_dir.$id.$span.".png", 	$span, 	$row["name"]." last 7 days",	 	   "120", "300");
+    echo "<img src='".$rrd_dir.$id.$span.".png' alt='RRD image'>";
     echo '</td>';
   
     echo '<td>';
     $span = "-90d";
-    create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 3 months",	 	   "120", "200");
-    echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
+    create_graph( $rrd_dir.$id.".rrd", $img_dir.$id.$span.".png", 	$span, 	$row["name"]." last 3 months",	 	   "120", "200");
+    echo "<img src='".$rrd_dir.$id.$span.".png' alt='RRD image'>";
     echo '</td>';
       
     echo '</tr>';
