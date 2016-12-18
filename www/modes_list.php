@@ -29,30 +29,23 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
   echo '<table>';
   while($row = mysqli_fetch_assoc($result)) {
+      
+    $id = $row["id"];
+      
     echo '<tr>';
       
     echo '<td>';
-    
     echo '* '.$row["id"].' * '.$row["name"].' * '.$row["value"].' *';
-      
-    echo "<form method='get' action='/timer-edit.php?id=".$row["id"]."'>";
-    echo "<input type='submit' name='edit' value='Edit'></form>";
-
-    echo "<form method='get action='/timer-delete.php?id=".$row["id"]."'>";
-    echo "<input type='submit' name='delete' value='Delete'></form>";
-      
     echo '</td>';
       
     echo '<td>';
-    #$span = "-7d";
-    #create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 7 days",	 	   "120", "300");
-    #echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
+    echo "<form method='get' action='/modes-edit.php?id=".$id."'>";
+    echo "<input type='submit' name='id' value='".$id."'></form>";
     echo '</td>';
   
     echo '<td>';
-    #$span = "-90d";
-    #create_graph( "/home/pi/pi-heating-hub/data/s-".$row["id"].".rrd", "/var/www/pi-heating-hub/images/chart-sensor-".$row["id"].$span.".png", 	$span, 	$row["name"]." last 3 months",	 	   "120", "200");
-    #echo "<img src='images/chart-sensor-".$row["id"].$span.".png' alt='RRD image'>";
+    echo "<form method='get action='/modes-delete.php?id=".$id."'>";
+    echo "<input type='submit' name='delete' value='Delete'></form>";
     echo '</td>';
       
     echo '</tr>';
