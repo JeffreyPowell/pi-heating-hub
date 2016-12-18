@@ -28,19 +28,29 @@ $sql = "SELECT * FROM modes;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
   echo '<table>';
+    
+  echo '<th>ID</th><th>NAME</th><th>VALUE</th><th></th><th></th>';
   while($row = mysqli_fetch_assoc($result)) {
       
     $id = $row["id"];
       
     echo '<tr>';
-      
+
     echo '<td>';
-    echo '* '.$row["id"].' * '.$row["name"].' * '.$row["value"].' *';
+    echo $row["id"];
     echo '</td>';
-      
+    
+    echo '<td>';
+    echo $row["name"];
+    echo '</td>';
+
+    echo '<td>';
+    echo $row["value"];
+    echo '</td>';
+
     echo '<td>';
     echo "<form method='get' action='/modes-edit.php?id=".$id."'>";
-    echo "<input type='submit' name='id' value='".$id."'></form>";
+    echo "<input type='submit' name='id' value='Edit'></form>";
     echo '</td>';
   
     echo '<td>';
