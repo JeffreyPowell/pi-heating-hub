@@ -22,7 +22,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
  
-echo "<font color='#808080' size ='9' face='verdana'>Timers</font>";
+echo "<font color='#808080' size ='9' face='verdana'>Modes</font>";
 echo "<div align='center'>";
 $sql = "SELECT * FROM modes;";
 $result = mysqli_query($conn, $sql);
