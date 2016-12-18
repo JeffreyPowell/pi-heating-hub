@@ -28,24 +28,30 @@ $sql = "SELECT * FROM modes;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
   echo '<table>';
+
+  #echo '<th>ID</th>';
+  echo '<th>NAME</th>';
+  echo '<th>VALUE</th>';
+  echo '<th></th><th></th>';
     
-  echo '<th>ID</th><th>NAME</th><th>VALUE</th><th></th><th></th>';
   while($row = mysqli_fetch_assoc($result)) {
       
     $id = $row["id"];
-      
+    $name = $row["name"];
+    $value = $row["value"];
+ 
     echo '<tr>';
 
-    echo '<td>';
-    echo $row["id"];
-    echo '</td>';
+    #echo '<td>';
+    #echo $id;
+    #echo '</td>';
     
     echo '<td>';
-    echo $row["name"];
+    echo $name;
     echo '</td>';
 
     echo '<td>';
-    echo $row["value"];
+    echo $value;
     echo '</td>';
 
     echo '<td>';
