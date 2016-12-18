@@ -50,11 +50,11 @@ if (mysqli_num_rows($result) > 0) {
 
     echo '<td>';
     echo "<form method='post' action='/modes-edit.php?id=".$id."'>";
-    echo "<input type='submit' value='Edit'></form>";
+    echo "<input type='submit' name='edit' value='Edit'></form>";
     echo '</td>';
   
     echo '<td>';
-    echo "<form method='get' action='/modes-delete.php?id=".$id."'>";
+    echo "<form method='post' action='/modes-delete.php?id=".$id."'>";
     echo "<input type='submit' name='delete' value='Delete'></form>";
     echo '</td>';
       
