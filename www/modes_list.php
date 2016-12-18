@@ -62,6 +62,10 @@ if (mysqli_num_rows($result) > 0) {
   }
   echo "</table>";
     
+<form method='post' action='mode-new.php'>
+<input type='submit' name='add' value='Add new'>
+</form>
+    
 }
 
 ?>
