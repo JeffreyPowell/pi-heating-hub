@@ -24,7 +24,7 @@ if (!$conn) {
  
 echo "<font color='#808080' size ='9' face='verdana'>Timers</font>";
 echo "<div align='center'>";
-$sql = "SELECT * FROM timers;";
+$sql = "SELECT * FROM modes;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
   echo '<table>';
