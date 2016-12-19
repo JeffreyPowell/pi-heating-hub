@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
+<meta http-equiv="refresh" content="30">
 <style>
 .sensorvalue {font-family: courier; color: green; font-size:300px;}
 .sensorvaluedec {font-family: courier; color: green; font-size:100px;}
 .sensorname {font-family: courier; color: green; font-size:40px;}
-.fixedsmall {font-family: courier; color: black; font-size: xx-small;}
+.fixedsmall {font-family: courier; color: black; font-size: xx-small}
 </style>
 </head>
 <body class='fixedsmall'>  
