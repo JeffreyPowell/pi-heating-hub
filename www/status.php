@@ -84,10 +84,10 @@ echo "<td width=30%>";
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 
 echo "<span class='sensorvalue'>"; 
-echo substr(sprintf('%2.1f', $SENSOR_VALUE),2);
+echo substr(sprintf('%2.1f', $SENSOR_VALUE),0,2);
 echo "</span>";
 echo "<span class='sensorvaluedec'>"; 
-echo substr(sprintf('%2.1f', $SENSOR_VALUE),-2);
+echo substr(sprintf('%2.1f', $SENSOR_VALUE),-2,2);
 echo "</span>";
     
 echo "</td>";
