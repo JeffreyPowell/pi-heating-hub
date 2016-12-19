@@ -42,11 +42,10 @@ td {
   width: 5%;
   text-align: center;
 }
-.button {
+.buttonX {
     padding: 2px;
-    float: left;
-    background-color: #4CAF50; /* Green */
-    border: 2px solid green
+    float: right;
+    border: 2px solid;
 }
 .button:hover {
     background-color: #3e8e41;
