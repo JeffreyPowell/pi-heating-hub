@@ -5,7 +5,7 @@
 <style>
 .error {color: #FF0000;}
 .tab {font-family: arial; color: blue; font-size: xx-large;}
-table, th, td { border: 6px solid #808080; }
+<!--table, th, td { border: 6px solid #808080; }-->
 table {
     width: 100%;
 }
@@ -13,13 +13,14 @@ table {
 th {
     height: 60px;
     padding: 15px;
-    background-color: #4CAF50;
+    background-color: #8080800;
     color: white;
 }
 td {
     height: 50px;
     text-align: left;
     padding: 15px;
+    background-color: #606060
     color: #808080;
 }
 .tabheadtxt {font-family: arial; color: blue; font-size: xx-large;}
