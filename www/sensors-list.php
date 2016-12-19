@@ -54,19 +54,19 @@ if (mysqli_num_rows($result) > 0) {
     echo '<td>';
     $span = "-24h";
     create_graph( $rrd_dir.$id.".rrd", $img_dir.$id.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "120", "500");
-    echo "<img src='".$rrd_dir.$id.$span.".png' alt='RRD image'>";
+    echo "<img src='".$img_dir.$id.$span.".png' alt='RRD image'>";
     echo '</td>';
       
     echo '<td>';
     $span = "-7d";
     create_graph( $rrd_dir.$row["id"].".rrd", $img_dir.$id.$span.".png", 	$span, 	$row["name"]." last 7 days",	 	   "120", "300");
-    echo "<img src='".$rrd_dir.$id.$span.".png' alt='RRD image'>";
+    echo "<img src='".$img_dir.$id.$span.".png' alt='RRD image'>";
     echo '</td>';
   
     echo '<td>';
     $span = "-90d";
     create_graph( $rrd_dir.$id.".rrd", $img_dir.$id.$span.".png", 	$span, 	$row["name"]." last 3 months",	 	   "120", "200");
-    echo "<img src='".$rrd_dir.$id.$span.".png' alt='RRD image'>";
+    echo "<img src='".$img_dir.$id.$span.".png' alt='RRD image'>";
     echo '</td>';
       
     echo '</tr>';
