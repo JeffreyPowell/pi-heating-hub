@@ -42,7 +42,11 @@ td {
 }
 .button {
     float: left;
+    background-color: #4CAF50; /* Green */
     border: 1px solid green
+}
+.button:hover {
+    background-color: #3e8e41;
 }
 .tabheadtxt {font-family: arial; color: blue; font-size: xx-large;}
 .tabbodytxt {font-family: arial; color: #808080; font-size: large;}
