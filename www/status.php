@@ -23,6 +23,8 @@ $SENSOR_ID = isset($_GET['sid']) ? $_GET['sid'] : '1';
 $GRAPH_ID = isset($_GET['gid']) ? $_GET['gid'] : '1';
 $GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-1h';
 
+$img_dir = 'images/chart-status-';
+$rrd_dir = '/home/pi/pi-heating-hub/data/s-';
     
 if ( $SENSOR_ID < 1 ) { $SENSOR_ID = 1; }
     
