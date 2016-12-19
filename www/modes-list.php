@@ -13,14 +13,14 @@ table {
 th {
     height: 60px;
     padding: 15px;
-    background-color: #808080;
+    background-color: #404040;
     color: white;
 }
 td {
     height: 50px;
     text-align: left;
     padding: 15px;
-    background-color: #606060;
+    background-color: #202020;
     color: #808080;
 }
 .col-1 {
