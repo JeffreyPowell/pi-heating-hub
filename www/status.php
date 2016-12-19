@@ -106,6 +106,46 @@ echo "</table>";
     
     
 mysqli_close($conn);
+    
+function create_graph($rrdfile, $output, $start, $title, $height, $width) {
+    
+  $options = array(
+    "--slope-mode",
+    "--start", $start,
+    "--title=$title",
+    "--vertical-label=Temperature",
+    "--lower=0",
+    "--height=$height",
+    "--width=$width",
+    "-cBACK#161616",
+    "-cCANVAS#1e1e1e",
+    "-cSHADEA#000000",
+    "-cSHADEB#000000",
+    "-cFONT#c7c7c7",
+    "-cGRID#888800",
+    "-cMGRID#ffffff",
+    "-nTITLE:10",
+    "-nAXIS:12",
+    "-nUNIT:10",
+    "-y 1:5",
+    "-cFRAME#ffffff",
+    "-cARROW#000000",
+    "DEF:callmax=$rrdfile:data:MAX",
+    "CDEF:transcalldatamax=callmax,1,*",
+    "AREA:transcalldatamax#a0b84240",
+    "LINE4:transcalldatamax#a0b842",
+#    "LINE4:transcalldatamax#a0b842:Calls",
+#    "COMMENT:\\n",
+#    "GPRINT:transcalldatamax:LAST:Calls Now %6.2lf",
+#    "GPRINT:transcalldatamax:MAX:Data %6.2lf"
+    "COMMENT:\\n"
+  );
+ $ret = rrd_graph( $output, $options );
+  if (! $ret) {
+    echo "<b>Graph error: </b>".rrd_error()."\n";
+  }
+}
+    
 ?>
 
 </body>
