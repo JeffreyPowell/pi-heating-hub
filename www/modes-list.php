@@ -5,7 +5,7 @@
 <style>
 .error {color: #FF0000;}
 .tab {font-family: arial; color: blue; font-size: xx-large;}
-<!--table, th, td { border: 6px solid #808080; }-->
+
 table {
     width: 100%;
 }
@@ -22,6 +22,18 @@ td {
     padding: 15px;
     background-color: #606060
     color: #808080;
+}
+.col-1 {
+  width: 50%;
+}
+.col-2 {
+  width: 50%;
+}
+.col-3 {
+  width: 5%;
+}
+.col-but {
+  width: 5%;
 }
 .tabheadtxt {font-family: arial; color: blue; font-size: xx-large;}
 .tabbodytxt {font-family: arial; color: #808080; font-size: large;}
@@ -56,9 +68,9 @@ if (mysqli_num_rows($result) > 0) {
   echo '<table>';
 
   #echo '<th>ID</th>';
-  echo '<th>NAME</th>';
-  echo '<th>VALUE</th>';
-  echo '<th></th><th></th>';
+  echo "<th class='col-1'>NAME</th>";
+  echo "<th class='col-1'>VALUE</th>";
+  echo "<th class='col-but'></th><th class='col-but'></th>";
     
   while($row = mysqli_fetch_assoc($result)) {
       
