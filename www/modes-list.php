@@ -11,16 +11,14 @@ table {
 }
 
 th {
-    height: 60px;
     padding: 15px;
-    background-color: #404040;
+    background-color: #202020;
     color: white;
 }
 td {
-    height: 50px;
     text-align: left;
-    padding: 15px;
-    background-color: #202020;
+    padding: 10px;
+    background-color: #101010;
     color: #808080;
 }
 .col-1 {
@@ -28,6 +26,7 @@ td {
 }
 .col-2 {
   width: 50%;
+  text-align: center;
 }
 .col-3 {
   width: 5%;
