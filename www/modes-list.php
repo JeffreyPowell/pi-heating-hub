@@ -24,6 +24,9 @@ td {
 .col-1 {
   width: 50%;
 }
+.col-1-txt {
+  font-family: arial; color: blue; font-size: xx-large;
+}
 .col-2 {
   width: 50%;
   text-align: center;
@@ -84,7 +87,7 @@ if (mysqli_num_rows($result) > 0) {
     #echo $id;
     #echo '</td>';
     
-    echo '<td>';
+    echo "<td class='col-1-txt'>";
     echo $name;
     echo '</td>';
 
