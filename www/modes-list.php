@@ -42,13 +42,14 @@ td {
   width: 5%;
   text-align: center;
 }
-.buttonX {
+.button {
     padding: 10px;
     float: right;
     border: 2px solid;
+    border-radius: 4px;
 }
 .button:hover {
-    background-color: #3e8e41;
+    background-color: #808080;
 }
 </style>
 </head><body bgcolor='#080808'>
@@ -105,12 +106,12 @@ if (mysqli_num_rows($result) > 0) {
 
     echo '<td>';
     echo "<form method='post' action='/modes-edit.php?id=".$id."'>";
-    echo "<input type='submit' name='edit' value='Edit'></form>";
+    echo "<input type='submit' class='button' name='edit' value='Edit'></form>";
     echo '</td>';
   
     echo '<td>';
     echo "<form method='post' action='/modes-delete.php?id=".$id."'>";
-    echo "<input type='submit' name='delete' value='Delete'></form>";
+    echo "<input type='submit' class='button' name='delete' value='Delete'></form>";
     echo '</td>';
       
     echo '</tr>';
@@ -122,7 +123,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
 
 <form method='post' action='mode-new.php'>
-<input type='submit' class='buttonX' name='add' value='Add new'>
+<input type='submit' class='button' name='add' value='Add new'>
 </form>
     
 </font>
