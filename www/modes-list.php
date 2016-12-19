@@ -21,17 +21,19 @@ td {
 }
 .col-1 {
   width: 50%;
-  text-align: left;
+  text-align: center;
 }
 .col-1-txt {
   font-family: arial; color: #808080; font-size: large;
+  text-align: left;
 }
 .col-2 {
   width: 50%;
+  text-align: center;
 }
 .col-2-txt {
   font-family: arial; color: #808080; font-size: x-large;
-  text-align: right;
+  text-align: center;
 }
 .col-3 {
   width: 5%;
