@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
     $id = $row["id"];
     $name = $row["name"];
       
-    $img_dir = '/var/www/pi-heating-hub/images/chart-sensor-';
+    $img_dir = 'images/chart-sensor-';
     $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
 
     echo '<tr>';
