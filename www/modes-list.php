@@ -120,7 +120,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
 
 <form method='post' action='mode-new.php'>
-<input type='submit' name='add' value='Add new'>
+<input type='submit' class='button' name='add' value='Add new'>
 </form>
     
 </font>
