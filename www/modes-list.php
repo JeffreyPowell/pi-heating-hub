@@ -2,6 +2,31 @@
 
 <html><head>
 <meta http-equiv="refresh" content="30">
+<style>
+.error {color: #FF0000;}
+.tab {font-family: arial; color: blue; font-size: xx-large;}
+table, th, td { border: 6px solid #808080; }
+table {
+    width: 100%;
+}
+
+th {
+    height: 60px;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+}
+td {
+    height: 50px;
+    text-align: left;
+    padding: 15px;
+    color: #808080;
+}
+.tabheadtxt {font-family: arial; color: blue; font-size: xx-large;}
+.tabbodytxt {font-family: arial; color: #808080; font-size: large;}
+.ccoldowun {font-family: courier; color: #808080; font-size: large;}
+.ccoldowse {font-family: courier; color: #808080; font-size: large;}
+</style>
 </head><body bgcolor='#080808'>
 <font color='#808080' size ='4' face='verdana'>
     
