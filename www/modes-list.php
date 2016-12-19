@@ -9,9 +9,8 @@
 table {
     width: 80%;
 }
-
 th {
-    padding: 10px;
+    padding: 12px;
     background-color: #202020;
     font-family: arial; color: blue; font-size: xx-large;
 }
@@ -30,6 +29,9 @@ td {
 .col-2 {
   width: 50%;
   text-align: center;
+}
+.col-2-txt {
+  font-family: arial; color: #808080; font-size: x-large;
 }
 .col-3 {
   width: 5%;
@@ -91,7 +93,7 @@ if (mysqli_num_rows($result) > 0) {
     echo $name;
     echo '</td>';
 
-    echo '<td>';
+    echo "<td class='col-2-txt'>";
     echo $value;
     echo '</td>';
 
