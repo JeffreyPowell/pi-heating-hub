@@ -7,20 +7,20 @@
 .tab {font-family: arial; color: blue; font-size: xx-large;}
 
 table {
-    width: 100%;
+    width: 80%;
 }
 
 th {
     height: 60px;
     padding: 15px;
-    background-color: #8080800;
+    background-color: #808080;
     color: white;
 }
 td {
     height: 50px;
     text-align: left;
     padding: 15px;
-    background-color: #606060
+    background-color: #606060;
     color: #808080;
 }
 .col-1 {
@@ -34,6 +34,7 @@ td {
 }
 .col-but {
   width: 5%;
+  text-align: center;
 }
 .tabheadtxt {font-family: arial; color: blue; font-size: xx-large;}
 .tabbodytxt {font-family: arial; color: #808080; font-size: large;}
