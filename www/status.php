@@ -124,7 +124,7 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
     "--start", $start,
     "--title=$title",
     "--vertical-label=Temperature",
-    "--lower=0",
+#    "--lower=0",
     "--height=$height",
     "--width=$width",
     "-cBACK#161616",
