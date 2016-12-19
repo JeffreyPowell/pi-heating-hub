@@ -15,23 +15,23 @@ th {
     font-family: arial; color: blue; font-size: xx-large;
 }
 td {
-    text-align: left;
     padding: 10px;
     background-color: #101010;
     color: #808080;
 }
 .col-1 {
   width: 50%;
+  text-align: left;
 }
 .col-1-txt {
   font-family: arial; color: #808080; font-size: large;
 }
 .col-2 {
   width: 50%;
-  text-align: right;
 }
 .col-2-txt {
   font-family: arial; color: #808080; font-size: x-large;
+  text-align: right;
 }
 .col-3 {
   width: 5%;
