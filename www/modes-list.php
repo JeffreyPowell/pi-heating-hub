@@ -69,7 +69,7 @@ if (mysqli_num_rows($result) > 0) {
 
   #echo '<th>ID</th>';
   echo "<th class='col-1'>NAME</th>";
-  echo "<th class='col-1'>VALUE</th>";
+  echo "<th class='col-2'>VALUE</th>";
   echo "<th class='col-but'></th><th class='col-but'></th>";
     
   while($row = mysqli_fetch_assoc($result)) {
