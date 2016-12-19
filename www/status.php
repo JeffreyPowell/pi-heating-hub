@@ -66,7 +66,7 @@ echo '<br><br>';
 echo "<table width='100%' border='1'>";
 echo "<tr>";
 
-echo "<td width=30%>";
+echo "<td width=33%>";
     
 echo '<form id="formFlags" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
@@ -80,7 +80,7 @@ echo '</form>';
 echo "</td>";
 
     
-echo "<td width=30%>";
+echo "<td width=33%>";
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 
 echo "<span class='sensorvalue'>"; 
@@ -92,7 +92,7 @@ echo "</span>";
     
 echo "</td>";
 
-echo "<td width=30%>";
+echo "<td width=33%>";
     
 echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
