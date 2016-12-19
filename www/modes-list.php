@@ -43,7 +43,7 @@ td {
   text-align: center;
 }
 .buttonX {
-    padding: 2px;
+    padding: 5px;
     float: right;
     border: 2px solid;
 }
