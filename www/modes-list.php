@@ -7,7 +7,7 @@
 .tab {font-family: arial; color: blue; font-size: xx-large;}
 
 table {
-    width: 80%;
+    width: 100%;
 }
 th {
     padding: 12px;
@@ -43,17 +43,14 @@ td {
   text-align: center;
 }
 .button {
+    padding: 2px;
     float: left;
     background-color: #4CAF50; /* Green */
-    border: 1px solid green
+    border: 2px solid green
 }
 .button:hover {
     background-color: #3e8e41;
 }
-.tabheadtxt {font-family: arial; color: blue; font-size: xx-large;}
-.tabbodytxt {font-family: arial; color: #808080; font-size: large;}
-.ccoldowun {font-family: courier; color: #808080; font-size: large;}
-.ccoldowse {font-family: courier; color: #808080; font-size: large;}
 </style>
 </head><body bgcolor='#080808'>
 <font color='#808080' size ='4' face='verdana'>
@@ -126,7 +123,7 @@ if (mysqli_num_rows($result) > 0) {
 ?>
 
 <form method='post' action='mode-new.php'>
-<input type='submit' class='button' name='add' value='Add new'>
+<input type='submit' class='buttonX' name='add' value='Add new'>
 </form>
     
 </font>
