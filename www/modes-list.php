@@ -28,7 +28,7 @@ td {
 }
 .col-2 {
   width: 50%;
-  text-align: center;
+  text-align: right;
 }
 .col-2-txt {
   font-family: arial; color: #808080; font-size: x-large;
