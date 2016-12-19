@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-.sensorvalue {font-family: courier; color: green; font-size:120px;}
+.sensorvalue {font-family: courier; color: green; font-size:300px;}
 .sensorname {font-family: courier; color: green; font-size:40px;}
 .fixedsmall {font-family: courier; color: black; font-size: xx-small;}
 </style>
