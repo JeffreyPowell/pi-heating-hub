@@ -40,6 +40,10 @@ td {
   width: 5%;
   text-align: center;
 }
+.button {
+    float: left;
+    border: 1px solid green
+}
 .tabheadtxt {font-family: arial; color: blue; font-size: xx-large;}
 .tabbodytxt {font-family: arial; color: #808080; font-size: large;}
 .ccoldowun {font-family: courier; color: #808080; font-size: large;}
