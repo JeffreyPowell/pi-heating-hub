@@ -3,6 +3,7 @@
 <head>
 <style>
 .sensorvalue {font-family: courier; color: green; font-size:300px;}
+.sensorvaluedec {font-family: courier; color: green; font-size:100px;}
 .sensorname {font-family: courier; color: green; font-size:40px;}
 .fixedsmall {font-family: courier; color: black; font-size: xx-small;}
 </style>
@@ -82,7 +83,10 @@ echo "<td width=30%>";
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 
 echo "<span class='sensorvalue'>"; 
-echo sprintf('%2.1f', $SENSOR_VALUE);
+echo substr(sprintf('%2.1f', $SENSOR_VALUE),2);
+echo "</span>";
+echo "<span class='sensorvaluedec'>"; 
+echo substr(sprintf('%2.1f', $SENSOR_VALUE),-2);
 echo "</span>";
     
 echo "</td>";
