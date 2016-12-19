@@ -107,7 +107,7 @@ echo "</table>";
     
 echo '<td>';
 $span = "-24h";
-create_graph( $rrd_dir.$id.".rrd", $img_dir.$GRAPH_ID.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "120", "500");
+create_graph( $rrd_dir.$GRAPH_I.".rrd", $img_dir.$GRAPH_ID.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "200", "800");
 echo "<img src='".$img_dir.$GRAPH_ID.$span.".png' alt='RRD image'>";  
     
 mysqli_close($conn);
