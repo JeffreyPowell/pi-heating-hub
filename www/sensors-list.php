@@ -44,12 +44,14 @@ if (mysqli_num_rows($result) > 0) {
     echo '<tr>';
       
     echo '<td>';
-    echo "<form method='get' action='/sensor-edit.php?id=".$id."'>";
+    echo "<form method='get' action='sensor-edit.php?id=".$id."'>";
     echo "<input type='submit' name='edit' value='Edit'></form>";
     echo '</td>';
 
-    echo "<form method='get action='/sensor-delete.php?id=".$id."'>";
+    echo '<td>';
+    echo "<form method='get action='sensor-delete.php?id=".$id."'>";
     echo "<input type='submit' name='delete' value='Delete'></form>";
+    echo '</td>';
       
     echo '<td>';
     $span = "-24h";
