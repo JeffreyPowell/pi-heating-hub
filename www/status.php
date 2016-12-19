@@ -20,8 +20,9 @@ $password = "password";
 $dbname = "pi_heating_db";
     
 $SENSOR_ID = isset($_GET['sid']) ? $_GET['sid'] : '1';
-$GRAPH_ID = $_GET['gid'];
-$GRAPH_SP = $_GET['gsp'];
+$GRAPH_ID = isset($_GET['gid']) ? $_GET['gid'] : '1';
+$GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-1h';
+
     
 if ( $SENSOR_ID < 1 ) { $SENSOR_ID = 1; }
     
@@ -78,12 +79,8 @@ echo "</td>";
 echo "<td width=30%>";
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 
-echo "<span class='sensorvalue'>";
-   
-printf('%2.1f', $SENSOR_VALUE);
-echo "<BR>XX<BR>";  
+echo "<span class='sensorvalue'>"; 
 echo sprintf('%2.1f', $SENSOR_VALUE);
-    
 echo "</span>";
     
 echo "</td>";
@@ -104,8 +101,6 @@ echo "</td>";
 
 echo "</tr>";
     
-echo "<tr><td width=30%>4</td><td width=30%>5</td><td width=30%>6</td></tr>";
-echo "<tr><td width=30%>7</td><td width=30%>8</td><td width=30%>9</td></tr>";
 echo "</table>";
     
     
