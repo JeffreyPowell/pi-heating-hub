@@ -111,10 +111,20 @@ echo "</tr>";
 echo "</table>";
     
 echo '<td>';
-$span = "-24h";
+
+echo "<table width='100%' border='1'>";
+echo "<tr>";
+
+echo "<td width=33%>";
+echo "</td>";
+
+echo "<td width=66%>";
+    
 create_graph( $rrd_dir.$GRAPH_ID.".rrd", $img_dir.$GRAPH_ID.$GRAPH_SP.".png", 	$GRAPH_SP, 	$row["name"],	 	   "200", "800");
 echo "<img src='".$img_dir.$GRAPH_ID.$GRAPH_SP.".png' alt='RRD image'>";  
     
+echo "</td></tr>";
+echo "</table>";
 mysqli_close($conn);
     
 function create_graph($rrdfile, $output, $start, $title, $height, $width) {
