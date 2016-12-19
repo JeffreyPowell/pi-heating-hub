@@ -11,9 +11,9 @@ table {
 }
 
 th {
-    padding: 15px;
+    padding: 10px;
     background-color: #202020;
-    color: white;
+    font-family: arial; color: blue; font-size: xx-large;
 }
 td {
     text-align: left;
@@ -25,7 +25,7 @@ td {
   width: 50%;
 }
 .col-1-txt {
-  font-family: arial; color: blue; font-size: xx-large;
+  font-family: arial; color: #808080; font-size: large;
 }
 .col-2 {
   width: 50%;
