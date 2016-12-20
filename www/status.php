@@ -79,30 +79,12 @@ echo "<td width=33%>";
 
 
 while($row = mysqli_fetch_assoc($result_modes)) {
-    echo ''.$row["name"].'';
-    $MODE_OPP = $row["opp"];
-    if ( $MODE_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    if ( $MODE_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
-    if ( $MODE_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
-    if ( $MODE_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
-    if ( $MODE_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
-    echo '<select name="mode_opp">';
-    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
-    echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
-    echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
-    echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
-    echo '</select>';
+    $MODE_NAME = $row["name"];
     $MODE_VALUE = $row["value"];
-    if ( $MODE_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    if ( $MODE_VALUE == "0" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
-    if ( $MODE_VALUE == "1" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
-    
-    echo '<select name="mode_value">';
-    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    echo '<option value="true" '.$T_SELECTED.' >ON</option>';
-    echo '<option value="false" '.$F_SELECTED.' >OFF</option>';;
-    echo '</select>';
+    echo $MODE_NAME;
+    echo $MODE_VALUE;
+
+
     
     }
 
