@@ -35,11 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
     header('Location: /sched-list.php');
     exit();
     }
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
+*/
+    
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     print_r("<pre><BR>------------------------<BR>");
     print_r($_POST);
     print_r("<BR>------------------------<BR></pre>");
-*/        
+    }
+        
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -87,7 +90,7 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     echo $MODE_VALUE;
     echo "<br>";
     echo "<form method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
-    echo "<input type='submit' class='button' name='modeedit' value='Mode Edit'></form>";
+    echo "<input type='submit' class='button' name='enablemode' value='Enable ".$MODE_NAME."'></form>";
     }
 
 
