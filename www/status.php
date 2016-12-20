@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         }
         if ( $POST_TYPE == 'timer' ) {
             if ( $POST_ACTION == 'start' ) { 
-                $sql = "UPDATE timers SET value = '1', start = NOW() WHERE id = '".$POST_TARGET."';";
+                $sql = "UPDATE timers SET value = duration, start = NOW() WHERE id = '".$POST_TARGET."';";
             } else {
                 $sql = "UPDATE timers SET value = '0', start =NULL WHERE id = '".$POST_TARGET."';";
             }
@@ -181,7 +181,7 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     if ( $TIMER_VALUE =='0' ) {
         echo "<input type='submit' class='button' name='start-timer-".$TIMER_ID."' value='Start ".$TIMER_NAME." timer'>";
     }else{
-        echo "<input type='submit' class='button' name='stop-timer-".$TIMER_ID."' value='Stop ".$TIMER_NAME." timer'>";
+        echo "<input type='submit' class='button' name='stop-timer-".$TIMER_ID."' value='Stop ".$TIMER_NAME." timer [ ".$TIMER_VALUE." min ]'>";
     }
  #   echo "</form>";
     }
