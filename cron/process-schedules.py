@@ -49,14 +49,14 @@ for result in results_schedules:
   SCHED_START_MINUTE = str(SCHED_START.seconds//60)
   
   timeA = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
-  #timeB = datetime.datetime.strptime(str(SCHED_START.seconds//3600)+":"+str(SCHED_START.seconds//60), "%H:%M")
+  timeB = datetime.datetime.strptime(SCHED_START_HOUR+":"+sSCHED_START_MINUTE, "%H:%M")
   #newTime = timeA - timeB
 
 
   print( timeA )
   #print( timeB )
 
-# Check sensor values
+# Check senso values
 
 # Check modes
 
