@@ -11,7 +11,9 @@ password = "password"
 dbname = "pi_heating_db"
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
-cursorupdate = cnx.cursor()
+
+
+cursorselect = cnx.cursor()
 
 # Check schedule time and date
 
