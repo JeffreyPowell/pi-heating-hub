@@ -36,6 +36,7 @@ for result in results_schedules:
   SCHED_SAT = result[8]
   SCHED_SUN = result[9]
 
+  print( SCHED_ID )
 
 # Check sensor values
 
