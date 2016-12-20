@@ -39,16 +39,18 @@ for result in results_schedules:
   SCHED_SAT = result[9]
   SCHED_SUN = result[10]
   
-  #timeA = datetime.datetime.strptime(now, "%H:%M")
-  timeB = datetime.datetime.strptime(SCHED_START, "%H:%M")
-  #newTime = timeA - timeB
-
   print( SCHED_ID )
   print( now )
   print( SCHED_START )
   print( SCHED_END )
+  
+  #timeA = datetime.datetime.strptime(now, "%H:%M")
+  timeB = datetime.datetime.strptime(SCHED_START, "%H:%M")
+  #newTime = timeA - timeB
+
+
   print( timeB )
-  print( newTime )
+  #print( newTime )
 
 # Check sensor values
 
