@@ -47,30 +47,32 @@ if (!$conn) {
     die("<br><br>Connection failed: " . mysqli_connect_error());
     }
 
-    
-$sql = "SELECT * from sensors WHERE id = '".$SENSOR_ID."';";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) == 0) {
-    echo "devices 0 results"; 
+$sql_modes = "SELECT * FROM modes;";
+$result_modes = mysqli_query($conn, $sql_modes);
+if (mysqli_num_rows($result_modes) == 0) {
+    echo "0 modes results"; 
     }
-  
-while($row = mysqli_fetch_assoc($result)) {
-    $SENSOR_NAME =  $row["name"];
-    $SENSOR_VALUE = $row["value"];
+
+$sql_sensor = "SELECT * from sensors WHERE id = '".$SENSOR_ID."';";
+$result_sensor = mysqli_query($conn, $sql_sensor);
+if (mysqli_num_rows($result_sensor) == 0) {
+    echo "0 sensors results"; 
+    }
+
+$sql_timers = "SELECT * FROM timers;";
+$result_timers = mysqli_query($conn, $sql_timers);
+if (mysqli_num_rows($result_timers) == 0) {
+    echo "0 timers results"; 
     }
 
 
-$sql = "SELECT * FROM modes;";
-$result_modes = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) == 0) {
-        echo "sensors 0 results"; 
-    }
 
-    
+
+
 echo '<br><br>';
-    
-    
-  
+
+
+
 echo "<table width='100%' border='1'>";
 echo "<tr>";
 
@@ -92,6 +94,12 @@ echo "</td>";
 
     
 echo "<td width=33%>";
+    
+while($row = mysqli_fetch_assoc($result_sensor)) {
+    $SENSOR_NAME =  $row["name"];
+    $SENSOR_VALUE = $row["value"];
+    }
+    
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 
 echo "<span class='sensorvalue'>"; 
@@ -107,11 +115,14 @@ echo "<td width=33%>";
     
 echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
-echo '<input type ="checkbox" name="cBox[]" value = "3" onchange="document.getElementById("formTimers").submit()">3</input>';
-echo '<input type ="checkbox" name="cBox[]" value = "4" onchange="document.getElementById("formTimers").submit()">4</input>';
-echo '<input type ="checkbox" name="cBox[]" value = "5" onchange="document.getElementById("formTimers").submit()">5</input>';
+while($row = mysqli_fetch_assoc($result_timers)) {
+    $TIMER_NAME = $row["name"];
+    $TIMER_VALUE = $row["value"];
+    echo $TIMER_NAME;
+    echo $TIMER_VALUE;
+    echo "<br>";
 
-echo '<input type="submit" name="submit" value="Search" />';
+    }
 
 echo '</form>';
 
