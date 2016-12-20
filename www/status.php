@@ -170,7 +170,7 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     $TIMER_NAME = $row["name"];
     $TIMER_VALUE = $row["value"];
     echo $TIMER_ID;
-    echo $TIMER_NAME 
+    echo $TIMER_NAME;
     echo $TIMER_VALUE;
     
     echo "<br>";
