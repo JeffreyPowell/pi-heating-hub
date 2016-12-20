@@ -4,11 +4,14 @@ import MySQLdb
 #import datetime
 #import urllib2
 #import os
+import datetime
   
 servername = "localhost"
 username = "pi"
 password = "password"
 dbname = "pi_heating_db"
+
+now = datetime.datetime.now()
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 
@@ -37,6 +40,9 @@ for result in results_schedules:
   SCHED_SUN = result[9]
 
   print( SCHED_ID )
+  print( now )
+  print( SCHED_START )
+  print( SCHED_END ) 
 
 # Check sensor values
 
