@@ -17,7 +17,7 @@ cursorselect = cnx.cursor()
 
 # Check schedule time and date
 
-query = ("SELECT * FROM schedulecursorupdate.close()s WHERE enabled ='1';")
+query = ("SELECT * FROM schedules WHERE enabled ='1';")
 cursorselect.execute(query)
   
 results_schedules =cursorselect.fetchall()
