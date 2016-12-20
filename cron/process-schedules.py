@@ -11,7 +11,7 @@ username = "pi"
 password = "password"
 dbname = "pi_heating_db"
 
-now = datetime.datetime.now().timestamp()
+now = datetime.datetime.now()
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 
