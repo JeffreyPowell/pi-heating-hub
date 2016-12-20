@@ -43,7 +43,7 @@ for result in results_schedules:
   print( now )
   print( SCHED_START )
   print( SCHED_END )
-  print( type(SCHED_END) )
+  #print( type(SCHED_END) )
   
   SCHED_START_HOUR = str(SCHED_START.seconds//3600)
   SCHED_START_MINUTE = str(SCHED_START.seconds//60)
