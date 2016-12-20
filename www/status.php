@@ -57,6 +57,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     
     foreach( $POST_KEYS as $POST_KEY ) { 
         echo $POST_KEY."<BR>";
+        $POST_ACTION = expolde( '-', $POST_KEY )[0];
+        $POST_TYPE = expolde( '-', $POST_KEY )[1];
+        $POST_TARGET = expolde( '-', $POST_KEY )[2];
+        echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
         }
     
     
@@ -127,8 +131,8 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     #echo $MODE_VALUE;
     echo "<br>";
     echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
-    echo "<input type='submit' class='button' name='mode-enable-".$MODE_ID."' value='Enable ".$MODE_NAME." mode'>";
-    echo "<input type='submit' class='button' name='mode-disable-".$MODE_ID."' value='Disable ".$MODE_NAME." mode'>";
+    echo "<input type='submit' class='button' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode'>";
+    echo "<input type='submit' class='button' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode'>";
     echo "</form>";
     }
 
