@@ -29,6 +29,17 @@ $img_dir = 'images/chart-status-';
 $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
     
 if ( $SENSOR_ID < 1 ) { $SENSOR_ID = 1; }
+
+    
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("<br><br>Connection failed: " . mysqli_connect_error());
+    }
+
+    
+    
     
 /*    
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
@@ -66,12 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     
     
     
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("<br><br>Connection failed: " . mysqli_connect_error());
-    }
 
 $sql_modes = "SELECT * FROM modes;";
 $result_modes = mysqli_query($conn, $sql_modes);
