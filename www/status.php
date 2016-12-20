@@ -57,9 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     
     foreach( $POST_KEYS as $POST_KEY ) { 
         echo $POST_KEY."<BR>";
-        $POST_ACTION = expolde( '-', $POST_KEY )[0];
-        $POST_TYPE = expolde( '-', $POST_KEY )[1];
-        $POST_TARGET = expolde( '-', $POST_KEY )[2];
+        $POST_ACTION = explode( '-', $POST_KEY )[0];
+        $POST_TYPE = explode( '-', $POST_KEY )[1];
+        $POST_TARGET = explode( '-', $POST_KEY )[2];
         echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
         }
     
