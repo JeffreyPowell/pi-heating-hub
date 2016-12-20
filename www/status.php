@@ -86,7 +86,7 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     echo $MODE_NAME;
     echo $MODE_VALUE;
     echo "<br>";
-    echo "<form method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SPAN."'>";
+    echo "<form method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     echo "<input type='submit' class='button' name='modeedit' value='Mode Edit'></form>";
     }
 
