@@ -6,7 +6,7 @@
 .sensorvalue {font-family: courier; color: green; font-size:300px;}
 .sensorvaluedec {font-family: courier; color: green; font-size:100px;}
 .sensorname {font-family: courier; color: green; font-size:40px;}
-.fixedsmall {font-family: courier; color: black; font-size: xx-small}
+.fixedsmall {font-family: courier; color: black; font-size: small}
 </style>
 </head>
 <body class='fixedsmall'>  
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     print_r($_POST);
     print_r("<BR>------------------------<BR></pre>");
     
-    $POST_KEYS = array_keys($_POST[""]);
+    $POST_KEYS = array_keys($_POST);
     
     foreach( $POST_KEYS as $POST_KEY ) { 
         echo $POST_KEY."<BR>";
