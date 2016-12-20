@@ -83,9 +83,8 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     $MODE_VALUE = $row["value"];
     echo $MODE_NAME;
     echo $MODE_VALUE;
+    echo "<br>";
 
-
-    
     }
 
 
