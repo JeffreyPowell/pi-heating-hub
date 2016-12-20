@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             echo $sql;
           #  if (!mysqli_query($conn, $sql)) {
           #      echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
+          #  }
         }
     }
     
