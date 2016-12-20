@@ -44,7 +44,7 @@ for result in results_schedules:
   print( SCHED_START )
   print( SCHED_END )
   
-  timeA = datetime.datetime.strptime(now.hour+":"+now.minute, "%H:%M")
+  timeA = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
   #timeB = datetime.datetime.strptime(SCHED_START.hour+":"+SCHED_START.minute, "%H:%M")
   #newTime = timeA - timeB
 
