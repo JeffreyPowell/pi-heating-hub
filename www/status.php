@@ -169,8 +169,10 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     $TIMER_ID = $row["id"];
     $TIMER_NAME = $row["name"];
     $TIMER_VALUE = $row["value"];
-    #echo $MODE_NAME;
-    #echo $MODE_VALUE;
+    echo $TIMER_ID;
+    echo $TIMER_NAME 
+    echo $TIMER_VALUE;
+    
     echo "<br>";
 #    echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     if ( $TIMER_VALUE =='0' ) {
