@@ -70,6 +70,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                 echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
             }
         }
+        if ( $POST_TYPE == 'timer' ) {
+            if ( $POST_ACTION == 'start' ) { 
+                $sql = "UPDATE timers SET value = '1' start = NOW() WHERE id = '".$POST_TARGET."';";
+            } else {
+                $sql = "UPDATE timers SET value = '0' start ='' WHERE id = '".$POST_TARGET."';";
+            }
+            echo $sql;
+            if (!mysqli_query($conn, $sql)) {
+                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+        }  
     }
     
     
@@ -168,9 +179,9 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     echo "<br>";
 #    echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     if ( $TIMER_VALUE =='0' ) {
-        echo "<input type='submit' class='button' name='start-timer-".$TIMER_ID."' value='Enable ".$TIMER_NAME." timer'>";
+        echo "<input type='submit' class='button' name='start-timer-".$TIMER_ID."' value='Start ".$TIMER_NAME." timer'>";
     }else{
-        echo "<input type='submit' class='button' name='stop-timer-".$TIMER_ID."' value='Disable ".$TIMER_NAME." timer'>";
+        echo "<input type='submit' class='button' name='stop-timer-".$TIMER_ID."' value='Stop ".$TIMER_NAME." timer'>";
     }
  #   echo "</form>";
     }
