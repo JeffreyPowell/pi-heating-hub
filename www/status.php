@@ -41,6 +41,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     print_r("<pre><BR>------------------------<BR>");
     print_r($_POST);
     print_r("<BR>------------------------<BR></pre>");
+    
+    if ( isset($_POST["modes"]) ) {        
+        foreach( $_POST["devices"] as $DEVICE_ID ) { 
+            $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
+            if (!mysqli_query($conn, $sql)) {
+                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
         
 // Create connection
@@ -84,13 +104,14 @@ echo "<td width=33%>";
 
 
 while($row = mysqli_fetch_assoc($result_modes)) {
+    $MODE_ID = $row["id"];
     $MODE_NAME = $row["name"];
     $MODE_VALUE = $row["value"];
     echo $MODE_NAME;
     echo $MODE_VALUE;
     echo "<br>";
     echo "<form method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
-    echo "<input type='submit' class='button' name='enablemode' value='Enable ".$MODE_NAME." mode'></form>";
+    echo "<input type='submit' class='button' name='".$MODE_ID."' value='Enable ".$MODE_NAME." mode'></form>";
     }
 
 
