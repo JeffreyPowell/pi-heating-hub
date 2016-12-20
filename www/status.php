@@ -168,9 +168,9 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     echo "<br>";
 #    echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     if ( $TIMER_VALUE =='0' ) {
-        echo "<input type='submit' class='button' name='enable-timer-".$TIMER_ID."' value='Enable ".$TIMER_NAME." mode'>";
+        echo "<input type='submit' class='button' name='start-timer-".$TIMER_ID."' value='Enable ".$TIMER_NAME." timer'>";
     }else{
-        echo "<input type='submit' class='button' name='disable-timer-".$TIMER_ID."' value='Disable ".$TIMER_NAME." mode'>";
+        echo "<input type='submit' class='button' name='stop-timer-".$TIMER_ID."' value='Disable ".$TIMER_NAME." timer'>";
     }
  #   echo "</form>";
     }
