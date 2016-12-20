@@ -155,14 +155,6 @@ echo "<td width=33%>";
     
 echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
-while($row = mysqli_fetch_assoc($result_timers)) {
-    $TIMER_NAME = $row["name"];
-    $TIMER_VALUE = $row["value"];
-    echo $TIMER_NAME;
-    echo $TIMER_VALUE;
-    echo "<br>";
-
-    }
 
     
 while($row = mysqli_fetch_assoc($result_timers)) {
