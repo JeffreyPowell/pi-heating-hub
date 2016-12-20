@@ -45,13 +45,16 @@ for result in results_schedules:
   print( SCHED_END )
   print( type(SCHED_END) )
   
+  SCHED_START_HOUR = str(SCHED_START.seconds//3600)
+  SCHED_START_MINUTE = str(SCHED_START.seconds//60)
+  
   timeA = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
-  timeB = datetime.datetime.strptime(str(SCHED_START.seconds//3600)+":"+str(SCHED_START.seconds//60), "%H:%M")
+  #timeB = datetime.datetime.strptime(str(SCHED_START.seconds//3600)+":"+str(SCHED_START.seconds//60), "%H:%M")
   #newTime = timeA - timeB
 
 
   print( timeA )
-  print( timeB )
+  #print( timeB )
 
 # Check sensor values
 
