@@ -200,7 +200,7 @@ echo "</td>";
 
 echo "<td width=66%>";
     
-create_graph( $rrd_dir.$GRAPH_ID.".rrd", $img_dir.$GRAPH_ID.$GRAPH_SP.".png", 	$GRAPH_SP, 	$row["name"],	 	   "200", "800");
+create_graph( $rrd_dir.$GRAPH_ID.".rrd", $img_dir.$GRAPH_ID.$GRAPH_SP.".png", 	$GRAPH_SP, 	$row["name"],	 	   "180", "700");
 echo "<img src='".$img_dir.$GRAPH_ID.$GRAPH_SP.".png' alt='RRD image'>";  
     
 echo "</td></tr>";
