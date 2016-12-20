@@ -60,7 +60,7 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 
 
-$sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
+$sql = "SELECT * FROM modes;";
 $result_modes = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results"; 
