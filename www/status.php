@@ -64,11 +64,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         
         if ( $POST_TYPE == 'mode' ) {
             if ( $POST_ACTION == 'enable' ) { $VALUE='1';} else {$VALUE='0';}
-            $sql = "UPDATE modes SET value = '".$VALUE."' WHERE id = '".$POST_ACTION."';";
+            $sql = "UPDATE modes SET value = '".$VALUE."' WHERE id = '".$POST_TARGET."';";
             echo $sql;
-          #  if (!mysqli_query($conn, $sql)) {
-          #      echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-          #  }
+            if (!mysqli_query($conn, $sql)) {
+                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
         }
     }
     
@@ -139,8 +139,11 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     #echo $MODE_VALUE;
     echo "<br>";
     echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
-    echo "<input type='submit' class='button' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode'>";
-    echo "<input type='submit' class='button' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode'>";
+    if ( $MODE_VALUE =='0' ) {
+        echo "<input type='submit' class='button' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode'>";
+    }else{
+        echo "<input type='submit' class='button' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode'>";
+    }
     echo "</form>";
     }
 
