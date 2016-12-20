@@ -61,8 +61,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         $POST_TYPE = explode( '-', $POST_KEY )[1];
         $POST_TARGET = explode( '-', $POST_KEY )[2];
         echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
+        
+        if ( $POST_TYPE == 'mode' ) {
+            if ( $POST_ACTION == 'enable' ) { $VALUE='1';} elseif {$VALUE='0';}
+            $sql = "UPDATE modes SET value = '".$VALUE."' WHERE id = '".$POST_ACTION."';";
+            echo $sql;
+          #  if (!mysqli_query($conn, $sql)) {
+          #      echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
         }
-    
+    }
     
     
     if ( isset($_POST["modes"]) ) {        
