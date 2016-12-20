@@ -53,8 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     print_r($_POST);
     print_r("<BR>------------------------<BR></pre>");
     
+    $POST_KEYS = array_keys($_POST[""]);
+    
+    foreach( $POST_KEYS as $POST_KEY ) { 
+        echo $POST_KEY."<BR>";
+        }
+    
+    
+    
     if ( isset($_POST["modes"]) ) {        
-        foreach( $_POST["devices"] as $DEVICE_ID ) { 
+        foreach( $_POST[""] as $DEVICE_ID ) { 
             $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
             if (!mysqli_query($conn, $sql)) {
                 echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
