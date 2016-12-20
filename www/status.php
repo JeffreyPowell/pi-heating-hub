@@ -58,6 +58,14 @@ while($row = mysqli_fetch_assoc($result)) {
     $SENSOR_NAME =  $row["name"];
     $SENSOR_VALUE = $row["value"];
     }
+
+
+$sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
+$result_modes = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) == 0) {
+        echo "sensors 0 results"; 
+    }
+
     
 echo '<br><br>';
     
@@ -68,14 +76,36 @@ echo "<tr>";
 
 echo "<td width=33%>";
     
-echo '<form id="formFlags" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
-echo '<input type ="checkbox" name="cBox[]" value = "3" onchange="this.form.submit();">3</input>';
-echo '<input type ="checkbox" name="cBox[]" value = "4" onchange="document.getElementById(\'formFlags\').submit()">4</input>';
-echo '<input type ="checkbox" name="cBox[]" value = "5" onchange="document.getElementById(\'formFlags\').submit()">5</input>';
-echo '<input type="submit" name="submit" value="Search" />';
 
-echo '</form>';
+while($row = mysqli_fetch_assoc($result_modes)) {
+    echo ''.$row["name"].'';
+    $MODE_OPP = $row["opp"];
+    if ( $MODE_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+    if ( $MODE_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
+    if ( $MODE_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
+    if ( $MODE_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
+    if ( $MODE_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
+    echo '<select name="mode_opp">';
+    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+    echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
+    echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
+    echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
+    echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
+    echo '</select>';
+    $MODE_VALUE = $row["value"];
+    if ( $MODE_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+    if ( $MODE_VALUE == "0" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
+    if ( $MODE_VALUE == "1" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+    
+    echo '<select name="mode_value">';
+    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+    echo '<option value="true" '.$T_SELECTED.' >ON</option>';
+    echo '<option value="false" '.$F_SELECTED.' >OFF</option>';;
+    echo '</select>';
+    
+    }
+
 
 echo "</td>";
 
