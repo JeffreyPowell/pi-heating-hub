@@ -13,8 +13,19 @@ dbname = "pi_heating_db"
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 cursorupdate = cnx.cursor()
 
-query = ("UPDATE `timers` set value = value-1 WHERE value > 0;")
-cursorupdate.execute(query)
+# Check schedule time and date
+
+query = ("SELECT * FROM schedules")
+cursorselect.execute(query)
+
+
+
+# Check sensor values
+
+# Check modes
+
+# Check timers
+
 
 cursorupdate.close()
 cnx.commit()
