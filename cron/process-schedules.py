@@ -11,7 +11,7 @@ username = "pi"
 password = "password"
 dbname = "pi_heating_db"
 
-now = datetime.datetime.now()
+now = datetime.datetime.now().timestamp()
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 
@@ -28,16 +28,16 @@ cursorselect.close()
   
 for result in results_schedules:
   SCHED_ID = result[0]
-  SCHED_START = result[1]
-  SCHED_END = result[2]
+  SCHED_START = result[2]
+  SCHED_END = result[3]
   
-  SCHED_MON = result[3]
-  SCHED_TUE = result[4]
-  SCHED_WED = result[5]
-  SCHED_THU = result[6]
-  SCHED_FRI = result[7]
-  SCHED_SAT = result[8]
-  SCHED_SUN = result[9]
+  SCHED_MON = result[4]
+  SCHED_TUE = result[5]
+  SCHED_WED = result[6]
+  SCHED_THU = result[7]
+  SCHED_FRI = result[8]
+  SCHED_SAT = result[9]
+  SCHED_SUN = result[10]
 
   print( SCHED_ID )
   print( now )
