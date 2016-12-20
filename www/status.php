@@ -73,13 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     }
     
     
-    if ( isset($_POST["modes"]) ) {        
-        foreach( $_POST[""] as $DEVICE_ID ) { 
-            $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
-            if (!mysqli_query($conn, $sql)) {
-                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
-        }
+
     
     
     
@@ -180,6 +174,23 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     echo $TIMER_VALUE;
     echo "<br>";
 
+    }
+
+    
+while($row = mysqli_fetch_assoc($result_timers)) {
+    $TIMER_ID = $row["id"];
+    $TIMER_NAME = $row["name"];
+    $TIMER_VALUE = $row["value"];
+    #echo $MODE_NAME;
+    #echo $MODE_VALUE;
+    echo "<br>";
+#    echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
+    if ( $TIMER_VALUE =='0' ) {
+        echo "<input type='submit' class='button' name='enable-timer-".$TIMER_ID."' value='Enable ".$TIMER_NAME." mode'>";
+    }else{
+        echo "<input type='submit' class='button' name='disable-timer-".$TIMER_ID."' value='Disable ".$TIMER_NAME." mode'>";
+    }
+ #   echo "</form>";
     }
 
 echo '</form>';
