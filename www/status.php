@@ -119,8 +119,8 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     #echo $MODE_VALUE;
     echo "<br>";
     echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
-    echo "<input type='submit' class='button' name='enable-".$MODE_ID."' value='Enable ".$MODE_NAME." mode'>";
-    echo "<input type='submit' class='button' name='disable-".$MODE_ID."' value='Disable ".$MODE_NAME." mode'>";
+    echo "<input type='submit' class='button' name='mode-enable-".$MODE_ID."' value='Enable ".$MODE_NAME." mode'>";
+    echo "<input type='submit' class='button' name='mode-disable-".$MODE_ID."' value='Disable ".$MODE_NAME." mode'>";
     echo "</form>";
     }
 
