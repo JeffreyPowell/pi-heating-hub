@@ -98,7 +98,7 @@ for result in results_schedules:
   SCHED_TEST_SENSORS = True
   
   for result in results_sensors:
-    print( result )
+    #print( result )
     SENSOR_VALUE= result[4]
     SENSOR_TEST = result[9]
     TEST_VALUE = result[10]
@@ -117,7 +117,7 @@ for result in results_schedules:
     if TEST == False:
       SCHED_TEST_SENSORS = False
   
-    print( SENSOR_VALUE, SENSOR_TEST, TEST_VALUE, SCHED_TEST_SENSORS )
+    #print( SENSOR_VALUE, SENSOR_TEST, TEST_VALUE, SCHED_TEST_SENSORS )
 
   # Check modes
 
@@ -132,7 +132,7 @@ for result in results_schedules:
   SCHED_TEST_MODES = True
    
   for result in results_modes:
-    print( result )
+    #print( result )
     MODE_VALUE= result[2]
     MODE_TEST = result[6]
     TEST_VALUE = result[7]
@@ -147,7 +147,7 @@ for result in results_schedules:
     if TEST == False:
       SCHED_TEST_MODES = False
   
-    print( MODE_VALUE, MODE_TEST, TEST_VALUE, SCHED_TEST_MODES )  
+    #print( MODE_VALUE, MODE_TEST, TEST_VALUE, SCHED_TEST_MODES )  
  
     # Check timers
   
