@@ -87,8 +87,41 @@ for result in results_schedules:
   else:
     SCHED_TEST_DAY = False
     
-  # Check senso values
+  # Check sensor values
 
+  query = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id="+SCHED_ID+";";
+
+  cursorselect.execute(query)
+  
+  results_sensors =cursorselect.fetchall()
+  cursorselect.close()
+  for result in results_sensors:
+    print( result )
+ 
+
+  
+#******************************************
+
+#while($row = mysqli_fetch_assoc($result)) {
+#    echo '<tr><td>'.$row["name"].'</td>';
+#    $SENSOR_OPP = $row["opp"];
+#    if ( $SENSOR_OPP == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+#    if ( $SENSOR_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
+#    if ( $SENSOR_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
+#    if ( $SENSOR_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
+#    if ( $SENSOR_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
+#    echo '<td><select name="sensor_opp">';
+#    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+#    echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
+#    echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
+#    echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
+#    echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
+#    echo '</select></td>';
+#    echo '<td><input type="text" name="sensor_value" value="'.$row["value"].'"></td></tr>';
+#    }
+#  *****************************************
+  
+  
   # Check modes
 
   # Check timers
