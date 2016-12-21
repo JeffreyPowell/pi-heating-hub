@@ -32,8 +32,8 @@ cursorselect.close()
 for result in results_devices:
     print("* * * * * *")
   
-    DEVICE_PIN = result[2]
-    DEVICE_VALUE = result[3]
+    DEVICE_PIN = int( result[2] )
+    DEVICE_VALUE = int( result[3] )
 
     GPIO.setup(DEVICE_PIN, GPIO.OUT, initial=GPIO.LOW)
     
