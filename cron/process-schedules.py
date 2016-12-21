@@ -63,7 +63,7 @@ for result in results_schedules:
   #print( SCHED_START_STR )
   
   TIME_NOW = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
-  TIME_START = datetime.strptime(SCHED_START_STR, "%H:%M")
+  TIME_START = datetime.datetime.strptime(SCHED_START_STR, "%H:%M")
   TIME_END = datetime.datetime.strptime(SCHED_END_STR, "%H:%M")
   MIN_TO_START = TIME_START - TIME_NOW
   MIN_TO_END   = TIME_END - TIME_NOW
