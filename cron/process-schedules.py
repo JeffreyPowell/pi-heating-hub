@@ -83,8 +83,7 @@ for result in results_schedules:
   if ( MIN_TO_START.total_seconds() > 0 and MIN_TO_END.total_seconds() > 0 ):
     SCHED_TEST_TIME = True
     
-  print( SCHED_TEST_TIME )
-  print( SCHED_TEST_DAY )
+  print( SCHED_TEST_TIME, SCHED_TEST_DAY )
   print( SCHED_TEST_SENSORS )
   print( SCHED_TEST_MODES )
   print( SCHED_TEST_TIMERS )
