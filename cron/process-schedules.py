@@ -170,7 +170,7 @@ for result in results_schedules:
     #TIMER_TEST = result[8]
     TEST_VALUE = result[9]
     
-    if (  TEST_VALUE == '1' and TIMER_VALUE > 0 ):
+    if (  TEST_VALUE == True and TIMER_VALUE > 0 ):
       TEST = True
     else:
       TEST = False
