@@ -58,17 +58,18 @@ for result in results_schedules:
   
   print("---")
   
-  #SCHED_START_STR = str(SCHED_START_HOUR)+":"+str(SCHED_START_MINUTE)
+  SCHED_START_STR = str(SCHED_START_HOUR)+":"+str(SCHED_START_MINUTE)
   
-  #print( SCHED_START_STR )
+  print( SCHED_START_STR )
   
-  #timeA = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
-  #timeB = datetime.datetime.strptime(SCHED_START_STR, "%H:%M")
-  #newTime = timeA - timeB
+  timeA = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
+  timeB = datetime.datetime.strptime(SCHED_START_STR, "%H:%M")
+  newTime = timeA - timeB
 
 
-  #print( timeA )
-  #print( timeB )
+  print( timeA )
+  print( timeB )
+  print( newTime )
 
 # Check senso values
 
