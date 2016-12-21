@@ -34,7 +34,7 @@ for result in results_schedules:
   SCHED_TEST_MODES    = False
   SCHED_TEST_TIMERS   = False
   
-  SCHED_ID = result[0]
+  SCHED_ID = str(result[0])
   SCHED_START = result[2]
   SCHED_END = result[3]
   
