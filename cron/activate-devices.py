@@ -33,15 +33,15 @@ results_devices =cursorselect.fetchall()
 cursorselect.close()
   
 for result in results_devices:
-  print("* * * * * *")
+    print("* * * * * *")
   
-  DEVICE_PIN = result[4]
-  DEVICE_VALUE = result[5]
+    DEVICE_PIN = result[2]
+    DEVICE_VALUE = result[3]
 
   
-  print( DEVICE_PIN, DEVICE_VALUE )
+    print( DEVICE_PIN, DEVICE_VALUE )
 
-  print("- - -")
+    print("- - -")
 
     
 
