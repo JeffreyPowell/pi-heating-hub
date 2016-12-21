@@ -77,7 +77,11 @@ for result in results_schedules:
 
   print( MIN_TO_START )
   print( MIN_TO_END )
-  #print( newTime )
+  
+  if ( MIN_TO_START > 0 and MIN_TO_END > 0 ):
+    SCHED_TEST_TIME = True
+    
+  print( SCHED_TEST_TIME )
 
   # Check senso values
 
