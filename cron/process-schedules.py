@@ -119,7 +119,6 @@ for result in results_schedules:
   
     print( SENSOR_VALUE, SENSOR_TEST, TEST_VALUE, SCHED_TEST_SENSORS )
 
-
   # Check modes
 
   cursorselect = cnx.cursor()
@@ -149,20 +148,36 @@ for result in results_schedules:
       SCHED_TEST_MODES = False
   
     print( MODE_VALUE, MODE_TEST, TEST_VALUE, SCHED_TEST_MODES )  
-  
  
-  
-  
-  
-  
-  
-  
-  
     # Check timers
   
+    cursorselect = cnx.cursor()
+    query = "SELECT * FROM timers JOIN sched_timer ON sched_id=sched_timer.sched_id AND sched_timer.sched_id="+SCHED_ID+";";
+    cursorselect.execute(query)
+    results_timers =cursorselect.fetchall()
+    cursorselect.close()
   
+    print( results_timers )
   
-  
+    SCHED_TEST_TIMERS = True
+   
+    for result in results_timers:
+      print( result )
+      #TIMER_VALUE= result[2]
+      #TIMER_TEST = result[6]
+      #TEST_VALUE = result[7]
+    
+      #if (  MODE_TEST == '=' and MODE_VALUE == TEST_VALUE ):
+      #  TEST = True
+      #elif( MODE_TEST == '!' and MODE_VALUE != TEST_VALUE ):
+      #  TEST = True
+      #else:
+      #  TEST = False
+     # 
+     # if TEST == False:
+     #   SCHED_TEST_MODES = False
+ # 
+ #     print( MODE_VALUE, MODE_TEST, TEST_VALUE, SCHED_TEST_MODES ) 
   
   
   
