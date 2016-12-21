@@ -27,7 +27,7 @@ results_schedules =cursorselect.fetchall()
 cursorselect.close()
   
 for result in results_schedules:
-  print("***")
+  print("* * * * * *")
   SCHED_TEST_TIME     = False
   SCHED_TEST_DAY      = False
   SCHED_TEST_SENSORS  = False
@@ -84,6 +84,10 @@ for result in results_schedules:
     SCHED_TEST_TIME = True
     
   print( SCHED_TEST_TIME )
+  print( SCHED_TEST_DAY )
+  print( SCHED_TEST_SENSORS )
+  print( SCHED_TEST_MODES )
+  print( SCHED_TEST_TIMERS )
 
   # Check senso values
 
