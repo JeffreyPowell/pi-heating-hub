@@ -46,17 +46,17 @@ for result in results_schedules:
   print( SCHED_END )
   #print( type(SCHED_END) )
   
-  print("---")
+  #print("---")
   SCHED_START_HOUR, remainder = divmod(SCHED_START.seconds,3600)
-  print( type(SCHED_START_HOUR))
-  print( SCHED_START_HOUR)
+  #print( type(SCHED_START_HOUR))
+  #print( SCHED_START_HOUR)
         
-  print("---")
+  #print("---")
   SCHED_START_MINUTE, sec = divmod(remainder, 60)
-  print( type(SCHED_START_MINUTE))
-  print( SCHED_START_MINUTE)
+  #print( type(SCHED_START_MINUTE))
+  #print( SCHED_START_MINUTE)
   
-  print("---")
+  #print("---")
   
   SCHED_START_STR = str(SCHED_START_HOUR)+":"+str(SCHED_START_MINUTE)
   
