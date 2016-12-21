@@ -123,7 +123,7 @@ for result in results_schedules:
   # Check modes
 
   cursorselect = cnx.cursor()
-  query = "SELECT * FROM modes JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_sensor.sched_id="+SCHED_ID+";";
+  query = "SELECT * FROM modes JOIN sched_mode ON shed_id=sched_mode.sched_id AND sched_mode.sched_id="+SCHED_ID+";";
   cursorselect.execute(query)
   results_modes =cursorselect.fetchall()
   cursorselect.close()
@@ -135,8 +135,8 @@ for result in results_schedules:
   """  
   for result in results_sensors:
     print( result )
-    SENSOR_VALUE= result[4]
-    SENSOR_TEST = result[9]
+    MODE_VALUE= result[4]
+    MODE_TEST = result[9]
     TEST_VALUE = result[10]
     
     if (  SENSOR_TEST == '<' and SENSOR_VALUE < TEST_VALUE ):
