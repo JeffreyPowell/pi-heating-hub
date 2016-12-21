@@ -46,7 +46,7 @@ for result in results_schedules:
   #print( type(SCHED_END) )
   
   SCHED_START_HOUR, rem = divmod(SCHED_START.seconds,3600)
-  print( trype(SCHED_START_HOUR))
+  print( type(SCHED_START_HOUR))
   print( SCHED_START_HOUR)
         
   SCHED_START_MINUTE, rem = divmod(SCHED_START.seconds, 60)
