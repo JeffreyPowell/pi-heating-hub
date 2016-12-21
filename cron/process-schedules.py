@@ -28,11 +28,11 @@ cursorselect.close()
   
 for result in results_schedules:
   print("***")
-  SCHED_TEST_TIME     = false
-  SCHED_TEST_DAY      = false
-  SCHED_TEST_SENSORS  = false
-  SCHED_TEST_MODES    = false
-  SCHED_TEST_TIMERS   = false
+  SCHED_TEST_TIME     = False
+  SCHED_TEST_DAY      = False
+  SCHED_TEST_SENSORS  = False
+  SCHED_TEST_MODES    = False
+  SCHED_TEST_TIMERS   = False
   
   SCHED_ID = result[0]
   SCHED_START = result[2]
@@ -85,7 +85,7 @@ for result in results_schedules:
 
   # Check timers
 
-  if ( SCHED_TEST_TIME and SCHED_TEST_DAY and SCHED_TEST_SENSORS and SCHED_TEST_MODES and SCHED_TEST_TIMERS  == true):
+  if ( SCHED_TEST_TIME and SCHED_TEST_DAY and SCHED_TEST_SENSORS and SCHED_TEST_MODES and SCHED_TEST_TIMERS  == True):
     print( "activate" )
   else:
     print( "deactivate" )
