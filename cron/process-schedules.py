@@ -87,7 +87,7 @@ for result in results_schedules:
 
   if ( SCHED_TEST_TIME and SCHED_TEST_DAY and SCHED_TEST_SENSORS and SCHED_TEST_MODES and SCHED_TEST_TIMERS  == true):
     print( "activate" )
-    else:
+  else:
     print( "deactivate" )
     
 
