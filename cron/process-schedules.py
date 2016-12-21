@@ -58,8 +58,9 @@ for result in results_schedules:
   
   SCHED_START_STR = str(SCHED_START_HOUR)+":"+str(SCHED_START_MINUTE)
   SCHED_END_STR   = str(SCHED_END_HOUR) + ":"+str(SCHED_END_MINUTE)
+  SCHED_NOW_STR   = str(now.hour)+":"+str(now.minute)
   
-  TIME_NOW = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
+  TIME_NOW = datetime.datetime.strptime(SCHED_NOW_STR, "%H:%M")
   TIME_START = datetime.datetime.strptime(SCHED_START_STR, "%H:%M")
   TIME_END = datetime.datetime.strptime(SCHED_END_STR, "%H:%M")
   MIN_TO_START = TIME_NOW - TIME_START
@@ -70,7 +71,7 @@ for result in results_schedules:
   else:
     SCHED_TEST_TIME = False
     
-  print( TIME_START, TIME_NOW, TIME_END, SCHED_TEST_TIME )
+  print( SCHED_START_STR, SCHED_NOW_STR, SCHED_END_STR, SCHED_TEST_TIME )
     
   if (  SCHED_MON and DOW == 0 ):
     SCHED_TEST_DAY = True
