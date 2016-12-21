@@ -93,9 +93,16 @@ for result in results_schedules:
 
   if ( SCHED_TEST_TIME and SCHED_TEST_DAY and SCHED_TEST_SENSORS and SCHED_TEST_MODES and SCHED_TEST_TIMERS  == True):
     print( "activate" )
+    query = ("UPDATE schedules SET active = 1 WHERE id ='"+SCHED_ID+"';")
   else:
     print( "deactivate" )
+    query = ("UPDATE schedules SET active = 0 WHERE id ='"+SCHED_ID+"';")
     
-
-cnx.commit()
+  cursorupdate = cnx.cursor()
+  cursorupdate.execute(query)
+  
+  results =cursorupdate.fetchall()
+  cursorupdate.close()
+  cnx.commit()
+  
 cnx.close()
