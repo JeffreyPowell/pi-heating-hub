@@ -88,7 +88,7 @@ for result in results_schedules:
     SCHED_TEST_DAY = False
     
   # Check sensor values
-
+  cursorselect = cnx.cursor()
   query = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id="+SCHED_ID+";";
 
   cursorselect.execute(query)
