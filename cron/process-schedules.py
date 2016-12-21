@@ -70,19 +70,19 @@ for result in results_schedules:
   else:
     SCHED_TEST_TIME = False
     
-  if ( SCHED_MON and DOW = 0 ):
+  if (  SCHED_MON and DOW == 0 ):
     SCHED_TEST_DAY = True
-  elif( SCHED_TUE and DOW = 1 ):
+  elif( SCHED_TUE and DOW == 1 ):
     SCHED_TEST_DAY = True
-  elif( SCHED_WED and DOW = 2 ):
+  elif( SCHED_WED and DOW == 2 ):
     SCHED_TEST_DAY = True
-  elif( SCHED_THU and DOW = 3 ):
+  elif( SCHED_THU and DOW == 3 ):
     SCHED_TEST_DAY = True
-  elif( SCHED_FRI and DOW = 4 ):
+  elif( SCHED_FRI and DOW == 4 ):
     SCHED_TEST_DAY = True
-  elif( SCHED_SAT and DOW = 5 ):
+  elif( SCHED_SAT and DOW == 5 ):
     SCHED_TEST_DAY = True
-  elif( SCHED_SUN and DOW = 6 ):
+  elif( SCHED_SUN and DOW == 6 ):
     SCHED_TEST_DAY = True
   else:
     SCHED_TEST_DAY = False
