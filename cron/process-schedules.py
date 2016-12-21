@@ -161,23 +161,23 @@ for result in results_schedules:
   
     SCHED_TEST_TIMERS = True
    
-    for result in results_timers:
-      print( result )
-      TIMER_VALUE= result[4]
-      TIMER_TEST = result[8]
-      TEST_VALUE = result[9]
+  for result in results_timers:
+    print( result )
+    TIMER_VALUE= result[4]
+    TIMER_TEST = result[8]
+    TEST_VALUE = result[9]
     
-      if (  MODE_TEST == '=' and MODE_VALUE == TEST_VALUE ):
-        TEST = True
-      elif( MODE_TEST == '!' and MODE_VALUE != TEST_VALUE ):
-        TEST = True
-      else:
-        TEST = False
+    if (  MODE_TEST == '=' and MODE_VALUE == TEST_VALUE ):
+      TEST = True
+    elif( MODE_TEST == '!' and MODE_VALUE != TEST_VALUE ):
+      TEST = True
+    else:
+      TEST = False
       
-      if TEST == False:
-        SCHED_TEST_MODES = False
+    if TEST == False:
+      SCHED_TEST_MODES = False
   
-      print( TIMER_VALUE, TIMER_TEST, TEST_VALUE, SCHED_TEST_TIMERS ) 
+    print( TIMER_VALUE, TIMER_TEST, TEST_VALUE, SCHED_TEST_TIMERS ) 
   
   
   
