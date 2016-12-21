@@ -105,7 +105,7 @@ for result in results_schedules:
     
     if (  SENSOR_TEST == '<' and SENSOR_VALUE < TEST_VALUE ):
       TEST = True
-    elif( SENSOR_TEST == '=' and SENSOR_VALUE = TEST_VALUE ):
+    elif( SENSOR_TEST == '=' and SENSOR_VALUE == TEST_VALUE ):
       TEST = True
     elif( SENSOR_TEST == '!' and SENSOR_VALUE != TEST_VALUE ):
       TEST = True
