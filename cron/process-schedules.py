@@ -48,27 +48,29 @@ for result in results_schedules:
   
   #print("---")
   SCHED_START_HOUR, remainder = divmod(SCHED_START.seconds,3600)
-  #print( type(SCHED_START_HOUR))
-  #print( SCHED_START_HOUR)
-        
-  #print("---")
   SCHED_START_MINUTE, sec = divmod(remainder, 60)
+  
+  SCHED_END_HOUR, remainder = divmod(SCHED_END.seconds,3600)
+  SCHED_END_MINUTE, sec = divmod(remainder, 60)
+  
   #print( type(SCHED_START_MINUTE))
   #print( SCHED_START_MINUTE)
   
   #print("---")
   
   SCHED_START_STR = str(SCHED_START_HOUR)+":"+str(SCHED_START_MINUTE)
+  SCHED_END_STR   = str(SCHED_END_HOUR) + ":"+str(SCHED_END_MINUTE)
+  #print( SCHED_START_STR )
   
-  print( SCHED_START_STR )
-  
-  timeA = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
-  timeB = datetime.datetime.strptime(SCHED_START_STR, "%H:%M")
-  newTime = timeB - timeA
+  TIME_NOW = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
+  TIME_START = datetime.strptime(SCHED_START_STR, "%H:%M")
+  TIME_END = datetime.datetime.strptime(SCHED_END_STR, "%H:%M")
+  MIN_TO_START = TIME_START - TIME_NOW
+  MIN_TO_END   = TIME_END - TIME_NOW
 
 
-  print( timeA )
-  print( timeB )
+  print( IN_TO_START )
+  print( MIN_TO_END )
   print( newTime )
 
 # Check senso values
