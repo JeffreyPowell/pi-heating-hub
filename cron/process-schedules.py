@@ -138,7 +138,7 @@ for result in results_schedules:
     MODE_TEST = result[6]
     TEST_VALUE = result[7]
     
-    if (  MODE_TEST == '=' and MODE_VALUE = TEST_VALUE ):
+    if (  MODE_TEST == '=' and MODE_VALUE == TEST_VALUE ):
       TEST = True
     elif( MODE_TEST == '!' and MODE_VALUE != TEST_VALUE ):
       TEST = True
