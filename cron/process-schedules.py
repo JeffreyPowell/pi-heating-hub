@@ -52,7 +52,7 @@ for result in results_schedules:
   print( SCHED_START_HOUR)
         
   print("---")
-  SCHED_START_MINUTE, sec = divmod(remainder.seconds, 60)
+  SCHED_START_MINUTE, sec = divmod(remainder, 60)
   print( type(SCHED_START_MINUTE))
   print( SCHED_START_MINUTE)
   
