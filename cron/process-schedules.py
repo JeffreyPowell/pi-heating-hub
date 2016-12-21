@@ -122,7 +122,7 @@ for result in results_schedules:
   # Check modes
 
   cursorselect = cnx.cursor()
-  query = "SELECT * FROM modes INNER JOIN sched_mode ON sched_id=sched_mode.sched_id AND sched_mode.sched_id="+SCHED_ID+";";
+  query = "SELECT * FROM modes INNER JOIN sched_mode ON sched_id=sched_mode.sched_id AND sched_mode.sched_id="+SCHED_ID+";"
   cursorselect.execute(query)
   results_modes =cursorselect.fetchall()
   cursorselect.close()
@@ -152,7 +152,7 @@ for result in results_schedules:
     # Check timers
   
     cursorselect = cnx.cursor()
-    query = "SELECT * FROM timers INNER JOIN sched_timer WHERE timers.id = sched_timer.timer_id AND sched_timer.sched_id ="+SCHED_ID+";";
+    query = "SELECT * FROM timers INNER JOIN sched_timer ON timers.id = sched_timer.timer_id AND sched_timer.sched_id ="+SCHED_ID+";"
     cursorselect.execute(query)
     results_timers =cursorselect.fetchall()
     cursorselect.close()
@@ -161,23 +161,23 @@ for result in results_schedules:
   
     SCHED_TEST_TIMERS = True
    
-  for result in results_timers:
-    print( result )
-    TIMER_VALUE= result[4]
-    TIMER_TEST = result[8]
-    TEST_VALUE = result[9]
+    for result in results_timers:
+      print( result )
+      TIMER_VALUE= result[4]
+      TIMER_TEST = result[8]
+      TEST_VALUE = result[9]
     
-    if (  TIMER_TEST == '=' and TIMER_VALUE == TEST_VALUE ):
-      TEST = True
-    elif( TIMER_TEST == '!' and TIMER_VALUE != TEST_VALUE ):
-      TEST = True
-    else:
-      TEST = False
+      if (  TIMER_TEST == '=' and TIMER_VALUE == TEST_VALUE ):
+        TEST = True
+      elif( TIMER_TEST == '!' and TIMER_VALUE != TEST_VALUE ):
+        TEST = True
+      else:
+        TEST = False
       
-    if TEST == False:
-      SCHED_TEST_TIMERS = False
+      if TEST == False:
+        SCHED_TEST_TIMERS = False
   
-    print( TIMER_VALUE, TIMER_TEST, TEST_VALUE, SCHED_TEST_TIMERS ) 
+      print( TIMER_VALUE, TIMER_TEST, TEST_VALUE, SCHED_TEST_TIMERS ) 
   
   
   
