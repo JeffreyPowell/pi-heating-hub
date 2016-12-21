@@ -152,7 +152,7 @@ for result in results_schedules:
     # Check timers
   
     cursorselect = cnx.cursor()
-    query = "SELECT * FROM timers INNER JOIN sched_timer ON sched_id=sched_timer.sched_id AND sched_timer.sched_id="+SCHED_ID+";";
+    query = "SELECT * FROM timers JOIN sched_timer WHERE timers.id = sched_timer.timer_id AND sched_timer.sched_id ="+SCHED_ID+";";
     cursorselect.execute(query)
     results_timers =cursorselect.fetchall()
     cursorselect.close()
