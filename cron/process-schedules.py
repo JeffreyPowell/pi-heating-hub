@@ -128,34 +128,29 @@ for result in results_schedules:
   results_modes =cursorselect.fetchall()
   cursorselect.close()
   
-  print( results_modes )
+  #print( results_modes )
   
   SCHED_TEST_MODES = True
-  
-  """  
-  for result in results_sensors:
+   
+  for result in results_modes:
     print( result )
-    MODE_VALUE= result[4]
-    MODE_TEST = result[9]
-    TEST_VALUE = result[10]
+    MODE_VALUE= result[2]
+    MODE_TEST = result[6]
+    TEST_VALUE = result[7]
     
-    if (  SENSOR_TEST == '<' and SENSOR_VALUE < TEST_VALUE ):
+    if (  MODE_TEST == '=' and MODE_VALUE = TEST_VALUE ):
       TEST = True
-    elif( SENSOR_TEST == '=' and SENSOR_VALUE == TEST_VALUE ):
-      TEST = True
-    elif( SENSOR_TEST == '!' and SENSOR_VALUE != TEST_VALUE ):
-      TEST = True
-    elif( SENSOR_TEST == '>' and SENSOR_VALUE > TEST_VALUE ):
+    elif( MODE_TEST == '!' and MODE_VALUE != TEST_VALUE ):
       TEST = True
     else:
       TEST = False
       
     if TEST == False:
-      SCHED_TEST_SENSORS = False
+      SCHED_TEST_MODES = False
   
-    print( SENSOR_VALUE, SENSOR_TEST, TEST_VALUE, SCHED_TEST_SENSORS )  
+    print( MODE_VALUE, MODE_TEST, TEST_VALUE, SCHED_TEST_MODES )  
   
-    """
+ 
   
   
   
