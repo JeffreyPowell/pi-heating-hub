@@ -131,7 +131,8 @@ for result in results_schedules:
   print( results_modes )
   
   SCHED_TEST_MODES = True
-"""  
+  
+  """  
   for result in results_sensors:
     print( result )
     SENSOR_VALUE= result[4]
@@ -154,7 +155,7 @@ for result in results_schedules:
   
     print( SENSOR_VALUE, SENSOR_TEST, TEST_VALUE, SCHED_TEST_SENSORS )  
   
-  """
+    """
   
   
   
@@ -162,7 +163,7 @@ for result in results_schedules:
   
   
   
-  # Check timers
+    # Check timers
   
   
   
