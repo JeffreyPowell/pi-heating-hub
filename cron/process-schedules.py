@@ -70,6 +70,8 @@ for result in results_schedules:
   else:
     SCHED_TEST_TIME = False
     
+  print( TIME_START, TIME_NOW, TIME_END, SCHED_TEST_TIME )
+    
   if (  SCHED_MON and DOW == 0 ):
     SCHED_TEST_DAY = True
   elif( SCHED_TUE and DOW == 1 ):
