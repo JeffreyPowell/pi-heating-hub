@@ -64,7 +64,7 @@ for result in results_schedules:
   
   timeA = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
   timeB = datetime.datetime.strptime(SCHED_START_STR, "%H:%M")
-  newTime = timeA - timeB
+  newTime = timeB - timeA
 
 
   print( timeA )
