@@ -28,6 +28,12 @@ cursorselect.close()
   
 for result in results_schedules:
   print("***")
+  SCHED_TEST_TIME     = false
+  SCHED_TEST_DAY      = false
+  SCHED_TEST_SENSORS  = false
+  SCHED_TEST_MODES    = false
+  SCHED_TEST_TIMERS   = false
+  
   SCHED_ID = result[0]
   SCHED_START = result[2]
   SCHED_END = result[3]
@@ -65,7 +71,7 @@ for result in results_schedules:
   TIME_NOW = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
   TIME_START = datetime.datetime.strptime(SCHED_START_STR, "%H:%M")
   TIME_END = datetime.datetime.strptime(SCHED_END_STR, "%H:%M")
-  MIN_TO_START = TIME_START - TIME_NOW
+  MIN_TO_START = TIME_NOW - TIME_START
   MIN_TO_END   = TIME_END - TIME_NOW
 
 
@@ -73,13 +79,17 @@ for result in results_schedules:
   print( MIN_TO_END )
   #print( newTime )
 
-# Check senso values
+  # Check senso values
 
-# Check modes
+  # Check modes
 
-# Check timers
+  # Check timers
 
-
+  if ( SCHED_TEST_TIME and SCHED_TEST_DAY and SCHED_TEST_SENSORS and SCHED_TEST_MODES and SCHED_TEST_TIMERS  == true):
+    print( "activate" )
+    else:
+    print( "deactivate" )
+    
 
 cnx.commit()
 cnx.close()
