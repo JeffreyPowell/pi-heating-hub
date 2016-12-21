@@ -178,7 +178,7 @@ for result in results_schedules:
     if TEST == False:
       SCHED_TEST_TIMERS = False
   
-    print( TIMER_VALUE, TIMER_TEST, TEST_VALUE, SCHED_TEST_TIMERS ) 
+    print( TIMER_VALUE, TEST_VALUE, SCHED_TEST_TIMERS ) 
   
   
   
