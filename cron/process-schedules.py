@@ -90,7 +90,7 @@ for result in results_schedules:
   # Check sensor values
   
   cursorselect = cnx.cursor()
-  query = "SELECT * FROM sensors JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id="+SCHED_ID+";";
+  query = "SELECT * FROM sensors INNER JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id="+SCHED_ID+";";
   cursorselect.execute(query)
   results_sensors =cursorselect.fetchall()
   cursorselect.close()
@@ -122,7 +122,7 @@ for result in results_schedules:
   # Check modes
 
   cursorselect = cnx.cursor()
-  query = "SELECT * FROM modes JOIN sched_mode ON sched_id=sched_mode.sched_id AND sched_mode.sched_id="+SCHED_ID+";";
+  query = "SELECT * FROM modes INNER JOIN sched_mode ON sched_id=sched_mode.sched_id AND sched_mode.sched_id="+SCHED_ID+";";
   cursorselect.execute(query)
   results_modes =cursorselect.fetchall()
   cursorselect.close()
@@ -152,7 +152,7 @@ for result in results_schedules:
     # Check timers
   
     cursorselect = cnx.cursor()
-    query = "SELECT * FROM timers JOIN sched_timer ON sched_id=sched_timer.sched_id AND sched_timer.sched_id="+SCHED_ID+";";
+    query = "SELECT * FROM timers INNER JOIN sched_timer ON sched_id=sched_timer.sched_id AND sched_timer.sched_id="+SCHED_ID+";";
     cursorselect.execute(query)
     results_timers =cursorselect.fetchall()
     cursorselect.close()
