@@ -69,7 +69,7 @@ for result in results_schedules:
   MIN_TO_END   = TIME_END - TIME_NOW
 
 
-  print( IN_TO_START )
+  print( MIN_TO_START )
   print( MIN_TO_END )
   print( newTime )
 
