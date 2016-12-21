@@ -167,15 +167,15 @@ for result in results_schedules:
     TIMER_TEST = result[8]
     TEST_VALUE = result[9]
     
-    if (  MODE_TEST == '=' and MODE_VALUE == TEST_VALUE ):
+    if (  TIMER_TEST == '=' and TIMER_VALUE == TEST_VALUE ):
       TEST = True
-    elif( MODE_TEST == '!' and MODE_VALUE != TEST_VALUE ):
+    elif( TIMER_TEST == '!' and TIMER_VALUE != TEST_VALUE ):
       TEST = True
     else:
       TEST = False
       
     if TEST == False:
-      SCHED_TEST_MODES = False
+      SCHED_TEST_TIMERS = False
   
     print( TIMER_VALUE, TIMER_TEST, TEST_VALUE, SCHED_TEST_TIMERS ) 
   
