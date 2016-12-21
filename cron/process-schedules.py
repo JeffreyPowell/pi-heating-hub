@@ -27,6 +27,7 @@ results_schedules =cursorselect.fetchall()
 cursorselect.close()
   
 for result in results_schedules:
+  print("***")
   SCHED_ID = result[0]
   SCHED_START = result[2]
   SCHED_END = result[3]
