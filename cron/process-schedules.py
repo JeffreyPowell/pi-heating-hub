@@ -88,16 +88,22 @@ for result in results_schedules:
     SCHED_TEST_DAY = False
     
   # Check sensor values
+  
   cursorselect = cnx.cursor()
   query = "SELECT * FROM sensors JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id="+SCHED_ID+";";
-
   cursorselect.execute(query)
-  
   results_sensors =cursorselect.fetchall()
   cursorselect.close()
+  
+  SCHED_TEST_SENSORS = True
+  
   for result in results_sensors:
     print( result )
+    SENSOR_VALUE= result[4]
+    SENSOR_TEST = result[9]
+    TEST_VALUE = result[10]
  
+    print( SENSOR_VALUE, SENSOR_TEST, TEST_VALUE )
 
   
 #******************************************
