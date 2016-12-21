@@ -12,6 +12,7 @@ password = "password"
 dbname = "pi_heating_db"
 
 now = datetime.datetime.now()
+dow = datetime.datetime.today().weekday()
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 
@@ -47,26 +48,16 @@ for result in results_schedules:
   SCHED_SUN = result[10]
   
   print( SCHED_ID )
-  #print( now )
-  #print( SCHED_START )
-  #print( SCHED_END )
-  #print( type(SCHED_END) )
-  
-  #print("---")
+
+  print("- - -")
   SCHED_START_HOUR, remainder = divmod(SCHED_START.seconds,3600)
   SCHED_START_MINUTE, sec = divmod(remainder, 60)
   
   SCHED_END_HOUR, remainder = divmod(SCHED_END.seconds,3600)
   SCHED_END_MINUTE, sec = divmod(remainder, 60)
   
-  #print( type(SCHED_START_MINUTE))
-  #print( SCHED_START_MINUTE)
-  
-  #print("---")
-  
   SCHED_START_STR = str(SCHED_START_HOUR)+":"+str(SCHED_START_MINUTE)
   SCHED_END_STR   = str(SCHED_END_HOUR) + ":"+str(SCHED_END_MINUTE)
-  #print( SCHED_START_STR )
   
   TIME_NOW = datetime.datetime.strptime(str(now.hour)+":"+str(now.minute), "%H:%M")
   TIME_START = datetime.datetime.strptime(SCHED_START_STR, "%H:%M")
@@ -74,14 +65,27 @@ for result in results_schedules:
   MIN_TO_START = TIME_NOW - TIME_START
   MIN_TO_END   = TIME_END - TIME_NOW
 
-
-  #print( MIN_TO_START.total_seconds() )
-  #print( MIN_TO_END.total_seconds() )
-  
-  #print( SCHED_TEST_TIME )
-  
   if ( MIN_TO_START.total_seconds() > 0 and MIN_TO_END.total_seconds() > 0 ):
     SCHED_TEST_TIME = True
+  else:
+    SCHED_TEST_TIME = False
+    
+  if ( SCHED_MON and DOW = 0 ):
+    SCHED_TEST_DAY = True
+  elif( SCHED_TUE and DOW = 1 ):
+    SCHED_TEST_DAY = True
+  elif( SCHED_WED and DOW = 2 ):
+    SCHED_TEST_DAY = True
+  elif( SCHED_THU and DOW = 3 ):
+    SCHED_TEST_DAY = True
+  elif( SCHED_FRI and DOW = 4 ):
+    SCHED_TEST_DAY = True
+  elif( SCHED_SAT and DOW = 5 ):
+    SCHED_TEST_DAY = True
+  elif( SCHED_SUN and DOW = 6 ):
+    SCHED_TEST_DAY = True
+  else:
+    SCHED_TEST_DAY = False
     
   # Check senso values
 
