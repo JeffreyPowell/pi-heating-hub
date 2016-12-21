@@ -166,12 +166,10 @@ for result in results_schedules:
   for result in results_timers:
     print( result )
     TIMER_VALUE= result[4]
-    TIMER_TEST = result[8]
+    #TIMER_TEST = result[8]
     TEST_VALUE = result[9]
     
-    if (  TIMER_TEST == '=' and TIMER_VALUE == TEST_VALUE ):
-      TEST = True
-    elif( TIMER_TEST == '!' and TIMER_VALUE != TEST_VALUE ):
+    if (  TEST_VALUE == '1' and TIMER_VALUE > 0 ):
       TEST = True
     else:
       TEST = False
