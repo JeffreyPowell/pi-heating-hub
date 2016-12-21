@@ -103,8 +103,21 @@ for result in results_schedules:
     SENSOR_TEST = result[9]
     TEST_VALUE = result[10]
     
-    if ( SENSOR_TEST == '<' and TEST_VALUE < SENSOR_VALUE ):
+    if (  SENSOR_TEST == '<' and SENSOR_VALUE < TEST_VALUE ):
+      TEST = True
+    elif( SENSOR_TEST == '=' and SENSOR_VALUE = TEST_VALUE ):
+      TEST = True
+    elif( SENSOR_TEST == '!' and SENSOR_VALUE != TEST_VALUE ):
+      TEST = True
+    elif( SENSOR_TEST == '>' and SENSOR_VALUE > TEST_VALUE ):
+      TEST = True
+    else:
+      TEST = False
+      
+    if TEST == False:
       SCHED_TEST_SENSORS = False
+      
+      
  
     print( SENSOR_VALUE, SENSOR_TEST, TEST_VALUE, SCHED_TEST_SENSORS )
 
