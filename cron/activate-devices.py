@@ -35,13 +35,13 @@ for result in results_devices:
     DEVICE_PIN = result[2]
     DEVICE_VALUE = result[3]
 
-    GPIO.setup(DEVICE_PIN, GPIO.OUT)
+    GPIO.setup(DEVICE_PIN, GPIO.OUT, initial=GPIO.LOW)
+    
+    GPIO.output(DEVICE_PIN, DEVICE_VALUE)
   
     print( DEVICE_PIN, DEVICE_VALUE )
 
     print("- - -")
 
-    
 
-  
 cnx.close()
