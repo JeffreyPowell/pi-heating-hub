@@ -12,7 +12,7 @@ password = "password"
 dbname = "pi_heating_db"
 
 now = datetime.datetime.now()
-dow = datetime.datetime.today().weekday()
+DOW = datetime.datetime.today().weekday()
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 
