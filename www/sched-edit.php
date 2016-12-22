@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         die("<br><br>Connection failed: " . mysqli_connect_error());
         }
 
-    # schedules
+    # Update schedules with post data
     
     $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
     if (mysqli_query($conn, $sql)) {
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     }
  
-    # devices
+    # Update devices
     
     $sql = "DELETE FROM sched_device WHERE sched_id = '".$SCHED_ID."';";
     if (!mysqli_query($conn, $sql)) {
