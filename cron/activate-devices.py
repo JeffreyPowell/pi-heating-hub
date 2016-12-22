@@ -25,6 +25,8 @@ cursorupdate.execute(query)
 results_devices =cursorupdate.fetchall()
 cursorupdate.close()
 
+print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+
 for result in results_devices:
     print("* * * * * *")
     DEVICE_ACTIVE = bool( result[0] )
