@@ -36,7 +36,7 @@ cursorselect.close()
 for result in results_devices:
     print("* * * * * *")
     DEVICE_ACTIVE = bool( result[0] )
-    DEVICE_ID = int( result[1] )
+    DEVICE_ID = str( result[1] )
     print( DEVICE_ID, DEVICE_ACTIVE )
     
     if ( DEVICE_ACTIVE ):
