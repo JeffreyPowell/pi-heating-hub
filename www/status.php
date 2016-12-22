@@ -49,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
 */
     
 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-    print_r("<pre><BR>------------------------<BR>");
-    print_r($_POST);
-    print_r("<BR>------------------------<BR></pre>");
+    #print_r("<pre><BR>------------------------<BR>");
+    #print_r($_POST);
+    #print_r("<BR>------------------------<BR></pre>");
     
     $POST_KEYS = array_keys($_POST);
     
