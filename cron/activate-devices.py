@@ -19,6 +19,7 @@ dbname = "pi_heating_db"
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 
+# Set all devices as inactive
 cursorupdate = cnx.cursor()
 query = ("UPDATE devices SET value = 0;")
 cursorupdate.execute(query)
@@ -27,6 +28,7 @@ cursorupdate.close()
 
 print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
+# Just set active devices that have active schedules
 cursorselect = cnx.cursor()
 query = ("SELECT active, device_id  FROM schedules INNER JOIN sched_device ON schedules.id = sched_device.sched_id WHERE active = 1;")
 cursorselect.execute(query)
@@ -39,13 +41,15 @@ for result in results_devices:
     DEVICE_ID = str( result[1] )
     print( DEVICE_ID, DEVICE_ACTIVE )
     
-    if ( DEVICE_ACTIVE ):
-        #print( DEVICE_ID, DEVICE_ACTIVE )
-        cursorupdate = cnx.cursor()
-        query = ("UPDATE devices SET value = 1 WHERE d_id = "+DEVICE_ID+";")
-        cursorupdate.execute(query)
-        results_devices =cursorupdate.fetchall()
-        cursorupdate.close()
+
+    #print( DEVICE_ID, DEVICE_ACTIVE )
+    cursorupdate = cnx.cursor()
+    query = ("UPDATE devices SET value = 1 WHERE d_id = "+DEVICE_ID+";")
+    cursorupdate.execute(query)
+    results_devices =cursorupdate.fetchall()
+    cursorupdate.close()
+
+# Pysically turn ON/OFF GPIO pin for devices
 
 cursorselect = cnx.cursor()
 query = ("SELECT * FROM devices;")
