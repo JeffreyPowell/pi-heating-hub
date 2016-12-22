@@ -18,6 +18,7 @@ password = "password"
 dbname = "pi_heating_db"
 
 GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 
