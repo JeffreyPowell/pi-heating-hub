@@ -17,19 +17,37 @@ username = "pi"
 password = "password"
 dbname = "pi_heating_db"
 
+cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
+
+cursorupdate = cnx.cursor()
+query = ("UPDATE devices SET value = 0;")
+cursorupdate.execute(query)
+results_devices =cursorupdate.fetchall()
+cursorupdate.close()
+
+for result in results_devices:
+    print("* * * * * *")
+    DEVICE_ACTIVE = bool( result[0] )
+    DEVICE_ID = int( result[1] )
+    print( DEVICE_ID, DEVICE_ACTIVE )
+    
+    if ( DEVICE_ACTIVE ):
+        #print( DEVICE_ID, DEVICE_ACTIVE )
+        cursorupdate = cnx.cursor()
+        query = ("UPDATE devices SET value = 1 WHERE d_id = "+DEVICE_ID+";")
+        cursorupdate.execute(query)
+        results_devices =cursorupdate.fetchall()
+        cursorupdate.close()
+
+cursorselect = cnx.cursor()
+query = ("SELECT * FROM devices;")
+cursorselect.execute(query)
+results_devices =cursorselect.fetchall()
+cursorselect.close()
+
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
-cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
-
-cursorselect = cnx.cursor()
-
-query = ("SELECT * FROM devices;")
-cursorselect.execute(query)
-  
-results_devices =cursorselect.fetchall()
-cursorselect.close()
-  
 for result in results_devices:
     #print("* * * * * *")
   
