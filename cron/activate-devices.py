@@ -28,13 +28,13 @@ cursorupdate.close()
 print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
 cursorselect = cnx.cursor()
-query = ("SELECT active, device_id  FROM schedules INNER JOIN sched_device ON schedules.id = sched_device.sched_id;")
+query = ("SELECT active, device_id  FROM schedules INNER JOIN sched_device ON schedules.id = sched_device.sched_id WHERE active = 1;")
 cursorselect.execute(query)
 results_devices =cursorselect.fetchall()
 cursorselect.close()
 
 for result in results_devices:
-    print("* * * * * *")
+    #print("* * * * * *")
     DEVICE_ACTIVE = bool( result[0] )
     DEVICE_ID = str( result[1] )
     print( DEVICE_ID, DEVICE_ACTIVE )
