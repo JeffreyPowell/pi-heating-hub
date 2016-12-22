@@ -49,7 +49,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 for result in results_devices:
-    #print("* * * * * *")
+    print("- - - - - - - -")
   
     DEVICE_PIN = int( result[2] )
     DEVICE_VALUE = int( result[3] )
@@ -58,6 +58,6 @@ for result in results_devices:
     
     GPIO.output(DEVICE_PIN, DEVICE_VALUE)
   
-    #print( DEVICE_PIN, DEVICE_VALUE )
+    print( DEVICE_PIN, DEVICE_VALUE )
 
 cnx.close()
