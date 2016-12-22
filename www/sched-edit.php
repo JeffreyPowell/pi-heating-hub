@@ -302,8 +302,8 @@ while($row = mysqli_fetch_assoc($result)) {
 
     $TIMER_VALUE = $row["value"];
     if ( $TIMER_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    if ( $TIMER_VALUE == "0" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
-    if ( $TIMER_VALUE == "1" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+    if ( $TIMER_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+    if ( $TIMER_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
     
     echo '<td><select name="mode_value">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
