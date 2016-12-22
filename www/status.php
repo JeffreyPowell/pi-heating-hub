@@ -122,8 +122,22 @@ echo "<tr>";
 
 echo "<td width=33%>";
     
+echo "<a href='sched-list.php'>Schedules</a>";
+echo "<br>";
+    
+echo "<a href='sensor-list.php'>Sensors</a>";
+echo "<br>";
+    
+echo "<a href='device-list.php'>Devices</a>";
+echo "<br>";
+    
+echo "<a href='mode-list.php'>Modes</a>";
+echo "<br>";
+    
+echo "<a href='timer-list.php'>Timers</a>";
+echo "<br>";
 
-
+/*
 while($row = mysqli_fetch_assoc($result_modes)) {
     $MODE_ID = $row["id"];
     $MODE_NAME = $row["name"];
@@ -139,7 +153,7 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     }
     echo "</form>";
     }
-
+*/
 
 echo "</td>";
 
@@ -166,8 +180,22 @@ echo "<td width=33%>";
     
 echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
+while($row = mysqli_fetch_assoc($result_modes)) {
+    $MODE_ID = $row["id"];
+    $MODE_NAME = $row["name"];
+    $MODE_VALUE = $row["value"];
+    #echo $MODE_NAME;
+    #echo $MODE_VALUE;
+    echo "<br>";
+    echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
+    if ( $MODE_VALUE =='0' ) {
+        echo "<input type='submit' class='button' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode'>";
+    }else{
+        echo "<input type='submit' class='button' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode'>";
+    }
+    echo "</form>";
+    }
 
-    
 while($row = mysqli_fetch_assoc($result_timers)) {
     $TIMER_ID = $row["id"];
     $TIMER_NAME = $row["name"];
@@ -185,8 +213,6 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     }
     echo "</form>";
     }
-
-echo '</form>';
 
 echo "</td>";
 
