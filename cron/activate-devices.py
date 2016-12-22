@@ -41,8 +41,6 @@ for result in results_devices:
     DEVICE_ID = str( result[1] )
     print( DEVICE_ID, DEVICE_ACTIVE )
     
-
-    #print( DEVICE_ID, DEVICE_ACTIVE )
     cursorupdate = cnx.cursor()
     query = ("UPDATE devices SET value = 1 WHERE d_id = "+DEVICE_ID+";")
     cursorupdate.execute(query)
