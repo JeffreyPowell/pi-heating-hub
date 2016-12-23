@@ -49,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
 */
     
 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-    #print_r("<pre><BR>------------------------<BR>");
-    #print_r($_POST);
-    #print_r("<BR>------------------------<BR></pre>");
+    print_r("<pre><BR>------------------------<BR>");
+    print_r($_POST);
+    print_r("<BR>------------------------<BR></pre>");
     
     $POST_KEYS = array_keys($_POST);
     
@@ -234,7 +234,7 @@ if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results"; 
     }
 
-echo '<form id="formTimers" method="get" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'">';
+echo "<form name='graph' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
 
 
 echo '<select name="gid">';
