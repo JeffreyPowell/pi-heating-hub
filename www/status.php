@@ -234,6 +234,9 @@ if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results"; 
     }
 
+echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
+
+
 echo '<select name="graph_id">';
     
 while($row = mysqli_fetch_assoc($result)) {
@@ -264,6 +267,8 @@ echo '<option value="-12m" '.($GRAPH_SP=='-12m' ? 'SELECTED' : '').' >One Year</
 echo '</select>';
 
 echo '<input type="submit" name="formSubmit" value="Update" />';
+    
+echo '</form>';
 
 echo "</td>";
 
