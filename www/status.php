@@ -123,19 +123,19 @@ echo "<tr>";
 echo "<td width=33%>";
     
 echo "<a href='sched-list.php'>Schedules</a>";
-echo "<br>";
+echo "<br><br>";
     
 echo "<a href='sensors-list.php'>Sensors</a>";
-echo "<br>";
+echo "<br><br>";
     
 echo "<a href='devices-list.php'>Devices</a>";
-echo "<br>";
+echo "<br><br>";
     
 echo "<a href='modes-list.php'>Modes</a>";
-echo "<br>";
+echo "<br><br>";
     
 echo "<a href='timers-list.php'>Timers</a>";
-echo "<br>";
+echo "<br><br>";
 
 /*
 while($row = mysqli_fetch_assoc($result_modes)) {
