@@ -234,7 +234,7 @@ if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results"; 
     }
 
-echo '<select name="sensors">';
+echo '<select name="graph_id">';
     
 while($row = mysqli_fetch_assoc($result)) {
 
@@ -247,6 +247,15 @@ while($row = mysqli_fetch_assoc($result)) {
     
     }
     
+echo '</select>';
+    
+echo '<select name="graph_span">';
+echo '<option value="-1h" '.$GRAPH_SP=='-1h' ? 'SELECTED' : ''.' One Hour</option>';
+echo '';
+echo '';
+echo '';
+echo '';
+echo '';
 echo '</select>';
     
 echo "</td>";
