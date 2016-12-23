@@ -234,7 +234,7 @@ if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results"; 
     }
 
-echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
+echo '<form id="formTimers" method="get" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
 
 
 echo '<select name="graph_id">';
