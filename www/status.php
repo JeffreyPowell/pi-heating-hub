@@ -226,6 +226,29 @@ echo "<table width='100%' border='1'>";
 echo "<tr>";
 
 echo "<td width=33%>";
+    
+
+$sql = "SELECT * FROM sensors;";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) == 0) {
+        echo "sensors 0 results"; 
+    }
+
+echo '<select name="sensors">';
+    
+while($row = mysqli_fetch_assoc($result)) {
+    echo '<tr><td>'.$row["name"].'</td>';
+    $SENSOR_NAME = $row["name"];
+    $SENSOR_ID = $row["id"];
+    
+    if ( $SENSOR_ID == $GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
+
+    echo '<option value="'.$SENSOR_ID.'" '.$NA_SELECTED.' >'.$SENSOR_NAME.'</option>';
+    
+    }
+    
+echo '</select>';
+    
 echo "</td>";
 
 echo "<td width=66%>";
