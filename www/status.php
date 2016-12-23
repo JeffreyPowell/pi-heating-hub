@@ -237,13 +237,13 @@ if (mysqli_num_rows($result) == 0) {
 echo '<select name="sensors">';
     
 while($row = mysqli_fetch_assoc($result)) {
-    echo '<tr><td>'.$row["name"].'</td>';
+
     $SENSOR_NAME = $row["name"];
     $SENSOR_ID = $row["id"];
     
     if ( $SENSOR_ID == $GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
 
-    echo '<option value="'.$SENSOR_ID.'" '.$NA_SELECTED.' >'.$SENSOR_NAME.'</option>';
+    echo '<option value="'.$SENSOR_ID.'" '.$SELECTED.' >'.$SENSOR_NAME.'</option>';
     
     }
     
