@@ -251,11 +251,16 @@ echo '</select>';
     
 echo '<select name="graph_span">';
 echo '<option value="-1h" '.($GRAPH_SP=='-1h' ? 'SELECTED' : '').' >One Hour</option>';
-echo '';
-echo '';
-echo '';
-echo '';
-echo '';
+echo '<option value="-2h" '.($GRAPH_SP=='-2h' ? 'SELECTED' : '').' >Two Hours</option>';
+echo '<option value="-6h" '.($GRAPH_SP=='-6h' ? 'SELECTED' : '').' >Six Hours</option>';
+echo '<option value="-12h" '.($GRAPH_SP=='-12h' ? 'SELECTED' : '').' >Twelve Hours</option>';
+echo '<option value="-24h" '.($GRAPH_SP=='-24h' ? 'SELECTED' : '').' >One Day</option>';
+echo '<option value="-3d" '.($GRAPH_SP=='-3d' ? 'SELECTED' : '').' >Three Days</option>';
+echo '<option value="-7d" '.($GRAPH_SP=='-7d' ? 'SELECTED' : '').' >One Week</option>';
+echo '<option value="-1m" '.($GRAPH_SP=='-1m' ? 'SELECTED' : '').' >One Month</option>';
+echo '<option value="-3m" '.($GRAPH_SP=='-3m' ? 'SELECTED' : '').' >Three Months</option>';
+echo '<option value="-6m" '.($GRAPH_SP=='-6m' ? 'SELECTED' : '').' >Six Months</option>';
+echo '<option value="-12m" '.($GRAPH_SP=='-12m' ? 'SELECTED' : '').' >One Year</option>';
 echo '</select>';
     
 echo "</td>";
