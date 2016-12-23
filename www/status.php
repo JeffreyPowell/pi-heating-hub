@@ -250,7 +250,7 @@ while($row = mysqli_fetch_assoc($result)) {
 echo '</select>';
     
 echo '<select name="graph_span">';
-echo '<option value="-1h" '.($GRAPH_SP=='-1h' ? 'SELECTED' : '').' One Hour</option>';
+echo '<option value="-1h" '.($GRAPH_SP=='-1h' ? 'SELECTED' : '').' >One Hour</option>';
 echo '';
 echo '';
 echo '';
