@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         $POST_ACTION = explode( '-', $POST_KEY )[0];
         $POST_TYPE = explode( '-', $POST_KEY )[1];
         $POST_TARGET = explode( '-', $POST_KEY )[2];
-        #echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
+        echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
         
         if ( $POST_TYPE == 'mode' ) {
             if ( $POST_ACTION == 'enable' ) { $VALUE='1';} else {$VALUE='0';}
@@ -81,6 +81,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                 echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
             }
         }  
+        if ( $POST_TYPE == 'gid' ) {
+            if ( $POST_ACTION == 'start' ) { 
+                $sql = "UPDATE timers SET value = duration, start = NOW() WHERE id = '".$POST_TARGET."';";
+            } else {
+                $sql = "UPDATE timers SET value = '0', start =NULL WHERE id = '".$POST_TARGET."';";
+            }
+            #echo $sql;
+            if (!mysqli_query($conn, $sql)) {
+                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+        }
     }
     
     
