@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                 echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
             }
         }  
-        if ( $POST_TYPE == 'gid' ) {
+        if ( $POST_ACTION == 'gid' ) {
             $GRAPH_ID = isset($_POST['gid']) ? $_POST['gid'] : '1';
             $GRAPH_SP = isset($_POST['gsp']) ? $_POST['gsp'] : '-1h';
             
