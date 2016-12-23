@@ -56,16 +56,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     $POST_KEYS = array_keys($_POST);
     
     foreach( $POST_KEYS as $POST_KEY ) { 
-        echo $POST_KEY."<BR>";
+        #echo $POST_KEY."<BR>";
         $POST_ACTION = explode( '-', $POST_KEY )[0];
         $POST_TYPE = explode( '-', $POST_KEY )[1];
         $POST_TARGET = explode( '-', $POST_KEY )[2];
-        echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
+        #echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
         
         if ( $POST_TYPE == 'mode' ) {
             if ( $POST_ACTION == 'enable' ) { $VALUE='1';} else {$VALUE='0';}
             $sql = "UPDATE modes SET value = '".$VALUE."' WHERE id = '".$POST_TARGET."';";
-            echo $sql;
+            #echo $sql;
             if (!mysqli_query($conn, $sql)) {
                 echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
             }
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             } else {
                 $sql = "UPDATE timers SET value = '0', start =NULL WHERE id = '".$POST_TARGET."';";
             }
-            echo $sql;
+            #echo $sql;
             if (!mysqli_query($conn, $sql)) {
                 echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
             }
