@@ -262,7 +262,9 @@ echo '<option value="-3m" '.($GRAPH_SP=='-3m' ? 'SELECTED' : '').' >Three Months
 echo '<option value="-6m" '.($GRAPH_SP=='-6m' ? 'SELECTED' : '').' >Six Months</option>';
 echo '<option value="-12m" '.($GRAPH_SP=='-12m' ? 'SELECTED' : '').' >One Year</option>';
 echo '</select>';
-    
+
+echo '<input type="submit" name="formSubmit" value="Update" />';
+
 echo "</td>";
 
 echo "<td width=66%>";
