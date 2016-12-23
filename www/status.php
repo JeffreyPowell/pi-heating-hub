@@ -236,7 +236,7 @@ echo '<td>';
 echo "<table width='100%' border='1'>";
 echo "<tr>";
 
-echo "<td width=33%>";
+echo "<td width=100%>";
     
 
 $sql = "SELECT * FROM sensors;";
@@ -281,9 +281,11 @@ echo '<input type="submit" name="formSubmit" value="Update" />';
     
 echo '</form>';
 
-echo "</td>";
+echo '<br>';
+    
+#echo "</td>";
 
-echo "<td width=66%>";
+#echo "<td width=66%>";
     
 create_graph( $rrd_dir.$GRAPH_ID.".rrd", $img_dir.$GRAPH_ID.$GRAPH_SP.".png", 	$GRAPH_SP, 	$row["name"],	 	   "180", "700");
 echo "<img src='".$img_dir.$GRAPH_ID.$GRAPH_SP.".png' alt='RRD image'>";  
