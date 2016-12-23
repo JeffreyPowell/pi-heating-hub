@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             $GRAPH_SP = isset($_POST['gsp']) ? $_POST['gsp'] : '-1h';
             
             $page = 'Location: status.php?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP;
-            echo $page
+            echo $page;
             #header('Location: status.php?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP);
             #exit();
             
