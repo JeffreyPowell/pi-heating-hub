@@ -49,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
 */
     
 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-    print_r("<pre><BR>------------------------<BR>");
-    print_r($_POST);
-    print_r("<BR>------------------------<BR></pre>");
+    #print_r("<pre><BR>------------------------<BR>");
+    #print_r($_POST);
+    #print_r("<BR>------------------------<BR></pre>");
     
     $POST_KEYS = array_keys($_POST);
     
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         $POST_ACTION = explode( '-', $POST_KEY )[0];
         $POST_TYPE = explode( '-', $POST_KEY )[1];
         $POST_TARGET = explode( '-', $POST_KEY )[2];
-        echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
+        #echo $POST_ACTION."#".$POST_TYPE."#".$POST_TARGET."<BR>";
         
         if ( $POST_TYPE == 'mode' ) {
             if ( $POST_ACTION == 'enable' ) { $VALUE='1';} else {$VALUE='0';}
@@ -98,9 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
 
 }
-    
-    
-    
+
 
 $sql_modes = "SELECT * FROM modes;";
 $result_modes = mysqli_query($conn, $sql_modes);
