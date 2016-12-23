@@ -82,15 +82,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             }
         }  
         if ( $POST_TYPE == 'gid' ) {
-            if ( $POST_ACTION == 'start' ) { 
-                $sql = "UPDATE timers SET value = duration, start = NOW() WHERE id = '".$POST_TARGET."';";
-            } else {
-                $sql = "UPDATE timers SET value = '0', start =NULL WHERE id = '".$POST_TARGET."';";
-            }
-            #echo $sql;
-            if (!mysqli_query($conn, $sql)) {
-                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
+            $GRAPH_ID = isset($_POST['gid']) ? $_POST['gid'] : '1';
+            $GRAPH_SP = isset($_POST['gsp']) ? $_POST['gsp'] : '-1h';
+            
+            header('Location: status.php?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP);
+            exit();
+            
+
         }
     }
     
