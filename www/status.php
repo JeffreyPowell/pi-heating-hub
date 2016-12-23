@@ -236,7 +236,7 @@ echo '<td>';
 echo "<table width='100%' border='1'>";
 echo "<tr>";
 
-echo "<td width=100%>";
+echo "<td width=100% align=center>";
     
 
 $sql = "SELECT * FROM sensors;";
@@ -281,7 +281,7 @@ echo '<input type="submit" name="formSubmit" value="Update" />';
     
 echo '</form>';
 
-echo '<br>';
+#echo '<br>';
     
 #echo "</td>";
 
