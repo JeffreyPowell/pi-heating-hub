@@ -305,7 +305,7 @@ while($row = mysqli_fetch_assoc($result)) {
     if ( $TIMER_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
     if ( $TIMER_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
     
-    echo '<td><select name="mode_value">';
+    echo '<td><select name="timer_value">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
     echo '<option value="true" '.$T_SELECTED.' >RUNNING</option>';
     echo '<option value="false" '.$F_SELECTED.' >STOPPED</option>';;
