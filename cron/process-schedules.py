@@ -130,6 +130,8 @@ for result in results_schedules:
   results_modes =cursorselect.fetchall()
   cursorselect.close()
   
+  print( '----------------------------' )
+  
   print( results_modes )
   
   SCHED_TEST_MODES = True
@@ -152,6 +154,7 @@ for result in results_schedules:
   
     print( MODE_VALUE, MODE_TEST, TEST_VALUE, SCHED_TEST_MODES )  
  
+    print( '- - - - - - - - - - - - - - ' )
     # Check timers
   
   cursorselect = cnx.cursor()
