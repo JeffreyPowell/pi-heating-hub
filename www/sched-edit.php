@@ -133,25 +133,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     
     # Update Modes
 
-   # $sql = "DELETE FROM sched_sensor WHERE sched_id = '".$SCHED_ID."';";
+   # $sql = "DELETE FROM sched_mode WHERE sched_id = '".$SCHED_ID."';";
    # if (!mysqli_query($conn, $sql)) {
    #     echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
    # }
 
-    #foreach( $_POST as $key => $val )
-    #{
-    #    #print_r( $key );
-    #    #print_r( $val );
+    foreach( $_POST as $key => $val )
+    {
+        #print_r( $key );
+        #print_r( $val );
 
         #print_r("<pre><BR>==========<BR>" );
-    #    if( preg_match( '/sensor.*opp/', $key ) )
-    #    {
-            #print_r("<pre><BR>==========<BR>");
-            #print_r( $key );
-            #print_r( $val );
+        if( preg_match( '/mode.*opp/', $key ) )
+        {
+            print_r("<pre><BR>==========<BR>");
+            print_r( $key );
+            print_r( $val );
     #        $post_sched_sensor_sensor_id = explode( '_', $key )[1];
     #        print_r( $post_sched_sensor_sensor_id );
-            #print_r("<BR>==========<BR></pre>");
+            print_r("<BR>==========<BR></pre>");
     #        if( $val !== 'na' )
     #        {
     #            if( $val == 'eq' ) { $val = '='; }
@@ -165,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     #                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     #            }
     #        }
-    #    }
+        }
         #else
         #{
         #    print_r( 'not match : ' );
@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         
         #print_r("<BR>==========<BR></pre>");
         #print_r("<BR>");
-    #}
+    }
 
     # Update Timers
 
