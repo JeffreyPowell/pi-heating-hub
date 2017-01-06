@@ -149,30 +149,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
             print_r("<pre><BR>==========<BR>");
             print_r( $key );
             print_r( $val );
-    #        $post_sched_sensor_sensor_id = explode( '_', $key )[1];
-    #        print_r( $post_sched_sensor_sensor_id );
+            $post_sched_mode_mode_id = explode( '_', $key )[1];
+            print_r( $post_sched_sensor_sensor_id );
             print_r("<BR>==========<BR></pre>");
-    #        if( $val !== 'na' )
+            if( $val !== 'na' )
     #        {
     #            if( $val == 'eq' ) { $val = '='; }
     #            if( $val == 'lt' ) { $val = '<'; }
     #            if( $val == 'gt' ) { $val = '>'; }
     #            if( $val == 'ne' ) { $val = '!'; }
     #            $post_sched_sensor_sensor_value = $_POST["sensor_".$post_sched_sensor_sensor_id."_value"];
-    #            $sql = "INSERT INTO sched_sensor ( sched_id, sensor_id, opp, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_sensor_sensor_id."', '".$val."', '".$post_sched_sensor_sensor_value."');";
-    #            print_r( $sql );
+                $sql = "INSERT INTO sched_sensor ( sched_id, sensor_id, opp, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_sensor_sensor_id."', '".$val."', '".$post_sched_sensor_sensor_value."');";
+                print_r( $sql );
     #            if (!mysqli_query($conn, $sql)) {
     #                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     #            }
     #        }
         }
-        #else
-        #{
-        #    print_r( 'not match : ' );
-        #    print_r( $key );
-        #    print_r( $val );
-        #    print_r("<BR>");
-        #}
+        else
+        {
+            print_r( 'not match : ' );
+            print_r( $key );
+            print_r( $val );
+            print_r("<BR>");
+        }
         
         #print_r("<BR>==========<BR></pre>");
         #print_r("<BR>");
