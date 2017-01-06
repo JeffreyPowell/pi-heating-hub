@@ -95,16 +95,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     {
         print_r( $key );
         print_r( $val );
-        $match = Array();
+
+        print_r("<pre><BR>==========<BR>");
         //If this is one of the item name variables
-        if( preg_match( '/^sensor*opp$/', $key, $match ) )
+        if( preg_match( '/sensor*opp$/', $key ) )
         {
-            print_r("<pre><BR>==========<BR>");
             print_r( $key );
             print_r( $val );
-            print_r("<BR>==========<BR></pre>");
-            
         }
+        print_r("<BR>==========<BR></pre>");
     }
     
     if ( isset($_POST["devices"]) ) {
