@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         #print_r( $key );
         #print_r( $val );
 
-        print_r("<pre><BR>==========<BR>" );
+        #print_r("<pre><BR>==========<BR>" );
         if( preg_match( '/sensor.*opp/', $key ) )
         {
             #print_r("<pre><BR>==========<BR>");
@@ -123,8 +123,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         #    print_r("<BR>");
         #}
         
-        print_r("<BR>==========<BR></pre>");
-        print_r("<BR>");
+        #print_r("<BR>==========<BR></pre>");
+        #print_r("<BR>");
     }
     
     #if ( isset($_POST["devices"]) ) {
