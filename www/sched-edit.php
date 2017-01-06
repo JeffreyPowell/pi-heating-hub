@@ -107,10 +107,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
             #print_r("<BR>==========<BR></pre>");
             if( $val !== 'na' )
             {
-                if( $val == 'eq' ) { $val = '=' }
-                if( $val == 'lt' ) { $val = '<' }
-                if( $val == 'gt' ) { $val = '>' }
-                if( $val == 'ne' ) { $val = '!' }
+                if( $val == 'eq' ) { $val = '='; }
+                if( $val == 'lt' ) { $val = '<'; }
+                if( $val == 'gt' ) { $val = '>'; }
+                if( $val == 'ne' ) { $val = '!'; }
                 $post_sched_sensor_sensor_value = $_POST["sensor_".$post_sched_sensor_sensor_id."_value"];
                 $sql = "INSERT INTO sched_sensor ( sched_id, sensor_id, opp, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_sensor_sensor_id."', '".$val."', '".$post_sched_sensor_sensor_value."');";
                 print_r( $sql );
