@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     #            if( $val == 'lt' ) { $val = '<'; }
     #            if( $val == 'gt' ) { $val = '>'; }
     #            if( $val == 'ne' ) { $val = '!'; }
-                $post_sched_mode_mode_value = $_POST["sensor_".$post_sched_mode_mode_id."_value"];
+                $post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
                 $sql = "INSERT INTO sched_mode ( sched_id, mode_id, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_mode_mode_id."', '".$post_sched_mode_mode_value."');";
                 print_r( $sql );
     #            if (!mysqli_query($conn, $sql)) {
