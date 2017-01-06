@@ -84,6 +84,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
 #        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
 #    }
 
+    # Update sensors
+
+    #$sql = "DELETE FROM sched_sensor WHERE sched_id = '".$SCHED_ID."';";
+    #if (!mysqli_query($conn, $sql)) {
+    #    echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+    #}
+
+    foreach( $_POST as $key => $val )
+    {
+        $match = Array();
+        //If this is one of the item name variables
+        if( preg_match( '/^sensor(\d*)$/', $key, $match ) )
+        {
+            print_r("<pre><BR>==========<BR>");
+            print_r( $key, $val );
+            print_r("<BR>==========<BR></pre>"
+            
+            //then put it into the array of captured values
+            $values[] = $val;
+        }
+    }
+    
+    if ( isset($_POST["devices"]) ) {
+        foreach( $_POST["devices"] as $DEVICE_ID ) {
+            $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
+            if (!mysqli_query($conn, $sql)) {
+                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+        }
+    }
+
+#    echo $sql;
+
+#    if (mysqli_query($conn, $sql)) {
+#        #echo "<br><br>Schedule updated successfully";
+#    } else {
+#        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+#    }
 
 
 
@@ -91,6 +129,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
 
     mysqli_close($conn);
 }
+
+
+
+
+
+
+
+
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
