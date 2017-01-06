@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     {
         $match = Array();
         //If this is one of the item name variables
-        if( preg_match( '/^sensor(\d*)$/', $key, $match ) )
+        if( preg_match( '/^sensor*$/', $key, $match ) )
         {
             print_r("<pre><BR>==========<BR>");
             print_r( $key, $val );
