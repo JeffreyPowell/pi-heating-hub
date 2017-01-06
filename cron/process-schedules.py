@@ -130,12 +130,12 @@ for result in results_schedules:
   results_modes =cursorselect.fetchall()
   cursorselect.close()
   
-  #print( results_modes )
+  print( results_modes )
   
   SCHED_TEST_MODES = True
    
   for result in results_modes:
-    #print( result )
+    print( result )
     MODE_VALUE= result[2]
     MODE_TEST = result[6]
     TEST_VALUE = result[7]
@@ -150,7 +150,7 @@ for result in results_schedules:
     if TEST == False:
       SCHED_TEST_MODES = False
   
-    #print( MODE_VALUE, MODE_TEST, TEST_VALUE, SCHED_TEST_MODES )  
+    print( MODE_VALUE, MODE_TEST, TEST_VALUE, SCHED_TEST_MODES )  
  
     # Check timers
   
