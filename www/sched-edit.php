@@ -384,22 +384,22 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '<tr><td>'.$row["name"].'</td>';
 
     $MODE_ID = $row["id"];
-    $MODE_OPP = $row["test_opp"];
+    #$MODE_OPP = $row["test_opp"];
     $MODE_VALUE = $row["test_value"];
     
-    if ( $MODE_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    if ( $MODE_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
-    if ( $MODE_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
+    #if ( $MODE_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+    #if ( $MODE_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
+    #if ( $MODE_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
 
-    echo '<td><select name="mode_'.$MODE_ID.'_opp">';
-    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
-    echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
-    echo '</select></td>';
+    #echo '<td><select name="mode_'.$MODE_ID.'_opp">';
+    #echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+    #echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
+    #echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
+    #echo '</select></td>';
 
     if ( $MODE_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    if ( $MODE_VALUE == "0" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
-    if ( $MODE_VALUE == "1" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+    if ( $MODE_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+    if ( $MODE_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
 
     echo '<td><select name="mode_'.$MODE_ID.'_value">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
