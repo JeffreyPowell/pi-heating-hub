@@ -93,6 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
 
     foreach( $_POST as $key => $val )
     {
+        print_r( $key, $val );
         $match = Array();
         //If this is one of the item name variables
         if( preg_match( '/^sensor*$/', $key, $match ) )
