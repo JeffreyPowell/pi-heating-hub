@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
                 if( $val == 'ne' ) { $val = '!'; }
                 $post_sched_sensor_sensor_value = $_POST["sensor_".$post_sched_sensor_sensor_id."_value"];
                 $sql = "INSERT INTO sched_sensor ( sched_id, sensor_id, opp, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_sensor_sensor_id."', '".$val."', '".$post_sched_sensor_sensor_value."');";
-                print_r( $sql );
+                #print_r( $sql );
                 if (!mysqli_query($conn, $sql)) {
                     echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         #print_r( $val );
 
         #print_r("<pre><BR>==========<BR>" );
-        if( preg_match( '/mode.*opp/', $key ) )
+        if( preg_match( '/mode.*value/', $key ) )
         {
             print_r("<pre><BR>==========<BR>");
             print_r( $key );
