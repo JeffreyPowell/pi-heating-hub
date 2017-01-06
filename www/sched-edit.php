@@ -231,12 +231,14 @@ while($row = mysqli_fetch_assoc($result)) {
 
     echo '<tr><td>'.$row["name"].'</td>';
 
+    $MODE_ID = $row["id"];
     $MODE_OPP = $row["opp"];
+    $MODE_VALUE = $row["value"];
     if ( $MODE_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $MODE_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
     if ( $MODE_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
 
-    echo '<td><select name="mode_opp">';
+    echo '<td><select name="mode_'.$MODE_ID.'_opp">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
     echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
     echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
@@ -247,7 +249,7 @@ while($row = mysqli_fetch_assoc($result)) {
     if ( $MODE_VALUE == "0" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
     if ( $MODE_VALUE == "1" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
 
-    echo '<td><select name="mode_value">';
+    echo '<td><select name="mode_'.$MODE_ID.'_value">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
     echo '<option value="true" '.$T_SELECTED.' >ON</option>';
     echo '<option value="false" '.$F_SELECTED.' >OFF</option>';;
@@ -281,14 +283,17 @@ while($row = mysqli_fetch_assoc($result)) {
 
     echo '<tr><td>'.$row["name"].'</td>';
 
+    $TIMER_ID = $row["id"];
     $TIMER_OPP = $row["opp"];
+    $TIMER_VALUE = $row["value"];
+    
     if ( $TIMER_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $TIMER_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
     if ( $TIMER_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
     if ( $TIMER_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
     if ( $TIMER_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
 
-    echo '<td><select name="timer_opp">';
+    echo '<td><select name="timer_'.$TIMER_ID.'_opp">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
     echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
     echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
@@ -296,12 +301,11 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
     echo '</select></td>';
 
-    $TIMER_VALUE = $row["value"];
     if ( $TIMER_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $TIMER_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
     if ( $TIMER_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
 
-    echo '<td><select name="timer_value">';
+    echo '<td><select name="timer_'.$TIMER_ID.'_value">';
     echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
     echo '<option value="true" '.$T_SELECTED.' >RUNNING</option>';
     echo '<option value="false" '.$F_SELECTED.' >STOPPED</option>';;
