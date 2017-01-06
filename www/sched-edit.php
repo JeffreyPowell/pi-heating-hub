@@ -234,6 +234,7 @@ while($row = mysqli_fetch_assoc($result)) {
     $MODE_ID = $row["id"];
     $MODE_OPP = $row["test_opp"];
     $MODE_VALUE = $row["test_value"];
+    
     if ( $MODE_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $MODE_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
     if ( $MODE_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
@@ -244,7 +245,6 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
     echo '</select></td>';
 
-    $MODE_VALUE = $row["value"];
     if ( $MODE_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $MODE_VALUE == "0" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
     if ( $MODE_VALUE == "1" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
