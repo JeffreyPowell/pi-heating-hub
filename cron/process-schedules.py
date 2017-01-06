@@ -139,17 +139,20 @@ for result in results_schedules:
   SCHED_TEST_MODES = True
    
   for result in results_modes:
-    print( result )
+    #print( result )
     MODE_VALUE= bool(result[2])
     MODE_TEST = str(result[6])
     TEST_VALUE = bool(result[7])
     
     if (  MODE_TEST == '=' and MODE_VALUE == TEST_VALUE ):
       TEST = True
+      print('[1]')
     elif( MODE_TEST == '!' and MODE_VALUE != TEST_VALUE ):
       TEST = True
+      print('[2]')
     else:
       TEST = False
+      print('[3]')
       
     if TEST == False:
       SCHED_TEST_MODES = False
