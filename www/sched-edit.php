@@ -106,14 +106,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         print_r("<BR>==========<BR></pre>");
     }
     
-    if ( isset($_POST["devices"]) ) {
-        foreach( $_POST["devices"] as $DEVICE_ID ) {
-            $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
-            if (!mysqli_query($conn, $sql)) {
-                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
-        }
-    }
+    #if ( isset($_POST["devices"]) ) {
+    #    foreach( $_POST["devices"] as $DEVICE_ID ) {
+    #        $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
+    #        if (!mysqli_query($conn, $sql)) {
+    #            echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+    #        }
+    #    }
+    #}
 
 #    echo $sql;
 
