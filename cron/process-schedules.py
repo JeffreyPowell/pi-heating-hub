@@ -36,6 +36,7 @@ for result in results_schedules:
   SCHED_TEST_TIMERS   = False
   
   SCHED_ID = str(result[0])
+  SCHED_NAME = str(result[1])
   SCHED_START = result[2]
   SCHED_END = result[3]
   
@@ -46,10 +47,9 @@ for result in results_schedules:
   SCHED_FRI = result[8]
   SCHED_SAT = result[9]
   SCHED_SUN = result[10]
-  
-  print( SCHED_ID )
 
-  print("- - -")
+  print( '######################################', SCHED_ID, SHED_NAME )
+  
   SCHED_START_HOUR, remainder = divmod(SCHED_START.seconds,3600)
   SCHED_START_MINUTE, sec = divmod(remainder, 60)
   
