@@ -158,21 +158,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     #            if( $val == 'lt' ) { $val = '<'; }
     #            if( $val == 'gt' ) { $val = '>'; }
     #            if( $val == 'ne' ) { $val = '!'; }
-    #            $post_sched_sensor_sensor_value = $_POST["sensor_".$post_sched_sensor_sensor_id."_value"];
-                $sql = "INSERT INTO sched_mode ( sched_id, mode_id, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_sensor_sensor_id."', '".$post_sched_sensor_sensor_value."');";
+                $post_sched_mode_mode_value = $_POST["sensor_".$post_sched_mode_mode_id."_value"];
+                $sql = "INSERT INTO sched_mode ( sched_id, mode_id, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_mode_mode_id."', '".$post_sched_mode_mode_value."');";
                 print_r( $sql );
     #            if (!mysqli_query($conn, $sql)) {
     #                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     #            }
     #        }
         }
-        else
-        {
-            print_r( 'not match : ' );
-            print_r( $key );
-            print_r( $val );
-            print_r("<BR>");
-        }
+    #    else
+    #    {
+    #        print_r( 'not match : ' );
+    #        print_r( $key );
+    #        print_r( $val );
+    #        print_r("<BR>");
+    #    }
         
         #print_r("<BR>==========<BR></pre>");
         #print_r("<BR>");
