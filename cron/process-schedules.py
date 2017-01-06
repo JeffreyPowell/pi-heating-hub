@@ -127,7 +127,7 @@ for result in results_schedules:
   # Check modes
 
   cursorselect = cnx.cursor()
-  query = "SELECT * FROM modes INNER JOIN sched_mode ON sched_id=sched_mode.sched_id AND sched_mode.sched_id="+SCHED_ID+";"
+  query = "SELECT * FROM modes INNER JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id='"+SCHED_ID+"';"
   cursorselect.execute(query)
   results_modes =cursorselect.fetchall()
   cursorselect.close()
