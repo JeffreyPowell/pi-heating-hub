@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         {
             print_r("<pre><BR>==========<BR>");
             print_r( $key, $val );
-            print_r("<BR>==========<BR></pre>"
+            print_r("<BR>==========<BR></pre>");
             
         }
     }
