@@ -106,6 +106,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
             print_r( $post_sched_sensor_sensor_id );
             #print_r("<BR>==========<BR></pre>");
         }
+        else
+        {
+            print_r( 'not match : ' );
+            print_r( $key );
+            print_r("<BR>");
+        }
+        
         print_r("<BR>==========<BR></pre>");
         print_r("<BR>");
     }
