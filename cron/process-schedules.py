@@ -104,9 +104,9 @@ for result in results_schedules:
   
   for result in results_sensors:
     #print( result )
-    SENSOR_VALUE= result[4]
-    SENSOR_TEST = result[9]
-    TEST_VALUE = result[10]
+    SENSOR_VALUE= float(result[4])
+    SENSOR_TEST = str(result[9])
+    TEST_VALUE = float(result[10])
     
     if (  SENSOR_TEST == '<' and SENSOR_VALUE < TEST_VALUE ):
       TEST = True
@@ -140,9 +140,9 @@ for result in results_schedules:
    
   for result in results_modes:
     print( result )
-    MODE_VALUE= result[2]
-    MODE_TEST = result[6]
-    TEST_VALUE = result[7]
+    MODE_VALUE= bool(result[2])
+    MODE_TEST = str(result[6])
+    TEST_VALUE = bool(result[7])
     
     if (  MODE_TEST == '=' and MODE_VALUE == TEST_VALUE ):
       TEST = True
