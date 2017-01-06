@@ -101,8 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
             print_r( $key, $val );
             print_r("<BR>==========<BR></pre>"
             
-            //then put it into the array of captured values
-            $values[] = $val;
         }
     }
     
