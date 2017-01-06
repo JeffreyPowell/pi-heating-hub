@@ -232,8 +232,8 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '<tr><td>'.$row["name"].'</td>';
 
     $MODE_ID = $row["id"];
-    $MODE_OPP = $row["opp"];
-    $MODE_VALUE = $row["value"];
+    $MODE_OPP = $row["test_opp"];
+    $MODE_VALUE = $row["test_value"];
     if ( $MODE_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $MODE_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
     if ( $MODE_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
