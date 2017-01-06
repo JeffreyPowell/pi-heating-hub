@@ -102,6 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         {
             print_r( $key );
             print_r( $val );
+            $post_sched_sensor_sensor_id = explode( '_', $key )[1];
+            print_r( $post_sched_sensor_sensor_id );
         }
         print_r("<BR>==========<BR></pre>");
     }
