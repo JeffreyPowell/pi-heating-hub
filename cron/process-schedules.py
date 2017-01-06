@@ -48,7 +48,9 @@ for result in results_schedules:
   SCHED_SAT = result[9]
   SCHED_SUN = result[10]
 
-  print( '######################################', SCHED_ID, SHED_NAME )
+  print( '######################################' )
+  print( SCHED_ID, SHED_NAME )
+  print( '######################################' )
   
   SCHED_START_HOUR, remainder = divmod(SCHED_START.seconds,3600)
   SCHED_START_MINUTE, sec = divmod(remainder, 60)
