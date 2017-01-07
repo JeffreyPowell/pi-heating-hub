@@ -77,7 +77,7 @@ if (mysqli_num_rows($result) > 0) {
     
     echo "<td><form method='post' action='/sched-edit.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='edit' value='Edit'></form></td>";
-    echo "<td><form method='post' action='/sched-delete.php?id=".$row["id"]."'>";
+    echo "<td><form method='post' action='/sched-edit.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='delete' value='Delete'></form></td>";
     echo "</tr>";
   }    
