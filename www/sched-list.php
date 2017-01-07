@@ -23,23 +23,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r("------------------------");
     print_r($_GET);
     print_r("------------------------");
-        
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+   
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["add"] == "Add new" ) {
+    
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+            }
+
+        $sql = "INSERT INTO schedules (name, start, end) VALUES ('new', '00:00:00', '23:59:59')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
 
-#    $sql = "INSERT INTO schedules (name, start, end) VALUES ('$_POST[name]', '$_POST[start]', '$_POST[end]')";
-
-#    if (mysqli_query($conn, $sql)) {
-#        echo "New record created successfully";
-#    } else {
-#        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-#    }
-
-    mysqli_close($conn);
+        mysqli_close($conn);
+    }
 }
     
 // Create connection
