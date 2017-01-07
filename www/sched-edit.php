@@ -148,6 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         {
             print_r("<pre><BR>==========<BR>");
             print_r( $key );
+            print_r( ' : ' );
             print_r( $val );
             $post_sched_mode_mode_id = explode( '_', $key )[1];
             #print_r( $post_sched_sensor_sensor_id );
@@ -166,14 +167,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     #            }
     #        }
         }
-        else
-        {
-            print_r( 'not match : ' );
-            print_r( $key );
-            print_r( ' : ' );
-            print_r( $val );
-            print_r("<BR>");
-        }
+        #else
+        #{
+        #    print_r( 'not match : ' );
+        #    print_r( $key );
+        #    print_r( ' : ' );
+        #    print_r( $val );
+        #    print_r("<BR>");
+        #}
         
         #print_r("<BR>==========<BR></pre>");
         #print_r("<BR>");
