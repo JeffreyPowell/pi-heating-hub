@@ -22,7 +22,7 @@ cursorread.execute(query)
 results =cursorread.fetchall()
 cursorread.close()
 
-network_data = subprocess.check_output(sudo nmap -sP 192.168.0.0/24)
+network_data = subprocess.check_output('sudo nmap -sP 192.168.0.0/24')
 
 print network_data
 
