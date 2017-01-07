@@ -521,7 +521,7 @@ echo '</table>';
 echo '<br><br>';
 
     
-echo '<h2>AND Network</h2><br>';
+echo '<h2>AND Who is Home</h2><br>';
 
 $sql = "SELECT * FROM network LEFT JOIN sched_network ON network.id=sched_network.network_id AND sched_network.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
