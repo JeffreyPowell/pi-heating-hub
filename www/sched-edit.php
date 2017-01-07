@@ -204,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
                 if( $val == 'false' ) { $val = '0'; }
                 if( $val == 'true' ) { $val = '1'; }
                 #$post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
-                $sql = "INSERT INTO sched_timer ( sched_id, timer_id, test_value ) VALUES ( '".$SCHED_ID."', '".$post_sched_timer_timer_id."', '".$val."');";
+                $sql = "INSERT INTO sched_timer ( sched_id, timer_id, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_timer_timer_id."', '".$val."');";
                 #print_r( $sql );
                 if (!mysqli_query($conn, $sql)) {
                     echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
