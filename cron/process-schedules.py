@@ -144,12 +144,9 @@ for result in results_schedules:
     MODE_TEST = str(result[6])
     TEST_VALUE = bool(result[7])
     
-    if (  MODE_TEST == '=' and MODE_VALUE == TEST_VALUE ):
+    if (  MODE_VALUE == TEST_VALUE ):
       TEST = True
       print('[1]')
-    elif( MODE_TEST == '!' and MODE_VALUE != TEST_VALUE ):
-      TEST = True
-      print('[2]')
     else:
       TEST = False
       print('[3]')
