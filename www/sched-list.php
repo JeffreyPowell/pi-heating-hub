@@ -43,6 +43,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         mysqli_close($conn);
     }
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["delete"] == "Add new" ) {
+    
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+            }
+
+        $sql = "INSERT INTO schedules (name, start, end) VALUES ('new', '00:00:00', '23:59:59')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+
+        mysqli_close($conn);
+    }
 }
     
 // Create connection
@@ -77,7 +97,7 @@ if (mysqli_num_rows($result) > 0) {
     
     echo "<td><form method='post' action='/sched-edit.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='edit' value='Edit'></form></td>";
-    echo "<td><form method='post' action='/sched-edit.php?id=".$row["id"]."'>";
+    echo "<td><form method='post' action='/sched-list.php?id=".$row["id"]."'>";
     echo "<input type='submit' name='delete' value='Delete'></form></td>";
     echo "</tr>";
   }    
