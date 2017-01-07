@@ -537,7 +537,7 @@ while($row = mysqli_fetch_assoc($result)) {
 
     echo '<tr><td>'.$row["name"].'</td>';
 
-    $NETWORK_id = $row["ID"];
+    $NETWORK_ID = $row["id"];
     #$NETWORK_OPP = $row["opp"];
     $NETWORK_VALUE = $row["value"];
     
