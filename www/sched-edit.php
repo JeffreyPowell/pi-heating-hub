@@ -133,10 +133,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     
     # Update Modes
 
-   # $sql = "DELETE FROM sched_mode WHERE sched_id = '".$SCHED_ID."';";
-   # if (!mysqli_query($conn, $sql)) {
-   #     echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-   # }
+    $sql = "DELETE FROM sched_mode WHERE sched_id = '".$SCHED_ID."';";
+    if (!mysqli_query($conn, $sql)) {
+        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 
     foreach( $_POST as $key => $val )
     {
@@ -162,9 +162,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
                 #$post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
                 $sql = "INSERT INTO sched_mode ( sched_id, mode_id, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_mode_mode_id."', '".$val."');";
                 print_r( $sql );
-    #            if (!mysqli_query($conn, $sql)) {
-    #                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-    #            }
+                if (!mysqli_query($conn, $sql)) {
+                    echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
             }
         }
         #else
