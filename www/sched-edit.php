@@ -154,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
             #print_r( $post_sched_sensor_sensor_id );
             print_r("<BR>==========<BR></pre>");
             if( $val !== 'na' )
-    #        {
+            {
     #            if( $val == 'eq' ) { $val = '='; }
     #            if( $val == 'lt' ) { $val = '<'; }
     #            if( $val == 'gt' ) { $val = '>'; }
@@ -165,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     #            if (!mysqli_query($conn, $sql)) {
     #                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     #            }
-    #        }
+            }
         }
         #else
         #{
