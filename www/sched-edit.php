@@ -191,7 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         #print_r( $val );
 
         #print_r("<pre><BR>==========<BR>" );
-        if( preg_match( '/timer.*opp/', $key ) )
+        if( preg_match( '/timer.*value/', $key ) )
         {
             print_r("<pre><BR>==========<BR>");
             print_r( $key );
