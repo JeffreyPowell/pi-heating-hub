@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
             #print_r( $key );
             #print_r( $val );
             $post_sched_sensor_sensor_id = explode( '_', $key )[1];
-            print_r( $post_sched_sensor_sensor_id );
+            #print_r( $post_sched_sensor_sensor_id );
             #print_r("<BR>==========<BR></pre>");
             if( $val !== 'na' )
             {
@@ -146,20 +146,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         #print_r("<pre><BR>==========<BR>" );
         if( preg_match( '/mode.*value/', $key ) )
         {
-            print_r("<pre><BR>==========<BR>");
-            print_r( $key );
-            print_r( ' : ' );
-            print_r( $val );
+            #print_r("<pre><BR>==========<BR>");
+            #print_r( $key );
+            #print_r( ' : ' );
+            #print_r( $val );
             $post_sched_mode_mode_id = explode( '_', $key )[1];
             #print_r( $post_sched_sensor_sensor_id );
-            print_r("<BR>==========<BR></pre>");
+            #print_r("<BR>==========<BR></pre>");
             if( $val !== 'na' )
             {
                 if( $val == 'false' ) { $val = '0'; }
                 if( $val == 'true' ) { $val = '1'; }
                 #$post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
                 $sql = "INSERT INTO sched_mode ( sched_id, mode_id, test_value ) VALUES ( '".$SCHED_ID."', '".$post_sched_mode_mode_id."', '".$val."');";
-                print_r( $sql );
+                #print_r( $sql );
                 if (!mysqli_query($conn, $sql)) {
                     echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
@@ -180,24 +180,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
 
     # Update Timers
 
-   # $sql = "DELETE FROM sched_sensor WHERE sched_id = '".$SCHED_ID."';";
+    $sql = "DELETE FROM sched_timer WHERE sched_id = '".$SCHED_ID."';";
    # if (!mysqli_query($conn, $sql)) {
    #     echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
    # }
 
-    #foreach( $_POST as $key => $val )
-    #{
-    #    #print_r( $key );
-    #    #print_r( $val );
+    foreach( $_POST as $key => $val )
+    {
+        #print_r( $key );
+        #print_r( $val );
 
         #print_r("<pre><BR>==========<BR>" );
-    #    if( preg_match( '/sensor.*opp/', $key ) )
-    #    {
-            #print_r("<pre><BR>==========<BR>");
-            #print_r( $key );
-            #print_r( $val );
-    #        $post_sched_sensor_sensor_id = explode( '_', $key )[1];
-    #        print_r( $post_sched_sensor_sensor_id );
+        if( preg_match( '/timer.*opp/', $key ) )
+        {
+            print_r("<pre><BR>==========<BR>");
+            print_r( $key );
+            print_r( $val );
+            $post_sched_timer_timer_id = explode( '_', $key )[1];
+            print_r( $post_sched_sensor_sensor_id );
             #print_r("<BR>==========<BR></pre>");
     #        if( $val !== 'na' )
     #        {
@@ -212,7 +212,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     #                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
     #            }
     #        }
-    #    }
+        }
         #else
         #{
         #    print_r( 'not match : ' );
@@ -223,7 +223,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         
         #print_r("<BR>==========<BR></pre>");
         #print_r("<BR>");
-    #}
+    }
 
 
     
@@ -436,22 +436,22 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '<tr><td>'.$row["name"].'</td>';
 
     $TIMER_ID = $row["id"];
-    $TIMER_OPP = $row["opp"];
+    #$TIMER_OPP = $row["opp"];
     $TIMER_VALUE = $row["value"];
     
-    if ( $TIMER_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    if ( $TIMER_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
-    if ( $TIMER_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
-    if ( $TIMER_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
-    if ( $TIMER_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
+    #if ( $TIMER_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+    #if ( $TIMER_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
+    #if ( $TIMER_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
+    #if ( $TIMER_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
+    #if ( $TIMER_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
 
-    echo '<td><select name="timer_'.$TIMER_ID.'_opp">';
-    echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
-    echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
-    echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
-    echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
-    echo '</select></td>';
+    #echo '<td><select name="timer_'.$TIMER_ID.'_opp">';
+    #echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+    #echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
+    #echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
+    #echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
+    #echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
+    #echo '</select></td>';
 
     if ( $TIMER_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $TIMER_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
