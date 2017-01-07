@@ -181,9 +181,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
     # Update Timers
 
     $sql = "DELETE FROM sched_timer WHERE sched_id = '".$SCHED_ID."';";
-   # if (!mysqli_query($conn, $sql)) {
-   #     echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-   # }
+    if (!mysqli_query($conn, $sql)) {
+        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 
     foreach( $_POST as $key => $val )
     {
@@ -199,19 +199,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
             $post_sched_timer_timer_id = explode( '_', $key )[1];
             print_r( $post_sched_sensor_sensor_id );
             #print_r("<BR>==========<BR></pre>");
-    #        if( $val !== 'na' )
-    #        {
-    #            if( $val == 'eq' ) { $val = '='; }
-    #            if( $val == 'lt' ) { $val = '<'; }
-    #            if( $val == 'gt' ) { $val = '>'; }
-    #            if( $val == 'ne' ) { $val = '!'; }
-    #            $post_sched_sensor_sensor_value = $_POST["sensor_".$post_sched_sensor_sensor_id."_value"];
-    #            $sql = "INSERT INTO sched_sensor ( sched_id, sensor_id, opp, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_sensor_sensor_id."', '".$val."', '".$post_sched_sensor_sensor_value."');";
-    #            print_r( $sql );
-    #            if (!mysqli_query($conn, $sql)) {
-    #                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-    #            }
-    #        }
+            if( $val !== 'na' )
+            {
+                if( $val == 'false' ) { $val = '0'; }
+                if( $val == 'true' ) { $val = '1'; }
+                #$post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
+                $sql = "INSERT INTO sched_timer ( sched_id, timer_id, test_value ) VALUES ( '".$SCHED_ID."', '".$post_sched_timer_timer_id."', '".$val."');";
+                #print_r( $sql );
+                if (!mysqli_query($conn, $sql)) {
+                    echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
+            }
         }
         #else
         #{
