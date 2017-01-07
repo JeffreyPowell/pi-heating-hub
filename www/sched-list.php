@@ -88,7 +88,7 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 ?>  
 
-<form method='post' action='sched-new.php'>
+<form method='post' action='sched-list.php'>
 <input type='submit' name='add' value='Add new'>
 </form>
   
