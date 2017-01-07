@@ -539,7 +539,7 @@ while($row = mysqli_fetch_assoc($result)) {
 
     $NETWORK_ID = $row["id"];
     #$NETWORK_OPP = $row["opp"];
-    $NETWORK_VALUE = $row["value"];
+    $NETWORK_VALUE = $row["test"];
     
     #if ( $TIMER_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     #if ( $TIMER_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
