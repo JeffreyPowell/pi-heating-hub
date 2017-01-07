@@ -523,7 +523,10 @@ echo '<br><br>';
     
 echo '<h2>AND Who is Home</h2><br>';
 
-$sql = "SELECT * FROM network LEFT JOIN sched_network ON network.id=sched_network.network_id AND sched_network.sched_id=".$SCHED_ID.";";
+$sql = "SELECT * FROM network LEFT JOIN sched_network ON network.id=sched_network.network_id AND sched_network.sched_id='".$SCHED_ID."';";
+
+echo $sql;
+
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results";
