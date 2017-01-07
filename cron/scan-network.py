@@ -4,6 +4,9 @@ import MySQLdb
 import datetime
 import urllib2
 import os
+#import os.system
+#import os.spawn*
+import subprocess
   
 servername = "localhost"
 username = "pi"
