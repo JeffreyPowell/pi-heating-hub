@@ -155,10 +155,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
             print_r("<BR>==========<BR></pre>");
             if( $val !== 'na' )
             {
-    #            if( $val == 'eq' ) { $val = '='; }
-    #            if( $val == 'lt' ) { $val = '<'; }
-    #            if( $val == 'gt' ) { $val = '>'; }
-    #            if( $val == 'ne' ) { $val = '!'; }
+                if( $val == 'false' ) { $val = '0'; }
+                if( $val == 'true' ) { $val = '1'; }
                 #$post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
                 $sql = "INSERT INTO sched_mode ( sched_id, mode_id, test_value ) VALUES ( '".$SCHED_ID."', '".$post_sched_mode_mode_id."', '".$val."');";
                 print_r( $sql );
