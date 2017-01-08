@@ -21,68 +21,71 @@ $SCHED_ID = $_GET['id'];
 
 #if ( $SCHED_ID < 1 ) { header('Location: /sched-list.php'); exit(); }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
-    header('Location: /sched-list.php');
-    exit();
-    }
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
-    print_r("<pre><BR>------------------------<BR>");
-    print_r($_POST);
-    print_r("<BR>------------------------<BR></pre>");
-
-
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    // Check connection
-    if (!$conn) {
-        die("<br><br>Connection failed: " . mysqli_connect_error());
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+        
+    if ( $_POST["formSubmit"] == "Done" ) {
+        header('Location: /sched-list.php');
+        exit();
         }
 
-    # Update schedules with post data
+    if ( $_POST["formSubmit"] == "Save" ) {
+        print_r("<pre><BR>------------------------<BR>");
+        print_r($_POST);
+        print_r("<BR>------------------------<BR></pre>");
 
-    $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
-    if (mysqli_query($conn, $sql)) {
-        #echo "<br><br>Schedule updated successfully";
-    } else {
-        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
 
-    if ( !isset($_POST["repeat_dow"]) ) {
-        $sql = "UPDATE schedules SET dow1 = '0', dow2 = '0', dow3 = '0', dow4 = '0', dow5 = '0', dow6 = '0', dow7 = '0' WHERE id='".$SCHED_ID."';";
-    } else {
-        $sql = "UPDATE schedules SET dow1 = '".in_array("dow1", $_POST["repeat_dow"])."', dow2 = '".in_array("dow2", $_POST["repeat_dow"])."', dow3 = '".in_array("dow3", $_POST["repeat_dow"])."', dow4 = '".in_array("dow4", $_POST["repeat_dow"])."', dow5 = '".in_array("dow5", $_POST["repeat_dow"])."', dow6 = '".in_array("dow6", $_POST["repeat_dow"])."', dow7 = '".in_array("dow7", $_POST["repeat_dow"])."' WHERE id='".$SCHED_ID."';";
-    }
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("<br><br>Connection failed: " . mysqli_connect_error());
+        }
 
-    if (mysqli_query($conn, $sql)) {
-        #echo "<br><br>Schedule updated successfully";
-    } else {
-        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
+        # Update schedules with post data
 
-    # Update devices
+        $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
+        if (mysqli_query($conn, $sql)) {
+            #echo "<br><br>Schedule updated successfully";
+        } else {
+            echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
 
-    $sql = "DELETE FROM sched_device WHERE sched_id = '".$SCHED_ID."';";
-    if (!mysqli_query($conn, $sql)) {
-        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
+        if ( !isset($_POST["repeat_dow"]) ) {
+            $sql = "UPDATE schedules SET dow1 = '0', dow2 = '0', dow3 = '0', dow4 = '0', dow5 = '0', dow6 = '0', dow7 = '0' WHERE id='".$SCHED_ID."';";
+        } else {
+            $sql = "UPDATE schedules SET dow1 = '".in_array("dow1", $_POST["repeat_dow"])."', dow2 = '".in_array("dow2", $_POST["repeat_dow"])."', dow3 = '".in_array("dow3", $_POST["repeat_dow"])."', dow4 = '".in_array("dow4", $_POST["repeat_dow"])."', dow5 = '".in_array("dow5", $_POST["repeat_dow"])."', dow6 = '".in_array("dow6", $_POST["repeat_dow"])."', dow7 = '".in_array("dow7", $_POST["repeat_dow"])."' WHERE id='".$SCHED_ID."';";
+        }
 
-    if ( isset($_POST["devices"]) ) {
-        foreach( $_POST["devices"] as $DEVICE_ID ) {
-            $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
-            if (!mysqli_query($conn, $sql)) {
-                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+        if (mysqli_query($conn, $sql)) {
+            #echo "<br><br>Schedule updated successfully";
+        } else {
+            echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+
+        # Update devices
+
+        $sql = "DELETE FROM sched_device WHERE sched_id = '".$SCHED_ID."';";
+        if (!mysqli_query($conn, $sql)) {
+            echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+
+        if ( isset($_POST["devices"]) ) {
+            foreach( $_POST["devices"] as $DEVICE_ID ) {
+                $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
+                if (!mysqli_query($conn, $sql)) {
+                    echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+                }
             }
-        }
+         }
     }
 
-#    echo $sql;
+    #    echo $sql;
 
-#    if (mysqli_query($conn, $sql)) {
-#        #echo "<br><br>Schedule updated successfully";
-#    } else {
-#        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-#    }
+    #    if (mysqli_query($conn, $sql)) {
+    #        #echo "<br><br>Schedule updated successfully";
+    #    } else {
+    #        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+    #    }
 
     # Update sensors
 
@@ -268,14 +271,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Save" ) {
         #print_r("<BR>");
     }
 
-    
-    
-    
-    
-    
-    
-
     mysqli_close($conn);
+
 }
 
 
