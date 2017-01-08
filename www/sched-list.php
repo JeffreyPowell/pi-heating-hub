@@ -6,7 +6,7 @@
 .error {color: #FF0000;}
 .tcolname {font-family: arial; color: black; font-size: xx-large;}
 .ccolname {font-family: arial; color: black; font-size: large;}
-.ccoldowun {font-family: courier; color: black; font-size: large;}
+.ccoldowun {font-family: courier; color: black; font-size: small;}
 .ccoldowse {font-family: courier; color: black; font-size: large;}
 </style>
 </head>
@@ -125,9 +125,6 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td><span class='ccolend'>".$SCHED_END."</span></td>";
       
         echo "<td><span class='ccoldowun'>";
-
-        echo str_pad(decbin($row["dow"]), 7, "0", STR_PAD_LEFT);
-
         
         echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
         echo '<tr>';
@@ -139,17 +136,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td><input type="checkbox" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
         echo '<td><input type="checkbox" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
         echo '</tr></table>';
-        
-        
-        
-        
-        
-        
-        
-        
-        for ($i=1; $i<8; $i++) {
-            //echo $i;
-        }
+
         echo "</span></td>";
       
         echo "<td><span class='ccolvalue'>".$SCHED_ACTIVE."</span></td>";
