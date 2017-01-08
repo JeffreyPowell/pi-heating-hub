@@ -90,5 +90,5 @@ for i in results:
     print"rrd"
     os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
 
-
+cnx.commit
 cnx.close()
