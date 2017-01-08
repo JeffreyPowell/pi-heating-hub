@@ -37,7 +37,8 @@ for i in results:
     data = 'na'
     
   print data
-
+  print sensor_id
+  
   if( data != 'na' ):
     print "database"
     print sensor_id
