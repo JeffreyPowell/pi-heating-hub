@@ -114,7 +114,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '<tr>';
       
     echo '<td>';
-    echo "<form method='get' action='sensor-edit.php?id=".$SENSOR_ID."'>";
+    echo "<form method='post' action='sensor-edit.php?id=".$SENSOR_ID."'>";
     echo "<input type='submit' name='edit' value='Edit'></form>";
     echo '</td>';
 
