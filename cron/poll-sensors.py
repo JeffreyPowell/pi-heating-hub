@@ -40,6 +40,7 @@ for i in results:
 
   if( data != 'na' ):
     print "database"
+    print sensor_id
     cursorwrite = cnx.cursor()
     cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
     cnx.commit
