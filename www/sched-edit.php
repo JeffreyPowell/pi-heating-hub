@@ -21,6 +21,8 @@ $SCHED_ID = $_GET['id'];
 
 #if ( $SCHED_ID < 1 ) { header('Location: /sched-list.php'); exit(); }
 
+echo $_SERVER["REQUEST_METHOD"];
+        
 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         
     if ( $_POST["formSubmit"] == "Done" ) {
