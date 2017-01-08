@@ -10,9 +10,15 @@
 .ccoldowse {font-family: courier; color: black; font-size: large;}
 </style>
 </head>
-<body>  
+<body bgcolor='#080808'>
+<font color='#808080' size ='4' face='verdana'> 
 
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $servername = "localhost";
 $username = "pi";
 $password = "password";
