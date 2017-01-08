@@ -24,9 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     #print_r("------------------------");
     #print_r($_GET);
     #print_r("------------------------");
-   
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["add"] == "Add new" ) {
     
+    if ( $_POST["done"] == "Done" ) {
+        header('Location: /status.php');
+        exit();
+    }
+   
+    if ( $_POST["add"] == "Add new" ) {
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         // Check connection
@@ -43,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_close($conn);
     }
     
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["delete"] == "Delete" ) {
+    if ( $_POST["delete"] == "Delete" ) {
     
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
