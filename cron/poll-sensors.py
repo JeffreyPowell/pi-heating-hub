@@ -33,14 +33,13 @@ for i in results:
   
   try:
     data = float( urllib2.urlopen(sensor_url).read() )
+    
+    cursorwrite = cnx.cursor()
+    cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
+    cnx.commit
   
   except:
     data = 'na'
-    
-    
-  cursorwrite = cnx.cursor()
-  cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
-  cnx.commit()
     
     
   print data
