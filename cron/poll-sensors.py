@@ -30,17 +30,18 @@ for i in results:
   sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
 
   print sensor_url
-    
-  data = float( urllib2.urlopen(sensor_url).read() )
+  
+  try:
+    data = float( urllib2.urlopen(sensor_url).read() )
+    cursorwrite = cnx.cursor()
+    cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
+    cnx.commit()
+  
+  except:
+    data = 'na'
     
   print data
-    
-  cursorwrite = cnx.cursor()
 
-  cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
-
-  cnx.commit()
-  
   
   filename = '/home/pi/pi-heating-hub/data/s-'+str(sensor_id)+'.rrd'
 
