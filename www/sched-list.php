@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $SCHED_ID = $_POST["sched_id"];
         
-        echo $SCHED_ID;
+        #echo $SCHED_ID;
         
         $sql = "DELETE FROM sched_device WHERE sched_id='".$SCHED_ID."';";
         if (!mysqli_query($conn, $sql)) {
