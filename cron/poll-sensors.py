@@ -21,6 +21,8 @@ cursorread.execute(query)
   
 results =cursorread.fetchall()
 cursorread.close()
+
+cursorwrite = cnx.cursor()
   
 for i in results:
   sensor_ip = i[3]
@@ -47,7 +49,7 @@ for i in results:
     sql = "UPDATE sensors SET value='777' WHERE id='1';"
     print sql
     
-    cursorwrite = cnx.cursor()
+
     
     #cursorwrite.execute( sql )
     
@@ -90,5 +92,7 @@ for i in results:
     print"rrd"
     os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
 
+cursorwrite.close()
+    
 cnx.commit
 cnx.close()
