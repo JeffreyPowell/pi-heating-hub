@@ -55,27 +55,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         echo $SCHED_ID;
         
-        $sql = "DELETE FROM sched_device WHERE sched_id='.$SCHED_ID.'";
+        $sql = "DELETE FROM sched_device WHERE sched_id='".$SCHED_ID."';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        $sql = "DELETE FROM sched_sensor WHERE sched_id='.$SCHED_ID.'";
+        $sql = "DELETE FROM sched_sensor WHERE sched_id='".$SCHED_ID."';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        $sql = "DELETE FROM sched_mode WHERE sched_id='.$SCHED_ID.'";
+        $sql = "DELETE FROM sched_mode WHERE sched_id='".$SCHED_ID."';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        $sql = "DELETE FROM sched_network WHERE sched_id='.$SCHED_ID.'";
+        $sql = "DELETE FROM sched_network WHERE sched_id='".$SCHED_ID."';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        $sql = "DELETE FROM sched_timer WHERE sched_id='.$SCHED_ID.'";
+        $sql = "DELETE FROM sched_timer WHERE sched_id='".$SCHED_ID."';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        $sql = "DELETE FROM schedules WHERE id='.$SCHED_ID.'";
+        $sql = "DELETE FROM schedules WHERE id='".$SCHED_ID."';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
