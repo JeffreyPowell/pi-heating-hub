@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
+<meta http-equiv="refresh" content="30">
 <style>
 .error {color: #FF0000;}
 .tcolname {font-family: arial; color: black; font-size: xx-large;}
