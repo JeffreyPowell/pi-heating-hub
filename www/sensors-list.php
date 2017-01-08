@@ -200,7 +200,7 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
 
 ?>
     
-<form method='post' action='sched-list.php'>
+<form method='post' action='sensor-list.php'>
 <input type='submit' name='add' value='Add new'>
 <input type="submit" name="done" value="Done" />
 </form>
