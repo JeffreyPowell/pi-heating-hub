@@ -104,7 +104,7 @@ if (mysqli_num_rows($result) > 0) {
         $SCHED_START = $row["start"];
         $SCHED_END = $row["end"];
       
-        echo "<tr>";
+        echo "<tr>".$SCHED_STATUS;
         if ( $SCHED_STATUS ) {
             echo "<td><img src='/images/dot-red.png' alt='Red' height='16' width='16'></td>";
         } else {
