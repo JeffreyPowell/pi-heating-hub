@@ -29,7 +29,7 @@ for i in results:
     
   sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
 
-  print sensor_url
+  #print sensor_url
   
   try:
     data = float( urllib2.urlopen(sensor_url).read() )  
@@ -41,9 +41,25 @@ for i in results:
   
   if( data != 'na' ):
     print "database"
-    print sensor_id
+    #print sensor_id
+    
+    sql = "UPDATE sensors SET value='"+data+"' WHERE id='"+sensor_id+"';"
+    
+    print sql
+    
     cursorwrite = cnx.cursor()
-    cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
+    
+    #cursorwrite.execute( sql )
+    
+    try:
+      cursorwrite.execute( sql )
+      #rows = cur.fetchall()
+    except MySQLdb.Error, e:
+      try:
+        print "MySQL Error [%d]: %s" % (e.args[0], e.args[1])
+      except IndexError:
+        print "MySQL Error: %s" % str(e)
+    
     cnx.commit
     print "database done"
   
