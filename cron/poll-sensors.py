@@ -44,7 +44,7 @@ for i in results:
     #print sensor_id
     
     sql = "UPDATE sensors SET value='"+str(data)+"' WHERE id='"+str(sensor_id)+"';"
-    sql = "UPDATE sensors SET value='88' WHERE id='3';"
+    sql = "UPDATE sensors SET value='777' WHERE id='1';"
     print sql
     
     cursorwrite = cnx.cursor()
