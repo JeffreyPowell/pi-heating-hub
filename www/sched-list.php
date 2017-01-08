@@ -104,6 +104,21 @@ if (mysqli_num_rows($result) > 0) {
         $SCHED_ACTIVE = $row["active"];
         $SCHED_START = $row["start"];
         $SCHED_END = $row["end"];
+        
+        
+        $SCHED_DOW1 = bool($row["dow1"]); if ( $SCHED_DOW1 ) { $SCHED_DOW1_CHK = 'checked="checked"'; }else{ $SCHED_DOW1_CHK = ''; }
+        $SCHED_DOW2 = bool($row["dow2"]); if ( $SCHED_DOW2 ) { $SCHED_DOW2_CHK = 'checked="checked"'; }else{ $SCHED_DOW2_CHK = ''; }
+        $SCHED_DOW3 = bool($row["dow3"]); if ( $SCHED_DOW3 ) { $SCHED_DOW3_CHK = 'checked="checked"'; }else{ $SCHED_DOW3_CHK = ''; }
+        $SCHED_DOW4 = bool($row["dow4"]); if ( $SCHED_DOW4 ) { $SCHED_DOW4_CHK = 'checked="checked"'; }else{ $SCHED_DOW4_CHK = ''; }
+        $SCHED_DOW5 = bool($row["dow5"]); if ( $SCHED_DOW5 ) { $SCHED_DOW5_CHK = 'checked="checked"'; }else{ $SCHED_DOW5_CHK = ''; }
+        $SCHED_DOW6 = bool($row["dow6"]); if ( $SCHED_DOW6 ) { $SCHED_DOW6_CHK = 'checked="checked"'; }else{ $SCHED_DOW6_CHK = ''; }
+        $SCHED_DOW7 = bool($row["dow7"]); if ( $SCHED_DOW7 ) { $SCHED_DOW7_CHK = 'checked="checked"'; }else{ $SCHED_DOW7_CHK = ''; }
+
+        
+        
+        
+        
+        
       
         echo "<tr>";
         if ( $SCHED_ACTIVE ) {
@@ -119,7 +134,26 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td><span class='ccoldowun'>";
 
         echo str_pad(decbin($row["dow"]), 7, "0", STR_PAD_LEFT);
-      
+
+        
+        echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
+        echo '<tr>';
+        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
+        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
+        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
+        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
+        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
+        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
+        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
+        echo '</tr></table>';
+        
+        
+        
+        
+        
+        
+        
+        
         for ($i=1; $i<8; $i++) {
             //echo $i;
         }
