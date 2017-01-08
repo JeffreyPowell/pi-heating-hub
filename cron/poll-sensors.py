@@ -14,15 +14,11 @@ t = datetime.datetime.now().strftime('%s')
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 cursorread = cnx.cursor()
-
 query = ("SELECT * FROM sensors")
-
 cursorread.execute(query)
-  
 results =cursorread.fetchall()
 cursorread.close()
-
-cursorwrite = cnx.cursor()
+cnx.close()
   
 for i in results:
   sensor_ip = i[3]
@@ -49,16 +45,21 @@ for i in results:
     sql = "UPDATE sensors SET value='777' WHERE id='1';"
     print sql
     
-
     
     #cursorwrite.execute( sql )
     
     try:
+      cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
+      cursorwrite = cnx.cursor()
       cursorwrite.execute( sql )
       cnx.commit
       
       print("affected rows = {}".format(cursorwrite.rowcount))
       
+      cursorwrite.close()
+      cnx.commit
+      cnx.close()
+
       #rows = cur.fetchall()
     except MySQLdb.Error, e:
       try:
@@ -66,7 +67,7 @@ for i in results:
       except IndexError:
         print "MySQL Error: %s" % str(e)
     
-    cnx.commit
+
     print "database done"
   
   filename = '/home/pi/pi-heating-hub/data/s-'+str(sensor_id)+'.rrd'
@@ -92,7 +93,4 @@ for i in results:
     print"rrd"
     os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
 
-cursorwrite.close()
-    
-cnx.commit
-cnx.close()
+
