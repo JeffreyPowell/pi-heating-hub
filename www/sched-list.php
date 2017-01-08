@@ -100,18 +100,18 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         $SCHED_ID = $row["id"];
         $SCHED_NAME = $row["name"];
-        $SCHED_STATUS = $row["value"];
+        $SCHED_ACTIVE = $row["active"];
         $SCHED_START = $row["start"];
         $SCHED_END = $row["end"];
       
         echo "<tr>";
-        if ( $SCHED_STATUS ) {
+        if ( $SCHED_ACTIVE ) {
             echo "<td><img src='/images/dot-red.png' alt='Red' height='16' width='16'></td>";
         } else {
             echo "<td><img src='/images/dot-green.png' alt='Red' height='16' width='16'></td>";
         }
         
-        echo "<td><span class='ccolname'>#".$SCHED_STATUS."#".$SCHED_NAME."</span></td>";
+        echo "<td><span class='ccolname'>#".$SCHED_ACTIVE."#".$SCHED_NAME."</span></td>";
         echo "<td><span class='ccolstart'>".$SCHED_START."</span></td>";
         echo "<td><span class='ccolend'>".$SCHED_END."</span></td>";
       
@@ -124,7 +124,7 @@ if (mysqli_num_rows($result) > 0) {
         }
         echo "</span></td>";
       
-        echo "<td><span class='ccolvalue'>".$SCHED_STATUS."</span></td>";
+        echo "<td><span class='ccolvalue'>".$SCHED_ACTIVE."</span></td>";
     
         echo "<td><form method='post' action='/sched-edit.php?id=".$SCHED_ID."'>";
         echo "<input type='submit' name='edit' value='Edit'></form></td>";
