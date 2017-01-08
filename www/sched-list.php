@@ -128,13 +128,13 @@ if (mysqli_num_rows($result) > 0) {
         
         echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
         echo '<tr>';
-        echo '<td><input type="checkbox" disabled="disabled"name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
-        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
-        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
-        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
-        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
-        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
-        echo '<td><input type="checkbox" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
+        echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
+        echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
+        echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
+        echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
+        echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
+        echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
+        echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
         echo '</tr></table>';
 
         echo "</span></td>";
