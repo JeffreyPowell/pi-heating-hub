@@ -43,6 +43,7 @@ for i in results:
     cursorwrite = cnx.cursor()
     cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
     cnx.commit
+    print "database done"
   
   filename = '/home/pi/pi-heating-hub/data/s-'+str(sensor_id)+'.rrd'
   
