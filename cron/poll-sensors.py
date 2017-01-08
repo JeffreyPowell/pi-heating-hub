@@ -32,18 +32,16 @@ for i in results:
   print sensor_url
   
   try:
-    data = float( urllib2.urlopen(sensor_url).read() )
-    
-    cursorwrite = cnx.cursor()
-    cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
-    cnx.commit
-  
+    data = float( urllib2.urlopen(sensor_url).read() )  
   except:
     data = 'na'
     
-    
   print data
 
+  if( data != 'na' ):
+    cursorwrite = cnx.cursor()
+    cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
+    cnx.commit
   
   filename = '/home/pi/pi-heating-hub/data/s-'+str(sensor_id)+'.rrd'
 
@@ -62,7 +60,8 @@ for i in results:
       RRA:MAX:0.5:5:51840 \
       RRA:MAX:0.5:60:8760')
 
-  os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
+  if( data != 'na' )
+    os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
 
 
 cnx.close()
