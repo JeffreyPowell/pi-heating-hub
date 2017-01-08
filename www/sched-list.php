@@ -96,7 +96,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
   
-    echo "<table><tr><th>Status</th><th><span class='tcolname'>Schedule Name</span></th><th>Start Time</th><th>End Time</th><th>Repeat</th><th>Status</th><th></th><th></th></tr>";
+    echo "<table><tr><th>Status</th><th><span class='tcolname'>Schedule Name</span></th><th>Start Time</th><th>End Time</th><th>Repeat</th><th></th><th></th></tr>";
   
     while($row = mysqli_fetch_assoc($result)) {
         $SCHED_ID = $row["id"];
@@ -138,9 +138,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '</tr></table>';
 
         echo "</span></td>";
-      
-        echo "<td><span class='ccolvalue'>".$SCHED_ACTIVE."</span></td>";
-    
+
         echo "<td><form method='post' action='/sched-edit.php?id=".$SCHED_ID."'>";
         echo "<input type='submit' name='edit' value='Edit'></form></td>";
         echo "<td><form method='post' action='/sched-list.php'>";
