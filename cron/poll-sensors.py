@@ -60,7 +60,7 @@ for i in results:
       RRA:MAX:0.5:5:51840 \
       RRA:MAX:0.5:60:8760')
 
-  if( data != 'na' )
+  if( data != 'na' ):
     os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
 
 
