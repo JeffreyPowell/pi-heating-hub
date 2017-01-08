@@ -111,7 +111,7 @@ if (mysqli_num_rows($result) > 0) {
             echo "<td><img src='/images/dot-green.png' alt='Red' height='16' width='16'></td>";
         }
         
-        echo "<td><span class='ccolname'>".$SCHED_NAME.$SCHED_STATUS."</span></td>";
+        echo "<td><span class='ccolname'>#".$SCHED_STATUS."#".$SCHED_NAME."</span></td>";
         echo "<td><span class='ccolstart'>".$SCHED_START."</span></td>";
         echo "<td><span class='ccolend'>".$SCHED_END."</span></td>";
       
