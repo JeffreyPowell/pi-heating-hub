@@ -35,9 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql = "INSERT INTO schedules (name, start, end) VALUES ('new', '00:00:00', '23:59:59')";
 
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
-        } else {
+        if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
 
@@ -52,12 +50,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
             }
-
-        $sql = "DELETE FROM schedules WHERE (name, start, end) VALUES ('new', '00:00:00', '23:59:59')";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
-        } else {
+        
+        $SCHED_ID = $_POST["sched_id"];
+        
+        echo $SCHED_ID;
+        
+        $sql = "DELETE FROM sched_device WHERE sched_id='.$SCHED_ID.'";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        $sql = "DELETE FROM sched_sensor WHERE sched_id='.$SCHED_ID.'";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        $sql = "DELETE FROM sched_mode WHERE sched_id='.$SCHED_ID.'";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        $sql = "DELETE FROM sched_network WHERE sched_id='.$SCHED_ID.'";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        $sql = "DELETE FROM sched_timer WHERE sched_id='.$SCHED_ID.'";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        $sql = "DELETE FROM schedules WHERE id='.$SCHED_ID.'";
+        if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
 
@@ -99,7 +118,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "<input type='submit' name='edit' value='Edit'></form></td>";
     echo "<td><form method='post' action='/sched-list.php?id=".$row["id"]."'>";
     echo "<input type='hidden' name='sched_id' value='".$row["id"]."'>";
-    echo "<input type='submit' name='delete_".$row["id"]."' value='Delete'></form></td>";
+    echo "<input type='submit' name='delete"' value='Delete'></form></td>";
     echo "</tr>";
   }    
   
