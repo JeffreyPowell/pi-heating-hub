@@ -43,7 +43,7 @@ for i in results:
     print "database"
     #print sensor_id
     
-    sql = "UPDATE sensors SET value='"+str(data)+"' WHERE id='"+sensor_id+"';"
+    sql = "UPDATE sensors SET value='"+str(data)+"' WHERE id='"+str(sensor_id)+"';"
     
     print sql
     
