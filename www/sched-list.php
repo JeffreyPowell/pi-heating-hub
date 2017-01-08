@@ -95,34 +95,46 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
   
-  echo "<table><tr><th><span class='tcolname'>Schedule Name</span></th><th>Start Time</th><th>End Time</th><th>Repeat<br>MTWTFSS</th><th>Status</th><th></th><th></th></tr>";
+    echo "<table><tr><th>Status</th><th><span class='tcolname'>Schedule Name</span></th><th>Start Time</th><th>End Time</th><th>Repeat<br>MTWTFSS</th><th>Status</th><th></th><th></th></tr>";
   
-  while($row = mysqli_fetch_assoc($result)) {
-    echo "<tr>";
-    echo "<td><span class='ccolname'>".$row["name"]."</span></td>";
-    echo "<td><span class='ccolstart'>".$row["start"]."</span></td>";
-    echo "<td><span class='ccolend'>".$row["end"]."</span></td>";
+    while($row = mysqli_fetch_assoc($result)) {
+        $SCHED_ID = $row["id"];
+        $SCHED_NAME = $row["name"];
+        $SCHED_STATUS = $row["value"];
+        $SCHED_START = $row["start"];
+        $SCHED_END = $row["end"];
       
-    echo "<td><span class='ccoldowun'>";
+        echo "<tr>";
+        if ( $SCHED_STATUS ) {
+            echo "<td><img src="images/red-dot.png" alt="Red" height="16" width="16"></td>";
+        } else {
+            echo "<td><img src="images/green-dot.png" alt="Red" height="16" width="16"></td>";
+        }
+        
+        echo "<td><span class='ccolname'>".$SCHED_NAME."</span></td>";
+        echo "<td><span class='ccolstart'>".$SCHED_START."</span></td>";
+        echo "<td><span class='ccolend'>".$SCHED_END."</span></td>";
+      
+        echo "<td><span class='ccoldowun'>";
 
-    echo str_pad(decbin($row["dow"]), 7, "0", STR_PAD_LEFT);
+        echo str_pad(decbin($row["dow"]), 7, "0", STR_PAD_LEFT);
       
-    for ($i=1; $i<8; $i++) {
- //     echo $i;
-      }
-    echo "</span></td>";
+        for ($i=1; $i<8; $i++) {
+            //echo $i;
+        }
+        echo "</span></td>";
       
-    echo "<td><span class='ccolvalue'>".$row["value"]."</span></td>";
+        echo "<td><span class='ccolvalue'>".$SCHED_STATUS."</span></td>";
     
-    echo "<td><form method='post' action='/sched-edit.php?id=".$row["id"]."'>";
-    echo "<input type='submit' name='edit' value='Edit'></form></td>";
-    echo "<td><form method='post' action='/sched-list.php'>";
-    echo "<input type='hidden' name='sched_id' value='".$row["id"]."'>";
-    echo "<input type='submit' name='delete' value='Delete'></form></td>";
-    echo "</tr>";
-  }    
+        echo "<td><form method='post' action='/sched-edit.php?id=".$SCHED_ID."'>";
+        echo "<input type='submit' name='edit' value='Edit'></form></td>";
+        echo "<td><form method='post' action='/sched-list.php'>";
+        echo "<input type='hidden' name='sched_id' value='".$SCHED_ID."'>";
+        echo "<input type='submit' name='delete' value='Delete'></form></td>";
+        echo "</tr>";
+    }    
   
-  echo "</table>";
+    echo "</table>";
   
 } else {
     echo "0 results";
