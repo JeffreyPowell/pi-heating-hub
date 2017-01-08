@@ -126,7 +126,7 @@ if (mysqli_num_rows($result) > 0) {
       
     echo '<td>';
     $span = "-12h";
-    create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 12 hours",	 	   "80", "300");
+    create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 12 hours",	 	   "60", "400");
     echo "<img src='".$img_dir.$SENSOR_ID.$span.".png' alt='RRD image'>";
     echo '</td>';
       
