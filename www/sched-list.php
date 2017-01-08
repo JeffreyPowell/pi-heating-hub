@@ -118,6 +118,14 @@ if (mysqli_num_rows($result) > 0) {
         $SCHED_DOW7 = (bool)$row["dow7"]; if ( $SCHED_DOW7 ) { $SCHED_DOW7_CHK = 'checked="checked"'; }else{ $SCHED_DOW7_CHK = ''; }
 
         echo "<tr>";
+
+        echo "<td><form method='post' action='/sched-edit.php?id=".$SCHED_ID."'>";
+        echo "<input type='submit' name='edit' value='Edit'></form></td>";
+        
+        echo "<td><form method='post' action='/sched-list.php'>";
+        echo "<input type='hidden' name='sched_id' value='".$SCHED_ID."'>";
+        echo "<input type='submit' name='delete' value='Delete'></form></td>";
+        
         if ( $SCHED_ACTIVE ) {
             echo "<td><img src='/images/dot-green.png' alt='Schedule Active' height='16' width='16'></td>";
         } else {
@@ -143,11 +151,6 @@ if (mysqli_num_rows($result) > 0) {
 
         echo "</span></td>";
 
-        echo "<td><form method='post' action='/sched-edit.php?id=".$SCHED_ID."'>";
-        echo "<input type='submit' name='edit' value='Edit'></form></td>";
-        echo "<td><form method='post' action='/sched-list.php'>";
-        echo "<input type='hidden' name='sched_id' value='".$SCHED_ID."'>";
-        echo "<input type='submit' name='delete' value='Delete'></form></td>";
         echo "</tr>";
     }    
   
