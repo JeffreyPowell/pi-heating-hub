@@ -42,7 +42,7 @@ for i in results:
     #print sensor_id
     
     sql = "UPDATE sensors SET value='"+str(data)+"' WHERE id='"+str(sensor_id)+"';"
-    sql = "UPDATE sensors SET value='777' WHERE id='1';"
+    sql = "UPDATE sensors SET value='666' WHERE id='"+str(sensor_id)+"';"
     print sql
     
     
@@ -52,7 +52,6 @@ for i in results:
       cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
       cursorwrite = cnx.cursor()
       cursorwrite.execute( sql )
-      cnx.commit
       
       print("affected rows = {}".format(cursorwrite.rowcount))
       
