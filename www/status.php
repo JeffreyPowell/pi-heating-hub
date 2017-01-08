@@ -145,7 +145,9 @@ echo "<br><br>";
     
 echo "<a href='timers-list.php'>Timers</a>";
 echo "<br><br>";
-
+    
+echo "<a href='network-list.php'>Connected</a>";
+echo "<br><br>";
 /*
 while($row = mysqli_fetch_assoc($result_modes)) {
     $MODE_ID = $row["id"];
