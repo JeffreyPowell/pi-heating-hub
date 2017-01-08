@@ -53,6 +53,7 @@ for i in results:
     
     try:
       cursorwrite.execute( sql )
+      cnx.commit
       #rows = cur.fetchall()
     except MySQLdb.Error, e:
       try:
