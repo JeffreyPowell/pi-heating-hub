@@ -102,11 +102,11 @@ if (mysqli_num_rows($result) > 0) {
 
   while($row = mysqli_fetch_assoc($result)) {
       
-    $id = $row["id"];
-    $name = $row["name"];
+    #$id = $row["id"];
+    #$name = $row["name"];
       
     $SENSOR_ID = $row["id"];
-    $SENSOR_NAME = $row["name"
+    $SENSOR_NAME = $row["name"];
       
     $img_dir = 'images/chart-sensor-';
     $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
