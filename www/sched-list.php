@@ -106,9 +106,9 @@ if (mysqli_num_rows($result) > 0) {
       
         echo "<tr>";
         if ( $SCHED_STATUS ) {
-            echo "<td><img src='images/dot-red.png' alt='Red' height='16' width='16'></td>";
+            echo "<td><img src='/images/dot-red.png' alt='Red' height='16' width='16'></td>";
         } else {
-            echo "<td><img src='images/dot-green.png' alt='Red' height='16' width='16'></td>";
+            echo "<td><img src='/images/dot-green.png' alt='Red' height='16' width='16'></td>";
         }
         
         echo "<td><span class='ccolname'>".$SCHED_NAME."</span></td>";
