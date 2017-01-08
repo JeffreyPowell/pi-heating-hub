@@ -119,7 +119,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '</td>';
 
     echo '<td>';
-    echo "<form method='post' action='sensor-list.php'>";
+    echo "<form method='post' action='sensors-list.php'>";
     echo "<input type='hidden' name='sensor_id' value='".$SENSOR_ID."'>";
     echo "<input type='submit' name='delete' value='Delete'></form>";
     echo '</td>';
