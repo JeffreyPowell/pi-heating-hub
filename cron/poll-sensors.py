@@ -39,11 +39,14 @@ for i in results:
   print data
 
   if( data != 'na' ):
+    print "database"
     cursorwrite = cnx.cursor()
     cursorwrite.execute("UPDATE sensors SET value='%s' WHERE id='%s';" % (data, sensor_id))
     cnx.commit
   
   filename = '/home/pi/pi-heating-hub/data/s-'+str(sensor_id)+'.rrd'
+  
+  print filename
 
   if( not os.path.exists( filename ) ):
       print ( os.path.exists( filename ))
@@ -61,6 +64,7 @@ for i in results:
       RRA:MAX:0.5:60:8760')
 
   if( data != 'na' ):
+    print"rrd"
     os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
 
 
