@@ -54,6 +54,9 @@ for i in results:
     try:
       cursorwrite.execute( sql )
       cnx.commit
+      
+      print("affected rows = {}".format(cursorwrite.rowcount))
+      
       #rows = cur.fetchall()
     except MySQLdb.Error, e:
       try:
