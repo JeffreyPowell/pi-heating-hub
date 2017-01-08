@@ -18,11 +18,11 @@ $password = "password";
 $dbname = "pi_heating_db";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r("------------------------");
-    print_r($_POST);
-    print_r("------------------------");
-    print_r($_GET);
-    print_r("------------------------");
+    #print_r("------------------------");
+    #print_r($_POST);
+    #print_r("------------------------");
+    #print_r($_GET);
+    #print_r("------------------------");
    
     if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["add"] == "Add new" ) {
     
