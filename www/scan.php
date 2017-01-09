@@ -32,7 +32,7 @@
  
     $subnet_scan = shell_exec('nmap -sP 192.168.0.0/24 | grep report | grep -v router | cut -d" " -f5');
 
-    echo "<pre>$subnet_scan</pre>";
+    #echo "<pre>$subnet_scan</pre>";
     
     $subnet_devices = explode( "\n", $subnet_scan);
     
@@ -40,7 +40,12 @@
     foreach( $subnet_devices as $device_ip ) {
         echo $device_ip;
         echo '<br>';
+        $sensor_count = file_get_contents('http://$device_ip/count:8080');
+        echo $sensor_count;
+        echo '<br>';
     }
+    
+    
     
     
     
