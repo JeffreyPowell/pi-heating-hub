@@ -31,7 +31,7 @@
  
     $output = shell_exec('ls -lart');
 
-    echo "<pre>$output</pre>"
+    echo "<pre>$output</pre>";
 
     mysqli_close($conn);
 ?>
