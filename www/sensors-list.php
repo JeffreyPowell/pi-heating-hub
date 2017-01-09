@@ -28,11 +28,11 @@ $dbname = "pi_heating_db";
 ///////////////////////////////////////////////////////////
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r("------------------------");
+    print_r("<br>------------------------<br>");
     print_r($_POST);
-    print_r("------------------------");
+    print_r("<br>------------------------<br>");
     print_r($_GET);
-    print_r("------------------------");
+    print_r("<br>------------------------<br>");
     
     if ( in_array( 'done', $_POST )) {
         header('Location: /status.php');
