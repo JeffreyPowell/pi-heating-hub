@@ -27,7 +27,8 @@
        }
 
 
-    #echo 'start';  
+    #echo 'start';
+    echo '<br>';
  
     $subnet_scan = shell_exec('nmap -sP 192.168.0.0/24 | grep report | grep -v router | cut -d" " -f5');
 
@@ -38,7 +39,7 @@
     
     foreach( $subnet_devices as $device_ip ) {
         echo $device_ip;
-        echo '';
+        echo '<br>';
     }
     
     
