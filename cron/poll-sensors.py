@@ -43,10 +43,9 @@ for i in results:
     #print sensor_id
     
     sql = "UPDATE sensors SET value='"+str(data)+"' WHERE id='"+str(sensor_id)+"';"
-    sql = "UPDATE sensors SET value='666' WHERE id='"+str(sensor_id)+"';"
+
     print sql
-    
-    
+       
     #cursorwrite.execute( sql )
     
     try:
