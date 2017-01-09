@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
    
-    if ( $_POST["new"] == "Scan for new sensors" ) {
+    if ( in_array( 'new', $_POST )) {
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         // Check connection
@@ -47,9 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Connection failed: " . mysqli_connect_error());
             }
 
-
-        ###########################################
-        
         
         echo '<br>';
  
@@ -93,15 +90,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo '<br>';
                 }
             }
-        }        
-        
-        
-        ###########################################
+        }
 
         mysqli_close($conn);
     }
     
-    if ( $_POST["delete"] == "Delete" ) {
+    if ( in_array( 'delete', $_POST )) {
     
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
