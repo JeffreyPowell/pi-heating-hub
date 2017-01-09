@@ -61,7 +61,7 @@
             echo $sensor_count;
             echo '<br>';
             
-            for ($sensor_ref =1 ; $sensor_id <= $sensor_count; $sensor_id++) { 
+            for ($sensor_ref =1 ; $sensor_ref <= $sensor_count; $sensor_ref++) { 
                 echo $sensor_ref;
                 echo '<br>';
                 $sensor_name = file_get_contents("http://".$device_ip.":8080/name.php?id=".$sensor_ref);
