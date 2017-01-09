@@ -15,9 +15,9 @@
     
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+#ini_set('display_errors', 1);
+#ini_set('display_startup_errors', 1);
+#error_reporting(E_ALL);
     
 $servername = "localhost";
 $username = "pi";
@@ -28,11 +28,11 @@ $dbname = "pi_heating_db";
 ///////////////////////////////////////////////////////////
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r("<br>------------------------<br>");
-    print_r($_POST);
-    print_r("<br>------------------------<br>");
-    print_r($_GET);
-    print_r("<br>------------------------<br>");
+    #print_r("<br>------------------------<br>");
+    #print_r($_POST);
+    #print_r("<br>------------------------<br>");
+    #print_r($_GET);
+    #print_r("<br>------------------------<br>");
     
     if ( array_key_exists( 'done', $_POST )) {
         header('Location: /status.php');
@@ -64,30 +64,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             restore_error_handler();
         
             if( $sensor_count > 0 ) {
-                echo $device_ip;
-                echo '<br>';
-                echo $sensor_count;
-                echo '<br>';
+                #echo $device_ip;
+                #echo '<br>';
+                #echo $sensor_count;
+                #echo '<br>';
             
                 for ($sensor_ref =1 ; $sensor_ref <= $sensor_count; $sensor_ref++) { 
-                    echo $sensor_ref;
-                    echo '<br>';
+                    #echo $sensor_ref;
+                    #echo '<br>';
                     $sensor_name = file_get_contents("http://".$device_ip.":8080/name.php?id=".$sensor_ref);
                     $sensor_unit = "deg C";
-                    echo $sensor_name;
-                    echo '<br>';
-                    echo $sensor_unit;
-                    echo '<br>';
+                    #echo $sensor_name;
+                    #echo '<br>';
+                    #echo $sensor_unit;
+                    #echo '<br>';
                 
                     $sql = "INSERT INTO sensors (ip, ref, name, unit) select '".$device_ip."', '".$sensor_ref."', '".$sensor_name."', '".$sensor_unit."' from  dual WHERE not exists (SELECT 1 FROM sensors WHERE ip='".$device_ip."' AND ref='".$sensor_ref."');";
-                    echo $sql;
-                    echo '<br>';
+                    #echo $sql;
+                    #echo '<br>';
                 
                     $result = mysqli_query($conn, $sql);
-                    echo "{";
-                    print_r( $result );
-                    echo "}";
-                    echo '<br>';
+                    #echo "{";
+                    #print_r( $result );
+                    #echo "}";
+                    #echo '<br>';
                 }
             }
         }
@@ -232,7 +232,7 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
  $ret = rrd_graph( $output, $options );
 
   if (! $ret) {
-    echo "<b>Graph error: </b>".rrd_error()."\n";
+    echo "<b>Waiting for initial data</b>";
   }
 }
 
