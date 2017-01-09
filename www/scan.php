@@ -29,7 +29,7 @@
 
     echo 'start';  
  
-    $output = shell_exec('ls -lart');
+    $output = shell_exec('nmap -sP 192.168.0.0/24');
 
     echo "<pre>$output</pre>";
 
