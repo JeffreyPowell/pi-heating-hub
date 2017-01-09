@@ -2,6 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta http-equiv="refresh" content="30">
 <style>
 .fixedsmall {font-family: courier; color: black; font-size: xx-small;}
 </style>
