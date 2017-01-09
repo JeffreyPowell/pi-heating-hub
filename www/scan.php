@@ -61,17 +61,20 @@
             echo $sensor_count;
             echo '<br>';
             
-            for ($sensor_id =1 ; $sensor_id <= $sensor_count; $sensor_id++) { 
-                echo $sensor_id;
+            for ($sensor_ref =1 ; $sensor_id <= $sensor_count; $sensor_id++) { 
+                echo $sensor_ref;
                 echo '<br>';
-                $sensor_name = file_get_contents("http://".$device_ip.":8080/name.php?id=".$sensor_id);
+                $sensor_name = file_get_contents("http://".$device_ip.":8080/name.php?id=".$sensor_ref);
                 $sensor_unit = "deg C";
                 echo $sensor_name;
                 echo '<br>';
                 echo $sensor_unit;
                 echo '<br>';
                 
-                $sql = "SELECT * FROM devices;";
+                $sql = "SELECT * FROM devices WHERE ip='".$device_ip."' AND ref='".$sensor_ref."';";
+                echo $sql;
+                echo '<br>';
+                
                 $result = mysqli_query($conn, $sql);
                 print_r( $result );
                 
