@@ -40,7 +40,12 @@
     foreach( $subnet_devices as $device_ip ) {
         echo $device_ip;
         echo '<br>';
-        $sensor_count = file_get_contents("http://".$device_ip.":8080/count.php");
+        try {
+            $sensor_count = file_get_contents("http://".$device_ip.":8080/count.php");
+        }
+        catch {
+            $sensor_count = '0';
+        }
         echo $sensor_count;
         echo '<br>';
     }
