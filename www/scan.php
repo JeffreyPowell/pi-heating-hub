@@ -19,6 +19,8 @@ $dbname = "pi_heating_db";
 $SCHED_ID = $_GET['id'];
 
 
+echo 'start';  
+  
 
 mysqli_close($conn);
 ?>
