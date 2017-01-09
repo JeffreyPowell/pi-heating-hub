@@ -46,15 +46,18 @@
         catch (Exception $e) {
             $sensor_count = '0';
         }
+        
+        set_error_handler(function() { $sensor_count = '0'; });
+        $sensor_count = file_get_contents("http://".$device_ip.":8080/count.php");
+        restore_error_handler();
+        
+        
+        
         echo $sensor_count;
         echo '<br>';
     }
     
     
-    
-    
-    
-
     mysqli_close($conn);
 ?>
 
