@@ -31,10 +31,10 @@
  
     $subnet_scan = shell_exec('nmap -sP 192.168.0.0/24 | grep report | grep -v router | cut -d" " -f5');
 
-    #echo "<pre>$subnet_scan</pre>";
+    echo "<pre>$subnet_scan</pre>";
     
-    foreach( $subnet_scan as $ip ) {
-        echo $ip;
+    foreach( $subnet_scan as $device_ip ) {
+        echo $device_ip;
         echo '';
     }
     
