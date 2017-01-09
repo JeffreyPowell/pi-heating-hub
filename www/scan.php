@@ -35,7 +35,7 @@
     
     foreach( $subnet_scan as $ip ) {
         echo $ip;
-        echo 
+        echo '';
     }
     
     
