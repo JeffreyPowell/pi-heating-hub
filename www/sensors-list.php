@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
    
-    if ( $_POST["add"] == "Add new" ) {
+    if ( $_POST["new"] == "Scan for new sensors" ) {
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         // Check connection
@@ -47,11 +47,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Connection failed: " . mysqli_connect_error());
             }
 
-        $sql = "INSERT INTO sensors (ip, ref) VALUES ('000.000.000.000', '0')";
 
-        if (!mysqli_query($conn, $sql)) {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
+        ###########################################
+        
+        
+        echo '<br>';
+ 
+        $subnet_scan = shell_exec('nmap -sP 192.168.0.0/24 | grep report | grep -v router | cut -d" " -f5');
+        #echo "<pre>$subnet_scan</pre>";
+    
+        $subnet_devices = explode( "\n", $subnet_scan);
+
+        foreach( $subnet_devices as $device_ip ) {
+            #echo $device_ip;
+            #echo '<br>';
+        
+            set_error_handler(function() { $sensor_count = '0'; });
+            $sensor_count = file_get_contents("http://".$device_ip.":8080/count.php");
+            restore_error_handler();
+        
+            if( $sensor_count > 0 ) {
+                echo $device_ip;
+                echo '<br>';
+                echo $sensor_count;
+                echo '<br>';
+            
+                for ($sensor_ref =1 ; $sensor_ref <= $sensor_count; $sensor_ref++) { 
+                    echo $sensor_ref;
+                    echo '<br>';
+                    $sensor_name = file_get_contents("http://".$device_ip.":8080/name.php?id=".$sensor_ref);
+                    $sensor_unit = "deg C";
+                    echo $sensor_name;
+                    echo '<br>';
+                    echo $sensor_unit;
+                    echo '<br>';
+                
+                    $sql = "INSERT INTO sensors (ip, ref, name, unit) select '".$device_ip."', '".$sensor_ref."', '".$sensor_name."', '".$sensor_unit."' from  dual WHERE not exists (SELECT 1 FROM sensors WHERE ip='".$device_ip."' AND ref='".$sensor_ref."');";
+                    echo $sql;
+                    echo '<br>';
+                
+                    $result = mysqli_query($conn, $sql);
+                    echo "{";
+                    print_r( $result );
+                    echo "}";
+                    echo '<br>';
+                }
+            }
+        }        
+        
+        
+        ###########################################
 
         mysqli_close($conn);
     }
@@ -201,7 +246,7 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
 ?>
     
 <form method='post' action='sensors-list.php'>
-<input type='submit' name='add' value='Add new'>
+<input type='submit' name='new' value='Scan for new sensors'>
 <input type="submit" name="done" value="Done" />
 </form>
 
