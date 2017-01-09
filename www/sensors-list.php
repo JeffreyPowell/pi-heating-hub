@@ -34,12 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r($_GET);
     print_r("<br>------------------------<br>");
     
-    if ( in_array( 'done', $_POST )) {
+    if ( array_key_exists( 'done', $_POST )) {
         header('Location: /status.php');
         exit();
     }
    
-    if ( in_array( 'new', $_POST )) {
+    if ( array_key_exists( 'new', $_POST )) {
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         // Check connection
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_close($conn);
     }
     
-    if ( in_array( 'delete', $_POST )) {
+    if ( array_key_exists( "delete", $_POST )) {
     
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
