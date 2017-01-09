@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r($_GET);
     print_r("------------------------");
     
-    if ( $_POST["done"] == "Done" ) {
+    if ( in_array( 'done', $_POST )) {
         header('Location: /status.php');
         exit();
     }
