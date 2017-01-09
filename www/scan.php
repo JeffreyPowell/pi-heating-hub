@@ -71,7 +71,7 @@
                 echo $sensor_unit;
                 echo '<br>';
                 
-                $sql = "SELECT * FROM sensors WHERE ip='".$device_ip."' AND ref=".$sensor_ref.";";
+                $sql = "INSERT INTO sensors (ip, ref, name, unit) select '".$device_ip."', '".$sensor_ref."', '".$sensor_name."', '".$sensor_unit."' from  dual WHERE not exists (SELECT 1 FROM sensors WHERE ip='".$device_ip."' AND ref='".$sensor_ref."');";
                 echo $sql;
                 echo '<br>';
                 
