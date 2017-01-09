@@ -67,7 +67,13 @@
                 $sensor_name = file_get_contents("http://".$device_ip.":8080/name.php?id=".$sensor_id);
                 $sensor_unit = "deg C";
                 echo $sensor_name;
+                echo '<br>';
                 echo $sensor_unit;
+                echo '<br>';
+                
+                $sql = "SELECT * FROM devices;";
+                $result = mysqli_query($conn, $sql);
+                print_r( $result );
             }
         }
     }
