@@ -9,24 +9,11 @@ servername = "localhost"
 username = "pi"
 password = "password"
 dbname = "pi_heating_db"
-################################################
 
-sql = "UPDATE sensors SET value='5555' WHERE id='2';"
-cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
-cnx.autocommit(True)
-cursorwrite = cnx.cursor()
-cursorwrite.execute( sql )
-      
-print("affected rows = {}".format(cursorwrite.rowcount))
-      
-cursorwrite.close()
-cnx.commit
-cnx.close()
-
-################################################
 t = datetime.datetime.now().strftime('%s')
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
+cnx.autocommit(True)
 cursorread = cnx.cursor()
 query = ("SELECT * FROM sensors")
 cursorread.execute(query)
@@ -64,13 +51,13 @@ for i in results:
     
     try:
       cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
+      cnx.autocommit(True)
       cursorwrite = cnx.cursor()
       cursorwrite.execute( sql )
       
       print("affected rows = {}".format(cursorwrite.rowcount))
       
       cursorwrite.close()
-      cnx.commit
       cnx.close()
 
       #rows = cur.fetchall()
