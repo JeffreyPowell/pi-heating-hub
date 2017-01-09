@@ -43,7 +43,7 @@
         try {
             $sensor_count = file_get_contents("http://".$device_ip.":8080/count.php");
         }
-        catch {
+        catch (Exception $e) {
             $sensor_count = '0';
         }
         echo $sensor_count;
