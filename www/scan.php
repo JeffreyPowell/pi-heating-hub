@@ -71,7 +71,7 @@
                 echo $sensor_unit;
                 echo '<br>';
                 
-                $sql = "SELECT * FROM devices WHERE ip='".$device_ip."' AND ref=".$sensor_ref.";";
+                $sql = "SELECT * FROM sensors WHERE ip='".$device_ip."' AND ref=".$sensor_ref.";";
                 echo $sql;
                 echo '<br>';
                 
