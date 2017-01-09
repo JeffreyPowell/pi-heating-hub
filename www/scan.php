@@ -60,6 +60,11 @@
             echo '<br>';
             echo $sensor_count;
             echo '<br>';
+            
+            for ($sensor_id =1 ; $sensor_id < $sensor_count; $sensor_id++) { 
+                echo $sensor_id;
+                echo '<br>';
+            }
         }
     }
     
