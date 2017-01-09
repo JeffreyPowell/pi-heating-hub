@@ -76,8 +76,9 @@
                 echo '<br>';
                 
                 $result = mysqli_query($conn, $sql);
+                echo "{";
                 print_r( $result );
-                
+                echo "}";
                 echo '<br>';
             }
         }
