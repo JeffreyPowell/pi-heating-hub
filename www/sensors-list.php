@@ -155,7 +155,6 @@ if (mysqli_num_rows($result) > 0) {
       
         echo '<td>';
         echo $SENSOR_VALUE." ".$SENSOR_UNIT;
-        echo "<input type='submit' name='edit' value='Edit'></form>";
         echo '</td>';
 
         echo '<td>';
