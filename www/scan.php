@@ -74,6 +74,8 @@
                 $sql = "SELECT * FROM devices;";
                 $result = mysqli_query($conn, $sql);
                 print_r( $result );
+                
+                echo '<br>';
             }
         }
     }
