@@ -29,7 +29,7 @@
 
     echo 'start';  
  
-    $output = shell_exec('nmap -sP 192.168.0.0/24 | grep report');
+    $output = shell_exec('nmap -sP 192.168.0.0/24 | grep report | grep -v router');
 
     echo "<pre>$output</pre>";
 
