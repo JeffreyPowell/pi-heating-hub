@@ -29,9 +29,16 @@
 
     echo 'start';  
  
-    $output = shell_exec('nmap -sP 192.168.0.0/24 | grep report | grep -v router | cut -d" " -f5');
+    $subnet_scan = shell_exec('nmap -sP 192.168.0.0/24 | grep report | grep -v router | cut -d" " -f5');
 
-    echo "<pre>$output</pre>";
+    #echo "<pre>$subnet_scan</pre>";
+    
+    foreach( $subnet_scan as $ip ) {
+        echp $ip;
+    }
+    
+    
+    
 
     mysqli_close($conn);
 ?>
