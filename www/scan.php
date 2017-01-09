@@ -33,7 +33,10 @@
 
     echo "<pre>$subnet_scan</pre>";
     
-    foreach( $subnet_scan as $device_ip ) {
+    $subnet_devices = explode( "\n", $subnet_scan);
+    
+    
+    foreach( $subnet_devices as $device_ip ) {
         echo $device_ip;
         echo '';
     }
