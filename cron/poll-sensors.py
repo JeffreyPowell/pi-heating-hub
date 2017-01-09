@@ -9,7 +9,20 @@ servername = "localhost"
 username = "pi"
 password = "password"
 dbname = "pi_heating_db"
+################################################
 
+sql = "UPDATE sensors SET value='666' WHERE id='2';
+cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
+cursorwrite = cnx.cursor()
+cursorwrite.execute( sql )
+      
+print("affected rows = {}".format(cursorwrite.rowcount))
+      
+cursorwrite.close()
+cnx.commit
+cnx.close()
+
+################################################
 t = datetime.datetime.now().strftime('%s')
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
