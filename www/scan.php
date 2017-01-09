@@ -18,6 +18,13 @@ $password = "password";
 $dbname = "pi_heating_db";
 $SCHED_ID = $_GET['id'];
 
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("<br><br>Connection failed: " . mysqli_connect_error());
+    }
+
 
 echo 'start';  
   
