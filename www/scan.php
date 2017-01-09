@@ -9,27 +9,30 @@
 <body class='fixedsmall'>
 
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-$servername = "localhost";
-$username = "pi";
-$password = "password";
-$dbname = "pi_heating_db";
-$SCHED_ID = $_GET['id'];
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    $servername = "localhost";
+    $username = "pi";
+    $password = "password";
+    $dbname = "pi_heating_db";
+    $SCHED_ID = $_GET['id'];
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("<br><br>Connection failed: " . mysqli_connect_error());
-    }
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    // Check connection
+    if (!$conn) {
+        die("<br><br>Connection failed: " . mysqli_connect_error());
+       }
 
 
-echo 'start';  
-  
+    echo 'start';  
+ 
+    $output = shell_exec('ls -lart');
 
-mysqli_close($conn);
+    echo "<pre>$output</pre>"
+
+    mysqli_close($conn);
 ?>
 
 </body>
