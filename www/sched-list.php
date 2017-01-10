@@ -11,7 +11,7 @@
 </style>
 </head>
 <body bgcolor='#080808'>
-<font color='#808080' size ='4' face='verdana'> 
+<font color='#808080' size ='4' face='arial'> 
 
 <?php
 
