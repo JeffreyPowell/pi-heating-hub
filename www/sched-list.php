@@ -5,7 +5,7 @@
 <style>
 .error {color: #FF0000;}
 .tcolname {font-family: arial; color: black; font-size: xx-large;}
-.ccolname {font-family: arial; color: black; font-size: large;}
+.ccolname {font-family: arial; color: grey; font-size: large;}
 .ccoldowun {font-family: courier; color: darkgrey; font-size: x-small;}
 .ccoldowse {font-family: courier; color: black; font-size: large;}
 </style>
