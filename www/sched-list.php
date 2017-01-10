@@ -4,10 +4,10 @@
 <meta http-equiv="refresh" content="30">
 <style>
 .error {color: #FF0000;}
-.tcolname {font-family: arial; color: black; font-size: xx-large;}
+.tcolname {font-family: arial; color: grey; font-size: xx-large;}
 .ccolname {font-family: arial; color: grey; font-size: large;}
-.ccoldowun {font-family: courier; color: darkgrey; font-size: x-small;}
-.ccoldowse {font-family: courier; color: black; font-size: large;}
+.ccoldowun {font-family: arial; color: grey; font-size: x-small;}
+.ccoldowse {font-family: arial; color: grey; font-size: large;}
 </style>
 </head>
 <body bgcolor='#080808'>
