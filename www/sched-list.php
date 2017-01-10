@@ -4,7 +4,7 @@
 <meta http-equiv="refresh" content="30">
 <style>
 .error {color: #FF0000;}
-.tcolname {font-family: arial; color: grey; font-size: xx-large;}
+.tcolname {font-family: arial; color: grey; font-size: x-large;}
 .ccolname {font-family: arial; color: grey; font-size: large;}
 .ccoldowun {font-family: arial; color: grey; font-size: x-small;}
 .ccoldowse {font-family: arial; color: grey; font-size: large;}
