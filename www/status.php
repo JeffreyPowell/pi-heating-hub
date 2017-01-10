@@ -9,8 +9,8 @@
 .fixedsmall {font-family: courier; color: black; font-size: small}
 </style>
 </head>
-<body class='fixedsmall'>  
-
+<!--<body class='fixedsmall'> -->  
+<body bgcolor='#080808'>
 <?php
     
 ini_set('display_errors', 1);
