@@ -21,7 +21,7 @@ $SCHED_ID = $_GET['id'];
 
 #if ( $SCHED_ID < 1 ) { header('Location: /sched-list.php'); exit(); }
 
-echo $_SERVER["REQUEST_METHOD"];
+#echo $_SERVER["REQUEST_METHOD"];
         
 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         
@@ -31,9 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         }
 
     if ( $_POST["formSubmit"] == "Save" ) {
-        print_r("<pre><BR>------------------------<BR>");
-        print_r($_POST);
-        print_r("<BR>------------------------<BR></pre>");
+        #print_r("<pre><BR>------------------------<BR>");
+        #print_r($_POST);
+        #print_r("<BR>------------------------<BR></pre>");
 
 
         // Create connection
