@@ -307,7 +307,7 @@ $SCHED_START = $row["start"];
 $SCHED_END = $row["end"];
 
 echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
-echo '<table><tr><td>';
+echo '<table width=100% ><tr><td width=50%>';
         
 echo '<h2>Schedule</h2><br>';
 echo '<br><br>';
@@ -413,7 +413,7 @@ echo '<br><br>';
 #    }
 
         
-echo '</td><td>';
+echo '</td><td width=50%>';
 
 echo '<h2>AND Modes</h2><br>';
 
