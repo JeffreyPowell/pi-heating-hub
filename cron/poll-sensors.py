@@ -23,8 +23,8 @@ cnx.close()
   
 for i in results:
   sensor_id = i[0]
-  sensor_ip = i[1]
-  sensor_ref = i[2]
+  sensor_ref = i[1]
+  sensor_ip = i[2]
   
     
   sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
