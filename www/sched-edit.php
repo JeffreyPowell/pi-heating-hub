@@ -307,6 +307,8 @@ $SCHED_START = $row["start"];
 $SCHED_END = $row["end"];
 
 echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
+echo '<table>';
+echo '<tr><td>';
 echo '<h2>Schedule</h2><br>';
 echo '<br><br>';
 echo htmlspecialchars($_SERVER["PHP_SELF"]).'/?id='.$SCHED_ID;
@@ -409,7 +411,9 @@ echo '<br><br>';
 #    } else {
 #        echo "sensors LEFT JOIN sched_sensor 0 results";
 #    }
-#echo '<br><br>';
+
+        
+echo '</td><td>';
 
 echo '<h2>AND Modes</h2><br>';
 
@@ -565,6 +569,10 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '</select></td>';
 
     }
+echo '</table>';
+
+echo '</td></tr>';
+
 echo '</table>';
 
 #$sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
