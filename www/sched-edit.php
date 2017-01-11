@@ -198,11 +198,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                 #print_r("<pre><BR>==========<BR>" );
                 if( preg_match( '/timer.*value/', $key ) )
                 {
-                        print_r("<pre><BR>==========<BR>");
-                        print_r( $key );
-                        print_r( $val );
+                        #print_r("<pre><BR>==========<BR>");
+                        #print_r( $key );
+                        #print_r( $val );
                         $post_sched_timer_timer_id = explode( '_', $key )[1];
-                        print_r( $post_sched_sensor_sensor_id );
+                        #print_r( $post_sched_sensor_sensor_id );
                         #print_r("<BR>==========<BR></pre>");
                         if( $val !== 'na' )
                         {
@@ -243,11 +243,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                 #print_r("<pre><BR>==========<BR>" );
                 if( preg_match( '/network.*value/', $key ) )
                 {
-                        print_r("<pre><BR>==========<BR>");
-                        print_r( $key );
-                        print_r( $val );
+                        #print_r("<pre><BR>==========<BR>");
+                        #print_r( $key );
+                        #print_r( $val );
                         $post_sched_network_network_id = explode( '_', $key )[1];
-                        print_r( $post_sched_network_network_id );
+                        #print_r( $post_sched_network_network_id );
                         #print_r("<BR>==========<BR></pre>");
                         if( $val !== 'na' )
                         {
