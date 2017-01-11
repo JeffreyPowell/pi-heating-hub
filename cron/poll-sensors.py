@@ -15,16 +15,17 @@ t = datetime.datetime.now().strftime('%s')
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 cnx.autocommit(True)
 cursorread = cnx.cursor()
-query = ("SELECT * FROM sensors")
+query = ("SELECT id, ref, ip FROM sensors")
 cursorread.execute(query)
 results =cursorread.fetchall()
 cursorread.close()
 cnx.close()
   
 for i in results:
-  sensor_ip = i['ip']
-  sensor_ref = i['ref']
-  sensor_id = i['id']
+  sensor_id = i[0]
+  sensor_ip = i[1]
+  sensor_ref = i[2]
+  
     
   sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
 
