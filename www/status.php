@@ -20,10 +20,6 @@ $servername = "localhost";
 $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
-    
-$SENSOR_ID = isset($_GET['sid']) ? $_GET['sid'] : '1';
-$GRAPH_ID = isset($_GET['gid']) ? $_GET['gid'] : '1';
-$GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-1h';
 
 $img_dir = 'images/chart-status-';
 $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
@@ -38,8 +34,18 @@ if (!$conn) {
     die("<br><br>Connection failed: " . mysqli_connect_error());
     }
 
-    
-    
+$sql_sensors = "SELECT min(ID) FROM sensors;";
+$result_sensors = mysqli_query($conn, $sql_sensors);
+if (mysqli_num_rows($result_modes) == 0) {
+    echo "0 sensors results"; 
+    }
+while($row = mysqli_fetch_assoc($result_sensors)) {
+    $SENSOR_MAX_ID = $row["id"];
+    }
+
+$SENSOR_ID = isset($_GET['sid']) ? $_GET['sid'] : $SENSOR_MAX_ID;
+$GRAPH_ID = isset($_GET['gid']) ? $_GET['gid'] : $SENSOR_MAX_ID;
+$GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-1h';
     
 /*    
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
@@ -85,7 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             $GRAPH_ID = isset($_POST['gid']) ? $_POST['gid'] : '1';
             $GRAPH_SP = isset($_POST['gsp']) ? $_POST['gsp'] : '-1h';
             
-            $page = 'status.php?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP;
+            #$page = 'status.php?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP;
+            $page = 'status.php?sid='.$GRAPH_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP;
             #echo $page;
             header('Location: '.$page);
             exit();
