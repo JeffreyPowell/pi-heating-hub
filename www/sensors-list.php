@@ -144,6 +144,7 @@ if (mysqli_num_rows($result) > 0) {
         #$id = $row["id"];
         #$name = $row["name"];
         $SENSOR_ID = $row["id"];
+        $SENSOR_REF = $row["ref"];
         $SENSOR_NAME = $row["name"];
         $SENSOR_VALUE = $row["value"];
         $SENSOR_UNIT = $row["unit"];
