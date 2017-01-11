@@ -24,7 +24,7 @@ $dbname = "pi_heating_db";
 $img_dir = 'images/chart-status-';
 $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
     
-if ( $SENSOR_ID < 1 ) { $SENSOR_ID = 1; }
+#if ( $SENSOR_ID < 1 ) { $SENSOR_ID = 1; }
 
     
 // Create connection
