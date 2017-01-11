@@ -33,7 +33,7 @@ for i in results:
   try:
     data = float( urllib2.urlopen(sensor_url).read() )  
   except:
-    data = 'null'
+    data = 'NULL'
     
   print data
   print sensor_id
@@ -84,7 +84,7 @@ if( not os.path.exists( filename ) ):
     RRA:MAX:0.5:5:51840 \
     RRA:MAX:0.5:60:8760')
 
-if( data != 'null' ):
+if( data != 'NULL' ):
   print"rrd"
   os.system('/usr/bin/rrdtool update '+filename+" "+str(t)+':'+str(data))
 
