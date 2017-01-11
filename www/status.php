@@ -36,7 +36,7 @@ if (!$conn) {
 
 $sql_sensors = "SELECT min(id) AS id FROM sensors;";
 $result_sensors = mysqli_query($conn, $sql_sensors);
-if (mysqli_num_rows($result_modes) == 0) {
+if (mysqli_num_rows($result_sensors) == 0) {
     echo "0 sensors results"; 
     }
 while($row = mysqli_fetch_assoc($result_sensors)) {
