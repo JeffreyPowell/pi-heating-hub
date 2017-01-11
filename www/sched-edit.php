@@ -307,8 +307,8 @@ $SCHED_START = $row["start"];
 $SCHED_END = $row["end"];
 
 echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
-echo '<table>';
-echo '<tr><td>';
+echo '<table><tr><td>';
+        
 echo '<h2>Schedule</h2><br>';
 echo '<br><br>';
 echo htmlspecialchars($_SERVER["PHP_SELF"]).'/?id='.$SCHED_ID;
