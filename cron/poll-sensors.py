@@ -22,9 +22,9 @@ cursorread.close()
 cnx.close()
   
 for i in results:
-  sensor_ip = i[3]
-  sensor_ref = i[1]
-  sensor_id = i[0]
+  sensor_ip = i['ip']
+  sensor_ref = i['ref']
+  sensor_id = i['id']
     
   sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
 
