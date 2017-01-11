@@ -178,11 +178,11 @@ while($row = mysqli_fetch_assoc($result_sensor)) {
     
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
 if( $SENSOR_VALUE == '' ) {
-    echo "#$SENSOR_VALUE#";
+    #echo "#$SENSOR_VALUE#";
     echo "<span class='sensorvalue'>--</span>"; 
     echo "<span class='sensorvaluedec'>.-</span>"; 
 } else {
-    echo "#$SENSOR_VALUE#";
+    #echo "#$SENSOR_VALUE#";
     echo "<span class='sensorvalue'>"; 
     echo explode( ".", number_format($SENSOR_VALUE, 1, '.', ''))[0];
     echo "</span>";
