@@ -34,7 +34,7 @@ if (!$conn) {
     die("<br><br>Connection failed: " . mysqli_connect_error());
     }
 
-$sql_sensors = "SELECT min(ID) FROM sensors;";
+$sql_sensors = "SELECT min(id) AS id FROM sensors;";
 $result_sensors = mysqli_query($conn, $sql_sensors);
 if (mysqli_num_rows($result_modes) == 0) {
     echo "0 sensors results"; 
