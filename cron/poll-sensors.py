@@ -29,7 +29,7 @@ for i in results:
     
   sensor_url = "http://"+sensor_ip+":8080/value.php?id="+sensor_ref
 
-  #print sensor_url
+  print sensor_url
   
   try:
     data = float( urllib2.urlopen(sensor_url).read() )  
