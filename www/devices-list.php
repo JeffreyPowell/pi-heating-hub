@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="refresh" content="30">
 <style>
+.debug {font-family: courier; color: green; font-size: x-small;}
 .error {color: #FF0000;}
 .tcolname {font-family: arial; color: grey; font-size: x-large;}
 .ccolname {font-family: arial; color: grey; font-size: large;}
@@ -131,7 +132,7 @@ if (mysqli_num_rows($result) > 0) {
         $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         $DEVICE_VALUE = $row["value"];
         
-        echo "<br>$DEVICE_ID $DEVICE_NAME $DEVICE_PIN $DEVICE_ACTIVE_LEVEL $DEVICE_VALUE<br>";
+        echo "<br><span class='debug'>$DEVICE_ID $DEVICE_NAME $DEVICE_PIN $DEVICE_ACTIVE_LEVEL $DEVICE_VALUE</span><br>";
         
         echo "<tr>";
         echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
