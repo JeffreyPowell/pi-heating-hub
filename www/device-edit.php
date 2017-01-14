@@ -73,20 +73,19 @@
         $row = mysqli_fetch_assoc($result);
         $DEVICE_NAME = $row["name"];
         $DEVICE_pin = $row["pin"];
-        $DEVICE_active_level = $row["active_level"];
+        $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         
         echo '<h1>'.$DEVICE_NAME.'</h1><br><br>';
         echo '<table width=100% ><tr>';
-        echo '<th width=20%>Name</th>';
-        echo '<th width=20%>GPIO Pin</th>';
-        echo '<th width=20%>Pin Active H/L</th></tr>';
+        echo '<th width=30%>Name</th>';
+        echo '<th width=30%>GPIO Pin</th>';
+        echo '<th width=30%>Pin Active H/L</th></tr>';
         
         echo '<tr>';
-        echo "<td width=20%><input type='text' name='name' value='$DEVICE_NAME'></th>";
-        echo '<td width=20%><input type="text" name="name">$DEVICE_NAME</input></th>';
-        echo '<td width=20%>GPIO Pin</th>';
-        echo '<td width=20%>Pin Active H/L</th></tr>';        
- 
+        echo "<td><input type='text' name='name' value='$DEVICE_NAME'></th>";
+        echo "<td><input type='text' name='pin' value='$DEVICE_PIN'></th>";
+        echo "<td><input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL'></th>";
+        echo '</tr>';
         echo '</table>';
 
 
