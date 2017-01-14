@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         #echo $SCHED_ID;
         
         $sql = "UPDATE devices SET value='1' WHERE d_id='".$DEVICE_ID."';";
-        if (!mysqli_query($conn, $sql)) {
+        if (!mysqli_query($conn, $sql, "SET AUTOCOMMIT=0")) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
         mysqli_close($conn);
@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         #echo $SCHED_ID;
         
         $sql = "UPDATE devices SET value='0' WHERE d_id='".$DEVICE_ID."';";
-        if (!mysqli_query($conn, $sql)) {
+        if (!mysqli_query($conn, $sql, "SET AUTOCOMMIT=0")) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
         mysqli_close($conn);
