@@ -31,8 +31,8 @@
                 print_r("<BR>------------------------<BR></pre>");
                 
                 if ( !isset($_POST["done"]) ) {
-                        header('Location: /sched-list.php');
-                        exit();
+                        #header('Location: /devices-list.php');
+                        #exit();
                 }
                 
                 if ( !isset($_POST["save"]) ) {
