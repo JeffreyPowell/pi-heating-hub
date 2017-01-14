@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="refresh" content="30">
 <style>
-.debug {font-family: courier; color: green; font-size: large;}
+.debug {font-family: courier; color: red; font-size: large;}
 .error {color: #FF0000;}
 .tcolname {font-family: arial; color: grey; font-size: x-large;}
 .ccolname {font-family: arial; color: grey; font-size: large;}
