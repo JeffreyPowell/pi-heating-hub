@@ -21,11 +21,11 @@ $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r("------------------------");
+    print_r("<br>------------------------<br>");
     print_r($_POST);
-    print_r("------------------------");
+    print_r("<br>------------------------<br>");
     print_r($_GET);
-    print_r("------------------------");
+    print_r("<br>------------------------<br>");
     
     if ( array_key_exists( 'done', $_POST ) ) {
         header('Location: /status.php');
@@ -131,11 +131,7 @@ if (mysqli_num_rows($result) > 0) {
         $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         $DEVICE_VALUE = $row["value"];
         
-        echo $DEVICE_ID;
-        echo $DEVICE_NAME;
-        echo $DEVICE_PIN;
-        echo $DEVICE_ACTIVE_LEVEL;
-        echo $DEVICE_VALUE;
+        echo "<br>$DEVICE_ID $DEVICE_NAME $DEVICE_PIN $DEVICE_ACTIVE_LEVEL $DEVICE_VALUE<br>";
         
         echo "<tr>";
         echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
