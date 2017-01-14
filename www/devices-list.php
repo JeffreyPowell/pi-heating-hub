@@ -131,6 +131,12 @@ if (mysqli_num_rows($result) > 0) {
         $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         $DEVICE_VALUE = $row["value"];
         
+        echo $DEVICE_ID;
+        echo $DEVICE_NAME;
+        echo $DEVICE_PIN;
+        echo $DEVICE_ACTIVE_LEVEL;
+        echo $DEVICE_VALUE;
+        
         echo "<tr>";
         echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
         echo "<input type='submit' name='edit' value='Edit'></form></td>";
