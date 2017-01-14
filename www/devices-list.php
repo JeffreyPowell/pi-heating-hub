@@ -85,21 +85,21 @@ if (mysqli_num_rows($result) > 0) {
     echo "<table><tr><th></th><th></th><th>Status</th><th><span class='tcolname'>Device Name</span></th><th>Start Time</th><th>End Time</th><th>Repeat</th></tr>";
   
     while($row = mysqli_fetch_assoc($result)) {
-        $DEVICE_ID = $row["id"];
+        $DEVICE_ID = $row["d_id"];
         $DEVICE_NAME = $row["name"];
         $DEVICE_PIN = $row["pin"];
         $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         $DEVICE_VALUE = $row["value"];
         
         echo "<tr>";
-        echo "<td><form method='post' action='/device-edit.php?id=".$SCHED_ID."'>";
+        echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
         echo "<input type='submit' name='edit' value='Edit'></form></td>";
         
         echo "<td><form method='post' action='/delices-list.php'>";
         echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
         echo "<input type='submit' name='delete' value='Delete'></form></td>";
         
-        if ( $DEVICE_ACTIVE ) {
+        if ( $DEVICE_VALUE ) {
             echo "<td><form method='post' action='/delices-list.php'>";
             echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
             echo "<input type='submit' name='deactivate' value='Deactivate'></form></td>";
