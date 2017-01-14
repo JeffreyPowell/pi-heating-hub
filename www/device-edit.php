@@ -72,7 +72,7 @@
         
         $row = mysqli_fetch_assoc($result);
         $DEVICE_NAME = $row["name"];
-        $DEVICE_pin = $row["pin"];
+        $DEVICE_PIN = $row["pin"];
         $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         
         echo '<h1>'.$DEVICE_NAME.'</h1><br><br>';
