@@ -27,12 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r($_GET);
     print_r("------------------------");
     
-    if ( $_POST["done"] == "Done" ) {
+    if ( array_key_exists( 'done', $_POST ) ) {
         header('Location: /status.php');
         exit();
     }
    
-    if ( $_POST["add"] == "Add new" ) {
+    if ( array_key_exists( 'add', $_POST ) ) {
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         // Check connection
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_close($conn);
     }
     
-    if ( $_POST["delete"] == "Delete" ) {
+    if ( array_key_exists( 'delete', $_POST ) ) {
     
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -64,6 +64,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
         $sql = "DELETE FROM devices WHERE id='".$DEVICE_ID."';";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+    }
+    
+    if ( array_key_exists( 'activate', $_POST ) ) {
+    
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+            }
+        
+        $DEVICE_ID = $_POST["device_id"];
+        
+        #echo $SCHED_ID;
+        
+        $sql = "UPDATE devices SET value='1' WHERE device_id='".$DEVICE_ID."';";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+    }
+    
+    if ( array_key_exists( 'deactivate', $_POST ) ) {
+    
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+            }
+        
+        $DEVICE_ID = $_POST["device_id"];
+        
+        #echo $SCHED_ID;
+        
+        $sql = "UPDATE devices SET value='0' WHERE device_id='".$DEVICE_ID."';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
