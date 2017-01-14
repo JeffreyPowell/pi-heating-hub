@@ -67,7 +67,7 @@ for result in results_devices:
 
     GPIO.setup(DEVICE_PIN, GPIO.OUT, initial=GPIO.LOW)
     
-    GPIO.output(DEVICE_PIN, !(DEVICE_ACTIVE_LEVEL ^ DEVICE_VALUE) )
+    GPIO.output(DEVICE_PIN, ~(DEVICE_ACTIVE_LEVEL ^ DEVICE_VALUE) )
   
     print( DEVICE_PIN, DEVICE_VALUE )
 
