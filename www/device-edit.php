@@ -16,8 +16,12 @@
         $username = "pi";
         $password = "password";
         $dbname = "pi_heating_db";
+        
+        print_r($_GET);
 
         $DEVICE_ID = $_GET['id'];
+        
+        echo $DEVICE_ID;
 
         #echo $_SERVER["REQUEST_METHOD"];
         
