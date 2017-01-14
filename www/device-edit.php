@@ -63,7 +63,9 @@
         }
         echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$DEVICE_ID.'">';
         $sql = "SELECT * FROM devices WHERE d.id=".$DEVICE_ID;
+        echo $sql;
         $result = mysqli_query($conn, $sql);
+        print_r( $result );
         if (mysqli_num_rows($result) == 0) {
                 echo "0 results";
         }
