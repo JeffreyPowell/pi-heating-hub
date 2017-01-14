@@ -25,6 +25,7 @@ query = ("UPDATE devices SET value = 0;")
 cursorupdate.execute(query)
 results_devices =cursorupdate.fetchall()
 cursorupdate.close()
+cnx.commit()
 
 print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
@@ -46,6 +47,7 @@ for result in results_devices:
     cursorupdate.execute(query)
     results_devices =cursorupdate.fetchall()
     cursorupdate.close()
+    cnx.commit()
 
 # Pysically turn ON/OFF GPIO pin for devices
 
