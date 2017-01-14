@@ -145,7 +145,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
         echo "<input type='submit' name='edit' value='Edit'></form></td>";
         
-        echo "<td><form method='post' action='/delices-list.php'>";
+        echo "<td><form method='post' action='/devices-list.php'>";
         echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
         echo "<input type='submit' name='delete' value='Delete'></form></td>";
         
