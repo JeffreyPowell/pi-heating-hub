@@ -82,6 +82,7 @@
         echo '<th width=20%>Pin Active H/L</th></tr>';
         
         echo '<tr>';
+        echo "<td width=20%><input type='text' name='name' value='$DEVICE_NAME'></th>";
         echo '<td width=20%><input type="text" name="name">$DEVICE_NAME</input></th>';
         echo '<td width=20%>GPIO Pin</th>';
         echo '<td width=20%>Pin Active H/L</th></tr>';        
