@@ -37,7 +37,7 @@
                 }
                 
                 if ( isset($_POST["save"]) ) {
-                        echo "#### save ####"
+                        echo "#### save ####";
                         
                         $POST_DEVICE_NAME = $_POST["name"];
                         $POST_DEVICE_PIN = $_POST["pin"];
