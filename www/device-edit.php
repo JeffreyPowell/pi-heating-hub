@@ -21,14 +21,14 @@
 
         $DEVICE_ID = $_GET['id'];
         
-        echo $DEVICE_ID;
+        #echo $DEVICE_ID;
 
         #echo $_SERVER["REQUEST_METHOD"];
         
         if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-                #print_r("<pre><BR>------------------------<BR>");
-                #print_r($_POST);
-                #print_r("<BR>------------------------<BR></pre>");
+                print_r("<pre><BR>------------------------<BR>");
+                print_r($_POST);
+                print_r("<BR>------------------------<BR></pre>");
                 
                 if ( !isset($_POST["done"]) ) {
                         header('Location: /sched-list.php');
@@ -63,7 +63,7 @@
         }
         echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$DEVICE_ID.'">';
         $sql = "SELECT * FROM devices WHERE d_id=".$DEVICE_ID;
-        echo $sql;
+        #echo $sql;
         $result = mysqli_query($conn, $sql);
         print_r( $result );
         if (mysqli_num_rows($result) == 0) {
