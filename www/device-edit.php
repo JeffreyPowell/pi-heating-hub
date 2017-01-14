@@ -62,7 +62,7 @@
                 die("<br><br>Connection failed: " . mysqli_connect_error());
         }
         echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$DEVICE_ID.'">';
-        $sql = "SELECT * FROM devices WHERE d.id=".$DEVICE_ID;
+        $sql = "SELECT * FROM devices WHERE d_id=".$DEVICE_ID;
         echo $sql;
         $result = mysqli_query($conn, $sql);
         print_r( $result );
