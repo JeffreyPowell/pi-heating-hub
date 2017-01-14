@@ -30,12 +30,16 @@
                 print_r($_POST);
                 print_r("<BR>------------------------<BR></pre>");
                 
-                if ( !isset($_POST["done"]) ) {
+                if ( isset($_POST["done"]) ) {
+                        echo "#### done ####";
                         #header('Location: /devices-list.php');
                         #exit();
                 }
                 
-                if ( !isset($_POST["save"]) ) {
+                if ( isset($_POST["save"]) ) {
+                        echo "#### save ####"
+                        $POST_DEVICE_NAME = $_POST["name"];
+                        
                         // Create connection
                         $conn = mysqli_connect($servername, $username, $password, $dbname);
                         // Check connection
@@ -43,7 +47,8 @@
                                 die("<br><br>Connection failed: " . mysqli_connect_error());
                         }
                         # Update schedules with post data
-                        $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
+                        $sql = "UPDATE devices SET name = '$POST_DEVICE_NAME', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
+                        echo $sql;
                         if (mysqli_query($conn, $sql)) {
                                 #echo "<br><br>Schedule updated successfully";
                         } else {
