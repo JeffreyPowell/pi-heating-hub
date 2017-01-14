@@ -17,10 +17,12 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+    
 $servername = "localhost";
 $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
+    
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     print_r("<br>------------------------<br>");
     print_r($_POST);
@@ -85,10 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         #echo $SCHED_ID;
         
         $sql = "UPDATE devices SET value='1' WHERE d_id='".$DEVICE_ID."';";
+        
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        mysqli_query("COMMIT");
+        mysqli_commit($conn);
         mysqli_close($conn);
     }
     
