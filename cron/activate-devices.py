@@ -50,7 +50,7 @@ for result in results_devices:
 # Pysically turn ON/OFF GPIO pin for devices
 
 cursorselect = cnx.cursor()
-query = ("SELECT * FROM devices;")
+query = ("SELECT pin, active_level, value FROM devices;")
 cursorselect.execute(query)
 results_devices =cursorselect.fetchall()
 cursorselect.close()
@@ -61,12 +61,13 @@ GPIO.setwarnings(False)
 for result in results_devices:
     print("- - - - - - - -")
   
-    DEVICE_PIN = int( result[2] )
-    DEVICE_VALUE = int( result[3] )
+    DEVICE_PIN = int( result[0] )
+    DEVICE_ACTIVE_LEVEL = int( result[1] )
+    DEVICE_VALUE = int( result[2] )
 
     GPIO.setup(DEVICE_PIN, GPIO.OUT, initial=GPIO.LOW)
     
-    GPIO.output(DEVICE_PIN, 1-DEVICE_VALUE)
+    GPIO.output(DEVICE_PIN, !(DEVICE_ACTIVE_LEVEL ^ DEVICE_VALUE) )
   
     print( DEVICE_PIN, DEVICE_VALUE )
 
