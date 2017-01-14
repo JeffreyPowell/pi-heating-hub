@@ -60,7 +60,7 @@ GPIO.setwarnings(False)
 
 for result in results_devices:
     print("- - - - - - - -")
-    DEVICE_NAME = int( result[0] )
+    DEVICE_NAME = str( result[0] )
     DEVICE_PIN = int( result[1] )
     DEVICE_ACTIVE_LEVEL = bool( result[2] )
     DEVICE_VALUE = bool( result[3] )
