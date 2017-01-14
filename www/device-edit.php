@@ -8,250 +8,59 @@
 <body class='fixedsmall'>
 
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-$servername = "localhost";
-$username = "pi";
-$password = "password";
-$dbname = "pi_heating_db";
-$SCHED_ID = $_GET['id'];
-#if ( $SCHED_ID < 1 ) { header('Location: /sched-list.php'); exit(); }
-#echo $_SERVER["REQUEST_METHOD"];
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         
-if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+        $servername = "localhost";
+        $username = "pi";
+        $password = "password";
+        $dbname = "pi_heating_db";
+
+        $DEVICE_ID = $_GET['id'];
+
+        #echo $_SERVER["REQUEST_METHOD"];
         
-    if ( $_POST["formSubmit"] == "Done" ) {
-        header('Location: /sched-list.php');
-        exit();
+        if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+                #print_r("<pre><BR>------------------------<BR>");
+                #print_r($_POST);
+                #print_r("<BR>------------------------<BR></pre>");
+                
+                if ( !isset($_POST["done"]) ) {
+                        header('Location: /sched-list.php');
+                        exit();
+                }
+                
+                if ( !isset($_POST["save"]) ) {
+                        // Create connection
+                        $conn = mysqli_connect($servername, $username, $password, $dbname);
+                        // Check connection
+                        if (!$conn) {
+                                die("<br><br>Connection failed: " . mysqli_connect_error());
+                        }
+                        # Update schedules with post data
+                        $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
+                        if (mysqli_query($conn, $sql)) {
+                                #echo "<br><br>Schedule updated successfully";
+                        } else {
+                                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
+                        }
+                }
+                
         }
-    if ( $_POST["formSubmit"] == "Save" ) {
-        #print_r("<pre><BR>------------------------<BR>");
-        #print_r($_POST);
-        #print_r("<BR>------------------------<BR></pre>");
+
+        mysqli_close($conn);
+    }
+
+        
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         // Check connection
         if (!$conn) {
-            die("<br><br>Connection failed: " . mysqli_connect_error());
+                die("<br><br>Connection failed: " . mysqli_connect_error());
         }
-        # Update schedules with post data
-        $sql = "UPDATE schedules SET name = '".$_POST["name"]."', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
-        if (mysqli_query($conn, $sql)) {
-            #echo "<br><br>Schedule updated successfully";
-        } else {
-            echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        if ( !isset($_POST["repeat_dow"]) ) {
-            $sql = "UPDATE schedules SET dow1 = '0', dow2 = '0', dow3 = '0', dow4 = '0', dow5 = '0', dow6 = '0', dow7 = '0' WHERE id='".$SCHED_ID."';";
-        } else {
-            $sql = "UPDATE schedules SET dow1 = '".in_array("dow1", $_POST["repeat_dow"])."', dow2 = '".in_array("dow2", $_POST["repeat_dow"])."', dow3 = '".in_array("dow3", $_POST["repeat_dow"])."', dow4 = '".in_array("dow4", $_POST["repeat_dow"])."', dow5 = '".in_array("dow5", $_POST["repeat_dow"])."', dow6 = '".in_array("dow6", $_POST["repeat_dow"])."', dow7 = '".in_array("dow7", $_POST["repeat_dow"])."' WHERE id='".$SCHED_ID."';";
-        }
-        if (mysqli_query($conn, $sql)) {
-            #echo "<br><br>Schedule updated successfully";
-        } else {
-            echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        # Update devices
-        $sql = "DELETE FROM sched_device WHERE sched_id = '".$SCHED_ID."';";
-        if (!mysqli_query($conn, $sql)) {
-            echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        if ( isset($_POST["devices"]) ) {
-            foreach( $_POST["devices"] as $DEVICE_ID ) {
-                $sql = "INSERT INTO sched_device ( sched_id, device_id ) VALUES ( ".$SCHED_ID.", ".$DEVICE_ID.");";
-                if (!mysqli_query($conn, $sql)) {
-                    echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
-            }
-         }
-    
-        #    echo $sql;
-        #    if (mysqli_query($conn, $sql)) {
-        #        #echo "<br><br>Schedule updated successfully";
-        #    } else {
-        #        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        #    }
-        # Update sensors
-        $sql = "DELETE FROM sched_sensor WHERE sched_id = '".$SCHED_ID."';";
-        if (!mysqli_query($conn, $sql)) {
-                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        foreach( $_POST as $key => $val )
-        {
-                #print_r( $key );
-                #print_r( $val );
-                #print_r("<pre><BR>==========<BR>" );
-                if( preg_match( '/sensor.*opp/', $key ) )
-                {
-                        #print_r("<pre><BR>==========<BR>");
-                        #print_r( $key );
-                        #print_r( $val );
-                        $post_sched_sensor_sensor_id = explode( '_', $key )[1];
-                        #print_r( $post_sched_sensor_sensor_id );
-                        #print_r("<BR>==========<BR></pre>");
-                        if( $val !== 'na' )
-                        {
-                                if( $val == 'eq' ) { $val = '='; }
-                                if( $val == 'lt' ) { $val = '<'; }
-                                if( $val == 'gt' ) { $val = '>'; }
-                                if( $val == 'ne' ) { $val = '!'; }
-                                $post_sched_sensor_sensor_value = $_POST["sensor_".$post_sched_sensor_sensor_id."_value"];
-                                $sql = "INSERT INTO sched_sensor ( sched_id, sensor_id, opp, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_sensor_sensor_id."', '".$val."', '".$post_sched_sensor_sensor_value."');";
-                                #print_r( $sql );
-                                if (!mysqli_query($conn, $sql)) {
-                                        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-                                }
-                        }
-                }
-                #else
-                #{
-                #    print_r( 'not match : ' );
-                #    print_r( $key );
-                #    print_r( $val );
-                #    print_r("<BR>");
-                #}
-        
-                #print_r("<BR>==========<BR></pre>");
-                #print_r("<BR>");
-        }
-    
-        # Update Modes
-        $sql = "DELETE FROM sched_mode WHERE sched_id = '".$SCHED_ID."';";
-        if (!mysqli_query($conn, $sql)) {
-                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        foreach( $_POST as $key => $val )
-        {
-                #print_r( $key );
-                #print_r( $val );
-                #print_r("<pre><BR>==========<BR>" );
-                if( preg_match( '/mode.*value/', $key ) )
-                {
-                        #print_r("<pre><BR>==========<BR>");
-                        #print_r( $key );
-                        #print_r( ' : ' );
-                        #print_r( $val );
-                        $post_sched_mode_mode_id = explode( '_', $key )[1];
-                        #print_r( $post_sched_sensor_sensor_id );
-                        #print_r("<BR>==========<BR></pre>");
-                        if( $val !== 'na' )
-                        {
-                                if( $val == 'false' ) { $val = '0'; }
-                                if( $val == 'true' ) { $val = '1'; }
-                                #$post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
-                                $sql = "INSERT INTO sched_mode ( sched_id, mode_id, test_value ) VALUES ( '".$SCHED_ID."', '".$post_sched_mode_mode_id."', '".$val."');";
-                                #print_r( $sql );
-                                if (!mysqli_query($conn, $sql)) {
-                                        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-                                }
-                        }
-                }
-                #else
-                #{
-                #    print_r( 'not match : ' );
-                #    print_r( $key );
-                #    print_r( ' : ' );
-                #    print_r( $val );
-                #    print_r("<BR>");
-                #}
-        
-                #print_r("<BR>==========<BR></pre>");
-                #print_r("<BR>");
-        }
-        # Update Timers
-        $sql = "DELETE FROM sched_timer WHERE sched_id = '".$SCHED_ID."';";
-        if (!mysqli_query($conn, $sql)) {
-                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        foreach( $_POST as $key => $val )
-        {
-                #print_r( $key );
-                #print_r( $val );
-                #print_r("<pre><BR>==========<BR>" );
-                if( preg_match( '/timer.*value/', $key ) )
-                {
-                        #print_r("<pre><BR>==========<BR>");
-                        #print_r( $key );
-                        #print_r( $val );
-                        $post_sched_timer_timer_id = explode( '_', $key )[1];
-                        #print_r( $post_sched_sensor_sensor_id );
-                        #print_r("<BR>==========<BR></pre>");
-                        if( $val !== 'na' )
-                        {
-                                if( $val == 'false' ) { $val = '0'; }
-                                if( $val == 'true' ) { $val = '1'; }
-                                #$post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
-                                $sql = "INSERT INTO sched_timer ( sched_id, timer_id, value ) VALUES ( '".$SCHED_ID."', '".$post_sched_timer_timer_id."', '".$val."');";
-                                #print_r( $sql );
-                                if (!mysqli_query($conn, $sql)) {
-                                        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-                                }
-                        }
-                }
-                #else
-                #{
-                #    print_r( 'not match : ' );
-                #    print_r( $key );
-                #    print_r( $val );
-                #    print_r("<BR>");
-                #}
-        
-                #print_r("<BR>==========<BR></pre>");
-                #print_r("<BR>");
-        }
-        # Update Network
-        $sql = "DELETE FROM sched_network WHERE sched_id = '".$SCHED_ID."';";
-        if (!mysqli_query($conn, $sql)) {
-                echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-        foreach( $_POST as $key => $val )
-        {
-                #print_r( $key );
-                #print_r( $val );
-                #print_r("<pre><BR>==========<BR>" );
-                if( preg_match( '/network.*value/', $key ) )
-                {
-                        #print_r("<pre><BR>==========<BR>");
-                        #print_r( $key );
-                        #print_r( $val );
-                        $post_sched_network_network_id = explode( '_', $key )[1];
-                        #print_r( $post_sched_network_network_id );
-                        #print_r("<BR>==========<BR></pre>");
-                        if( $val !== 'na' )
-                        {
-                                if( $val == 'false' ) { $val = '0'; }
-                                if( $val == 'true' ) { $val = '1'; }
-                                #$post_sched_mode_mode_value = $_POST["mode_".$post_sched_mode_mode_id."_value"];
-                                $sql = "INSERT INTO sched_network ( sched_id, network_id, test ) VALUES ( '".$SCHED_ID."', '".$post_sched_network_network_id."', '".$val."');";
-                                #print_r( $sql );
-                                if (!mysqli_query($conn, $sql)) {
-                                        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-                                }
-                        }
-                }
-                #else
-                #{
-                #    print_r( 'not match : ' );
-                #    print_r( $key );
-                #    print_r( $val );
-                #    print_r("<BR>");
-                #}
-        
-                #print_r("<BR>==========<BR></pre>");
-                #print_r("<BR>");
-        }
-        mysqli_close($conn);
-    }
-}
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("<br><br>Connection failed: " . mysqli_connect_error());
-    }
-echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$SCHED_ID.'">';
-$sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
+        echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$SCHED_ID.'">';
+        $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "0 results";
@@ -489,8 +298,8 @@ echo '</table>';
 echo '<br><br>';
     
     
-echo '<input type="submit" name="formSubmit" value="Save" />';
-echo '<input type="submit" name="formSubmit" value="Done" />';
+echo '<input type="submit" name="save" value="Save" />';
+echo '<input type="submit" name="done" value="Done" />';
 echo '</form>';
 mysqli_close($conn);
 ?>
