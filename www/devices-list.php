@@ -24,12 +24,10 @@ $password = "password";
 $dbname = "pi_heating_db";
     
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    print_r("<br>------------------------<br>");
-    print_r($_POST);
-    print_r("<br>------------------------<br>");
-    print_r($_GET);
-    print_r("<br>------------------------<br>");
-    
+
+    echo "<br><span class='debug'><br>------------------------<br>$_POST<br>------------------------<br>$_GET<br>------------------------<br></span><br>";
+
+
     if ( array_key_exists( 'done', $_POST ) ) {
         header('Location: /status.php');
         exit();
@@ -42,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
             }
-        $sql = "INSERT INTO devices (name, pin, active_level, value) VALUES ('new', null, 0, null, 0)";
+        $sql = "INSERT INTO devices (name, pin, active_level, value) VALUES ('new', null, 0, null)";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
