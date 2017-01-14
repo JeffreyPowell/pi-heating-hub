@@ -17,7 +17,7 @@
         $password = "password";
         $dbname = "pi_heating_db";
         
-        print_r($_GET);
+        #print_r($_GET);
 
         $DEVICE_ID = $_GET['id'];
         
@@ -65,7 +65,7 @@
         $sql = "SELECT * FROM devices WHERE d_id=".$DEVICE_ID;
         #echo $sql;
         $result = mysqli_query($conn, $sql);
-        print_r( $result );
+        #print_r( $result );
         if (mysqli_num_rows($result) == 0) {
                 echo "0 results";
         }
