@@ -26,18 +26,18 @@
         #echo $_SERVER["REQUEST_METHOD"];
         
         if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-                print_r("<pre><BR>------------------------<BR>");
-                print_r($_POST);
-                print_r("<BR>------------------------<BR></pre>");
+                #print_r("<pre><BR>------------------------<BR>");
+                #print_r($_POST);
+                #print_r("<BR>------------------------<BR></pre>");
                 
                 if ( isset($_POST["done"]) ) {
-                        echo "#### done ####";
-                        #header('Location: /devices-list.php');
-                        #exit();
+                        #echo "#### done ####";
+                        header('Location: /devices-list.php');
+                        exit();
                 }
                 
                 if ( isset($_POST["save"]) ) {
-                        echo "#### save ####";
+                        #echo "#### save ####";
                         
                         $POST_DEVICE_NAME = $_POST["name"];
                         $POST_DEVICE_PIN = $_POST["pin"];
