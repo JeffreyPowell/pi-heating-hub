@@ -38,7 +38,10 @@
                 
                 if ( isset($_POST["save"]) ) {
                         echo "#### save ####"
+                        
                         $POST_DEVICE_NAME = $_POST["name"];
+                        $POST_DEVICE_PIN = $_POST["pin"];
+                        $POST_DEVICE_ACTIVE_LEVEL = $_POST["active_level"];
                         
                         // Create connection
                         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -47,7 +50,7 @@
                                 die("<br><br>Connection failed: " . mysqli_connect_error());
                         }
                         # Update schedules with post data
-                        $sql = "UPDATE devices SET name = '$POST_DEVICE_NAME', start = '".$_POST["start"]."', end = '".$_POST["end"]."' WHERE id='".$SCHED_ID."';";
+                        $sql = "UPDATE devices SET name = '$POST_DEVICE_NAME', pin = '$POST_DEVICE_PIN', active_level = '$POST_DEVICE_ACTIVE_LEVEL' WHERE d_id='".$DEVICE_ID."';";
                         echo $sql;
                         if (mysqli_query($conn, $sql)) {
                                 #echo "<br><br>Schedule updated successfully";
