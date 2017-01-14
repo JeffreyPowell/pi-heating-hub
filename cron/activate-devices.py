@@ -62,8 +62,8 @@ for result in results_devices:
     print("- - - - - - - -")
   
     DEVICE_PIN = int( result[0] )
-    DEVICE_ACTIVE_LEVEL = int( result[1] )
-    DEVICE_VALUE = int( result[2] )
+    DEVICE_ACTIVE_LEVEL = bool( result[1] )
+    DEVICE_VALUE = bool( result[2] )
 
     GPIO.setup(DEVICE_PIN, GPIO.OUT, initial=GPIO.LOW)
     
