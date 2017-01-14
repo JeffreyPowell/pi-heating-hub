@@ -25,9 +25,13 @@ $dbname = "pi_heating_db";
     
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    echo "<br><span class='debug'><br>------------------------<br>$_POST<br>------------------------<br>$_GET<br>------------------------<br></span><br>";
-
-
+    echo "<br><span class='debug'><br>------------------------<br>";
+    print_r( $_POST );
+    echo "<br>------------------------<br>";
+    print_r( $_GET );
+    echo "<br>------------------------<br></span><br>";
+   
+    
     if ( array_key_exists( 'done', $_POST ) ) {
         header('Location: /status.php');
         exit();
