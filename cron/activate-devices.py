@@ -50,7 +50,7 @@ for result in results_devices:
 # Pysically turn ON/OFF GPIO pin for devices
 
 cursorselect = cnx.cursor()
-query = ("SELECT pin, active_level, value FROM devices;")
+query = ("SELECT pin, active_level, value FROM devices WHERE active_level IS NOT NULL;")
 cursorselect.execute(query)
 results_devices =cursorselect.fetchall()
 cursorselect.close()
