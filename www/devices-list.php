@@ -122,7 +122,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
   
-    echo "<table><tr><th></th><th></th><th></th><th></th><th>Status</th><th><span class='tcolname'>Device Name</span></th><th>GPIO Pin</th><th>Active level</th></tr>";
+    echo "<table><tr><th></th><th></th><th></th><th>Status</th><th><span class='tcolname'>Device Name</span></th><th>GPIO Pin</th><th>Active level</th></tr>";
   
     while($row = mysqli_fetch_assoc($result)) {
         $DEVICE_ID = $row["d_id"];
@@ -152,8 +152,8 @@ if (mysqli_num_rows($result) > 0) {
         }
         
         echo "<td><span class='ccolname'>".$DEVICE_NAME."</span></td>";
-        echo "<td><span class='ccolstart'>".$DEVICE_PIN."</span></td>";
-        echo "<td><span class='ccolend'>".$DEVICE_ACTIVE_LEVEL."</span></td>";
+        echo "<td><span class='ccolname'>".$DEVICE_PIN."</span></td>";
+        echo "<td><span class='ccolname'>".$DEVICE_ACTIVE_LEVEL."</span></td>";
       
         echo "</tr>";
     }    
