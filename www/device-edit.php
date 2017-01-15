@@ -4,8 +4,8 @@
 <style>
 .debug {font-family: courier; color: red; font-size: large;}
 .error {color: #FF0000;}
-.tcolname {font-family: arial; color: grey; font-size: x-large;}
-.ccolname {font-family: arial; color: grey; font-size: large;}
+.tcol {font-family: arial; color: grey; font-size: x-large;}
+.dcol {font-family: arial; color: grey; font-size: large;}
 .ccoldowun {font-family: arial; color: grey; font-size: x-small;}
 .ccoldowse {font-family: arial; color: grey; font-size: large;}
 </style>
@@ -90,14 +90,14 @@
         
         echo '<h1>'.$DEVICE_NAME.'</h1><br><br>';
         echo '<table width=100% ><tr>';
-        echo '<th width=30%>Name</th>';
-        echo '<th width=30%>GPIO Pin</th>';
-        echo '<th width=30%>Pin Active H/L</th></tr>';
+        echo "<th width=30%><span class='tcol'>Name</span></th>";
+        echo "<th width=30%><span class='tcol'>GPIO Pin</span></th>";
+        echo "<th width=30%><span class='tcol'>Pin Active H/L</span></th></tr>";
         
         echo '<tr>';
-        echo "<td><input type='text' name='name' value='$DEVICE_NAME'></th>";
-        echo "<td><input type='text' name='pin' value='$DEVICE_PIN'></th>";
-        echo "<td><input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL'></th>";
+        echo "<td><span class='dcol'><input type='text' name='name' value='$DEVICE_NAME'></span></th>";
+        echo "<td><span class='dcol'><input type='text' name='pin' value='$DEVICE_PIN'></span></th>";
+        echo "<td><span class='dcol'><input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL'></span></th>";
         echo '</tr>';
         echo '</table>';
 
