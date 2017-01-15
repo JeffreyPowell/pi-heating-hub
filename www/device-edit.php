@@ -93,7 +93,7 @@
         $DEVICE_PIN = $row["pin"];
         $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         
-        echo "<span class='ptitle'>$DEVICE_NAME</span><br><br>";
+        echo "<span class='ptitle'>EDIT : $DEVICE_NAME</span><br><br>";
 
 
         echo "<span class='tcol'>Name</span><br>";
