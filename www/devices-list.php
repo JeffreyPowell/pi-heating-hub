@@ -154,11 +154,11 @@ if (mysqli_num_rows($result) > 0) {
         
         echo "<tr>";
         echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
-        echo "<input type='submit' name='edit' value='Edit' class='bblue'></form></td>";
+        echo "<input type='submit' name='edit' value='Edit' class='bblue'/></form></td>";
         
         echo "<td><form method='post' action='/devices-list.php'>";
-        echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
-        echo "<input type='submit' name='delete' value='Delete' class='bred'></form></td>";
+        echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."' />";
+        echo "<input type='submit' name='delete' value='Delete' class='bred' /></form></td>";
         
         #if ( $DEVICE_VALUE ) {
         #    echo "<td><form method='post' action='/devices-list.php'>";
@@ -189,8 +189,8 @@ mysqli_close($conn);
 ?>  
 
 <form method='post' action='devices-list.php'>
-<input type='submit' name='add' value='Add new'>
-<input type="submit" name="done" value="Done" />
+<input type='submit' name='add' value='Add new' class='bgreen' />
+<input type="submit" name="done" value="Done" class='bgrey'/>
 </form>
   
 </body>
