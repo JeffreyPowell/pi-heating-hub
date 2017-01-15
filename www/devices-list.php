@@ -137,7 +137,7 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "<span class='ptitle'>Available Devices</span><br><br>";
     
-    echo "<table width=100%><tr><th></th><th></th>";
+    echo "<table width=100%><tr><th width=1%></th><th width=1%></th>";
     echo "<th><span class='tcol'>Status</span></th>";
     echo "<th><span class='tcol'>Device Name</span></th>";
     #echo "<th><span class='tcol'>GPIO Pin</span></th>";
@@ -188,7 +188,7 @@ if (mysqli_num_rows($result) > 0) {
   
 mysqli_close($conn);
 ?>  
-
+<br><br>
 <form method='post' action='devices-list.php'>
 <input type='submit' name='add' value='Add new' class='bgreen' />
 <input type="submit" name="done" value="Done" class='bgrey'/>
