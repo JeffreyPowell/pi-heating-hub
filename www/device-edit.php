@@ -9,7 +9,10 @@
         .dcol {font-family: arial; color: grey; font-size: large; align: left;}
         .ptitle {font-family: arial; color: navy; font-size: xx-large;}
         .itextbox {font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 0;}
-        .bdefault {    background-color: grey; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
+        .bgrey {    background-color: grey; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
+        .bblue {    background-color: blue; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
+        .bgreen {    background-color: green; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
+        .bred {    background-color: red; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
 </style>
 </head>
 <body class='pbody'>
@@ -91,26 +94,26 @@
         $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         
         echo "<span class='ptitle'>$DEVICE_NAME</span><br><br>";
-        echo '<table width=100% ><tr>';
-        echo "<th width=30%><span class='tcol'>Name</span></th>";
-        echo "<th width=30%><span class='tcol'>GPIO Pin</span></th>";
-        echo "<th width=30%><span class='tcol'>Pin Active H/L</span></th></tr>";
+
+
+        echo "<span class='tcol'>Name</span>";
+        echo "<input type='text' name='name' value='$DEVICE_NAME' class='itextbox'>";
         
-        echo '<tr>';
-        echo "<td><input type='text' name='name' value='$DEVICE_NAME' class='itextbox'></th>";
-        echo "<td><span class='dcol'><input type='text' name='pin' value='$DEVICE_PIN'></span></th>";
-        echo "<td><span class='dcol'><input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL'></span></th>";
-        echo '</tr>';
-        echo '</table>';
+        echo "<span class='tcol'>GPIO Pin</span>";
+        echo "<input type='text' name='pin' value='$DEVICE_PIN' class='itextbox'>";
+        
+        echo "<span class='tcol'>Pin Active H/L</span>";
+        echo "<input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL' class='itextbox'>";
 
-
-echo '<br><br>';
+        echo '<br><br>';
     
     
-echo "<input type='submit' name='save' value='Save' class='bdefault' />";
-echo '<input type="submit" name="done" value="Done" />';
-echo '</form>';
-mysqli_close($conn);
+        echo "<input type='submit' name='save' value='Save' class='bgreen' />";
+        echo "&nbsp;&nbsp;";
+        echo "<input type='submit' name='done' value='Done' class='bgrey'  />";
+        echo '</form>';
+        
+        mysqli_close($conn);
 ?>
 
 </body>
