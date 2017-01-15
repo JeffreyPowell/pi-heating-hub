@@ -7,7 +7,7 @@
         .debug {font-family: courier; color: red; font-size: large;}
         .error {color: #FF0000;}
         .tcol {font: 22px arial; color: grey;}
-        .dcol {font-family: arial; color: grey; font-size: large; text-align: center;}
+        .dcol {font-family: arial; color: grey; font-size: large; text-align: center;  margin: 24px 0 0 0 ;}
         .ptitle {font: bold 32px arial; color: blue;}
         .itextbox {font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%;}
         .bgrey {  background-color: gray;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ;}
