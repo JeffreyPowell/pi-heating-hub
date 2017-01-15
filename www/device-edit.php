@@ -2,15 +2,16 @@
 <html>
 <head>
 <style>
-.debug {font-family: courier; color: red; font-size: large;}
-.error {color: #FF0000;}
-.tcol {font-family: arial; color: grey; font-size: x-large;}
-.dcol {font-family: arial; color: grey; font-size: large;}
-.ptitle {font-family: arial; color: navy; font-size: xx-large;}
-.itextbox {font-family: arial; color: grey; font-size: large; width: 100%; padding: 12px 20px; margin: 8px 0;}
+        .pbody { background-color: '#080808'; }
+        .debug {font-family: courier; color: red; font-size: large;}
+        .error {color: #FF0000;}
+        .tcol {font-family: arial; color: grey; font-size: x-large;}
+        .dcol {font-family: arial; color: grey; font-size: large;}
+        .ptitle {font-family: arial; color: navy; font-size: xx-large;}
+        .itextbox {font-family: arial; color: grey; font-size: large; width: 100%; padding: 12px 20px; margin: 8px 0;}
 </style>
 </head>
-<body class='fixedsmall'>
+<body class='pbody'>
 
 <?php
         ini_set('display_errors', 1);
