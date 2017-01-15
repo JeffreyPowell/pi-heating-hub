@@ -5,9 +5,9 @@
         .pbody { background-color: #080808; }
         .debug {font-family: courier; color: red; font-size: large;}
         .error {color: #FF0000;}
-        .tcol {font-family: arial; color: grey; font-size: x-large; align: left;}
-        .dcol {font-family: arial; color: grey; font-size: large; align: left;}
-        .ptitle {font-family: arial; color: navy; font-size: xx-large;}
+        .tcol {font: arial 18px bold; color: grey;}
+        .dcol {font-family: arial; color: grey; font-size: large;}
+        .ptitle {font-family: arial; color: navy; font-size: xxx-large;}
         .itextbox {font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%;}
         .bgrey {  background-color: grey;  border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
         .bblue {  background-color: blue;  border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
