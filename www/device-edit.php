@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-        .pbody { background-color: '#080808'; }
+        .pbody { background-color: #080808; }
         .debug {font-family: courier; color: red; font-size: large;}
         .error {color: #FF0000;}
         .tcol {font-family: arial; color: grey; font-size: x-large; text-align: left;}
@@ -96,7 +96,7 @@
         echo "<th width=30%><span class='tcol'>Pin Active H/L</span></th></tr>";
         
         echo '<tr>';
-        echo "<td><input type='text' name='name' value='$DEVICE_NAME' lass='itextbox'></th>";
+        echo "<td><input type='text' name='name' value='$DEVICE_NAME' class='itextbox'></th>";
         echo "<td><span class='dcol'><input type='text' name='pin' value='$DEVICE_PIN'></span></th>";
         echo "<td><span class='dcol'><input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL'></span></th>";
         echo '</tr>';
