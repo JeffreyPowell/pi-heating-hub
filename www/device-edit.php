@@ -2,7 +2,12 @@
 <html>
 <head>
 <style>
-.fixedsmall {font-family: courier; color: black; font-size: xx-small;}
+.debug {font-family: courier; color: red; font-size: large;}
+.error {color: #FF0000;}
+.tcolname {font-family: arial; color: grey; font-size: x-large;}
+.ccolname {font-family: arial; color: grey; font-size: large;}
+.ccoldowun {font-family: arial; color: grey; font-size: x-small;}
+.ccoldowse {font-family: arial; color: grey; font-size: large;}
 </style>
 </head>
 <body class='fixedsmall'>
