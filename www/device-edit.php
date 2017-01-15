@@ -6,8 +6,8 @@
 .error {color: #FF0000;}
 .tcol {font-family: arial; color: grey; font-size: x-large;}
 .dcol {font-family: arial; color: grey; font-size: large;}
-.ccoldowun {font-family: arial; color: grey; font-size: x-small;}
-.ccoldowse {font-family: arial; color: grey; font-size: large;}
+.ptitle {font-family: arial; color: navy; font-size: xx-large;}
+.itextbox {font-family: arial; color: grey; font-size: large; width: 100%; padding: 12px 20px; margin: 8px 0;}
 </style>
 </head>
 <body class='fixedsmall'>
@@ -88,14 +88,14 @@
         $DEVICE_PIN = $row["pin"];
         $DEVICE_ACTIVE_LEVEL = $row["active_level"];
         
-        echo '<h1>'.$DEVICE_NAME.'</h1><br><br>';
+        echo "<span class='ptitle'>$DEVICE_NAME</span><br><br>";
         echo '<table width=100% ><tr>';
         echo "<th width=30%><span class='tcol'>Name</span></th>";
         echo "<th width=30%><span class='tcol'>GPIO Pin</span></th>";
         echo "<th width=30%><span class='tcol'>Pin Active H/L</span></th></tr>";
         
         echo '<tr>';
-        echo "<td><span class='dcol'><input type='text' name='name' value='$DEVICE_NAME'></span></th>";
+        echo "<td><input type='text' name='name' value='$DEVICE_NAME' lass='itextbox'></th>";
         echo "<td><span class='dcol'><input type='text' name='pin' value='$DEVICE_PIN'></span></th>";
         echo "<td><span class='dcol'><input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL'></span></th>";
         echo '</tr>';
