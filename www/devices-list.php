@@ -138,7 +138,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "<span class='ptitle'>Available Devices</span><br><br>";
     
     echo "<table width=100% style='border: 1px solid red;' ><tr><th width=1%></th><th width=1%></th>";
-    echo "<th><span class='tcol'>Status</span></th>";
+    echo "<th width=1%><span class='tcol'>Status</span></th>";
     echo "<th><span class='tcol'>Device Name</span></th>";
     #echo "<th><span class='tcol'>GPIO Pin</span></th>";
     #echo "<th><span class='tcol'>Active level</span></th>";
