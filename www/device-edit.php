@@ -96,18 +96,16 @@
         echo "<span class='ptitle'>$DEVICE_NAME</span><br><br>";
 
 
-        echo "<span class='tcol'>Name</span>";
-        echo "<input type='text' name='name' value='$DEVICE_NAME' class='itextbox'>";
+        echo "<span class='tcol'>Name</span><br>";
+        echo "<input type='text' name='name' value='$DEVICE_NAME' class='itextbox'><br><br>";
         
-        echo "<span class='tcol'>GPIO Pin</span>";
-        echo "<input type='text' name='pin' value='$DEVICE_PIN' class='itextbox'>";
+        echo "<span class='tcol'>GPIO Pin</span><br>";
+        echo "<input type='text' name='pin' value='$DEVICE_PIN' class='itextbox'><br><br>";
         
-        echo "<span class='tcol'>Pin Active H/L</span>";
-        echo "<input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL' class='itextbox'>";
-
-        echo '<br><br>';
-    
-    
+        echo "<span class='tcol'>Pin Active H/L</span><br>";
+        echo "<input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL' class='itextbox'><br><br>";
+ 
+        
         echo "<input type='submit' name='save' value='Save' class='bgreen' />";
         echo "&nbsp;&nbsp;";
         echo "<input type='submit' name='done' value='Done' class='bgrey'  />";
