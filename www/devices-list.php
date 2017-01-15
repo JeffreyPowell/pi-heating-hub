@@ -166,12 +166,12 @@ if (mysqli_num_rows($result) > 0) {
         #    echo "<td><form method='post' action='/devices-list.php'>";
         #    echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
         #    echo "<input type='submit' name='deactivate' value='Deactivate'></form></td>";
-            echo "<td align='centre'>&nbsp;&nbsp;&nbsp;&nbsp;<img src='/images/dot-green.png' alt='Schedule Active' height='16' width='16'></td>";
+            echo "<td style="text-align: center;"><img src='/images/dot-green.png' alt='Schedule Active' height='16' width='16'></td>";
         } else {
         #    echo "<td><form method='post' action='/devices-list.php'>";
         #    echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
         #    echo "<input type='submit' name='activate' value='Activate'></form></td>";
-            echo "<td align='centre'>&nbsp;&nbsp;&nbsp;&nbsp;<img src='/images/dot-red.png' alt='Schedule Inactive' height='16' width='16'></td>";
+            echo "<td style="text-align: center;"><img src='/images/dot-red.png' alt='Schedule Inactive' height='16' width='16'></td>";
         }
         
         echo "<td><span class='dcol'>".$DEVICE_NAME."</span></td>";
