@@ -5,8 +5,8 @@
         .pbody { background-color: #080808; }
         .debug {font-family: courier; color: red; font-size: large;}
         .error {color: #FF0000;}
-        .tcol {font-family: arial; color: grey; font-size: x-large; text-align: left;}
-        .dcol {font-family: arial; color: grey; font-size: large; text-align: left;}
+        .tcol {font-family: arial; color: grey; font-size: x-large; align: left;}
+        .dcol {font-family: arial; color: grey; font-size: large; align: left;}
         .ptitle {font-family: arial; color: navy; font-size: xx-large;}
         .itextbox {font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 0;}
         .bdefault {    background-color: grey; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
