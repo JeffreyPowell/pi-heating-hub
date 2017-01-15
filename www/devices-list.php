@@ -154,27 +154,27 @@ if (mysqli_num_rows($result) > 0) {
         
         echo "<tr>";
         echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
-        echo "<input type='submit' name='edit' value='Edit'></form></td>";
+        echo "<input type='submit' name='edit' value='Edit' class='bblue'></form></td>";
         
         echo "<td><form method='post' action='/devices-list.php'>";
         echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
-        echo "<input type='submit' name='delete' value='Delete'></form></td>";
+        echo "<input type='submit' name='delete' value='Delete' class='bred'></form></td>";
         
-        if ( $DEVICE_VALUE ) {
-            echo "<td><form method='post' action='/devices-list.php'>";
-            echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
-            echo "<input type='submit' name='deactivate' value='Deactivate'></form></td>";
-            echo "<td><img src='/images/dot-green.png' alt='Schedule Active' height='16' width='16'></td>";
-        } else {
-            echo "<td><form method='post' action='/devices-list.php'>";
-            echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
-            echo "<input type='submit' name='activate' value='Activate'></form></td>";
-            echo "<td><img src='/images/dot-red.png' alt='Schedule Inactive' height='16' width='16'></td>";
-        }
+        #if ( $DEVICE_VALUE ) {
+        #    echo "<td><form method='post' action='/devices-list.php'>";
+        #    echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
+        #    echo "<input type='submit' name='deactivate' value='Deactivate'></form></td>";
+        #    echo "<td><img src='/images/dot-green.png' alt='Schedule Active' height='16' width='16'></td>";
+        #} else {
+        #    echo "<td><form method='post' action='/devices-list.php'>";
+        #    echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
+        #    echo "<input type='submit' name='activate' value='Activate'></form></td>";
+        #    echo "<td><img src='/images/dot-red.png' alt='Schedule Inactive' height='16' width='16'></td>";
+        #}
         
-        echo "<td><span class='ccolname'>".$DEVICE_NAME."</span></td>";
-        echo "<td><span class='ccolname'>".$DEVICE_PIN."</span></td>";
-        echo "<td><span class='ccolname'>".$DEVICE_ACTIVE_LEVEL."</span></td>";
+        echo "<td><span class='dcol'>".$DEVICE_NAME."</span></td>";
+        echo "<td><span class='dcol'>".$DEVICE_PIN."</span></td>";
+        echo "<td><span class='dcol'>".$DEVICE_ACTIVE_LEVEL."</span></td>";
       
         echo "</tr>";
     }    
