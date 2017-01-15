@@ -140,9 +140,10 @@ if (mysqli_num_rows($result) > 0) {
     echo "<table width=100%><tr><th></th><th></th>";
     echo "<th><span class='tcol'>Status</span></th>";
     echo "<th><span class='tcol'>Device Name</span></th>";
-    echo "<th><span class='tcol'>GPIO Pin</span></th>";
-    echo "<th><span class='tcol'>Active level</span></th></tr>";
-  
+    #echo "<th><span class='tcol'>GPIO Pin</span></th>";
+    #echo "<th><span class='tcol'>Active level</span></th>";
+    echo "</tr>";
+        
     while($row = mysqli_fetch_assoc($result)) {
         $DEVICE_ID = $row["d_id"];
         $DEVICE_NAME = $row["name"];
@@ -173,8 +174,8 @@ if (mysqli_num_rows($result) > 0) {
         }
         
         echo "<td><span class='dcol'>".$DEVICE_NAME."</span></td>";
-        echo "<td><span class='dcol'>".$DEVICE_PIN."</span></td>";
-        echo "<td><span class='dcol'>".$DEVICE_ACTIVE_LEVEL."</span></td>";
+        #echo "<td><span class='dcol'>".$DEVICE_PIN."</span></td>";
+        #echo "<td><span class='dcol'>".$DEVICE_ACTIVE_LEVEL."</span></td>";
       
         echo "</tr>";
     }    
