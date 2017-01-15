@@ -31,7 +31,7 @@ $dbname = "pi_heating_db";
     
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    echo "<br><span class='debug'><br>------------------------<br>";
+    #echo "<br><span class='debug'><br>------------------------<br>";
     #print_r( $_POST );
     #echo "<br>------------------------<br>";
     #print_r( $_GET );
@@ -136,7 +136,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
 
-    echo "<span class='ptitle'>Available Devices</span><br><br>";
+    echo "<span class='ptitle'>Available Output Devices</span><br><br>";
     
     echo "<table width=100% ><tr><th width=1%></th><th width=1%></th>";
     echo "<th width=1%><span class='tcol'>Status</span></th>";
@@ -184,7 +184,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "</table>";
   
 } else {
-    echo "<span class='ptitle'>No Available Devices</span><br><br>";
+    echo "<span class='ptitle'>No Available Output Devices</span><br><br>";
 }
   
 mysqli_close($conn);
