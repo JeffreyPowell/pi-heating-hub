@@ -3,15 +3,20 @@
 <head>
 <meta http-equiv="refresh" content="30">
 <style>
-.debug {font-family: courier; color: red; font-size: large;}
-.error {color: #FF0000;}
-.tcolname {font-family: arial; color: grey; font-size: x-large;}
-.ccolname {font-family: arial; color: grey; font-size: large;}
-.ccoldowun {font-family: arial; color: grey; font-size: x-small;}
-.ccoldowse {font-family: arial; color: grey; font-size: large;}
+        .pbody { background-color: #080808; }
+        .debug {font-family: courier; color: red; font-size: large;}
+        .error {color: #FF0000;}
+        .tcol {font: 22px arial; color: grey;}
+        .dcol {font-family: arial; color: grey; font-size: large;}
+        .ptitle {font: bold 32px arial; color: blue;}
+        .itextbox {font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%;}
+        .bgrey {  background-color: grey;  border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
+        .bblue {  background-color: blue;  border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
+        .bgreen { background-color: green; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
+        .bred {   background-color: red;   border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
 </style>
 </head>
-<body bgcolor='#080808'>
+<body class='pbody'>
 
 <?php
 ini_set('display_errors', 1);
@@ -26,10 +31,10 @@ $dbname = "pi_heating_db";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     echo "<br><span class='debug'><br>------------------------<br>";
-    print_r( $_POST );
-    echo "<br>------------------------<br>";
-    print_r( $_GET );
-    echo "<br>------------------------<br></span><br>";
+    #print_r( $_POST );
+    #echo "<br>------------------------<br>";
+    #print_r( $_GET );
+    #echo "<br>------------------------<br></span><br>";
    
     
     if ( array_key_exists( 'done', $_POST ) ) {
@@ -129,8 +134,14 @@ $sql = "SELECT * FROM devices order by name asc";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
-  
-    echo "<table><tr><th></th><th></th><th></th><th>Status</th><th><span class='tcolname'>Device Name</span></th><th>GPIO Pin</th><th>Active level</th></tr>";
+
+    echo "<span class='ptitle'>Available Devices</span><br><br>";
+    
+    echo "<table><tr><th></th><th></th><th></th>";
+    echo "<th><span class='tcol'>Status</span></th>";
+    echo "<th><span class='tcol'>Device Name</span></th>";
+    echo "<th><span class='tcol'>GPIO Pin</span></th>";
+    echo "<th><span class='tcol'>Active level</span></th></tr>";
   
     while($row = mysqli_fetch_assoc($result)) {
         $DEVICE_ID = $row["d_id"];
@@ -171,7 +182,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "</table>";
   
 } else {
-    echo "0 results";
+    echo "<span class='ptitle'>No Available Devices</span><br><br>";
 }
   
 mysqli_close($conn);
