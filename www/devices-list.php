@@ -14,6 +14,7 @@
         .bblue {  background-color: blue;  border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
         .bgreen { background-color: green; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
         .bred {   background-color: red;   border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial;}
+table, th, td {   border: 1px solid red; }
 </style>
 </head>
 <body class='pbody'>
@@ -137,7 +138,7 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "<span class='ptitle'>Available Devices</span><br><br>";
     
-    echo "<table width=100% style='border: 1px solid red;' ><tr><th width=1%></th><th width=1%></th>";
+    echo "<table width=100% ><tr><th width=1%></th><th width=1%></th>";
     echo "<th width=1%><span class='tcol'>Status</span></th>";
     echo "<th><span class='tcol'>Device Name</span></th>";
     #echo "<th><span class='tcol'>GPIO Pin</span></th>";
