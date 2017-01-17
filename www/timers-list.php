@@ -102,6 +102,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "<table class='ttab' ><tr>";
     echo "<th class='tcol'><span class='tspan'>Name</span></th>";     
     echo "<th width=1%><span class='tspan'>Duration (min)</span></th>";
+    echo "<th width=1%><span class='tspan'>Status</span></th>";
     echo "<th width=1%></th><th width=1%></th>";
     echo "</tr>";
         
@@ -115,6 +116,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<tr>";
         
         echo "<td class='dcolname' ><span class='dspan'>".$TIMER_NAME."</span></td>";
+        echo "<td class='dcolname' ><span class='dspan'>".$TIMER_DURATION."</span></td>";
         
         if ( int($TIMER_VALUE) > 0 ) {
             echo "<td class='dcolstatus' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
@@ -123,7 +125,7 @@ if (mysqli_num_rows($result) > 0) {
         }
         
         echo "<td>";
-        echo "<input type='button' onclick='location.href=\"/timere-edit.php?id=$TIMER_ID\";' value='Edit' class='bblue' />";
+        echo "<input type='button' onclick='location.href=\"/timer-edit.php?id=$TIMER_ID\";' value='Edit' class='bblue' />";
         echo "</td>";
         
         echo "<td><form method='post' action='/timers-list.php'>";
