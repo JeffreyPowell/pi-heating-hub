@@ -223,7 +223,7 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
         "-nAXIS:9",
         "-nUNIT:8",
         "-y 1:5",
- #       "-cFRAME#ffffff",
+        "-cFRAME#ffffff",
         "-cARROW#000000",
         "DEF:callmax=$rrdfile:data:MAX",
         "CDEF:transcalldatamax=callmax,1,*",
