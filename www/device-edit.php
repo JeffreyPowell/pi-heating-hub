@@ -2,23 +2,23 @@
 <html>
 <head>
 <style>
-        .pbody { background-color: #080808; }
-        .debug { font-family: courier; color: red; font-size: large; }
-        .error { color: #FF0000; }
-        .ttab  { width: 100%; }
-        .tcol  { font: 22px arial; }
-        .tspan { font: 22px arial; color: grey; margin: 50px; display: inline-block; }
-        .dcolname   { text-align: left; padding: 0 0 0 32px; }
-        .dcolstatus { text-align: center; }
-        .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
-        .ptitle { font: bold 32px arial; color: blue; }
-        .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px 12px 20px; margin: 12px 20px 8px 30px; display: inline-block; width: 100% }
-        .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
-        .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
-        .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
-        .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
-        table, th, td { border: 5px solid #080808; }
-        th, td {  background-color: #1a1a1a; }
+    .pbody { background-color: #080808; }
+    .debug { font-family: courier; color: red; font-size: large; }
+    .error { color: #FF0000; }
+    .ttab  { width: 100%; }
+    .tcol  { font: 22px arial; }
+    .tspan { font: 22px arial; color: grey; margin: 16px; display: inline-block; }
+    .dcolname   { text-align: left; padding: 0 0 0 32px; }
+    .dcolstatus { text-align: center; }
+    .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
+    .ptitle { font: bold 32px arial; color: blue; }
+    .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px 12px 20px; margin: 12px 20px 8px 30px; display: inline-block; width: 100% }
+    .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    table, th, td { border: 5px solid #080808; }
+    th, td {  background-color: #1a1a1a; }
 </style>
 </head>
 <body class='pbody'>
