@@ -143,7 +143,7 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "<span class='ptitle'>Available Output Devices</span><br><br>";
     
-    echo "<table width=100% ><tr>";
+    echo "<table class='ttab' ><tr>";
     
     echo "<th class='tcol'><span class='tspan'>Name</span></th>";
         
