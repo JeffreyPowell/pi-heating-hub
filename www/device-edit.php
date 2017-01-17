@@ -7,7 +7,7 @@
         .error { color: #FF0000; }
         .ttab  { width: 100%; }
         .tcol  { font: 22px arial; }
-        .tspan { font: 22px arial; color: grey; }
+        .tspan { font: 22px arial; color: grey; padding: 50px; }
         .dcolname   { text-align: left; padding: 0 0 0 32px; }
         .dcolstatus { text-align: center; }
         .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
