@@ -11,7 +11,7 @@
         .tspan { font: 22px arial; color: grey; }
         .dcolname   { text-align: left; margin: 0 24px 24px 0; }
         .dcolstatus { text-align: center; }
-        .dspan { font-family: arial; color: grey; font-size: large; padding: 0 24px 0 0; display: inline-block; }
+        .dspan { font-family: arial; color: grey; font-size: large; padding: 0 24px 24px 0; display: inline-block; }
         .ptitle { font: bold 32px arial; color: blue; }
         .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%; }
         .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
