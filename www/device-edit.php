@@ -117,17 +117,15 @@
         echo "<span class='tspan'>Pin Active H/L</span><br>";
         echo "<input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL' class='itextbox'><br><br>";
  
-        echo "</td></tr><tr><td>";
+        echo "</td></tr>";
+        
+        echo "</table>";
         
         echo "<input type='submit' name='save' value='Save' class='bgreen' />";
         echo "&nbsp;&nbsp;";
         echo "<input type='submit' name='done' value='Done' class='bgrey'  />";
         echo '</form>';
-        
-        echo "</td></tr>";
-        
-        echo "</table>";
-        
+
         mysqli_close($conn);
 ?>
 
