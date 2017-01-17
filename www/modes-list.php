@@ -1,60 +1,29 @@
-<!DOCTYPE HTML>
-
-<html><head>
+<!DOCTYPE HTML>  
+<html>
+<head>
 <meta http-equiv="refresh" content="30">
 <style>
-.error {color: #FF0000;}
-.tab {font-family: arial; color: blue; font-size: xx-large;}
-
-table {
-    width: 100%;
-}
-th {
-    padding: 12px;
-    background-color: #202020;
-    font-family: arial; color: blue; font-size: xx-large;
-}
-td {
-    padding: 10px;
-    background-color: #101010;
-    color: #808080;
-}
-.col-1 {
-  width: 50%;
-  text-align: center;
-}
-.col-1-txt {
-  font-family: arial; color: #808080; font-size: large;
-  text-align: left;
-}
-.col-2 {
-  width: 50%;
-  text-align: center;
-}
-.col-2-txt {
-  font-family: arial; color: #808080; font-size: x-large;
-  text-align: center;
-}
-.col-3 {
-  width: 5%;
-}
-.col-but {
-  width: 5%;
-  text-align: center;
-}
-.button {
-    padding: 10px;
-    float: right;
-    border: 2px solid;
-    border-radius: 4px;
-}
-.button:hover {
-    background-color: #808080;
-}
+        .pbody { background-color: #080808; }
+        .debug { font-family: courier; color: red; font-size: large; }
+        .error { color: #FF0000; }
+        .ttab  { width: 100%; }
+        .tcol  { font: 22px arial; }
+        .tspan { font: 22px arial; color: grey; }
+        .dcolname   { text-align: left; padding: 0 0 0 32px; }
+        .dcolstatus { text-align: center; }
+        .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
+        .ptitle { font: bold 32px arial; color: blue; }
+        .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%; }
+        .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+        .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+        .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+        .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+        table, th, td { border: 5px solid #080808; }
+        th, td {  background-color: #1a1a1a; }
 </style>
-</head><body bgcolor='#080808'>
-<font color='#808080' size ='4' face='verdana'>
-    
+</head>
+<body class='pbody'>
+
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -65,68 +34,116 @@ $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
     
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    #echo "<br><span class='debug'><br>------------------------<br>";
+    #print_r( $_POST );
+    #echo "<br>------------------------<br>";
+    #print_r( $_GET );
+    #echo "<br>------------------------<br></span><br>";
+   
+    
+    #if ( array_key_exists( 'done', $_POST ) ) {
+    #    header('Location: /status.php');
+    #    exit();
+    #}
+   
+    if ( array_key_exists( 'add', $_POST ) ) {
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+            }
+        $sql = "INSERT INTO modes (name, value) VALUES ('new', 0)";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+    }
+    
+    if ( array_key_exists( 'delete', $_POST ) ) {
+    
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+            }
+        
+        $DEVICE_ID = $_POST["mode_id"];
+        
+        #echo $SCHED_ID;
+        
+        $sql = "DELETE FROM sched_mode WHERE mode_id='$MODE_ID';";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        $sql = "DELETE FROM devices WHERE d_id='$DEVICE_ID';";
+        if (!mysqli_query($conn, $sql)) {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        mysqli_close($conn);
+    }
+
+}
+    
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
- 
-echo "<font color='#808080' size ='9' face='verdana'>Modes</font>";
-echo "<div align='center'>";
-$sql = "SELECT * FROM modes;";
+$sql = "SELECT * FROM modes order by name asc";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
-  echo '<table>';
-
-  #echo '<th>ID</th>';
-  echo "<th class='col-1'>NAME</th>";
-  echo "<th class='col-2'>VALUE</th>";
-  echo "<th class='col-but'></th><th class='col-but'></th>";
+    // output data of each row
+    echo "<span class='ptitle'>Available Modes</span><br><br>";
     
-  while($row = mysqli_fetch_assoc($result)) {
-      
-    $id = $row["id"];
-    $name = $row["name"];
-    $value = $row["value"];
- 
-    echo '<tr>';
-
-    #echo '<td>';
-    #echo $id;
-    #echo '</td>';
-    
-    echo "<td class='col-1-txt'>";
-    echo $name;
-    echo '</td>';
-
-    echo "<td class='col-2-txt'>";
-    echo $value;
-    echo '</td>';
-
-    echo '<td>';
-    echo "<form method='post' action='/modes-edit.php?id=".$id."'>";
-    echo "<input type='submit' class='button' name='edit' value='Edit'></form>";
-    echo '</td>';
+    echo "<table class='ttab' ><tr>";
+    echo "<th class='tcol'><span class='tspan'>Name</span></th>";     
+    echo "<th width=1%><span class='tspan'>Status</span></th>";
+    echo "<th width=1%></th><th width=1%></th>";
+    echo "</tr>";
+        
+    while($row = mysqli_fetch_assoc($result)) {
+            
+        $MODE_ID = $row["m_id"];
+        $MODE_NAME = $row["name"];
+        $MODE_VALUE = $row["value"];
+         
+        echo "<tr>";
+        
+        echo "<td class='dcolname' ><span class='dspan'>".$MODE_NAME."</span></td>";
+        if ( $MODE_VALUE ) {
+            echo "<td class='dcolstatus' ><img src='/images/dot-green.png' alt='Mode Active' height='32' width='32'></td>";
+        } else {
+            echo "<td class='dcolstatus' ><img src='/images/dot-red.png' alt='Mode Inactive' height='32' width='32'></td>";
+        }
+        
+        echo "<td>";
+        echo "<input type='button' onclick='location.href=\"/mode-edit.php?id=$MODE_ID\";' value='Edit' class='bblue' />";
+        echo "</td>";
+        
+        echo "<td><form method='post' action='/modes-list.php'>";
+        echo "<input type='hidden' name='mode_id' value='".$MODE_ID."' />";
+        echo "<input type='submit' name='delete' value='Delete' class='bred' /></form></td>";
+        echo "</tr>";
+    }    
   
-    echo '<td>';
-    echo "<form method='post' action='/modes-delete.php?id=".$id."'>";
-    echo "<input type='submit' class='button' name='delete' value='Delete'></form>";
-    echo '</td>';
-      
-    echo '</tr>';
-  }
-  echo "</table>";
-    
+    echo "</table>";
+  
+} else {
+    echo "<span class='ptitle'>No Available Modes</span><br><br>";
 }
+  
+mysqli_close($conn);
+?>  
 
-?>
-
-<form method='post' action='mode-new.php'>
-<input type='submit' class='button' name='add' value='Add new'>
+<form method='post' action='modes-list.php'>
+<input type='submit' name='add' value='Add new' class='bgreen' />
 </form>
-    
-</font>
-</div>
+        
+<input type='button' onclick='location.href=\"/status.php\";' value='Done' class='bgrey' />
+        
 </body>
 </html>
