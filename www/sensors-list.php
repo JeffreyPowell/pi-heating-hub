@@ -175,7 +175,7 @@ if (mysqli_num_rows($result) > 0) {
         
         echo "<td class='dcolname'>";
         $span = "-24h";
-        create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "60", "400");
+        create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "40", "100");
         if ( file_exists( $img_dir.$SENSOR_ID.$span.".png") ){
             echo "<img src='".$img_dir.$SENSOR_ID.$span.".png' alt='RRD image'>";
         }
