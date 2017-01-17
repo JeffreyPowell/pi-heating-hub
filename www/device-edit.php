@@ -102,13 +102,13 @@
         echo "<span class='ptitle'>EDIT Input Device '$DEVICE_NAME'</span><br><br>";
 
 
-        echo "<span class='tcol'>Name</span><br>";
+        echo "<span class='tspanname'>Name</span><br>";
         echo "<input type='text' name='name' value='$DEVICE_NAME' class='itextbox'><br><br>";
         
-        echo "<span class='tcol'>GPIO Pin</span><br>";
+        echo "<span class='tspanstatus'>GPIO Pin</span><br>";
         echo "<input type='text' name='pin' value='$DEVICE_PIN' class='itextbox'><br><br>";
         
-        echo "<span class='tcol'>Pin Active H/L</span><br>";
+        echo "<span class='tspanstatus'>Pin Active H/L</span><br>";
         echo "<input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL' class='itextbox'><br><br>";
  
         
