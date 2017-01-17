@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-    .pbody { background-color: #080808; }
+    .pbody { background-color: #080808; font-family: courier; color: red; font-size: small;}
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
     .ttab  { width: 100%; }
@@ -34,7 +34,7 @@
         $dbname = "pi_heating_db";
         
         #print_r($_GET);
-        $DEVICE_ID = $_GET['id'];
+        $TIMER_ID = $_GET['id'];
         
         #echo $DEVICE_ID;
         #echo $_SERVER["REQUEST_METHOD"];
@@ -44,18 +44,17 @@
                 #print_r($_POST);
                 #print_r("<BR>------------------------<BR></pre>");
                 
-                if ( isset($_POST["done"]) ) {
-                        #echo "#### done ####";
-                        header('Location: /devices-list.php');
-                        exit();
-                }
+                #if ( isset($_POST["done"]) ) {
+                #        #echo "#### done ####";
+                #        header('Location: /devices-list.php');
+                #        exit();
+                #}
                 
                 if ( isset($_POST["save"]) ) {
                         #echo "#### save ####";
                         
-                        $POST_DEVICE_NAME = $_POST["name"];
-                        $POST_DEVICE_PIN = $_POST["pin"];
-                        $POST_DEVICE_ACTIVE_LEVEL = $_POST["active_level"];
+                        $POST_TIMER_NAME = $_POST["name"];
+                        $POST_TIMER_DURATION = $_POST["duration"];
                         
                         // Create connection
                         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -64,7 +63,7 @@
                                 die("<br><br>Connection failed: " . mysqli_connect_error());
                         }
                         # Update schedules with post data
-                        $sql = "UPDATE devices SET name = '$POST_DEVICE_NAME', pin = '$POST_DEVICE_PIN', active_level = '$POST_DEVICE_ACTIVE_LEVEL' WHERE d_id='".$DEVICE_ID."';";
+                        $sql = "UPDATE timers SET name = '$POST_TIMER_NAME', duration = '$POST_TIMER_DURATION' WHERE id='$TIMER_ID';";
                         #echo $sql;
                         if (mysqli_query($conn, $sql)) {
                                 #echo "<br><br>Schedule updated successfully";
@@ -82,8 +81,8 @@
         if (!$conn) {
                 die("<br><br>Connection failed: " . mysqli_connect_error());
         }
-        echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$DEVICE_ID.'">';
-        $sql = "SELECT * FROM devices WHERE d_id=".$DEVICE_ID;
+        echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$TIMER_ID.'">';
+        $sql = "SELECT * FROM timers WHERE id=".$TIMER_ID;
         #echo $sql;
         $result = mysqli_query($conn, $sql);
         #print_r( $result );
@@ -92,11 +91,10 @@
         }
         
         $row = mysqli_fetch_assoc($result);
-        $DEVICE_NAME = $row["name"];
-        $DEVICE_PIN = $row["pin"];
-        $DEVICE_ACTIVE_LEVEL = $row["active_level"];
+        $TIMER_NAME = $row["name"];
+        $TIMER_DURATION = $row["duration"];
         
-        echo "<span class='ptitle'>EDIT Input Device '$DEVICE_NAME'</span><br><br>";
+        echo "<span class='ptitle'>EDIT Timer '$Timer_NAME'</span><br><br>";
         echo "<table class='ttab'>";
         echo "<tr><td>";
         echo "<span class='tspan'>Name</span><br>";
