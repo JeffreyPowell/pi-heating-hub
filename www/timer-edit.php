@@ -94,7 +94,7 @@
         $TIMER_NAME = $row["name"];
         $TIMER_DURATION = $row["duration"];
         
-        echo "<span class='ptitle'>EDIT Timer '$Timer_NAME'</span><br><br>";
+        echo "<span class='ptitle'>EDIT Timer '$TIMER_NAME'</span><br><br>";
         echo "<table class='ttab'>";
         echo "<tr><td>";
         echo "<span class='tspan'>Name</span><br>";
