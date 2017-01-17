@@ -175,7 +175,7 @@ if (mysqli_num_rows($result) > 0) {
         
         echo "<td class='dcolname'>";
         $span = "-24h";
-        create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "40", "100");
+        create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "60", "200");
         if ( file_exists( $img_dir.$SENSOR_ID.$span.".png") ){
             echo "<img src='".$img_dir.$SENSOR_ID.$span.".png' alt='RRD image'>";
         }
@@ -207,8 +207,8 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
     $options = array(
         "--slope-mode",
         "--start", $start,
-        "--title=$title",
-        "--vertical-label=Temperature",
+#        "--title=$title",
+#        "--vertical-label=Temperature",
 #        "--lower=0",
         "--height=$height",
         "--width=$width",
@@ -220,8 +220,8 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
         "-cGRID#888800",
         "-cMGRID#ffffff",
         "-nTITLE:10",
-        "-nAXIS:12",
-        "-nUNIT:10",
+        "-nAXIS:10",
+        "-nUNIT:9",
         "-y 1:5",
         "-cFRAME#ffffff",
         "-cARROW#000000",
