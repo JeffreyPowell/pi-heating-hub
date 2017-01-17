@@ -148,7 +148,7 @@ $sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
 
-    echo '<table class='ttab'><tr>';
+    echo "<table class='ttab'><tr>";
     echo "<th class='tcol'><span class='tspan'>Name</span></th>";
     echo "<th class='tcol' width=1%>Value</th>";
     echo "<th class='tcol' width=1%>History</th>";
