@@ -182,11 +182,11 @@ if (mysqli_num_rows($result) > 0) {
         echo "</td>";
         
         
-        
+        echo "<td>";
         
         echo "<form method='post' action='sensors-list.php'>";
         echo "<input type='hidden' name='sensor_id' value='".$SENSOR_ID."'>";
-        echo "<input type='submit' name='delete' value='Delete'></form>";
+        echo "<input type='submit' name='delete' value='Delete' class='bred' /></form>";
         echo '</td>';
       
         echo '</tr>';
@@ -247,10 +247,9 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
 ?>
     
 <form method='post' action='sensors-list.php'>
-<input type='submit' name='new' value='Scan for new sensors'>
-<input type="submit" name="done" value="Done" />
-</form>
-
-</font>
+<input type='submit' name='new' value='Scan for new sensors' class='bgreen' />
+<input type="submit" name="done" value="Done" class='bgrey'/>
+</form>        
+        
 </body>
 </html>
