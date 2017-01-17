@@ -141,9 +141,8 @@ mysqli_close($conn);
 
 <form method='post' action='modes-list.php'>
 <input type='submit' name='add' value='Add new' class='bgreen' />
+<input type='button' onclick='location.href="/status.php";' value='Done' class='bgrey' />
 </form>
-        
-<input type='button' onclick='location.href=\"/status.php\";' value='Done' class='bgrey' />
         
 </body>
 </html>
