@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-    .pbody { background-color: #080808; }
+    .pbody { background-color: #080808; font-family: courier; color: red; font-size: small;}
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
     .ttab  { width: 100%; }
@@ -32,10 +32,9 @@
         $username = "pi";
         $password = "password";
         $dbname = "pi_heating_db";
-        
-        #print_r($_GET);
 
-        $DEVICE_ID = $_GET['id'];
+
+        $MODE_ID = $_GET['id'];
         
         #echo $DEVICE_ID;
 
@@ -46,18 +45,16 @@
                 #print_r($_POST);
                 #print_r("<BR>------------------------<BR></pre>");
                 
-                if ( isset($_POST["done"]) ) {
-                        #echo "#### done ####";
-                        header('Location: /devices-list.php');
-                        exit();
-                }
+                #if ( isset($_POST["done"]) ) {
+                #        #echo "#### done ####";
+                #        header('Location: /devices-list.php');
+                #        exit();
+                #}
                 
                 if ( isset($_POST["save"]) ) {
                         #echo "#### save ####";
                         
-                        $POST_DEVICE_NAME = $_POST["name"];
-                        $POST_DEVICE_PIN = $_POST["pin"];
-                        $POST_DEVICE_ACTIVE_LEVEL = $_POST["active_level"];
+                        $POST_MODE_NAME = $_POST["name"];
                         
                         // Create connection
                         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -66,7 +63,7 @@
                                 die("<br><br>Connection failed: " . mysqli_connect_error());
                         }
                         # Update schedules with post data
-                        $sql = "UPDATE devices SET name = '$POST_DEVICE_NAME', pin = '$POST_DEVICE_PIN', active_level = '$POST_DEVICE_ACTIVE_LEVEL' WHERE d_id='".$DEVICE_ID."';";
+                        $sql = "UPDATE modes SET name = '$POST_MODE_NAME', WHERE id='".$MODE_ID."';";
                         #echo $sql;
                         if (mysqli_query($conn, $sql)) {
                                 #echo "<br><br>Schedule updated successfully";
@@ -85,8 +82,8 @@
         if (!$conn) {
                 die("<br><br>Connection failed: " . mysqli_connect_error());
         }
-        echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$DEVICE_ID.'">';
-        $sql = "SELECT * FROM devices WHERE d_id=".$DEVICE_ID;
+        echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$MODE_ID.'">';
+        $sql = "SELECT * FROM modes WHERE id=".$MODE_ID;
         #echo $sql;
         $result = mysqli_query($conn, $sql);
         #print_r( $result );
@@ -95,28 +92,16 @@
         }
         
         $row = mysqli_fetch_assoc($result);
-        $DEVICE_NAME = $row["name"];
-        $DEVICE_PIN = $row["pin"];
-        $DEVICE_ACTIVE_LEVEL = $row["active_level"];
+        $MODE_NAME = $row["name"];
         
-        echo "<span class='ptitle'>EDIT Input Device '$DEVICE_NAME'</span><br><br>";
+        echo "<span class='ptitle'>EDIT Mode '$MODE_NAME'</span><br><br>";
 
         echo "<table class='ttab'>";
         echo "<tr><td>";
 
         echo "<span class='tspan'>Name</span><br>";
-        echo "<input type='text' name='name' value='$DEVICE_NAME' class='itextbox'><br><br>";
-        
-        echo "</td></tr><tr><td>";
-        
-        echo "<span class='tspan'>GPIO Pin</span><br>";
-        echo "<input type='text' name='pin' value='$DEVICE_PIN' class='itextbox'><br><br>";
-        
-        echo "</td></tr><tr><td>";
-        
-        echo "<span class='tspan'>Pin Active H/L</span><br>";
-        echo "<input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL' class='itextbox'><br><br>";
- 
+        echo "<input type='text' name='name' value='$MODE_NAME' class='itextbox'><br><br>";
+
         echo "</td></tr>";
         
         echo "</table>";
@@ -124,6 +109,7 @@
         echo "<input type='submit' name='save' value='Save' class='bgreen' />";
         echo "&nbsp;&nbsp;";
         echo "<input type='submit' name='done' value='Done' class='bgrey'  />";
+        echo "<input type='button' onclick='location.href=\"/status.php\";' value='Done' class='bgrey' />";
         echo '</form>';
 
         mysqli_close($conn);
