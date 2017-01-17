@@ -8,7 +8,7 @@
         .error {color: #FF0000;}
         .tcol  {font: 22px arial; color: grey;}
         .tspan {font: 22px arial; color: grey;}
-        .dcol  {text-align: left; margin: 0 24px 0 0;}
+        .dcol  {text-align: center; margin: 0 24px 0 0;}
         .dspan {font-family: arial; color: grey; font-size: large; padding: 0 24px 0 0; display: inline-block;}
         .ptitle {font: bold 32px arial; color: blue;}
         .itextbox {font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%;}
