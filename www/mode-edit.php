@@ -63,7 +63,7 @@
                                 die("<br><br>Connection failed: " . mysqli_connect_error());
                         }
                         # Update schedules with post data
-                        $sql = "UPDATE modes SET name = '$POST_MODE_NAME', WHERE id='".$MODE_ID."';";
+                        $sql = "UPDATE modes SET name = '$POST_MODE_NAME', WHERE id=$MODE_ID;";
                         #echo $sql;
                         if (mysqli_query($conn, $sql)) {
                                 #echo "<br><br>Schedule updated successfully";
