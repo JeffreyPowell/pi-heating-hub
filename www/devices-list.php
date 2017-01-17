@@ -167,16 +167,17 @@ if (mysqli_num_rows($result) > 0) {
         
         echo "<tr>";
         
-        echo "<td class='dcol' ><span class='dspan'>".$DEVICE_NAME."</span></td>";
+        echo "<td class='dcolname' ><span class='dspan'>".$DEVICE_NAME."</span></td>";
 
         if ( $DEVICE_VALUE ) {
-            echo "<td class='dcol' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
+            echo "<td class='dcolstatus' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
         } else {
-            echo "<td class='dcol' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
+            echo "<td class='dcolstatus' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
         }
         
-        echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
-        echo "<input type='submit' name='edit' value='Edit' class='bblue'/></form>";
+        echo "<td>";
+        #echo "<form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
+        #echo "<input type='submit' name='edit' value='Edit' class='bblue'/></form>";
         echo "<input type='button' onclick='location.href=\"/device-edit.php?id=$DEVICE_ID\";' value='Edit' class='bblue' />";
         echo "</td>";
         
