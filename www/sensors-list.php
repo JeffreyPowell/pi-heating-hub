@@ -141,7 +141,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
  
-echo "<span class='ptitle'>Sensors</span>";
+echo "<span class='ptitle'>Available Input Sensors</span>";
 #echo "<div align='center'>";
 
 $sql = "SELECT * FROM sensors;";
@@ -194,6 +194,8 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "</table>";
     
+} else {
+    echo "<span class='ptitle'>No Available Input Sensors</span><br><br>";
 }
 
 
