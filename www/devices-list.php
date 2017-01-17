@@ -20,8 +20,7 @@
         .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
         table, th, td { border: 5px solid #080808; }
         th, td {  background-color: #1a1a1a; }
-        
-</style><!-- table, th, td {   border: 1px solid red; } -->
+</style>
 </head>
 <body class='pbody'>
 
