@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Connection failed: " . mysqli_connect_error());
             }
         
-        $DEVICE_ID = $_POST["mode_id"];
+        $MODE_ID = $_POST["mode_id"];
         
         #echo $SCHED_ID;
         
