@@ -98,17 +98,12 @@
         echo "<table class='ttab'>";
         echo "<tr><td>";
         echo "<span class='tspan'>Name</span><br>";
-        echo "<input type='text' name='name' value='$DEVICE_NAME' class='itextbox'><br><br>";
+        echo "<input type='text' name='name' value='$TIMER_NAME' class='itextbox'><br><br>";
         
         echo "</td></tr><tr><td>";
         
-        echo "<span class='tspan'>GPIO Pin</span><br>";
-        echo "<input type='text' name='pin' value='$DEVICE_PIN' class='itextbox'><br><br>";
-        
-        echo "</td></tr><tr><td>";
-        
-        echo "<span class='tspan'>Pin Active H/L</span><br>";
-        echo "<input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL' class='itextbox'><br><br>";
+        echo "<span class='tspan'>Duration</span><br>";
+        echo "<input type='text' name='duration' value='$TIMER_DURATION' class='itextbox'><br><br>";
  
         echo "</td></tr>";
         
