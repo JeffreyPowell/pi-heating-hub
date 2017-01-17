@@ -150,8 +150,8 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "<table class='ttab'><tr>";
     echo "<th class='tcol'><span class='tspan'>Name</span></th>";
-    echo "<th class='tcol' width=1%>Value</th>";
-    echo "<th class='tcol' width=1%>History</th>";
+    echo "<th class='tcol' width=auto><span class='tspan'>Value</span></th>";
+    echo "<th class='tcol' width=1%><span class='tspan'>History</span></th>";
     echo "<th class='tcol' width=1%></th></tr>";
 
     while($row = mysqli_fetch_assoc($result)) {
@@ -171,9 +171,9 @@ if (mysqli_num_rows($result) > 0) {
 
         echo "<td class='dcolname'><span class='dspan'>$SENSOR_NAME</span></td>";
         
-        echo "<td class='dcolname'><span class='dspan'>$SENSOR_VALUE $SENSOR_UNIT</span></td>";
+        echo "<td class='dcolstatus'><span class='dspan'>$SENSOR_VALUE $SENSOR_UNIT</span></td>";
         
-        echo "<td class='dcolname'>";
+        echo "<td class='dcolstatus'>";
         $span = "-24h";
         create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "60", "200");
         if ( file_exists( $img_dir.$SENSOR_ID.$span.".png") ){
@@ -182,7 +182,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "</td>";
         
         
-        echo "<td>";
+        echo "<td class='dcolstatus'>";
         
         echo "<form method='post' action='sensors-list.php'>";
         echo "<input type='hidden' name='sensor_id' value='".$SENSOR_ID."'>";
