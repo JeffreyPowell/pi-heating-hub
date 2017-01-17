@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        $sql = "DELETE FROM devices WHERE d_id='$DEVICE_ID';";
+        $sql = "DELETE FROM modes WHERE id='$MODE_ID';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -107,7 +107,7 @@ if (mysqli_num_rows($result) > 0) {
         
     while($row = mysqli_fetch_assoc($result)) {
             
-        $MODE_ID = $row["m_id"];
+        $MODE_ID = $row["id"];
         $MODE_NAME = $row["name"];
         $MODE_VALUE = $row["value"];
          
