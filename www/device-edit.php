@@ -101,7 +101,7 @@
         
         echo "<span class='ptitle'>EDIT Input Device '$DEVICE_NAME'</span><br><br>";
 
-        echo "<table>";
+        echo "<table class='ttab'>";
         echo "<tr><td>";
 
         echo "<span class='tspan'>Name</span><br>";
