@@ -118,7 +118,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td class='dcolname' ><span class='dspan'>".$TIMER_NAME."</span></td>";
         echo "<td class='dcolname' ><span class='dspan'>".$TIMER_DURATION."</span></td>";
         
-        if ( int($TIMER_VALUE) > 0 ) {
+        if ( intval($TIMER_VALUE) > 0 ) {
             echo "<td class='dcolstatus' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
         } else {
             echo "<td class='dcolstatus' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
