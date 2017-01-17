@@ -250,9 +250,9 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
     
 <form method='post' action='sensors-list.php'>
 <input type='submit' name='new' value='Scan for new sensors' class='bgreen' />
+&nbsp;&nbsp;
+<input type='button' onclick='location.href=\"/status.php\";' value='Done' class='bgrey' />
 </form>
-        
- <input type='button' onclick='location.href=\"/status.php\";' value='Done' class='bgrey' />
-        
+       
 </body>
 </html>
