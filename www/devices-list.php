@@ -195,7 +195,7 @@ if (mysqli_num_rows($result) > 0) {
   
 mysqli_close($conn);
 ?>  
-<br><br>
+
 <form method='post' action='devices-list.php'>
 <input type='submit' name='add' value='Add new' class='bgreen' />
 <input type="submit" name="done" value="Done" class='bgrey'/>
