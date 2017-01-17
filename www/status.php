@@ -78,9 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         }
         if ( $POST_TYPE == 'timer' ) {
             if ( $POST_ACTION == 'start' ) { 
-                $sql = "UPDATE timers SET value = duration, start = NOW() WHERE id = '".$POST_TARGET."';";
+                $sql = "UPDATE timers SET value = duration WHERE id = '".$POST_TARGET."';";
             } else {
-                $sql = "UPDATE timers SET value = '0', start =NULL WHERE id = '".$POST_TARGET."';";
+                $sql = "UPDATE timers SET value = '0' WHERE id = '".$POST_TARGET."';";
             }
             #echo $sql;
             if (!mysqli_query($conn, $sql)) {
