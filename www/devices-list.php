@@ -9,7 +9,7 @@
         .ttab  { width: 90%; }
         .tcol  { font: 22px arial; }
         .tspan { font: 22px arial; color: grey; }
-        .dcolname   { text-align: left; padding: 0 24px 24px 0; }
+        .dcolname   { text-align: left; padding: 8px 16px 32px 64px; }
         .dcolstatus { text-align: center; }
         .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
         .ptitle { font: bold 32px arial; color: blue; }
