@@ -43,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     #echo "<br>------------------------<br></span><br>";
    
     
-    if ( array_key_exists( 'done', $_POST ) ) {
-        header('Location: /status.php');
-        exit();
-    }
+    #if ( array_key_exists( 'done', $_POST ) ) {
+    #    header('Location: /status.php');
+    #    exit();
+    #}
    
     if ( array_key_exists( 'add', $_POST ) ) {
         // Create connection
@@ -144,18 +144,13 @@ if (mysqli_num_rows($result) > 0) {
     echo "<span class='ptitle'>Available Output Devices</span><br><br>";
     
     echo "<table class='ttab' ><tr>";
-    
-    echo "<th class='tcol'><span class='tspan'>Name</span></th>";
-        
+    echo "<th class='tcol'><span class='tspan'>Name</span></th>";     
     echo "<th width=1%><span class='tspan'>Status</span></th>";
-    
     echo "<th width=1%></th><th width=1%></th>";
-        
-    #echo "<th><span class='tcol'>GPIO Pin</span></th>";
-    #echo "<th><span class='tcol'>Active level</span></th>";
     echo "</tr>";
         
     while($row = mysqli_fetch_assoc($result)) {
+            
         $DEVICE_ID = $row["d_id"];
         $DEVICE_NAME = $row["name"];
         $DEVICE_PIN = $row["pin"];
@@ -175,8 +170,6 @@ if (mysqli_num_rows($result) > 0) {
         }
         
         echo "<td>";
-        #echo "<form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
-        #echo "<input type='submit' name='edit' value='Edit' class='bblue'/></form>";
         echo "<input type='button' onclick='location.href=\"/device-edit.php?id=$DEVICE_ID\";' value='Edit' class='bblue' />";
         echo "</td>";
         
@@ -198,8 +191,6 @@ mysqli_close($conn);
 
 <form method='post' action='devices-list.php'>
 <input type='submit' name='add' value='Add new' class='bgreen' />
-<input type="submit" name="done" value="Done" class='bgrey'/>
-<input type='button' onclick='location.href=\"/status.php\";' value='Done' class='bgrey' />
 </form>
         
 <input type='button' onclick='location.href=\"/status.php\";' value='Done' class='bgrey' />
