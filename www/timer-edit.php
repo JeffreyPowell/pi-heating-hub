@@ -111,7 +111,7 @@
         
         echo "<input type='submit' name='save' value='Save' class='bgreen' />";
         echo "&nbsp;&nbsp;";
-        echo "<input type='submit' name='done' value='Done' class='bgrey'  />";
+        echo "<input type='button' onclick='location.href=\"/timers-list.php\";' value='Done' class='bgrey' />";
         echo '</form>';
         mysqli_close($conn);
 ?>
