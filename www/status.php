@@ -3,14 +3,30 @@
 <head>
 <meta http-equiv="refresh" content="30">
 <style>
-.sensorvalue {font-family: courier; color: green; font-size:300px;}
-.sensorvaluedec {font-family: courier; color: green; font-size:100px;}
-.sensorname {font-family: courier; color: green; font-size:40px;}
-.fixedsmall {font-family: courier; color: black; font-size: small}
+    .sensorvalue {font-family: courier; color: green; font-size:300px;}
+    .sensorvaluedec {font-family: courier; color: green; font-size:100px;}
+    .sensorname {font-family: courier; color: green; font-size:40px;}
+    .pbody { background-color: #080808; font-family: courier; color: red; font-size: small;}
+    .debug { font-family: courier; color: red; font-size: large; }
+    .error { color: #FF0000; }
+    .ttab  { width: 100%; }
+    .tcol  { font: 22px arial; }
+    .tspan { font: 22px arial; color: grey; }
+    .dcolname   { text-align: left; padding: 0 0 0 32px; }
+    .dcolstatus { text-align: center; }
+    .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
+    .ptitle { font: bold 32px arial; color: blue; }
+    .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%; }
+    .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    table, th, td { border: 5px solid #080808; }
+    th, td {  background-color: #1a1a1a; }
 </style>
 </head>
-<!--<body class='fixedsmall'> -->  
-<body bgcolor='#080808'>
+<body class='pbody'>
+    
 <?php
     
 ini_set('display_errors', 1);
