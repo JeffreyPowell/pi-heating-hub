@@ -101,21 +101,32 @@
         
         echo "<span class='ptitle'>EDIT Input Device '$DEVICE_NAME'</span><br><br>";
 
+        echo "<table>";
+        echo "<tr><td>";
 
         echo "<span class='tspan'>Name</span><br>";
         echo "<input type='text' name='name' value='$DEVICE_NAME' class='itextbox'><br><br>";
         
+        echo "</td></tr><tr><td>";
+        
         echo "<span class='tspan'>GPIO Pin</span><br>";
         echo "<input type='text' name='pin' value='$DEVICE_PIN' class='itextbox'><br><br>";
+        
+        echo "</td></tr><tr><td>";
         
         echo "<span class='tspan'>Pin Active H/L</span><br>";
         echo "<input type='text' name='active_level' value='$DEVICE_ACTIVE_LEVEL' class='itextbox'><br><br>";
  
+        echo "</td></tr><tr><td>";
         
         echo "<input type='submit' name='save' value='Save' class='bgreen' />";
         echo "&nbsp;&nbsp;";
         echo "<input type='submit' name='done' value='Done' class='bgrey'  />";
         echo '</form>';
+        
+        echo "</td></tr>";
+        
+        echo "</table>";
         
         mysqli_close($conn);
 ?>
