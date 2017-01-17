@@ -45,10 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     #print_r($_GET);
     #print_r("<br>------------------------<br>");
     
-    if ( array_key_exists( 'done', $_POST )) {
-        header('Location: /status.php');
-        exit();
-    }
+    #if ( array_key_exists( 'done', $_POST )) {
+    #    header('Location: /status.php');
+    #    exit();
+    #}
    
     if ( array_key_exists( 'new', $_POST )) {
         // Create connection
@@ -250,8 +250,9 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
     
 <form method='post' action='sensors-list.php'>
 <input type='submit' name='new' value='Scan for new sensors' class='bgreen' />
-<input type="submit" name="done" value="Done" class='bgrey'/>
-</form>        
+</form>
+        
+ <input type='button' onclick='location.href=\"/status.php\";' value='Done' class='bgrey' />
         
 </body>
 </html>
