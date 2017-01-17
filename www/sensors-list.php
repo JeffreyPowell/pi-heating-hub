@@ -3,15 +3,26 @@
 <head>
 <meta http-equiv="refresh" content="30">
 <style>
-.error {color: #FF0000;}
-.tcolname {font-family: arial; color: black; font-size: xx-large;}
-.ccolname {font-family: arial; color: black; font-size: large;}
-.ccoldowun {font-family: courier; color: darkgrey; font-size: x-small;}
-.ccoldowse {font-family: courier; color: black; font-size: large;}
+        .pbody { background-color: #080808; }
+        .debug { font-family: courier; color: red; font-size: large; }
+        .error { color: #FF0000; }
+        .ttab  { width: 100%; }
+        .tcol  { font: 22px arial; }
+        .tspan { font: 22px arial; color: grey; }
+        .dcolname   { text-align: left; padding: 0 0 0 32px; }
+        .dcolstatus { text-align: center; }
+        .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
+        .ptitle { font: bold 32px arial; color: blue; }
+        .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%; }
+        .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+        .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+        .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+        .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+        table, th, td { border: 5px solid #080808; }
+        th, td {  background-color: #1a1a1a; }
 </style>
 </head>
-<body bgcolor='#080808'>
-<font color='#808080' size ='4' face='verdana'>
+<body class='pbody'>
     
 <?php
 
@@ -130,14 +141,18 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
  
-echo "<font color='#808080' size ='9' face='verdana'>Sensors</font>";
-echo "<div align='center'>";
+echo "<span class='ptitle'>Sensors</span>";
+#echo "<div align='center'>";
 
 $sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
 
-    echo '<table>';
+    echo '<table class='ttab'><tr>';
+    echo "<th class='tcol'><span class='tspan'>Name</span></th>";
+    echo "<th class='tcol' width=1%>Value</th>";
+    echo "<th class='tcol' width=1%>History</th>";
+    echo "<th class='tcol' width=1%></th></tr>";
 
     while($row = mysqli_fetch_assoc($result)) {
       
@@ -153,36 +168,26 @@ if (mysqli_num_rows($result) > 0) {
         $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
 
         echo '<tr>';
-      
-        echo '<td>';
-        echo $SENSOR_VALUE." ".$SENSOR_UNIT;
-        echo '</td>';
 
-        echo '<td>';
+        echo "<td class='dcolname'><span class='dspan'>$SENSOR_NAME</span></td>";
+        
+        echo "<td class='dcolname'><span class='dspan'>$SENSOR_VALUE $SENSOR_UNIT</span></td>";
+        
+        echo "<td class='dcolname'>";
+        $span = "-24h";
+        create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 24 hours",	 	   "60", "400");
+        if ( file_exists( $img_dir.$SENSOR_ID.$span.".png") ){
+            echo "<img src='".$img_dir.$SENSOR_ID.$span.".png' alt='RRD image'>";
+        }
+        echo "</td>";
+        
+        
+        
+        
         echo "<form method='post' action='sensors-list.php'>";
         echo "<input type='hidden' name='sensor_id' value='".$SENSOR_ID."'>";
         echo "<input type='submit' name='delete' value='Delete'></form>";
         echo '</td>';
-      
-        echo '<td>';
-        $span = "-12h";
-        create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 12 hours",	 	   "60", "400");
-        if ( file_exists( $img_dir.$SENSOR_ID.$span.".png") ){
-            echo "<img src='".$img_dir.$SENSOR_ID.$span.".png' alt='RRD image'>";
-        }
-        echo '</td>';
-      
-        #echo '<td>';
-        #$span = "-7d";
-        #create_graph( $rrd_dir.$SENSOR_ID.".rrd", $img_dir.$SENSOR_ID.$span.".png", 	$span, 	$row["name"]." last 7 days",	 	   "120", "300");
-        #echo "<img src='".$img_dir.$SENSOR_ID.$span.".png' alt='RRD image'>";
-        #echo '</td>';
-  
-        #echo '<td>';
-        #$span = "-90d";
-        #create_graph( $rrd_dir.$id.".rrd", $img_dir.$id.$span.".png", 	$span, 	$row["name"]." last 3 months",	 	   "120", "200");
-        #echo "<img src='".$img_dir.$id.$span.".png' alt='RRD image'>";
-        #echo '</td>';
       
         echo '</tr>';
     }
