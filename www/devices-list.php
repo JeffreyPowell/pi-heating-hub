@@ -17,7 +17,7 @@
         .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ;}
         .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ;}
         .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ;}
-        table, th, td { border: 5px solid black; }
+        table, th, td { border: 5px solid #080808; }
         th, td {  background-color: #1a1a1a; }
         
 </style><!-- table, th, td {   border: 1px solid red; } -->
@@ -143,9 +143,14 @@ if (mysqli_num_rows($result) > 0) {
 
     echo "<span class='ptitle'>Available Output Devices</span><br><br>";
     
-    echo "<table width=100% ><tr><th width=1%></th><th width=1%></th>";
+    echo "<table width=100% ><tr>";
+    
+    echo "<th class='tcol'><span class='tspan'>Name</span></th>";
+        
     echo "<th width=1%><span class='tspan'>Status</span></th>";
-    echo "<th class='tcol'><span class='tspan'>Device Name</span></th>";
+    
+    echo "<th width=1%></th><th width=1%></th>";
+        
     #echo "<th><span class='tcol'>GPIO Pin</span></th>";
     #echo "<th><span class='tcol'>Active level</span></th>";
     echo "</tr>";
@@ -160,29 +165,24 @@ if (mysqli_num_rows($result) > 0) {
         #echo "<br><span class='debug'>$DEVICE_ID $DEVICE_NAME $DEVICE_PIN $DEVICE_ACTIVE_LEVEL $DEVICE_VALUE</span><br>";
         
         echo "<tr>";
+        
+        echo "<td class='dcol' ><span class='dspan'>".$DEVICE_NAME."</span></td>";
+
+        if ( $DEVICE_VALUE ) {
+            echo "<td class='dcol' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
+        } else {
+            echo "<td class='dcol' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
+        }
+        
         echo "<td><form method='post' action='/device-edit.php?id=".$DEVICE_ID."'>";
-        echo "<input type='submit' name='edit' value='Edit' class='bblue'/></form></td>";
+        echo "<input type='submit' name='edit' value='Edit' class='bblue'/></form>";
+        echo "<input type='button' onclick='location.href=\"/device-edit.php?id=$DEVICE_ID\";' value='Edit' />";
+        echo "</td>";
         
         echo "<td><form method='post' action='/devices-list.php'>";
         echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."' />";
         echo "<input type='submit' name='delete' value='Delete' class='bred' /></form></td>";
-        
-        if ( $DEVICE_VALUE ) {
-        #    echo "<td><form method='post' action='/devices-list.php'>";
-        #    echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
-        #    echo "<input type='submit' name='deactivate' value='Deactivate'></form></td>";
-            echo "<td class='dcol' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
-        } else {
-        #    echo "<td><form method='post' action='/devices-list.php'>";
-        #    echo "<input type='hidden' name='device_id' value='".$DEVICE_ID."'>";
-        #    echo "<input type='submit' name='activate' value='Activate'></form></td>";
-            echo "<td class='dcol' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
-        }
-        
-        echo "<td class='dcol' ><span class='dspan'>".$DEVICE_NAME."</span></td>";
-        #echo "<td><span class='dcol'>".$DEVICE_PIN."</span></td>";
-        #echo "<td><span class='dcol'>".$DEVICE_ACTIVE_LEVEL."</span></td>";
-      
+
         echo "</tr>";
     }    
   
