@@ -5,8 +5,8 @@
     .pbody { background-color: #080808; }
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
-    .ttab  { width: 100%; }
-    .ttabsub  { width: 100%; border: 5px solid red;}
+    .ttab  { width: 100%; vertical-align: top;}
+    .ttabsub  { width: 100%; border: 5px solid red; text-align: center; }
     .tcol  { font: 22px arial; }
     .tspan { font: 22px arial; color: grey; margin: 16px; display: inline-block; }
     .dcolname   { text-align: left; padding: 8px 8px 8px 32px; }
@@ -244,14 +244,14 @@ echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id=
 echo "<table class='ttab'>";
 echo "<tr><td width=50%>";    
     
-echo "<span class='ptitlesub'>Schedule</span><br><br>";
+echo "<span class='ptitlesub'>Schedule</span><br>";
     
 echo "<span class='tspan'>Name:</span>";    
-echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br>";
+echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'>";
 echo "<span class='tspan'>Start time:</span>";    
-echo "<input type='text' name='start' value='$SCHED_START' class='itextbox'><br>";
+echo "<input type='text' name='start' value='$SCHED_START' class='itextbox'>";
 echo "<span class='tspan'>End time:</span>";    
-echo "<input type='text' name='end' value='$SCHED_END' class='itextbox'><br>";
+echo "<input type='text' name='end' value='$SCHED_END' class='itextbox'>";
     
     
 #echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
@@ -265,9 +265,9 @@ $SCHED_DOW5 = $row["dow5"]; if ( $SCHED_DOW5 == '1' ) { $SCHED_DOW5_CHK = 'check
 $SCHED_DOW6 = $row["dow6"]; if ( $SCHED_DOW6 == '1' ) { $SCHED_DOW6_CHK = 'checked="checked"'; }else{ $SCHED_DOW6_CHK = ''; }
 $SCHED_DOW7 = $row["dow7"]; if ( $SCHED_DOW7 == '1' ) { $SCHED_DOW7_CHK = 'checked="checked"'; }else{ $SCHED_DOW7_CHK = ''; }
 
-echo '<br><br>';
-echo 'Repeat every :<br />';
-echo "<table  class='ttabsub' ><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
+echo "<span class='tspan'>Repeat every :</span>";
+
+echo "<table  class='ttabsub'><span class='tspan'><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></span>";
 echo '<tr>';
 echo '<td><input type="checkbox" name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
 echo '<td><input type="checkbox" name="repeat_dow[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
