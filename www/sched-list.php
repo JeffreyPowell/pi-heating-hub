@@ -3,15 +3,26 @@
 <head>
 <meta http-equiv="refresh" content="30">
 <style>
-.error {color: #FF0000;}
-.tcolname {font-family: arial; color: grey; font-size: x-large;}
-.ccolname {font-family: arial; color: grey; font-size: large;}
-.ccoldowun {font-family: arial; color: grey; font-size: x-small;}
-.ccoldowse {font-family: arial; color: grey; font-size: large;}
+    .pbody { background-color: #080808; font-family: courier; color: red; font-size: small;}
+    .debug { font-family: courier; color: red; font-size: large; }
+    .error { color: #FF0000; }
+    .ttab  { width: 100%; }
+    .tcol  { font: 22px arial; }
+    .tspan { font: 22px arial; color: grey; }
+    .dcolname   { text-align: left; padding: 8px 32px; }
+    .dcolstatus { text-align: center; }
+    .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
+    .ptitle { font: bold 32px arial; color: blue; }
+    .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%; }
+    .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
+    table, th, td { border: 5px solid #080808; }
+    th, td {  background-color: #1a1a1a; }
 </style>
 </head>
-<body bgcolor='#080808'>
-<font color='#808080' size ='4' face='arial'> 
+<body class='pbody'>
 
 <?php
 
@@ -31,12 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     #print_r($_GET);
     #print_r("------------------------");
     
-    if ( $_POST["done"] == "Done" ) {
-        header('Location: /status.php');
-        exit();
-    }
+    #if ( $_POST["done"] == "Done" ) {
+    #    header('Location: /status.php');
+    #    exit();
+    #}
    
-    if ( $_POST["add"] == "Add new" ) {
+    if ( array_key_exists( 'add', $_POST ) ) {
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
         // Check connection
@@ -53,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_close($conn);
     }
     
-    if ( $_POST["delete"] == "Delete" ) {
+    if ( array_key_exists( 'delete', $_POST ) ) 
     
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -105,8 +116,18 @@ $sql = "SELECT * FROM schedules order by name asc";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
-  
-    echo "<table><tr><th></th><th></th><th>Status</th><th><span class='tcolname'>Schedule Name</span></th><th>Start Time</th><th>End Time</th><th>Repeat</th></tr>";
+
+    echo "<span class='ptitle'>Schedules</span><br><br>";
+    
+    echo "<table class='ttab' ><tr>";
+    echo "<th class='tcol'><span class='tspan'>Name</span></th>";
+    echo "<th class='tcol'><span class='tspan'>Start Time</span></th>";
+    echo "<th class='tcol'><span class='tspan'>End Time</span></th>";
+    echo "<th class='tcol'><span class='tspan'>Repeat</span></th>"; 
+    echo "<th class='tcol'><span class='tspan'>Status</span></th>";
+    echo "<th width=1%></th>";
+    echo "<th width=1%></th>";
+    echo "</tr>";
   
     while($row = mysqli_fetch_assoc($result)) {
         $SCHED_ID = $row["id"];
@@ -124,26 +145,12 @@ if (mysqli_num_rows($result) > 0) {
         $SCHED_DOW7 = (bool)$row["dow7"]; if ( $SCHED_DOW7 ) { $SCHED_DOW7_CHK = 'checked="checked"'; }else{ $SCHED_DOW7_CHK = ''; }
 
         echo "<tr>";
-
-        echo "<td><form method='post' action='/sched-edit.php?id=".$SCHED_ID."'>";
-        echo "<input type='submit' name='edit' value='Edit'></form></td>";
         
-        echo "<td><form method='post' action='/sched-list.php'>";
-        echo "<input type='hidden' name='sched_id' value='".$SCHED_ID."'>";
-        echo "<input type='submit' name='delete' value='Delete'></form></td>";
+        echo "<td class='dcolname' ><span class='dspan'>$SCHED_NAME</span></td>";
+        echo "<td class='dcolname' ><span class='dspan'>$SCHED_START</span></td>";
+        echo "<td class='dcolname' ><span class='dspan'>$SCHED_END</span></td>";
         
-        if ( $SCHED_ACTIVE ) {
-            echo "<td><img src='/images/dot-green.png' alt='Schedule Active' height='16' width='16'></td>";
-        } else {
-            echo "<td><img src='/images/dot-red.png' alt='Schedule Inactive' height='16' width='16'></td>";
-        }
-        
-        echo "<td><span class='ccolname'>".$SCHED_NAME."</span></td>";
-        echo "<td><span class='ccolstart'>".$SCHED_START."</span></td>";
-        echo "<td><span class='ccolend'>".$SCHED_END."</span></td>";
-      
-        echo "<td><span class='ccoldowun'>";
-        
+        echo "<td>";
         echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
         echo '<tr>';
         echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
@@ -155,7 +162,60 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
         echo '</tr></table>';
 
-        echo "</span></td>";
+        echo "</td>";
+        
+
+        if ( $SCHED_ACTIVE ) {
+            echo "<td class='dcolstatus' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
+        } else {
+            echo "<td class='dcolstatus' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
+        }     
+        
+        echo "<td>";
+        echo "<input type='button' onclick='location.href=\"/netdevice-edit.php?id=$SCHED_ID\";' value='Edit' class='bblue' />";
+        echo "</td>";
+        
+        echo "<td><form method='post' action='/sched-list.php'>";
+        echo "<input type='hidden' name='sched_id' value='".$SCHED_ID."' />";
+        echo "<input type='submit' name='delete' value='Delete' class='bred' /></form></td>";
+        echo "</tr>";       
+        
+        
+        
+        
+        
+        
+        #echo "<td><form method='post' action='/sched-edit.php?id=".$SCHED_ID."'>";
+        #echo "<input type='submit' name='edit' value='Edit'></form></td>";
+        
+        #echo "<td><form method='post' action='/sched-list.php'>";
+        #echo "<input type='hidden' name='sched_id' value='".$SCHED_ID."'>";
+        #echo "<input type='submit' name='delete' value='Delete'></form></td>";
+        
+        #if ( $SCHED_ACTIVE ) {
+        #    echo "<td><img src='/images/dot-green.png' alt='Schedule Active' height='16' width='16'></td>";
+        #} else {
+        #    echo "<td><img src='/images/dot-red.png' alt='Schedule Inactive' height='16' width='16'></td>";
+        #}
+        
+        #echo "<td><span class='ccolname'>".$SCHED_NAME."</span></td>";
+        #echo "<td><span class='ccolstart'>".$SCHED_START."</span></td>";
+        #echo "<td><span class='ccolend'>".$SCHED_END."</span></td>";
+      
+        #echo "<td><span class='ccoldowun'>";
+        
+        #echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
+        #echo '<tr>';
+        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
+        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
+        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
+        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
+        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
+        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
+        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
+        #echo '</tr></table>';
+
+        #echo "</span></td>";
 
         echo "</tr>";
     }    
