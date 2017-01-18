@@ -17,10 +17,10 @@
     .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
     .ptitle { font: bold 32px arial; color: blue; }
     .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%; }
-    .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 10px ; width: 150px; }
-    .bblue {  background-color: blue;  border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 10px ; width: 150px; }
-    .bgreen { background-color: green; border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 10px ; width: 150px; }
-    .bred {   background-color: red;   border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 10px ; width: 150px; }
+    .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
+    .bblue {  background-color: blue;  border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
+    .bgreen { background-color: green; border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
+    .bred {   background-color: red;   border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
     table, th, td { border: 5px solid #080808; }
     th, td {  background-color: #1a1a1a; }
 </style>
@@ -154,7 +154,7 @@ echo "<tr>";
 
 echo "<td width=33%>";
 
-echo "<input type='button' onclick='location.href=\"sched-list.php\";' value='Schedules' class='bblue' />";
+echo "<input type='button' onclick='location.href=\"sched-list.php\";' value='Schedules' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"sensors-list.php\";' value='Input Sensors' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"devices-list.php\";' value='Output Devices' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"modes-list.php\";' value='Modes' class='bgrey' />";    
