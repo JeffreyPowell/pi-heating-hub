@@ -14,8 +14,8 @@
     .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
     .ptitle { font: bold 32px arial; color: blue; }
     .ptitlesub { font: bold 24px arial; color: navy; }
-    .itextbox { font-family: arial; color: grey; font-size: 12pt; padding: 8px; margin: 4px; display: inline-block; }
-    .itextboxsub { font-family: arial; color: grey; font-size: 11pt; padding: 4px; margin: 0px; display: inline-block; width: auto; }
+    .itextbox { font-family: arial; color: grey; font-size: 12pt; padding: 8px; margin: 4px; display: block; }
+    .itextboxsub { font-family: arial; color: grey; font-size: 11pt; padding: 4px; margin: 0px; display: block; width:  100%; }
     .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
@@ -251,7 +251,7 @@ echo "<table class='ttabsub'>";
 echo "<tr><td>Name:</td><td><input type='text' name='name' value='$SCHED_NAME' class='itextboxsub'></td></tr>";
 echo "<tr><td>Start time:</td><td><input type='text' name='name' value='$SCHED_START' class='itextboxsub'></td></tr>";
 echo "<tr><td>End time:</td><td><input type='text' name='name' value='$SCHED_END' class='itextboxsub'></td></tr>";
-echo "</table";
+echo "</table>";
 
 
     
