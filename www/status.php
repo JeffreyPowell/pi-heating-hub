@@ -157,10 +157,10 @@ echo "<td width=33%>";
 echo "<a href='sched-list.php'>Schedules</a>";
 echo "<br><br>";
     
-echo "<a href='sensors-list.php'>Sensors</a>";
+echo "<a href='sensors-list.php'>Input Sensors</a>";
 echo "<br><br>";
     
-echo "<a href='devices-list.php'>Devices</a>";
+echo "<a href='devices-list.php'>Output Devices</a>";
 echo "<br><br>";
     
 echo "<a href='modes-list.php'>Modes</a>";
@@ -169,7 +169,7 @@ echo "<br><br>";
 echo "<a href='timers-list.php'>Timers</a>";
 echo "<br><br>";
     
-echo "<a href='network-list.php'>Connected</a>";
+echo "<a href='netdevices-list.php'>Connected Devices</a>";
 echo "<br><br>";
 /*
 while($row = mysqli_fetch_assoc($result_modes)) {
