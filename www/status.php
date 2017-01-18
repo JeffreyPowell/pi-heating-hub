@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="refresh" content="30">
 <style>
-    .sensorvalue {font-family: courier; color: green; font-size:300px;}
-    .sensorvaluedec {font-family: courier; color: green; font-size:100px;}
-    .sensorname {font-family: courier; color: green; font-size:40px;}
+    .sensorvalue {font-family: courier; color: green; font-size:300pt;}
+    .sensorvaluedec {font-family: courier; color: green; font-size:100pt;}
+    .sensorname {font-family: courier; color: green; font-size:32pt;}
     .pbody { background-color: #080808; font-family: courier; color: red; font-size: small;}
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
@@ -112,14 +112,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             #echo $page;
             header('Location: '.$page);
             exit();
-            
 
         }
     }
-    
-    
-
-
 }
 
 
@@ -142,10 +137,6 @@ if (mysqli_num_rows($result_timers) == 0) {
 }
 
 
-echo '<br><br>';
-
-
-
 echo "<table width='100%' border='1'>";
 echo "<tr>";
 
@@ -160,7 +151,6 @@ echo "<input type='button' onclick='location.href=\"netdevices-list.php\";' valu
    
 echo "</td>";
 
-    
 echo "<td width=33%>";
     
 while($row = mysqli_fetch_assoc($result_sensor)) {
