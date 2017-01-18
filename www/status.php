@@ -22,7 +22,7 @@
     .bgreen { background-color: green; border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
     .bred {   background-color: red;   border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
     table, th, td { border: 5px solid #080808; }
-    th, td {  background-color: #1a1a1a; }
+    th, td {  background-color: #1a1a1a; text-align: center;}
 </style>
 </head>
 <body class='pbody'>
