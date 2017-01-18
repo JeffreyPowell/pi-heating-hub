@@ -200,9 +200,9 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     echo "<br>";
     echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     if ( $MODE_VALUE =='0' ) {
-        echo "<input type='submit' class='button' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode' class='bred' />";
+        echo "<input type='submit' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode' class='bred' />";
     }else{
-        echo "<input type='submit' class='button' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode' class='bgreen' />";
+        echo "<input type='submit' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode' class='bgreen' />";
     }
     echo "</form>";
     }
@@ -218,9 +218,9 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     echo "<br>";
     echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     if ( $TIMER_VALUE =='0' ) {
-        echo "<input type='submit' class='button' name='start-timer-".$TIMER_ID."' value='Start ".$TIMER_NAME." timer' class='bred' />";
+        echo "<input type='submit' name='start-timer-".$TIMER_ID."' value='Start ".$TIMER_NAME." timer' class='bred' />";
     }else{
-        echo "<input type='submit' class='button' name='stop-timer-".$TIMER_ID."' value='Stop ".$TIMER_NAME." timer [ ".$TIMER_VALUE." min ]' class='bgreen' />";
+        echo "<input type='submit' name='stop-timer-".$TIMER_ID."' value='Stop ".$TIMER_NAME." timer [ ".$TIMER_VALUE." min ]' class='bgreen' />";
     }
     echo "</form>";
     }
