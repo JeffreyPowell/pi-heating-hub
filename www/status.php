@@ -17,10 +17,10 @@
     .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
     .ptitle { font: bold 32px arial; color: blue; }
     .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%; }
-    .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
-    .bblue {  background-color: blue;  border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
-    .bgreen { background-color: green; border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
-    .bred {   background-color: red;   border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 10pt; font-family: arial; margin: 10px ; width: 150px; }
+    .bgrey {  background-color: grey;  border: none; color: white; padding: 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 11pt; font-family: arial; margin: 8px ; width: 120px; }
+    .bblue {  background-color: blue;  border: none; color: white; padding: 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 11pt; font-family: arial; margin: 8px ; width: 120px; }
+    .bgreen { background-color: green; border: none; color: white; padding: 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 11pt; font-family: arial; margin: 8px ; width: 120px; }
+    .bred {   background-color: red;   border: none; color: white; padding: 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 11pt; font-family: arial; margin: 8px ; width: 120px; }
     table, th, td { border: 5px solid #080808; }
     th, td {  background-color: #1a1a1a; text-align: center;}
 </style>
@@ -247,7 +247,7 @@ while($row = mysqli_fetch_assoc($result)) {
 
     if ( $LOOP_SENSOR_ID == $GET_GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
 
-    echo "<input type='button' onclick='location.href=\"status.php?sid=$LOOP_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=$GET_GRAPH_SP\";' value='$LOOP_SENSOR_NAME' class='bgrey' />";
+    echo "<input type='button' onclick='location.href=\"status.php?sid=$LOOP_SENSOR_ID&gid=$LOOP_SENSOR_ID&gsp=$GET_GRAPH_SP\";' value='$LOOP_SENSOR_NAME' class='bgrey' />";
 } 
 
 echo "</td><td width=1% align=center>";
