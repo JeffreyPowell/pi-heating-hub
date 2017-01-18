@@ -5,7 +5,7 @@
     .pbody { background-color: #080808; }
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
-    .ttab  { width: 100%; vertical-align: top; padding: 16px; }
+    .ttab  { width: 100%; vertical-align: top; }
     .ttabsub  { width: 100%; border: 0px; text-align: center; font-family: arial; color: grey; font-size: small; margin: 16px; }
     .tcol  { font: 22px arial; }
     .tspan { font: 22px arial; color: grey; margin: 16px; display: inline-block; }
@@ -20,7 +20,7 @@
     .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     table, th, td { border: 5px solid #080808; }
-    th, td {  background-color: #1a1a1a; vertical-align: top; }
+    th, td {  background-color: #1a1a1a; vertical-align: top;padding: 16px;  }
 </style>
 </head>
 <body class='pbody'>
