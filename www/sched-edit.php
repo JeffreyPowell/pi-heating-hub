@@ -12,6 +12,7 @@
     .dcolstatus { text-align: center; }
     .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
     .ptitle { font: bold 32px arial; color: blue; }
+    .ptitlesub { font: bold 24px arial; color: navy; }
     .itextbox { font-family: arial; color: grey; font-size: large; padding: 16px; margin: 16px; display: inline-block; width: 90%; }
     .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
@@ -35,16 +36,8 @@ $password = "password";
 $dbname = "pi_heating_db";
 $SCHED_ID = $_GET['id'];
 
-#if ( $SCHED_ID < 1 ) { header('Location: /sched-list.php'); exit(); }
-
-#echo $_SERVER["REQUEST_METHOD"];
         
 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-        
-    #if ( $_POST["formSubmit"] == "Done" ) {
-    #    header('Location: /sched-list.php');
-    #    exit();
-    #    }
 
     if ( isset($_POST["save"]) ) {
         #print_r("<pre><BR>------------------------<BR>");
@@ -95,15 +88,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                 }
             }
          }
-    
-
-        #    echo $sql;
-
-        #    if (mysqli_query($conn, $sql)) {
-        #        #echo "<br><br>Schedule updated successfully";
-        #    } else {
-        #        echo "<br><br>Error: " . $sql . "<br>" . mysqli_error($conn);
-        #    }
 
         # Update sensors
 
@@ -114,18 +98,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
         foreach( $_POST as $key => $val )
         {
-                #print_r( $key );
-                #print_r( $val );
 
-                #print_r("<pre><BR>==========<BR>" );
                 if( preg_match( '/sensor.*opp/', $key ) )
                 {
-                        #print_r("<pre><BR>==========<BR>");
-                        #print_r( $key );
-                        #print_r( $val );
+
                         $post_sched_sensor_sensor_id = explode( '_', $key )[1];
-                        #print_r( $post_sched_sensor_sensor_id );
-                        #print_r("<BR>==========<BR></pre>");
+
                         if( $val !== 'na' )
                         {
                                 if( $val == 'eq' ) { $val = '='; }
@@ -140,16 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                                 }
                         }
                 }
-                #else
-                #{
-                #    print_r( 'not match : ' );
-                #    print_r( $key );
-                #    print_r( $val );
-                #    print_r("<BR>");
-                #}
-        
-                #print_r("<BR>==========<BR></pre>");
-                #print_r("<BR>");
         }
     
         # Update Modes
@@ -161,19 +129,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
         foreach( $_POST as $key => $val )
         {
-                #print_r( $key );
-                #print_r( $val );
 
-                #print_r("<pre><BR>==========<BR>" );
                 if( preg_match( '/mode.*value/', $key ) )
                 {
-                        #print_r("<pre><BR>==========<BR>");
-                        #print_r( $key );
-                        #print_r( ' : ' );
-                        #print_r( $val );
+
                         $post_sched_mode_mode_id = explode( '_', $key )[1];
-                        #print_r( $post_sched_sensor_sensor_id );
-                        #print_r("<BR>==========<BR></pre>");
+
                         if( $val !== 'na' )
                         {
                                 if( $val == 'false' ) { $val = '0'; }
@@ -197,18 +158,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
         foreach( $_POST as $key => $val )
         {
-                #print_r( $key );
-                #print_r( $val );
 
-                #print_r("<pre><BR>==========<BR>" );
                 if( preg_match( '/timer.*value/', $key ) )
                 {
-                        #print_r("<pre><BR>==========<BR>");
-                        #print_r( $key );
-                        #print_r( $val );
+
                         $post_sched_timer_timer_id = explode( '_', $key )[1];
-                        #print_r( $post_sched_sensor_sensor_id );
-                        #print_r("<BR>==========<BR></pre>");
+
                         if( $val !== 'na' )
                         {
                                 if( $val == 'false' ) { $val = '0'; }
@@ -221,16 +176,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                                 }
                         }
                 }
-                #else
-                #{
-                #    print_r( 'not match : ' );
-                #    print_r( $key );
-                #    print_r( $val );
-                #    print_r("<BR>");
-                #}
-        
-                #print_r("<BR>==========<BR></pre>");
-                #print_r("<BR>");
         }
 
         # Update Network
@@ -266,44 +211,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                                 }
                         }
                 }
-                #else
-                #{
-                #    print_r( 'not match : ' );
-                #    print_r( $key );
-                #    print_r( $val );
-                #    print_r("<BR>");
-                #}
-        
-                #print_r("<BR>==========<BR></pre>");
-                #print_r("<BR>");
         }
 
         mysqli_close($conn);
     }
 }
 
-
-
-
-
-
-
-
-
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 if (!$conn) {
     die("<br><br>Connection failed: " . mysqli_connect_error());
-    }
-
-echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$SCHED_ID.'">';
+}
 
 $sql = "SELECT * FROM schedules WHERE id=".$SCHED_ID;
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "0 results";
-    }
+}
 
 $row = mysqli_fetch_assoc($result);
 
@@ -311,12 +236,19 @@ $SCHED_NAME = $row["name"];
 $SCHED_START = $row["start"];
 $SCHED_END = $row["end"];
 
-echo '<h1>'.$SCHED_NAME.'</h1><br><br>';
-echo '<table width=100% ><tr><td width=50%>';
-        
-echo '<h2>Schedule</h2><br>';
+echo "<span class='ptitle'>$SCHED_NAME</span><br><br>";
+    
+echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$SCHED_ID.'">';
+
+echo "<table class='ttab'>";
+echo "<tr><td width=50%>";    
+      
+    
+    
+echo "<span class='ptitlesub'>Schedule</span><br><br>";
+
 echo '<br><br>';
-echo htmlspecialchars($_SERVER["PHP_SELF"]).'/?id='.$SCHED_ID;
+#echo htmlspecialchars($_SERVER["PHP_SELF"]).'/?id='.$SCHED_ID;
 echo '<br><br>';
 echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br>';
 echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
@@ -344,8 +276,10 @@ echo '<td><input type="checkbox" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_
 echo '</tr></table>';
 echo '<br><br>';
 
+echo "</td><td width=50%>";
 
-echo '<h2>Activate Devices</h2><br>';
+echo "<span class='ptitlesub'>Activate Devices</span><br><br>";
+
 
 $sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
@@ -360,16 +294,9 @@ while($row = mysqli_fetch_assoc($result)) {
 
 echo '<br><br>';
 
-#$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
-#$result = mysqli_query($conn, $sql);
-#if (mysqli_num_rows($result) > 0) {
-#    // output data of each row
-#    while($row = mysqli_fetch_assoc($result)) {
-#        echo var_dump($row)."<br>";
-#    }
-#    } else {
-#        echo "devices 0 results";
-#    }
+echo "</td></tr>";
+
+echo "<tr><td>";
 
 echo '<h2>When Sensors</h2><br>';
 
@@ -405,21 +332,17 @@ echo '</table>';
 
 echo '<br><br>';
 
-
-#$sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
-#$result = mysqli_query($conn, $sql);
-#if (mysqli_num_rows($result) > 0) {
-#    // output data of each row
-#    while($row = mysqli_fetch_assoc($result)) {
-#        echo var_dump($row)."<br>";
-##    }
-#    } else {
-#        echo "sensors LEFT JOIN sched_sensor 0 results";
-#    }
-
         
-echo '</td><td width=50%>';
+echo '</td><td>';
 
+    
+    
+    
+    
+    
+    
+    
+    
 echo '<h2>AND Modes</h2><br>';
 
 $sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
@@ -434,18 +357,8 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '<tr><td>'.$row["name"].'</td>';
 
     $MODE_ID = $row["id"];
-    #$MODE_OPP = $row["test_opp"];
     $MODE_VALUE = $row["test_value"];
     
-    #if ( $MODE_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    #if ( $MODE_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
-    #if ( $MODE_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
-
-    #echo '<td><select name="mode_'.$MODE_ID.'_opp">';
-    #echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    #echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
-    #echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
-    #echo '</select></td>';
 
     if ( $MODE_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $MODE_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
@@ -460,18 +373,16 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 echo '</table>';
 
-#$sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
-#$result = mysqli_query($conn, $sql);
-#if (mysqli_num_rows($result) > 0) {
-#    // output data of each row
-#    while($row = mysqli_fetch_assoc($result)) {
-#        echo var_dump($row)."<br>";
-#    }
-#    } else {
-#        echo "modes LEFT JOIN sched_mode 0 results";
-#    }
+
 echo '<br><br>';
 
+    
+    
+echo "</td></tr>";   
+    
+echo "<tr><td>";  
+    
+    
 echo '<h2>AND Timers</h2><br>';
 
 $sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
@@ -489,19 +400,6 @@ while($row = mysqli_fetch_assoc($result)) {
     #$TIMER_OPP = $row["opp"];
     $TIMER_VALUE = $row["value"];
     
-    #if ( $TIMER_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    #if ( $TIMER_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
-    #if ( $TIMER_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
-    #if ( $TIMER_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
-    #if ( $TIMER_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
-
-    #echo '<td><select name="timer_'.$TIMER_ID.'_opp">';
-    #echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    #echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
-    #echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
-    #echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
-    #echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
-    #echo '</select></td>';
 
     if ( $TIMER_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $TIMER_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
@@ -516,18 +414,17 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 echo '</table>';
 
-#$sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
-#$result = mysqli_query($conn, $sql);
-#if (mysqli_num_rows($result) > 0) {
-#    // output data of each row
-#    while($row = mysqli_fetch_assoc($result)) {
-#        echo var_dump($row)."<br>";
-#    }
-#    } else {
-#        echo "timers LEFT JOIN sched_timer 0 results";
-#    }
+
 echo '<br><br>';
 
+    
+    
+    
+echo "</td><td>";   
+    
+    
+    
+    
     
 echo '<h2>AND Who is Connected</h2><br>';
 
@@ -549,19 +446,7 @@ while($row = mysqli_fetch_assoc($result)) {
     #$NETWORK_OPP = $row["opp"];
     $NETWORK_VALUE = $row["test"];
     
-    #if ( $TIMER_OPP == "" )  { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-    #if ( $TIMER_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
-    #if ( $TIMER_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
-    #if ( $TIMER_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
-    #if ( $TIMER_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
 
-    #echo '<td><select name="timer_'.$TIMER_ID.'_opp">';
-    #echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-    #echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
-    #echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
-    #echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
-    #echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
-    #echo '</select></td>';
 
     if ( $NETWORK_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $NETWORK_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
