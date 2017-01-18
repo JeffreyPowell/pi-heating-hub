@@ -17,10 +17,10 @@
     .dspan { font-family: arial; color: grey; font-size: large; display: inline-block; }
     .ptitle { font: bold 32px arial; color: blue; }
     .itextbox { font-family: arial; color: grey; font-size: large; padding: 12px 20px; margin: 8px 30px; width: 80%; }
-    .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 12px ; width: 120px; }
-    .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 12px ; width: 120px; }
-    .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 12px ; width: 120px; }
-    .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 12px ; width: 120px; }
+    .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 10px ; width: 150px; }
+    .bblue {  background-color: blue;  border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 10px ; width: 150px; }
+    .bgreen { background-color: green; border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 10px ; width: 150px; }
+    .bred {   background-color: red;   border: none; color: white; padding: 8px 4px; text-align: center; text-decoration: none; display: inline-block; font-size: 8pt; font-family: arial; margin: 10px ; width: 150px; }
     table, th, td { border: 5px solid #080808; }
     th, td {  background-color: #1a1a1a; }
 </style>
@@ -200,7 +200,7 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     echo "<br>";
     echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     if ( $MODE_VALUE =='0' ) {
-        echo "<input type='submit' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode' class='bred' />";
+        echo "<input type='submit' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode' class='bgrey' />";
     }else{
         echo "<input type='submit' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode' class='bgreen' />";
     }
@@ -218,7 +218,7 @@ while($row = mysqli_fetch_assoc($result_timers)) {
     echo "<br>";
     echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     if ( $TIMER_VALUE =='0' ) {
-        echo "<input type='submit' name='start-timer-".$TIMER_ID."' value='Start ".$TIMER_NAME." timer' class='bred' />";
+        echo "<input type='submit' name='start-timer-".$TIMER_ID."' value='Start ".$TIMER_NAME." timer' class='bgrey' />";
     }else{
         echo "<input type='submit' name='stop-timer-".$TIMER_ID."' value='Stop ".$TIMER_NAME." timer [ ".$TIMER_VALUE." min ]' class='bgreen' />";
     }
