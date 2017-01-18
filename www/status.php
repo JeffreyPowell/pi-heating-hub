@@ -59,9 +59,9 @@ while($row = mysqli_fetch_assoc($result_sensors)) {
     $SENSOR_MAX_ID = $row["id"];
     }
 
-$SENSOR_ID = isset($_GET['sid']) ? $_GET['sid'] : $SENSOR_MAX_ID;
-$GRAPH_ID = isset($_GET['gid']) ? $_GET['gid'] : $SENSOR_MAX_ID;
-$GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-24h';
+$GET_SENSOR_ID = isset($_GET['sid']) ? $_GET['sid'] : $SENSOR_MAX_ID;
+$GET_GRAPH_ID = isset($_GET['gid']) ? $_GET['gid'] : $SENSOR_MAX_ID;
+$GET_GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-24h';
     
 /*    
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
@@ -104,11 +104,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             }
         }  
         if ( $POST_ACTION == 'gid' ) {
-            $GRAPH_ID = isset($_POST['gid']) ? $_POST['gid'] : '1';
-            $GRAPH_SP = isset($_POST['gsp']) ? $_POST['gsp'] : '-1h';
+            $POST_GRAPH_ID = isset($_POST['gid']) ? $_POST['gid'] : '1';
+            $POST_GRAPH_SP = isset($_POST['gsp']) ? $_POST['gsp'] : '-1h';
             
             #$page = 'status.php?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP;
-            $page = 'status.php?sid='.$GRAPH_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP;
+            $page = 'status.php?sid='.$POST_GRAPH_ID.'&gid='.$POST_GRAPH_ID.'&gsp='.$POST_GRAPH_SP;
             #echo $page;
             header('Location: '.$page);
             exit();
@@ -129,7 +129,7 @@ if (mysqli_num_rows($result_modes) == 0) {
     echo "0 modes results"; 
     }
 
-$sql_sensor = "SELECT * from sensors WHERE id = '".$SENSOR_ID."';";
+$sql_sensor = "SELECT * from sensors WHERE id = '".$GET_SENSOR_ID."';";
 $result_sensor = mysqli_query($conn, $sql_sensor);
 if (mysqli_num_rows($result_sensor) == 0) {
     echo "0 sensors results"; 
@@ -140,9 +140,6 @@ $result_timers = mysqli_query($conn, $sql_timers);
 if (mysqli_num_rows($result_timers) == 0) {
     echo "0 timers results"; 
     }
-
-
-
 
 
 echo '<br><br>';
@@ -169,7 +166,7 @@ echo "<td width=33%>";
 while($row = mysqli_fetch_assoc($result_sensor)) {
     $SENSOR_NAME =  $row["name"];
     $SENSOR_VALUE = $row["value"];
-    }
+}
     
 echo "<span class='sensorname'>".$SENSOR_NAME."</span><br>";
     
@@ -190,7 +187,7 @@ echo "</td>";
 
 echo "<td width=33%>";
     
-echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$SENSOR_ID.'&gid='.$GRAPH_ID.'&gsp='.$GRAPH_SP.'">';
+echo '<form id="formTimers" method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?sid='.$GET_SENSOR_ID.'&gid='.$GET_GRAPH_ID.'&gsp='.$GET_GRAPH_SP.'">';
 
 while($row = mysqli_fetch_assoc($result_modes)) {
     $MODE_ID = $row["id"];
@@ -247,18 +244,25 @@ while($row = mysqli_fetch_assoc($result)) {
 
     $SENSOR_NAME = $row["name"];
     $SENSOR_ID = $row["id"];
-    
-    if ( $SENSOR_ID == $GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
 
-    echo '<option value="'.$SENSOR_ID.'" '.$SELECTED.' >'.$SENSOR_NAME.'</option>';
-    
-    echo "<input type='button' onclick='location.href=\"status.php?sid=$SENSOR_ID&gid=$GRAPH_ID&gsp=$GRAPH_SP\";' value='$SENSOR_NAME' class='bgrey' />";
+    if ( $SENSOR_ID == $GET_GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
+
+    echo "<input type='button' onclick='location.href=\"status.php?sid=$SENSOR_ID&gid=$GET_GRAPH_ID&gsp=$GET_GRAPH_SP\";' value='$SENSOR_NAME' class='bgrey' />";
 } 
+
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1h\";' value='One hour' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-3h\";' value='Three hours' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-12h\";' value='Twelve hours' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-24h\";' value='One Day' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-3d\";' value='Three Days' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1w\";' value='One week' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1m\";' value='One month' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1y\";' value='One year' class='bgrey' />";
 
 echo "</td>";
 
 echo "<td width=99% align=center>";
-    
+
 
 $sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
