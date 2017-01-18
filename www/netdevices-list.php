@@ -108,7 +108,7 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
             
         $NETDEV_ID = $row["id"];
-        $NETDEV_NAME = $row["name"];
+        $NETDEV_NAME = addslashes($row["name"]);
         $NETDEV_MAC = $row["mac"];
         $NETDEV_VALUE = $row["value"];
          
