@@ -234,20 +234,14 @@ echo '<td>';
 
 echo "<table width='100%' border='1'>";
 echo "<tr>";
-
-echo "<td width=100% align=center>";
     
+echo "<td width=1% align=center>";
 
 $sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
-        echo "sensors 0 results"; 
-    }
-
-echo "<form name='graph' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
-
-
-echo '<select name="gid">';
+    echo "sensors 0 results"; 
+}
     
 while($row = mysqli_fetch_assoc($result)) {
 
@@ -258,7 +252,39 @@ while($row = mysqli_fetch_assoc($result)) {
 
     echo '<option value="'.$SENSOR_ID.'" '.$SELECTED.' >'.$SENSOR_NAME.'</option>';
     
-    }
+    echo "<input type='button' onclick='location.href=\"status.php?sid=$SENSOR_ID&gid=$GRAPH_ID&gsp=$GRAPH_SP\";' value='$SENSOR_NAME' class='bgrey' />";
+} 
+
+echo "</td>";
+
+echo "<td width=99% align=center>";
+    
+
+$sql = "SELECT * FROM sensors;";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) == 0) {
+    echo "sensors 0 results"; 
+}
+
+echo "<form name='graph' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
+
+
+echo '<select name="gid">';
+
+$sql = "SELECT * FROM sensors;";
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) == 0) {
+    echo "sensors 0 results"; 
+}
+while($row = mysqli_fetch_assoc($result)) {
+
+    $SENSOR_NAME = $row["name"];
+    $SENSOR_ID = $row["id"];
+    
+    if ( $SENSOR_ID == $GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
+
+    echo '<option value="'.$SENSOR_ID.'" '.$SELECTED.' >'.$SENSOR_NAME.'</option>';
+}
     
 echo '</select>';
     
