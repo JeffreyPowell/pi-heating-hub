@@ -6,7 +6,7 @@
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
     .ttab  { width: 100%; vertical-align: top; }
-    .ttabsub  { width: 90%; border: 0px; text-align: center; font-family: arial; color: grey; font-size: small; }
+    .ttabsub  { width: 100%; border: 0px; text-align: center; font-family: arial; color: grey; font-size: small; }
     .tcol  { font: 22px arial; }
     .tspan { font: 22px arial; color: grey; margin: 16px; display: inline-block; }
     .dcolname   { text-align: left; padding: 8px 8px 8px 32px; }
@@ -15,6 +15,7 @@
     .ptitle { font: bold 32px arial; color: blue; }
     .ptitlesub { font: bold 24px arial; color: navy; }
     .itextbox { font-family: arial; color: grey; font-size: large; padding: 16px; margin: 16px; display: inline-block; width: 90%; }
+    .itextbox { font-family: arial; color: grey; font-size: small; padding: 16px; margin: 16px; display: inline-block; width: 90%; }
     .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
@@ -237,14 +238,14 @@ $SCHED_NAME = $row["name"];
 $SCHED_START = $row["start"];
 $SCHED_END = $row["end"];
 
-echo "<span class='ptitle'>$SCHED_NAME</span><br><br>";
+echo "<span class='ptitle'>$SCHED_NAME</span>";
     
 echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$SCHED_ID.'">';
 
 echo "<table class='ttab'>";
 echo "<tr><td width=50%>";    
     
-echo "<span class='ptitlesub'>Schedule</span><br>";
+echo "<span class='ptitlesub'>Schedule</span>";
     
 echo "<span class='tspan'>Name:</span>";    
 echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'>";
@@ -252,10 +253,7 @@ echo "<span class='tspan'>Start time:</span>";
 echo "<input type='text' name='start' value='$SCHED_START' class='itextbox'>";
 echo "<span class='tspan'>End time:</span>";    
 echo "<input type='text' name='end' value='$SCHED_END' class='itextbox'>";
-    
-    
-#echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
-#echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'"><br>';
+
 
 $SCHED_DOW1 = $row["dow1"]; if ( $SCHED_DOW1 == '1' ) { $SCHED_DOW1_CHK = 'checked="checked"'; }else{ $SCHED_DOW1_CHK = ''; }
 $SCHED_DOW2 = $row["dow2"]; if ( $SCHED_DOW2 == '1' ) { $SCHED_DOW2_CHK = 'checked="checked"'; }else{ $SCHED_DOW2_CHK = ''; }
@@ -280,7 +278,7 @@ echo '</tr></table>';
 
 echo "</td><td width=50%>";
 
-echo "<span class='ptitlesub'>Activate Devices</span><br><br>";
+echo "<span class='ptitlesub'>Activate Devices</span>";
 
 
 $sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
@@ -294,31 +292,21 @@ while($row = mysqli_fetch_assoc($result)) {
         echo "<input type='checkbox' name='devices[]' value='".$row['d_id']."' $DEVICE_ACTIVE_CHK /><span class='tspan'>".$row['name']."</span><br><br>";
     }
 
+echo "</td></tr><tr><td>";
 
 
-echo "</td></tr>";
-
-echo "<tr><td>";
-
-    
-    
-    
-    
-    
-    
-    
-echo '<h2>When Sensors</h2><br>';
+echo "<span class='ptitlesub'>When Sensors</span>";
 
 $sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results";
     }
-echo '<table>';
+echo "<table class='ttabsub' >";
 
 while($row = mysqli_fetch_assoc($result)) {
 
-    echo '<tr><td>'.$row["name"].'</td>';
+    echo "<tr><td><span class='tspan'>".$row["name"]."</span></td>";
 
     $SENSOR_OPP = $row["opp"];
     if ( $SENSOR_OPP == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
@@ -335,7 +323,7 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
     echo '</select></td>';
 
-    echo '<td><input type="text" name="sensor_'.$row["id"].'_value" value="'.$row["value"].'"></td></tr>';
+    echo "<td><input type='text' name='sensor_".$row["id"]."_value' value='".$row["value"]."' class='itextboxsub'></td></tr>";
     }
 echo '</table>';
 
