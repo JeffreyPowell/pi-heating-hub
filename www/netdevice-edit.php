@@ -53,8 +53,8 @@
                 if ( isset($_POST["save"]) ) {
                         #echo "#### save ####";
                         
-                        $POST_NETDEV_NAME = $_POST["name"];
-                        $POST_NETDEV_MAC = $_POST["mac"];
+                        $POST_NETDEV_NAME = str_replace( "'", " ", $_POST["name"]);
+                        $POST_NETDEV_MAC = str_replace( " ", "", $_POST["mac"]);
                         
                         // Create connection
                         $conn = mysqli_connect($servername, $username, $password, $dbname);
