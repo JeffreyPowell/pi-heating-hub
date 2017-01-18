@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
             }
-        $sql = "INSERT INTO timers (name, duration, value) VALUES ('new', 1, 0)";
+        $sql = "INSERT INTO network (name, mac, value) VALUES ('new', '00:00:00:00:00', 0)";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -70,15 +70,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Connection failed: " . mysqli_connect_error());
             }
         
-        $TIMER_ID = $_POST["timer_id"];
+        $NETDEV_ID = $_POST["netdev_id"];
         
         #echo $SCHED_ID;
         
-        $sql = "DELETE FROM sched_timer WHERE timer_id='$TIMER_ID';";
+        $sql = "DELETE FROM sched_network WHERE network_id='$NETDEV_ID';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        $sql = "DELETE FROM timers WHERE id='$TIMER_ID';";
+        $sql = "DELETE FROM network WHERE id='$NETDEV_ID';";
         if (!mysqli_query($conn, $sql)) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
@@ -92,43 +92,43 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT * FROM timers order by name asc";
+$sql = "SELECT * FROM network order by name asc";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
-    echo "<span class='ptitle'>Available Timers</span><br><br>";
+    echo "<span class='ptitle'>Network Devices</span><br><br>";
     
     echo "<table class='ttab' ><tr>";
     echo "<th class='tcol'><span class='tspan'>Name</span></th>";     
-    echo "<th width=1%><span class='tspan'>Duration (min)</span></th>";
+    echo "<th width=1%><span class='tspan'>MAC Address</span></th>";
     echo "<th width=1%><span class='tspan'>Status</span></th>";
     echo "<th width=1%></th><th width=1%></th>";
     echo "</tr>";
         
     while($row = mysqli_fetch_assoc($result)) {
             
-        $TIMER_ID = $row["id"];
-        $TIMER_NAME = $row["name"];
-        $TIMER_DURATION = $row["duration"];
-        $TIMER_VALUE = $row["value"];
+        $NETDEV_ID = $row["id"];
+        $NETDEV_NAME = $row["name"];
+        $NETDEV_MAC = $row["mac"];
+        $NETDEV_VALUE = $row["value"];
          
         echo "<tr>";
         
-        echo "<td class='dcolname' ><span class='dspan'>".$TIMER_NAME."</span></td>";
-        echo "<td class='dcolname' ><span class='dspan'>".$TIMER_DURATION."</span></td>";
+        echo "<td class='dcolname' ><span class='dspan'>".$NETDEV_NAME."</span></td>";
+        echo "<td class='dcolname' ><span class='dspan'>".$NETDEV_MAC."</span></td>";
         
-        if ( intval($TIMER_VALUE) > 0 ) {
+        if ( $NETDEV_VALUE ) {
             echo "<td class='dcolstatus' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
         } else {
             echo "<td class='dcolstatus' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
         }
         
         echo "<td>";
-        echo "<input type='button' onclick='location.href=\"/timer-edit.php?id=$TIMER_ID\";' value='Edit' class='bblue' />";
+        echo "<input type='button' onclick='location.href=\"/netdevice-edit.php?id=$NETDEV_ID\";' value='Edit' class='bblue' />";
         echo "</td>";
         
-        echo "<td><form method='post' action='/timers-list.php'>";
-        echo "<input type='hidden' name='timer_id' value='".$TIMER_ID."' />";
+        echo "<td><form method='post' action='/netdevices-list.php'>";
+        echo "<input type='hidden' name='netdev_id' value='".$NETDEV_ID."' />";
         echo "<input type='submit' name='delete' value='Delete' class='bred' /></form></td>";
         echo "</tr>";
     }    
@@ -136,13 +136,13 @@ if (mysqli_num_rows($result) > 0) {
     echo "</table>";
   
 } else {
-    echo "<span class='ptitle'>No Available Timers</span><br><br>";
+    echo "<span class='ptitle'>No Configured Network Devices</span><br><br>";
 }
   
 mysqli_close($conn);
 ?>  
 
-<form method='post' action='timers-list.php'>
+<form method='post' action='netdevices-list.php'>
 <input type='submit' name='add' value='Add new' class='bgreen' />
 <input type='button' onclick='location.href="/status.php";' value='Done' class='bgrey' />
 </form>
