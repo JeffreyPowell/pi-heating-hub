@@ -6,7 +6,7 @@
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
     .ttab  { width: 100%; vertical-align: top;}
-    .ttabsub  { width: 100%; border: 5px solid red; text-align: center; font-family: arial; color: grey; font-size: small; }
+    .ttabsub  { width: 100%; border: 0px; text-align: center; font-family: arial; color: grey; font-size: small; }
     .tcol  { font: 22px arial; }
     .tspan { font: 22px arial; color: grey; margin: 16px; display: inline-block; }
     .dcolname   { text-align: left; padding: 8px 8px 8px 32px; }
