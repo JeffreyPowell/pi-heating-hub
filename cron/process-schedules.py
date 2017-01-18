@@ -160,7 +160,7 @@ for result in results_schedules:
     # Check timers
   
   cursorselect = cnx.cursor()
-  query = "SELECT * FROM timers INNER JOIN sched_timer ON timers.id = sched_timer.timer_id AND sched_timer.sched_id ="+SCHED_ID+";"
+  query = "SELECT timers.value, sched_timer.value FROM timers INNER JOIN sched_timer ON timers.id = sched_timer.timer_id AND sched_timer.sched_id ="+SCHED_ID+";"
   cursorselect.execute(query)
   results_timers =cursorselect.fetchall()
   cursorselect.close()
@@ -171,9 +171,9 @@ for result in results_schedules:
    
   for result in results_timers:
     print( result )
-    TIMER_VALUE= result[4]
-    #TIMER_TEST = result[8]
-    TEST_VALUE = result[9]
+    TIMER_VALUE= result[0]
+
+    TEST_VALUE = result[1]
     
     if (  TEST_VALUE == True and TIMER_VALUE > 0 ):
       TEST = True
