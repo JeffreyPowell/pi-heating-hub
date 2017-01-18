@@ -5,8 +5,8 @@
     .pbody { background-color: #080808; }
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
-    .ttab  { width: 100%; vertical-align: top; }
-    .ttabsub  { width: 100%; border: 0px; text-align: center; font-family: arial; color: grey; font-size: small; padding: 16px; }
+    .ttab  { width: 100%; vertical-align: top; padding: 16px; }
+    .ttabsub  { width: 100%; border: 0px; text-align: center; font-family: arial; color: grey; font-size: small; margin: 16px; }
     .tcol  { font: 22px arial; }
     .tspan { font: 22px arial; color: grey; margin: 16px; display: inline-block; }
     .dcolname   { text-align: left; padding: 8px 8px 8px 32px; }
