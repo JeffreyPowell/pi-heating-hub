@@ -255,69 +255,25 @@ echo "</td>";
 
 echo "<td width=99% align=center>";
 
-/*
-$sql = "SELECT * FROM sensors;";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) == 0) {
-    echo "sensors 0 results"; 
-}
-*/
-
-/*
-echo "<form name='graph' method='post' action='status.php?sid=".$GET_SENSOR_ID."&gid=".$GET_GRAPH_ID."&gsp=".$GET_GRAPH_SP."'>";
-
-
-echo '<select name="gid">';
-
-$sql = "SELECT * FROM sensors;";
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) == 0) {
-    echo "sensors 0 results"; 
-}
-while($row = mysqli_fetch_assoc($result)) {
-
-    $LOOP_SENSOR_NAME = $row["name"];
-    $LOOP_SENSOR_ID = $row["id"];
-    
-    if ( $LOOP_SENSOR_ID == $GET_GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
-
-    echo '<option value="'.$LOOP_SENSOR_ID.'" '.$SELECTED.' >'.$LOOP_SENSOR_NAME.'</option>';
-}
-    
-echo '</select>';
-*/
-/*
-echo '<select name="gsp">';
-echo '<option value="-1h" '.($GRAPH_SP=='-1h' ? 'SELECTED' : '').' >One Hour</option>';
-echo '<option value="-2h" '.($GRAPH_SP=='-2h' ? 'SELECTED' : '').' >Two Hours</option>';
-echo '<option value="-6h" '.($GRAPH_SP=='-6h' ? 'SELECTED' : '').' >Six Hours</option>';
-echo '<option value="-12h" '.($GRAPH_SP=='-12h' ? 'SELECTED' : '').' >Twelve Hours</option>';
-echo '<option value="-24h" '.($GRAPH_SP=='-24h' ? 'SELECTED' : '').' >One Day</option>';
-echo '<option value="-3d" '.($GRAPH_SP=='-3d' ? 'SELECTED' : '').' >Three Days</option>';
-echo '<option value="-7d" '.($GRAPH_SP=='-7d' ? 'SELECTED' : '').' >One Week</option>';
-echo '<option value="-1m" '.($GRAPH_SP=='-1m' ? 'SELECTED' : '').' >One Month</option>';
-echo '<option value="-3m" '.($GRAPH_SP=='-3m' ? 'SELECTED' : '').' >Three Months</option>';
-echo '<option value="-6m" '.($GRAPH_SP=='-6m' ? 'SELECTED' : '').' >Six Months</option>';
-echo '<option value="-12m" '.($GRAPH_SP=='-12m' ? 'SELECTED' : '').' >One Year</option>';
-echo '</select>';
-
-
-echo '<input type="submit" name="formSubmit" value="Update" />';
-    
-echo '</form>';
-
-*/
-#echo '<br>';
-    
-#echo "</td>";
-
-#echo "<td width=66%>";
     
 create_graph( $rrd_dir.$GET_GRAPH_ID.".rrd", $img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png", 	$GET_GRAPH_SP, 	$SENSOR_NAME,	 	   "180", "700");
 echo "<img src='".$img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png' alt='RRD image'>";  
     
 echo "</td></tr>";
 echo "</table>";
+    
+echo "<table><tr><td>";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1h\";' value='One hour' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-3h\";' value='Three hours' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-12h\";' value='Twelve hours' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-24h\";' value='One Day' class='bgrey' />";
+#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-3d\";' value='Three Days' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1w\";' value='One week' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1m\";' value='One month' class='bgrey' />";
+#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1y\";' value='One year' class='bgrey' />";
+
+echo "</td></tr></table>";
+
 mysqli_close($conn);
     
 function create_graph($rrdfile, $output, $start, $title, $height, $width) {
