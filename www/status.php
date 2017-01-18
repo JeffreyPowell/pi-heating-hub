@@ -242,12 +242,12 @@ if (mysqli_num_rows($result) == 0) {
     
 while($row = mysqli_fetch_assoc($result)) {
 
-    $SENSOR_NAME = $row["name"];
-    $SENSOR_ID = $row["id"];
+    $LOOP_SENSOR_NAME = $row["name"];
+    $LOOP_SENSOR_ID = $row["id"];
 
-    if ( $SENSOR_ID == $GET_GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
+    if ( $LOOP_SENSOR_ID == $GET_GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
 
-    echo "<input type='button' onclick='location.href=\"status.php?sid=$SENSOR_ID&gid=$GET_GRAPH_ID&gsp=$GET_GRAPH_SP\";' value='$SENSOR_NAME' class='bgrey' />";
+    echo "<input type='button' onclick='location.href=\"status.php?sid=$LOOP_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=$GET_GRAPH_SP\";' value='$LOOP_SENSOR_NAME' class='bgrey' />";
 } 
 
 echo "</td><td width=1% align=center>";
@@ -265,12 +265,13 @@ echo "</td>";
 
 echo "<td width=99% align=center>";
 
-
+/*
 $sql = "SELECT * FROM sensors;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
     echo "sensors 0 results"; 
 }
+*/
 
 /*
 echo "<form name='graph' method='post' action='status.php?sid=".$GET_SENSOR_ID."&gid=".$GET_GRAPH_ID."&gsp=".$GET_GRAPH_SP."'>";
