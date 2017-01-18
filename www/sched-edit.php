@@ -247,7 +247,7 @@ echo "<tr><td width=50%>";
 echo "<span class='ptitlesub'>Schedule</span><br><br>";
     
 echo "<span class='tspan'>Name</span><br>";    
-echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br><br>"
+echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br><br>";
     
     
 echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
