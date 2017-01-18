@@ -5,7 +5,7 @@
     .pbody { background-color: #080808; }
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
-    .ttab  { width: 100%; vertical-align: top;}
+    .ttab  { width: 100%; vertical-align: top; }
     .ttabsub  { width: 100%; border: 0px; text-align: center; font-family: arial; color: grey; font-size: small; }
     .tcol  { font: 22px arial; }
     .tspan { font: 22px arial; color: grey; margin: 16px; display: inline-block; }
@@ -20,7 +20,7 @@
     .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     table, th, td { border: 5px solid #080808; }
-    th, td {  background-color: #1a1a1a; }
+    th, td {  background-color: #1a1a1a; vertical-align: top; }
 </style>
 </head>
 <body class='pbody'>
@@ -292,15 +292,22 @@ if (mysqli_num_rows($result) == 0) {
 
 while($row = mysqli_fetch_assoc($result)) {
         $DEVICE_ACTIVE = $row["device_id"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
-        echo '<input type="checkbox" name="devices[]" value="'.$row["d_id"].'" '.$DEVICE_ACTIVE_CHK.' />'.$row["name"].'<br>';
+        echo "<input type='checkbox' name='devices[]' value='".$row['d_id']."' $DEVICE_ACTIVE_CHK /><span class='tspan'>".$row['name']."<br>";
     }
 
-echo '<br><br>';
+
 
 echo "</td></tr>";
 
 echo "<tr><td>";
 
+    
+    
+    
+    
+    
+    
+    
 echo '<h2>When Sensors</h2><br>';
 
 $sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
