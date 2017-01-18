@@ -53,7 +53,7 @@
                 if ( isset($_POST["save"]) ) {
                         #echo "#### save ####";
                         
-                        $POST_NETDEV_NAME = $_POST["name"];
+                        $POST_NETDEV_NAME = urlunencode($_POST["name"]);
                         $POST_NETDEV_MAC = $_POST["mac"];
                         
                         // Create connection
