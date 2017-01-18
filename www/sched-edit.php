@@ -15,7 +15,7 @@
     .ptitle { font: bold 32px arial; color: blue; }
     .ptitlesub { font: bold 24px arial; color: navy; }
     .itextbox { font-family: arial; color: grey; font-size: large; padding: 16px; margin: 16px; display: inline-block; }
-    .itextboxsub { font-family: arial; color: grey; font-size: small; padding: 8px; margin: 8px; display: inline-block; }
+    .itextboxsub { font-family: arial; color: grey; font-size: small; padding: 8px; margin: 0px; display: inline-block; }
     .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
@@ -245,7 +245,7 @@ echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id=
 echo "<table class='ttab'>";
 echo "<tr><td width=50%>";    
     
-echo "<span class='ptitlesub'>Schedule</span>";
+echo "<span class='ptitlesub'>Schedule</span><br>";
     
 echo "<span class='tspan'>Name:</span>";    
 echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br>";
@@ -281,16 +281,20 @@ echo "</td><td width=50%>";
 echo "<span class='ptitlesub'>Activate Devices</span><br><br>";
 
 
-$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
+$sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID." ORDER BY devices.name asc;";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "devices 0 results";
     }
 
 while($row = mysqli_fetch_assoc($result)) {
-        $DEVICE_ACTIVE = $row["device_id"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
-        echo "<input type='checkbox' name='devices[]' value='".$row['d_id']."' $DEVICE_ACTIVE_CHK /><span class='tspan'>".$row['name']."</span><br>";
-    }
+    $DEVICE_NAME = $row["name"];
+    $DEVICE_ID = $row["d_id"];
+    $DEVICE_ACTIVE = $row["device_id"];
+    
+    if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
+    echo "<input type='checkbox' name='devices[]' value='$DEVICE_ID' $DEVICE_ACTIVE_CHK /><span class='tspan'>$DEVICE_NAME</span><br>";
+}
 
 echo "</td></tr><tr><td>";
 
