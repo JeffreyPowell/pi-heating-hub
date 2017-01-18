@@ -246,12 +246,16 @@ echo "<tr><td width=50%>";
     
 echo "<span class='ptitlesub'>Schedule</span><br><br>";
     
-echo "<span class='tspan'>Name</span><br>";    
+echo "<span class='tspan'>Name:</span><br>";    
 echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br><br>";
+echo "<span class='tspan'>Start time:</span><br>";    
+echo "<input type='text' name='start' value='$SCHED_START' class='itextbox'><br><br>";
+echo "<span class='tspan'>End time:</span><br>";    
+echo "<input type='text' name='end' value='$SCHED_END' class='itextbox'><br><br>";
     
     
-echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
-echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'"><br>';
+#echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
+#echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'"><br>';
 
 $SCHED_DOW1 = $row["dow1"]; if ( $SCHED_DOW1 == '1' ) { $SCHED_DOW1_CHK = 'checked="checked"'; }else{ $SCHED_DOW1_CHK = ''; }
 $SCHED_DOW2 = $row["dow2"]; if ( $SCHED_DOW2 == '1' ) { $SCHED_DOW2_CHK = 'checked="checked"'; }else{ $SCHED_DOW2_CHK = ''; }
