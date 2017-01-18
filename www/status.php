@@ -127,19 +127,19 @@ $sql_modes = "SELECT * FROM modes;";
 $result_modes = mysqli_query($conn, $sql_modes);
 if (mysqli_num_rows($result_modes) == 0) {
     echo "0 modes results"; 
-    }
+}
 
 $sql_sensor = "SELECT * from sensors WHERE id = '".$GET_SENSOR_ID."';";
 $result_sensor = mysqli_query($conn, $sql_sensor);
 if (mysqli_num_rows($result_sensor) == 0) {
     echo "0 sensors results"; 
-    }
+}
 
 $sql_timers = "SELECT * FROM timers;";
 $result_timers = mysqli_query($conn, $sql_timers);
 if (mysqli_num_rows($result_timers) == 0) {
     echo "0 timers results"; 
-    }
+}
 
 
 echo '<br><br>';
@@ -250,6 +250,8 @@ while($row = mysqli_fetch_assoc($result)) {
     echo "<input type='button' onclick='location.href=\"status.php?sid=$SENSOR_ID&gid=$GET_GRAPH_ID&gsp=$GET_GRAPH_SP\";' value='$SENSOR_NAME' class='bgrey' />";
 } 
 
+echo "</td><td width=1% align=center>";
+    
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1h\";' value='One hour' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-3h\";' value='Three hours' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-12h\";' value='Twelve hours' class='bgrey' />";
@@ -316,8 +318,8 @@ echo '</form>';
 
 #echo "<td width=66%>";
     
-create_graph( $rrd_dir.$GRAPH_ID.".rrd", $img_dir.$GRAPH_ID.$GRAPH_SP.".png", 	$GRAPH_SP, 	$row["name"],	 	   "180", "700");
-echo "<img src='".$img_dir.$GRAPH_ID.$GRAPH_SP.".png' alt='RRD image'>";  
+create_graph( $rrd_dir.$GET_GRAPH_ID.".rrd", $img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png", 	$GET_GRAPH_SP, 	$SENSOR_NAME,	 	   "180", "700");
+echo "<img src='".$img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png' alt='RRD image'>";  
     
 echo "</td></tr>";
 echo "</table>";
