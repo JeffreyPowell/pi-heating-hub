@@ -272,7 +272,7 @@ if (mysqli_num_rows($result) == 0) {
     echo "sensors 0 results"; 
 }
 
-echo "<form name='graph' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
+echo "<form name='graph' method='post' action='status.php?sid=".$GET_SENSOR_ID."&gid=".$GET_GRAPH_ID."&gsp=".$GET_GRAPH_SP."'>";
 
 
 echo '<select name="gid">';
