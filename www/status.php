@@ -256,10 +256,10 @@ echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_I
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-3h\";' value='Three hours' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-12h\";' value='Twelve hours' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-24h\";' value='One Day' class='bgrey' />";
-echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-3d\";' value='Three Days' class='bgrey' />";
+#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-3d\";' value='Three Days' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1w\";' value='One week' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1m\";' value='One month' class='bgrey' />";
-echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1y\";' value='One year' class='bgrey' />";
+#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1y\";' value='One year' class='bgrey' />";
 
 echo "</td>";
 
@@ -274,7 +274,7 @@ if (mysqli_num_rows($result) == 0) {
 
 echo "<form name='graph' method='post' action='status.php?sid=".$GET_SENSOR_ID."&gid=".$GET_GRAPH_ID."&gsp=".$GET_GRAPH_SP."'>";
 
-
+/*
 echo '<select name="gid">';
 
 $sql = "SELECT * FROM sensors;";
@@ -284,16 +284,17 @@ if (mysqli_num_rows($result) == 0) {
 }
 while($row = mysqli_fetch_assoc($result)) {
 
-    $SENSOR_NAME = $row["name"];
-    $SENSOR_ID = $row["id"];
+    $LOOP_SENSOR_NAME = $row["name"];
+    $LOOP_SENSOR_ID = $row["id"];
     
-    if ( $SENSOR_ID == $GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
+    if ( $LOOP_SENSOR_ID == $GET_GRAPH_ID ) { $SELECTED = 'selected'; }else{ $SELECTED = ''; }
 
-    echo '<option value="'.$SENSOR_ID.'" '.$SELECTED.' >'.$SENSOR_NAME.'</option>';
+    echo '<option value="'.$LOOP_SENSOR_ID.'" '.$SELECTED.' >'.$LOOP_SENSOR_NAME.'</option>';
 }
     
 echo '</select>';
-    
+*/
+/*
 echo '<select name="gsp">';
 echo '<option value="-1h" '.($GRAPH_SP=='-1h' ? 'SELECTED' : '').' >One Hour</option>';
 echo '<option value="-2h" '.($GRAPH_SP=='-2h' ? 'SELECTED' : '').' >Two Hours</option>';
@@ -307,6 +308,7 @@ echo '<option value="-3m" '.($GRAPH_SP=='-3m' ? 'SELECTED' : '').' >Three Months
 echo '<option value="-6m" '.($GRAPH_SP=='-6m' ? 'SELECTED' : '').' >Six Months</option>';
 echo '<option value="-12m" '.($GRAPH_SP=='-12m' ? 'SELECTED' : '').' >One Year</option>';
 echo '</select>';
+*/
 
 echo '<input type="submit" name="formSubmit" value="Update" />';
     
