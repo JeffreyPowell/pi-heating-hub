@@ -248,11 +248,11 @@ echo "<tr><td width=50%>";
 echo "<span class='ptitlesub'>Schedule</span>";
     
 echo "<span class='tspan'>Name:</span>";    
-echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'>";
+echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br>";
 echo "<span class='tspan'>Start time:</span>";    
-echo "<input type='text' name='start' value='$SCHED_START' class='itextbox'>";
+echo "<input type='text' name='start' value='$SCHED_START' class='itextbox'><br>";
 echo "<span class='tspan'>End time:</span>";    
-echo "<input type='text' name='end' value='$SCHED_END' class='itextbox'>";
+echo "<input type='text' name='end' value='$SCHED_END' class='itextbox'><br>";
 
 
 $SCHED_DOW1 = $row["dow1"]; if ( $SCHED_DOW1 == '1' ) { $SCHED_DOW1_CHK = 'checked="checked"'; }else{ $SCHED_DOW1_CHK = ''; }
@@ -289,7 +289,7 @@ if (mysqli_num_rows($result) == 0) {
 
 while($row = mysqli_fetch_assoc($result)) {
         $DEVICE_ACTIVE = $row["device_id"]; if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
-        echo "<input type='checkbox' name='devices[]' value='".$row['d_id']."' $DEVICE_ACTIVE_CHK /><span class='tspan'>".$row['name']."</span><br><br>";
+        echo "<input type='checkbox' name='devices[]' value='".$row['d_id']."' $DEVICE_ACTIVE_CHK /><span class='tspan'>".$row['name']."</span><br>";
     }
 
 echo "</td></tr><tr><td>";
