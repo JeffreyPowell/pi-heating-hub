@@ -15,7 +15,7 @@
     .ptitle { font: bold 32px arial; color: blue; }
     .ptitlesub { font: bold 24px arial; color: navy; }
     .itextbox { font-family: arial; color: grey; font-size: large; padding: 16px; margin: 16px; display: inline-block; width: 90%; }
-    .itextbox { font-family: arial; color: grey; font-size: small; padding: 16px; margin: 16px; display: inline-block; width: 90%; }
+    .itextboxsub { font-family: arial; color: grey; font-size: small; padding: 16px; margin: 16px; display: inline-block; width: 90%; }
     .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
@@ -306,7 +306,7 @@ echo "<table class='ttabsub' >";
 
 while($row = mysqli_fetch_assoc($result)) {
 
-    echo "<tr><td><span class='tspan'>".$row["name"]."</span></td>";
+    echo "<tr><td>".$row["name"]."</td>";
 
     $SENSOR_OPP = $row["opp"];
     if ( $SENSOR_OPP == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
