@@ -267,10 +267,10 @@ echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_I
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-3h\";' value='Three hours' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-12h\";' value='Twelve hours' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-24h\";' value='One Day' class='bgrey' />";
-#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-3d\";' value='Three Days' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-3d\";' value='Three Days' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1w\";' value='One week' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1m\";' value='One month' class='bgrey' />";
-#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1y\";' value='One year' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1y\";' value='One year' class='bgrey' />";
 
 echo "</td></tr></table>";
 
@@ -286,10 +286,10 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
 #    "--lower=0",
     "--height=$height",
     "--width=$width",
-    "-cBACK#161616",
+    "-cBACK#1a1a1a",
     "-cCANVAS#1e1e1e",
-    "-cSHADEA#000000",
-    "-cSHADEB#000000",
+    "-cSHADEA#1a1a1a",
+    "-cSHADEB#1a1a1a",
     "-cFONT#c7c7c7",
     "-cGRID#888800",
     "-cMGRID#ffffff",
@@ -297,8 +297,8 @@ function create_graph($rrdfile, $output, $start, $title, $height, $width) {
     "-nAXIS:12",
     "-nUNIT:10",
     "-y 1:5",
-    "-cFRAME#ffffff",
-    "-cARROW#000000",
+    "-cFRAME#1a1a1a",
+    "-cARROW#1a1a1a",
     "DEF:callmax=$rrdfile:data:MAX",
     "CDEF:transcalldatamax=callmax,1,*",
     "AREA:transcalldatamax#a0b84240",
