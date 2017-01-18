@@ -184,7 +184,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "</td>";
         
         echo "<td>";
-        echo "<input type='button' onclick='location.href=\"/netdevice-edit.php?id=$SCHED_ID\";' value='Edit' class='bblue' />";
+        echo "<input type='button' onclick='location.href=\"/sched-edit.php?id=$SCHED_ID\";' value='Edit' class='bblue' />";
         echo "</td>";
         
         echo "<td><form method='post' action='/sched-list.php'>";
@@ -196,38 +196,7 @@ if (mysqli_num_rows($result) > 0) {
         
         
         
-        
-        #echo "<td><form method='post' action='/sched-edit.php?id=".$SCHED_ID."'>";
-        #echo "<input type='submit' name='edit' value='Edit'></form></td>";
-        
-        #echo "<td><form method='post' action='/sched-list.php'>";
-        #echo "<input type='hidden' name='sched_id' value='".$SCHED_ID."'>";
-        #echo "<input type='submit' name='delete' value='Delete'></form></td>";
-        
-        #if ( $SCHED_ACTIVE ) {
-        #    echo "<td><img src='/images/dot-green.png' alt='Schedule Active' height='16' width='16'></td>";
-        #} else {
-        #    echo "<td><img src='/images/dot-red.png' alt='Schedule Inactive' height='16' width='16'></td>";
-        #}
-        
-        #echo "<td><span class='ccolname'>".$SCHED_NAME."</span></td>";
-        #echo "<td><span class='ccolstart'>".$SCHED_START."</span></td>";
-        #echo "<td><span class='ccolend'>".$SCHED_END."</span></td>";
-      
-        #echo "<td><span class='ccoldowun'>";
-        
-        #echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
-        #echo '<tr>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
-        #echo '</tr></table>';
-
-        #echo "</span></td>";
+   
 
         echo "</tr>";
     }    
