@@ -61,7 +61,7 @@ while($row = mysqli_fetch_assoc($result_sensors)) {
 
 $SENSOR_ID = isset($_GET['sid']) ? $_GET['sid'] : $SENSOR_MAX_ID;
 $GRAPH_ID = isset($_GET['gid']) ? $_GET['gid'] : $SENSOR_MAX_ID;
-$GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-1h';
+$GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-24h';
     
 /*    
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
