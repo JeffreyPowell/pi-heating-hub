@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-    .pbody { background-color: #080808; }
+    .pbody { background-color: #080808; font-family: courier; color: red; font-size: small; }
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
     .ttab  { width: 100%; vertical-align: top; }
