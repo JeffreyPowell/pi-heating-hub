@@ -91,7 +91,7 @@
         }
         
         $row = mysqli_fetch_assoc($result);
-        $NETDEV_NAME = htmlspecialchars($row["name"]);
+        $NETDEV_NAME = urlencode($row["name"]);
         $NETDEV_MAC = $row["mac"];
         
         echo "<span class='ptitle'>EDIT Network Device '$NETDEV_NAME'</span><br><br>";
