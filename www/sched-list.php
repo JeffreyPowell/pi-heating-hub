@@ -152,22 +152,12 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td class='dcolname' ><span class='dspan'>$SCHED_END</span></td>";
         
         echo "<td>";
-        #echo "<table><tr><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>";
-        #echo '<tr>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow1" '.$SCHED_DOW1_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow2" '.$SCHED_DOW2_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow3" '.$SCHED_DOW3_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow4" '.$SCHED_DOW4_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow5" '.$SCHED_DOW5_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
-        #echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
-        #echo '</tr></table>';
      
-        #echo"<br>";
         $DOT_SIZE='14.5';
         echo "<span class='dspan'>MTWTFSS</span><br>";
         if ( $SCHED_DOW1 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='$DOT_SIZE' width='$DOT_SIZE'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='$DOT_SIZE' width='$DOT_SIZE'>"; }
         if ( $SCHED_DOW2 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='$DOT_SIZE' width='$DOT_SIZE'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='$DOT_SIZE' width='$DOT_SIZE'>"; }
+        if ( $SCHED_DOW3 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='$DOT_SIZE' width='$DOT_SIZE'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='$DOT_SIZE' width='$DOT_SIZE'>"; }
         if ( $SCHED_DOW4 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='$DOT_SIZE' width='$DOT_SIZE'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='$DOT_SIZE' width='$DOT_SIZE'>"; }
         if ( $SCHED_DOW5 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='$DOT_SIZE' width='$DOT_SIZE'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='$DOT_SIZE' width='$DOT_SIZE'>"; }
         if ( $SCHED_DOW6 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='$DOT_SIZE' width='$DOT_SIZE'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='$DOT_SIZE' width='$DOT_SIZE'>"; }
