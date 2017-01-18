@@ -272,9 +272,10 @@ if (mysqli_num_rows($result) == 0) {
     echo "sensors 0 results"; 
 }
 
+/*
 echo "<form name='graph' method='post' action='status.php?sid=".$GET_SENSOR_ID."&gid=".$GET_GRAPH_ID."&gsp=".$GET_GRAPH_SP."'>";
 
-/*
+
 echo '<select name="gid">';
 
 $sql = "SELECT * FROM sensors;";
@@ -308,12 +309,13 @@ echo '<option value="-3m" '.($GRAPH_SP=='-3m' ? 'SELECTED' : '').' >Three Months
 echo '<option value="-6m" '.($GRAPH_SP=='-6m' ? 'SELECTED' : '').' >Six Months</option>';
 echo '<option value="-12m" '.($GRAPH_SP=='-12m' ? 'SELECTED' : '').' >One Year</option>';
 echo '</select>';
-*/
+
 
 echo '<input type="submit" name="formSubmit" value="Update" />';
     
 echo '</form>';
 
+*/
 #echo '<br>';
     
 #echo "</td>";
