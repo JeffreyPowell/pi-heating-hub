@@ -287,15 +287,20 @@ if (mysqli_num_rows($result) == 0) {
         echo "devices 0 results";
     }
 
+echo "<table class='ttabsub' >";
+
 while($row = mysqli_fetch_assoc($result)) {
     $DEVICE_NAME = $row["name"];
     $DEVICE_ID = $row["d_id"];
     $DEVICE_ACTIVE = $row["device_id"];
     
     if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
-    echo "<input type='checkbox' name='devices[]' value='$DEVICE_ID' $DEVICE_ACTIVE_CHK /><span class='tspan'>$DEVICE_NAME</span><br>";
+    
+    echo "<tr><td><span class='tspan'>$DEVICE_NAME</span></td><td><input type='checkbox' name='devices[]' value='$DEVICE_ID' $DEVICE_ACTIVE_CHK /></td></tr>";
 }
 
+echo "</table>";
+    
 echo "</td></tr><tr><td>";
 
 
