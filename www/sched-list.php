@@ -183,13 +183,6 @@ if (mysqli_num_rows($result) > 0) {
 
         echo "</td>";
         
-
-        if ( $SCHED_ACTIVE ) {
-            echo "<td class='dcolstatus' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
-        } else {
-            echo "<td class='dcolstatus' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
-        }     
-        
         echo "<td>";
         echo "<input type='button' onclick='location.href=\"/netdevice-edit.php?id=$SCHED_ID\";' value='Edit' class='bblue' />";
         echo "</td>";
