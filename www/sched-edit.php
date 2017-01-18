@@ -21,7 +21,7 @@
     .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bred {   background-color: red;   border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     table, th, td { border: 5px solid #080808; }
-    th, td {  background-color: #1a1a1a; vertical-align: top; padding: 16px;  }
+    th, td {  background-color: #1a1a1a; vertical-align: top; padding: 8px;  }
 </style>
 </head>
 <body class='pbody'>
