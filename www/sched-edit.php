@@ -249,8 +249,8 @@ echo "<span class='ptitlesub'>Schedule</span><br>";
  
 echo "<table class='ttabsub'>";
 echo "<tr><td>Name:</td><td><input type='text' name='name' value='$SCHED_NAME' class='itextboxsub'></td></tr>";
-echo "<tr><td>Start time:</td><td><input type='text' name='name' value='$SCHED_START' class='itextboxsub'></td></tr>";
-echo "<tr><td>End time:</td><td><input type='text' name='name' value='$SCHED_END' class='itextboxsub'></td></tr>";
+echo "<tr><td>Start time:</td><td><input type='text' name='start' value='$SCHED_START' class='itextboxsub'></td></tr>";
+echo "<tr><td>End time:</td><td><input type='text' name='end' value='$SCHED_END' class='itextboxsub'></td></tr>";
 echo "</table>";
 
 
