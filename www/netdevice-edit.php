@@ -103,7 +103,7 @@
         echo "</td></tr><tr><td>";
         
         echo "<span class='tspan'>MAC Address</span><br>";
-        echo "<input type='text' name='duration' value='$NETDEV_MAC' class='itextbox'><br><br>";
+        echo "<input type='text' name='mac' value='$NETDEV_MAC' class='itextbox'><br><br>";
  
         echo "</td></tr>";
         
