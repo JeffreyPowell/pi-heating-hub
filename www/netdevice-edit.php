@@ -34,7 +34,7 @@
         $dbname = "pi_heating_db";
         
         #print_r($_GET);
-        $TIMER_ID = $_GET['id'];
+        $NETDEV_ID = $_GET['id'];
         
         #echo $DEVICE_ID;
         #echo $_SERVER["REQUEST_METHOD"];
@@ -53,8 +53,8 @@
                 if ( isset($_POST["save"]) ) {
                         #echo "#### save ####";
                         
-                        $POST_TIMER_NAME = $_POST["name"];
-                        $POST_TIMER_DURATION = $_POST["duration"];
+                        $POST_NETDEV_NAME = $_POST["name"];
+                        $POST_NETDEV_MAC = $_POST["mac"];
                         
                         // Create connection
                         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -63,7 +63,7 @@
                                 die("<br><br>Connection failed: " . mysqli_connect_error());
                         }
                         # Update schedules with post data
-                        $sql = "UPDATE timers SET name = '$POST_TIMER_NAME', duration = '$POST_TIMER_DURATION' WHERE id='$TIMER_ID';";
+                        $sql = "UPDATE network SET name = '$POST_NETDEV_NAME', mac = '$POST_NETDEV_MAC' WHERE id='$NETDEV_ID';";
                         #echo $sql;
                         if (mysqli_query($conn, $sql)) {
                                 #echo "<br><br>Schedule updated successfully";
@@ -81,8 +81,8 @@
         if (!$conn) {
                 die("<br><br>Connection failed: " . mysqli_connect_error());
         }
-        echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$TIMER_ID.'">';
-        $sql = "SELECT * FROM timers WHERE id=".$TIMER_ID;
+        echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$NETDEV_ID.'">';
+        $sql = "SELECT * FROM network WHERE id=".$NETDEV_ID;
         #echo $sql;
         $result = mysqli_query($conn, $sql);
         #print_r( $result );
@@ -91,19 +91,19 @@
         }
         
         $row = mysqli_fetch_assoc($result);
-        $TIMER_NAME = $row["name"];
-        $TIMER_DURATION = $row["duration"];
+        $NETDEV_NAME = $row["name"];
+        $NETDEV_MAC = $row["mac"];
         
-        echo "<span class='ptitle'>EDIT Timer '$TIMER_NAME'</span><br><br>";
+        echo "<span class='ptitle'>EDIT Network Device '$NETDEV_NAME'</span><br><br>";
         echo "<table class='ttab'>";
         echo "<tr><td>";
         echo "<span class='tspan'>Name</span><br>";
-        echo "<input type='text' name='name' value='$TIMER_NAME' class='itextbox'><br><br>";
+        echo "<input type='text' name='name' value='$NETDEV_NAME' class='itextbox'><br><br>";
         
         echo "</td></tr><tr><td>";
         
-        echo "<span class='tspan'>Duration</span><br>";
-        echo "<input type='text' name='duration' value='$TIMER_DURATION' class='itextbox'><br><br>";
+        echo "<span class='tspan'>MAC Address</span><br>";
+        echo "<input type='text' name='duration' value='$NETDEV_MAC' class='itextbox'><br><br>";
  
         echo "</td></tr>";
         
@@ -111,7 +111,7 @@
         
         echo "<input type='submit' name='save' value='Save' class='bgreen' />";
         echo "&nbsp;&nbsp;";
-        echo "<input type='button' onclick='location.href=\"/timers-list.php\";' value='Done' class='bgrey' />";
+        echo "<input type='button' onclick='location.href=\"/netdevices-list.php\";' value='Done' class='bgrey' />";
         echo '</form>';
         mysqli_close($conn);
 ?>
