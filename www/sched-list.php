@@ -122,10 +122,10 @@ if (mysqli_num_rows($result) > 0) {
     
     echo "<table class='ttab' ><tr>";
     echo "<th class='tcol'><span class='tspan'>Name</span></th>";
-    echo "<th class='tcol'><span class='tspan'>Start Time</span></th>";
-    echo "<th class='tcol'><span class='tspan'>End Time</span></th>";
-    echo "<th class='tcol'><span class='tspan'>Repeat</span></th>"; 
-    echo "<th class='tcol'><span class='tspan'>Status</span></th>";
+    echo "<th width=1%><span class='tspan'>Start Time</span></th>";
+    echo "<th width=1%><span class='tspan'>End Time</span></th>";
+    echo "<th width=1%><span class='tspan'>Repeat</span></th>"; 
+    echo "<th width=1%><span class='tspan'>Status</span></th>";
     echo "<th width=1%></th>";
     echo "<th width=1%></th>";
     echo "</tr>";
@@ -162,6 +162,23 @@ if (mysqli_num_rows($result) > 0) {
         echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow6" '.$SCHED_DOW6_CHK.' /></td>';
         echo '<td><input type="checkbox" disabled="disabled" name="repeat_dow[]" value="dow7" '.$SCHED_DOW7_CHK.' /></td>';
         echo '</tr></table>';
+     
+        echo"<br>";
+        echo "M T W T F S S<br>";
+        if ( $SCHED_DOW1 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
+        if ( $SCHED_DOW2 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
+        if ( $SCHED_DOW4 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
+        if ( $SCHED_DOW5 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
+        if ( $SCHED_DOW6 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
+        if ( $SCHED_DOW7 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
+
+        echo "</td>";
+        
+        if ( $SCHED_ACTIVE ) {
+            echo "<td class='dcolstatus' ><img src='/images/dot-green.png' alt='Schedule Active' height='32' width='32'></td>";
+        } else {
+            echo "<td class='dcolstatus' ><img src='/images/dot-red.png' alt='Schedule Inactive' height='32' width='32'></td>";
+        }
 
         echo "</td>";
         
