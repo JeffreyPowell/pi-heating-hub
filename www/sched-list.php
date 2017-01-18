@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_close($conn);
     }
     
-    if ( array_key_exists( 'delete', $_POST ) ) 
+    if ( array_key_exists( 'delete', $_POST ) ) {
     
         // Create connection
         $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -114,6 +114,7 @@ if (!$conn) {
 }
 $sql = "SELECT * FROM schedules order by name asc";
 $result = mysqli_query($conn, $sql);
+    
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
 
