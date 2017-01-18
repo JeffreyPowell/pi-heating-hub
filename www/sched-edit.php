@@ -15,7 +15,7 @@
     .ptitle { font: bold 32px arial; color: blue; }
     .ptitlesub { font: bold 24px arial; color: navy; }
     .itextbox { font-family: arial; color: grey; font-size: 12pt; padding: 8px; margin: 4px; display: block; }
-    .itextboxsub { font-family: arial; color: grey; font-size: 11pt; padding: 4px; margin: 0px; display: block; width:  100%; }
+    .itextboxsub { font-family: arial; color: grey; font-size: 11pt; padding: 4px; margin: 4px; display: block; width:  100%; }
     .bgrey {  background-color: grey;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bblue {  background-color: blue;  border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
     .bgreen { background-color: green; border: none; color: white; padding: 8px 16px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-family: arial; margin: 12px ; }
