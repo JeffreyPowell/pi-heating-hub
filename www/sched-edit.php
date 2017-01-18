@@ -278,7 +278,7 @@ echo '</tr></table>';
 
 echo "</td><td width=50%>";
 
-echo "<span class='ptitlesub'>Activate Devices</span>";
+echo "<span class='ptitlesub'>Activate Devices</span><br><br>";
 
 
 $sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID.";";
@@ -326,28 +326,18 @@ while($row = mysqli_fetch_assoc($result)) {
     echo "<td><input type='text' name='sensor_".$row["id"]."_value' value='".$row["value"]."' class='itextboxsub'></td></tr>";
     }
 echo '</table>';
-
-echo '<br><br>';
-
-        
+      
 echo '</td><td>';
 
-    
-    
-    
-    
-    
-    
-    
-    
-echo '<h2>AND Modes</h2><br>';
+echo "<span class='ptitlesub'>AND Modes</span>";
 
 $sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results";
     }
-echo '<table>';
+    
+echo "<table class='ttabsub' >";
 
 while($row = mysqli_fetch_assoc($result)) {
 
