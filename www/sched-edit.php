@@ -246,12 +246,12 @@ echo "<tr><td width=50%>";
     
 echo "<span class='ptitlesub'>Schedule</span><br><br>";
     
-echo "<span class='tspan'>Name:</span><br>";    
-echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br><br>";
-echo "<span class='tspan'>Start time:</span><br>";    
-echo "<input type='text' name='start' value='$SCHED_START' class='itextbox'><br><br>";
-echo "<span class='tspan'>End time:</span><br>";    
-echo "<input type='text' name='end' value='$SCHED_END' class='itextbox'><br><br>";
+echo "<span class='tspan'>Name:</span>";    
+echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br>";
+echo "<span class='tspan'>Start time:</span>";    
+echo "<input type='text' name='start' value='$SCHED_START' class='itextbox'><br>";
+echo "<span class='tspan'>End time:</span>";    
+echo "<input type='text' name='end' value='$SCHED_END' class='itextbox'><br>";
     
     
 #echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
