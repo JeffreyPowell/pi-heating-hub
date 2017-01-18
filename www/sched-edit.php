@@ -360,31 +360,24 @@ while($row = mysqli_fetch_assoc($result)) {
     }
 echo '</table>';
 
-
-echo '<br><br>';
-
-    
-    
 echo "</td></tr>";   
-    
+
 echo "<tr><td>";  
-    
-    
-echo '<h2>AND Timers</h2><br>';
+
+echo "<span class='ptitlesub'>AND Timers</span>";
 
 $sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results";
     }
-echo '<table>';
+echo "<table class='ttabsub' >";
 
 while($row = mysqli_fetch_assoc($result)) {
 
     echo '<tr><td>'.$row["name"].'</td>';
 
     $TIMER_ID = $row["id"];
-    #$TIMER_OPP = $row["opp"];
     $TIMER_VALUE = $row["value"];
     
 
@@ -399,21 +392,11 @@ while($row = mysqli_fetch_assoc($result)) {
     echo '</select></td>';
 
     }
-echo '</table>';
+echo '</table>';   
 
-
-echo '<br><br>';
-
-    
-    
-    
 echo "</td><td>";   
-    
-    
-    
-    
-    
-echo '<h2>AND Who is Connected</h2><br>';
+
+echo "<span class='ptitlesub'>AND Who is Connected</span>";
 
 $sql = "SELECT * FROM network LEFT JOIN sched_network ON network.id=sched_network.network_id AND sched_network.sched_id='".$SCHED_ID."';";
 
@@ -423,17 +406,14 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 0) {
         echo "sensors 0 results";
     }
-echo '<table>';
+echo "<table class='ttabsub' >";
 
 while($row = mysqli_fetch_assoc($result)) {
 
     echo '<tr><td>'.$row["name"].'</td>';
 
     $NETWORK_ID = $row["id"];
-    #$NETWORK_OPP = $row["opp"];
     $NETWORK_VALUE = $row["test"];
-    
-
 
     if ( $NETWORK_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
     if ( $NETWORK_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
