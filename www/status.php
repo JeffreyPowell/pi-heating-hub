@@ -206,7 +206,7 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     }
     echo "</form>";
     }
-echo "<input type='button' onclick='location.href=\"sched-list.php\";' value='Schedules' class='bgrey' />";
+
 while($row = mysqli_fetch_assoc($result_timers)) {
     $TIMER_ID = $row["id"];
     $TIMER_NAME = $row["name"];
