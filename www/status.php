@@ -137,7 +137,7 @@ if (mysqli_num_rows($result_timers) == 0) {
 }
 
 
-echo "<table width='100%' border='1'>";
+echo "<table class='ttab'>";
 echo "<tr>";
 
 echo "<td width=33%>";
@@ -219,7 +219,7 @@ echo "</table>";
     
 echo '<td>';
 
-echo "<table width='100%' border='1'>";
+echo "<table class='ttab'>";
 echo "<tr>";
     
 echo "<td width=1% align=center>";
@@ -262,7 +262,7 @@ echo "<img src='".$img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png' alt='RRD image'>";
 echo "</td></tr>";
 echo "</table>";
     
-echo "<table width=100%><tr><td>";
+echo "<table class='ttab'><tr><td>";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1h\";' value='One hour' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-3h\";' value='Three hours' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-12h\";' value='Twelve hours' class='bgrey' />";
