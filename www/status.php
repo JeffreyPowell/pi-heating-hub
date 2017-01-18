@@ -252,14 +252,14 @@ while($row = mysqli_fetch_assoc($result)) {
 
 echo "</td><td width=1% align=center>";
     
-echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1h\";' value='One hour' class='bgrey' />";
-echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-3h\";' value='Three hours' class='bgrey' />";
-echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-12h\";' value='Twelve hours' class='bgrey' />";
-echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-24h\";' value='One Day' class='bgrey' />";
-#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-3d\";' value='Three Days' class='bgrey' />";
-echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1w\";' value='One week' class='bgrey' />";
-echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1m\";' value='One month' class='bgrey' />";
-#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_GRAPH_ID&gsp=-1y\";' value='One year' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1h\";' value='One hour' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-3h\";' value='Three hours' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-12h\";' value='Twelve hours' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-24h\";' value='One Day' class='bgrey' />";
+#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-3d\";' value='Three Days' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1w\";' value='One week' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1m\";' value='One month' class='bgrey' />";
+#echo "<input type='button' onclick='location.href=\"status.php?sid=$GET_SENSOR_ID&gid=$GET_SENSOR_ID&gsp=-1y\";' value='One year' class='bgrey' />";
 
 echo "</td>";
 
