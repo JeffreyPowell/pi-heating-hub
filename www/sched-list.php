@@ -208,12 +208,7 @@ if (mysqli_num_rows($result) > 0) {
 }
   
 mysqli_close($conn);
-?>  
-
-<form method='post' action='sched-list.php'>
-<input type='submit' name='add' value='Add new'>
-<input type="submit" name="done" value="Done" />
-</form>
+?>
 
 <form method='post' action='sched-list.php'>
 <input type='submit' name='add' value='Add new' class='bgreen' />
