@@ -98,7 +98,7 @@
         echo "<table class='ttab'>";
         echo "<tr><td>";
         echo "<span class='tspan'>Name</span><br>";
-        echo "<input type='text' name='name' value='$NETDEV_NAME' class='itextbox'><br><br>";
+        echo "<input type='text' name='name' value='".$NETDEV_NAME."' class='itextbox'><br><br>";
         
         echo "</td></tr><tr><td>";
         
