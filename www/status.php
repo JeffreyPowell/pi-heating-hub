@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="refresh" content="30">
 <style>
-    .sensorvalue {font-family: courier; color: green; font-size:300pt;}
-    .sensorvaluedec {font-family: courier; color: green; font-size:100pt;}
-    .sensorname {font-family: courier; color: green; font-size:32pt;}
+    .sensorvalue {font-family: courier; color: green; font-size:200pt;}
+    .sensorvaluedec {font-family: courier; color: green; font-size:80pt;}
+    .sensorname {font-family: courier; color: green; font-size:28pt;}
     .pbody { background-color: #080808; font-family: courier; color: red; font-size: small;}
     .debug { font-family: courier; color: red; font-size: large; }
     .error { color: #FF0000; }
