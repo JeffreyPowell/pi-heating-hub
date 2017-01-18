@@ -53,7 +53,7 @@
                 if ( isset($_POST["save"]) ) {
                         #echo "#### save ####";
                         
-                        $POST_NETDEV_NAME = htmlentities($_POST["name"]);
+                        $POST_NETDEV_NAME = urlencode($_POST["name"]);
                         $POST_NETDEV_MAC = $_POST["mac"];
                         
                         // Create connection
@@ -91,7 +91,7 @@
         }
         
         $row = mysqli_fetch_assoc($result);
-        $NETDEV_NAME = urlencode($row["name"]);
+        $NETDEV_NAME = htmlentities($row["name"]);
         $NETDEV_MAC = $row["mac"];
         
         echo "<span class='ptitle'>EDIT Network Device '$NETDEV_NAME'</span><br><br>";
