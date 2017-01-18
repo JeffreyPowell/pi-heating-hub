@@ -242,15 +242,13 @@ echo '<form method="post" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'?id=
 
 echo "<table class='ttab'>";
 echo "<tr><td width=50%>";    
-      
-    
     
 echo "<span class='ptitlesub'>Schedule</span><br><br>";
-
-echo '<br><br>';
-#echo htmlspecialchars($_SERVER["PHP_SELF"]).'/?id='.$SCHED_ID;
-echo '<br><br>';
-echo 'Title: <input type="text" name="name" value="'.$SCHED_NAME.'"><br>';
+    
+echo "<span class='tspan'>Name</span><br>";    
+echo "<input type='text' name='name' value='$SCHED_NAME' class='itextbox'><br><br>"
+    
+    
 echo 'Start time: <input type="text" name="start" value="'.$SCHED_START.'"><br>';
 echo 'End time: <input type="text" name="end" value="'.$SCHED_END.'"><br>';
 
