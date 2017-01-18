@@ -154,34 +154,13 @@ echo "<tr>";
 
 echo "<td width=33%>";
 
-echo "<input type='button' onclick='location.href=\"sched-list.php\";' value='Schedules' class='bgrey' />";
+echo "<input type='button' onclick='location.href=\"sched-list.php\";' value='Schedules' class='bblue' />";
 echo "<input type='button' onclick='location.href=\"sensors-list.php\";' value='Input Sensors' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"devices-list.php\";' value='Output Devices' class='bgrey' />";
 echo "<input type='button' onclick='location.href=\"modes-list.php\";' value='Modes' class='bgrey' />";    
 echo "<input type='button' onclick='location.href=\"timers-list.php\";' value='Timers' class='bgrey' />";    
 echo "<input type='button' onclick='location.href=\"netdevices-list.php\";' value='Connected Devices' class='bgrey' />";    
    
-
-
-#echo "<a href='sched-list.php'>Schedules</a>";
-#echo "<br><br>";
-
-#echo "<a href='sensors-list.php'>Input Sensors</a>";
-#echo "<br><br>";
-    
-#echo "<a href='devices-list.php'>Output Devices</a>";
-#echo "<br><br>";
-    
-#echo "<a href='modes-list.php'>Modes</a>";
-#echo "<br><br>";
-    
-#echo "<a href='timers-list.php'>Timers</a>";
-#echo "<br><br>";
-    
-#echo "<a href='netdevices-list.php'>Connected Devices</a>";
-#echo "<br><br>";
-
-
 echo "</td>";
 
     
@@ -217,18 +196,17 @@ while($row = mysqli_fetch_assoc($result_modes)) {
     $MODE_ID = $row["id"];
     $MODE_NAME = $row["name"];
     $MODE_VALUE = $row["value"];
-    #echo $MODE_NAME;
-    #echo $MODE_VALUE;
+
     echo "<br>";
     echo "<form name='modes' method='post' action='status.php?sid=".$SENSOR_ID."&gid=".$GRAPH_ID."&gsp=".$GRAPH_SP."'>";
     if ( $MODE_VALUE =='0' ) {
-        echo "<input type='submit' class='button' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode'>";
+        echo "<input type='submit' class='button' name='enable-mode-".$MODE_ID."' value='Enable ".$MODE_NAME." mode' class='bred' />";
     }else{
-        echo "<input type='submit' class='button' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode'>";
+        echo "<input type='submit' class='button' name='disable-mode-".$MODE_ID."' value='Disable ".$MODE_NAME." mode' class='bgreen' />";
     }
     echo "</form>";
     }
-
+echo "<input type='button' onclick='location.href=\"sched-list.php\";' value='Schedules' class='bgrey' />";
 while($row = mysqli_fetch_assoc($result_timers)) {
     $TIMER_ID = $row["id"];
     $TIMER_NAME = $row["name"];
