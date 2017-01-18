@@ -164,7 +164,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '</tr></table>';
      
         echo"<br>";
-        echo "M T W T F S S<br>";
+        echo "<span class='dspan'>MTWTFSS</span><br>";
         if ( $SCHED_DOW1 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
         if ( $SCHED_DOW2 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
         if ( $SCHED_DOW4 ) { echo "<img src='/images/dot-green.png' alt='Schedule Active' height='8' width='8'>"; }else{ echo "<img src='/images/dot-red.png' alt='Schedule Inactive' height='8' width='8'>"; }
