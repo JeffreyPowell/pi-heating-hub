@@ -41,7 +41,7 @@ $dbname = "pi_heating_db";
     $ini_array = parse_ini_file("/home/pi/pi-heating-hub/config/config.ini");
 
     print_r("<pre><BR>------------------------<BR>");
-    print_r($ini_array));
+    print_r( $ini_array );
     print_r("<BR>------------------------<BR></pre>");
 /*
     print_r("<pre><BR>0------------------------<BR>");
