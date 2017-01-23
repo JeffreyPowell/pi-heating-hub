@@ -32,12 +32,15 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
-$servername = "localhost";
-$username = "pi";
-$password = "password";
-$dbname = "pi_heating_db";
 
+    $ini_array = parse_ini_file("/home/pi/pi-heating-hub/config/config.ini", true);
+    
+    $servername = $ini_array['db']['server'];
+    $username =$ini_array['db']['user'];
+    $password = $ini_array['db']['password'];
+    $dbname = $ini_array['db']['database'];
+    
+/*
     $ini_array = parse_ini_file("/home/pi/pi-heating-hub/config/config.ini", true);
 
     print_r("<pre><BR>------------------------<BR>");
@@ -45,7 +48,7 @@ $dbname = "pi_heating_db";
     print_r( $ini_array['database'] );
     print_r( $ini_array['database']['user'] );
     print_r("<BR>------------------------<BR></pre>");
-/*
+
     print_r("<pre><BR>0------------------------<BR>");
     print_r(shell_exec('whoami'));
     print_r("<BR>1------------------------<BR>");
