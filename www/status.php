@@ -39,39 +39,10 @@
     $username =$ini_array['db']['user'];
     $password = $ini_array['db']['password'];
     $dbname = $ini_array['db']['database'];
-    
-/*
-    $ini_array = parse_ini_file("/home/pi/pi-heating-hub/config/config.ini", true);
-
-    print_r("<pre><BR>------------------------<BR>");
-    print_r( $ini_array );
-    print_r( $ini_array['database'] );
-    print_r( $ini_array['database']['user'] );
-    print_r("<BR>------------------------<BR></pre>");
-
-    print_r("<pre><BR>0------------------------<BR>");
-    print_r(shell_exec('whoami'));
-    print_r("<BR>1------------------------<BR>");
-    print_r("<pre><BR>1------------------------<BR>");
-    print_r(shell_exec('ls -lart /home'));
-    print_r("<BR>2------------------------<BR>");
-    print_r(shell_exec('ls -lart /home/pi'));
-    print_r("<BR>3------------------------<BR>");
-    print_r(shell_exec('ls -lart /home/pi/pi-heating-hub'));
-    print_r("<BR>4------------------------<BR>");
-    print_r(shell_exec('ls -lart /home/pi/pi-heating-hub/config'));
-    print_r("<BR>5------------------------<BR>");
-    print_r(shell_exec('cat /home/pi/pi-heating-hub/config/config.ini'));
-    print_r("<BR>6------------------------<BR></pre>");
-*/    
-
-    
+       
     $img_dir = 'images/chart-status-';
     $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
-    
-    #if ( $SENSOR_ID < 1 ) { $SENSOR_ID = 1; }
-
-    
+ 
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     // Check connection
@@ -92,17 +63,8 @@
     $GET_GRAPH_ID = isset($_GET['gid']) ? $_GET['gid'] : $SENSOR_MAX_ID;
     $GET_GRAPH_SP = isset($_GET['gsp']) ? $_GET['gsp'] : '-24h';
     
-/*    
-if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
-    header('Location: /sched-list.php');
-    exit();
-    }
-*/
-    
+ 
     if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-        #print_r("<pre><BR>------------------------<BR>");
-        #print_r($_POST);
-        #print_r("<BR>------------------------<BR></pre>");
     
         $POST_KEYS = array_keys($_POST);
     
@@ -239,18 +201,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
     }
 
     echo "</form>";
-
     echo "</td>";
-
     echo "</tr>";
-
     echo "</table>";
 
     echo '<td>';
-
+    
     echo "<table class='ttab'>";
     echo "<tr>";
-
     echo "<td width=1% align=center>";
 
     $sql = "SELECT * FROM sensors;";
