@@ -42,6 +42,8 @@ $dbname = "pi_heating_db";
 
     print_r("<pre><BR>------------------------<BR>");
     print_r( $ini_array );
+    print_r( $ini_array[database] );
+    print_r( $ini_array[database][user] );
     print_r("<BR>------------------------<BR></pre>");
 /*
     print_r("<pre><BR>0------------------------<BR>");
