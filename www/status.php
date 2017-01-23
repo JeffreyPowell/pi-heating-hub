@@ -44,7 +44,9 @@ $dbname = "pi_heating_db";
     #print_r(shell_exec('cat /home/pi/pi-heating-hub/config/config.ini'));
     #print_r("<BR>------------------------<BR></pre>");
 
-
+    print_r("<pre><BR>0------------------------<BR>");
+    print_r(shell_exec('whoami'));
+    print_r("<BR>1------------------------<BR>");
     print_r("<pre><BR>1------------------------<BR>");
     print_r(shell_exec('ls -lart /home'));
     print_r("<BR>2------------------------<BR>");
