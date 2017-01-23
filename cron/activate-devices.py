@@ -40,7 +40,7 @@ results_devices =cursorupdate.fetchall()
 cursorupdate.close()
 cnx.commit()
 
-print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
+print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%@")
 
 # Just set active devices that have active schedules
 cursorselect = cnx.cursor()
