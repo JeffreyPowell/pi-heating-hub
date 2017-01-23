@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["formSubmit"] == "Done" ) {
     }
 
 
-    $sql    _modes = "SELECT * FROM modes;";
+    $sql_modes = "SELECT * FROM modes;";
     $result_modes = mysqli_query($conn, $sql_modes);
     if (mysqli_num_rows($result_modes) == 0) {
         echo "0 modes results"; 
