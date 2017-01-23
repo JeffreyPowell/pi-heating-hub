@@ -1,15 +1,21 @@
 #!/usr/bin/env python
 
 import MySQLdb
-#import datetime
-#import urllib2
-#import os
+
 import datetime
   
-servername = "localhost"
-username = "pi"
-password = "password"
-dbname = "pi_heating_db"
+try:
+    from configparser import ConfigParser
+except ImportError:
+    from ConfigParser import ConfigParser
+
+config = ConfigParser()
+config.read('/home/pi/pi-heating-hub/config/config.ini')
+
+servername = config.get('db', 'server')
+username = config.get('db', 'user')
+password = config.get('db', 'password')
+dbname = config.get('db', 'database')
 
 now = datetime.datetime.now()
 DOW = datetime.datetime.today().weekday()
