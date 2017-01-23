@@ -1,21 +1,18 @@
 #!/usr/bin/env python
 
 import MySQLdb
-#import datetime
-#import urllib2
-#import os
 import datetime
-import RPi.GPIO as GPIO
+
+try:
+    import RPi.GPIO as GPIO
+except RuntimeError:
+    print("Error importing RPi.GPIO!")
 
 try:
     from configparser import ConfigParser
 except ImportError:
     from ConfigParser import ConfigParser
-    
-try:
-    import RPi.GPIO as GPIO
-except RuntimeError:
-    print("Error importing RPi.GPIO!")
+
 
 config = ConfigParser()
 config.read('/home/pi/pi-heating-hub/config/config.ini')
@@ -24,11 +21,6 @@ username = config.get('db', 'user')
 password = config.get('db', 'password')
 dbname = config.get('db', 'database')
 
-
-#servername = "localhost"
-#username = "pi"
-#password = "password"
-#dbname = "pi_heating_db"
 
 cnx = MySQLdb.connect(host=servername, user=username, passwd=password, db=dbname)
 
