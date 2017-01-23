@@ -38,12 +38,12 @@ $username = "pi";
 $password = "password";
 $dbname = "pi_heating_db";
 
-    #$ini_array = parse_ini_file("/home/pi/pi-heating-hub/config/config.ini");
+    $ini_array = parse_ini_file("/home/pi/pi-heating-hub/config/config.ini");
 
-    #print_r("<pre><BR>------------------------<BR>");
-    #print_r(shell_exec('cat /home/pi/pi-heating-hub/config/config.ini'));
-    #print_r("<BR>------------------------<BR></pre>");
-
+    print_r("<pre><BR>------------------------<BR>");
+    print_r(shell_exec('cat /home/pi/pi-heating-hub/config/config.ini'));
+    print_r("<BR>------------------------<BR></pre>");
+/*
     print_r("<pre><BR>0------------------------<BR>");
     print_r(shell_exec('whoami'));
     print_r("<BR>1------------------------<BR>");
@@ -58,7 +58,7 @@ $dbname = "pi_heating_db";
     print_r("<BR>5------------------------<BR>");
     print_r(shell_exec('cat /home/pi/pi-heating-hub/config/config.ini'));
     print_r("<BR>6------------------------<BR></pre>");
-    
+*/    
 
     
     $img_dir = 'images/chart-status-';
