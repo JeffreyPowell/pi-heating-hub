@@ -45,15 +45,15 @@ $dbname = "pi_heating_db";
     print_r("<BR>------------------------<BR></pre>");
 
     
-    print_r("<pre><BR>------------------------<BR>");
+    print_r("<pre><BR>1------------------------<BR>");
     print_r(shell_exec('ls -lart /home'));
-    print_r("<BR>------------------------<BR>");
+    print_r("<BR>2------------------------<BR>");
     print_r(shell_exec('ls -lart /home/pi'));
-    print_r("<BR>------------------------<BR>");
+    print_r("<BR>3------------------------<BR>");
     print_r(shell_exec('ls -lart /home/pi/pi-heating-hub'));
-    print_r("<BR>------------------------<BR>");
+    print_r("<BR>4------------------------<BR>");
     print_r(shell_exec('ls -lart /home/pi/pi-heating-hub/config'));
-    print_r("<BR>------------------------<BR></pre>");
+    print_r("<BR>5------------------------<BR></pre>");
     
 
     
