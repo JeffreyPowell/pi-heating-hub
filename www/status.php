@@ -43,6 +43,19 @@ $dbname = "pi_heating_db";
     print_r("<pre><BR>------------------------<BR>");
     print_r($ini_array);
     print_r("<BR>------------------------<BR></pre>");
+
+    
+    print_r("<pre><BR>------------------------<BR>");
+    print_r(shell_exec('ls -lart /home'));
+    print_r("<BR>------------------------<BR>");
+    print_r(shell_exec('ls -lart /home/pi'));
+    print_r("<BR>------------------------<BR>");
+    print_r(shell_exec('ls -lart /home/pi/pi-heating-hub'));
+    print_r("<BR>------------------------<BR>");
+    print_r(shell_exec('ls -lart /home/pi/pi-heating-hub/config'));
+    print_r("<BR>------------------------<BR></pre>");
+    
+
     
     $img_dir = 'images/chart-status-';
     $rrd_dir = '/home/pi/pi-heating-hub/data/s-';
