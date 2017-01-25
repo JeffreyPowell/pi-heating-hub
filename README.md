@@ -1,3 +1,3 @@
 # pi-heating-controller
 
-jffrypwll@googlemail.com
+jffrypwll @ googlemail.com
