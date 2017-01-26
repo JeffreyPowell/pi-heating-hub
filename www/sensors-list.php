@@ -114,13 +114,12 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    echo "<span class='ptitle'>Available Input Sensors</span>";
-    #echo "<div align='center'>";
-
     $sql = "SELECT * FROM sensors;";
     $result = mysqli_query($conn, $sql);
     
     if (mysqli_num_rows($result) > 0) {
+        
+        echo "<span class='ptitle'>Available Input Sensors</span>";
 
         echo "<table class='ttab'><tr>";
         echo "<th class='tcol'><span class='tspan'>Name</span></th>";
