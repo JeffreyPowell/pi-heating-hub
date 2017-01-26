@@ -398,30 +398,30 @@
 
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) == 0) {
-        echo "sensors 0 results";
-    }
-    echo "<table class='ttabsub' >";
+        #echo "network 0 results";
+    }else{
+        echo "<table class='ttabsub' >";
 
-    while($row = mysqli_fetch_assoc($result)) {
+        while($row = mysqli_fetch_assoc($result)) {
 
-        echo '<tr><td>'.$row["name"].'</td>';
+            echo '<tr><td>'.$row["name"].'</td>';
 
-        $NETWORK_ID = $row["id"];
-        $NETWORK_VALUE = $row["test"];
+            $NETWORK_ID = $row["id"];
+            $NETWORK_VALUE = $row["test"];
 
-        if ( $NETWORK_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-        if ( $NETWORK_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
-        if ( $NETWORK_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
+            if ( $NETWORK_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+            if ( $NETWORK_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+            if ( $NETWORK_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
 
-        echo '<td><select name="network_'.$NETWORK_ID.'_value">';
-        echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-        echo '<option value="true" '.$T_SELECTED.' >CONNECTED</option>';
-        echo '<option value="false" '.$F_SELECTED.' >NOT CONNECTED</option>';;
-        echo '</select></td>';
-
+            echo '<td><select name="network_'.$NETWORK_ID.'_value">';
+            echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+            echo '<option value="true" '.$T_SELECTED.' >CONNECTED</option>';
+            echo '<option value="false" '.$F_SELECTED.' >NOT CONNECTED</option>';;
+            echo '</select></td>';
         }
     
-    echo '</table>';
+        echo '</table>';
+    }
 
     echo '</td></tr>';
 
