@@ -156,7 +156,7 @@
 
     if( $SENSOR_VALUE == '' ) {
         #echo "#$SENSOR_VALUE#";
-        echo "<span class='sensorvalue'>--</span>"; 
+        echo "<span class='sensorvalue'>-</span>"; 
         echo "<span class='sensorvaluedec'>.-</span>"; 
     } else {
         #echo "#$SENSOR_VALUE#";
