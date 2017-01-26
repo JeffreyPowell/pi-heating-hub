@@ -53,7 +53,7 @@
     $sql_sensors = "SELECT min(id) AS id FROM sensors;";
     $result_sensors = mysqli_query($conn, $sql_sensors);
     if (mysqli_num_rows($result_sensors) == 0) {
-        echo "0 sensors results"; 
+        #echo "0 sensors results"; 
     }
     while($row = mysqli_fetch_assoc($result_sensors)) {
         $SENSOR_MAX_ID = $row["id"];
@@ -112,19 +112,19 @@
     $sql_modes = "SELECT * FROM modes;";
     $result_modes = mysqli_query($conn, $sql_modes);
     if (mysqli_num_rows($result_modes) == 0) {
-        echo "0 modes results"; 
+        #echo "0 modes results"; 
     }
 
     $sql_sensor = "SELECT * from sensors WHERE id = '".$GET_SENSOR_ID."';";
     $result_sensor = mysqli_query($conn, $sql_sensor);
     if (mysqli_num_rows($result_sensor) == 0) {
-        echo "0 sensors results"; 
+        #echo "0 sensors results"; 
     }
 
     $sql_timers = "SELECT * FROM timers;";
     $result_timers = mysqli_query($conn, $sql_timers);
     if (mysqli_num_rows($result_timers) == 0) {
-        echo "0 timers results"; 
+        #echo "0 timers results"; 
     }
 
 
@@ -144,6 +144,9 @@
 
     echo "<td width=33%>";
 
+    $SENSOR_NAME =  '';
+    $SENSOR_VALUE = '';
+    
     while($row = mysqli_fetch_assoc($result_sensor)) {
         $SENSOR_NAME =  $row["name"];
         $SENSOR_VALUE = $row["value"];
@@ -231,10 +234,11 @@
 
     echo "<td width=99% align=center>";
 
-
-    create_graph( $rrd_dir.$GET_GRAPH_ID.".rrd", $img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png", 	$GET_GRAPH_SP, 	$SENSOR_NAME,	 	   "180", "700");
-    echo "<img src='".$img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png' alt='RRD image'>";  
-
+    if( $SENSOR_NAME != '' ) {
+        create_graph( $rrd_dir.$GET_GRAPH_ID.".rrd", $img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png", 	$GET_GRAPH_SP, 	$SENSOR_NAME,	 	   "180", "700");
+        echo "<img src='".$img_dir.$GET_GRAPH_ID.$GET_GRAPH_SP.".png' alt='RRD image'>";  
+    }
+    
     echo "</td></tr>";
     echo "</table>";
 
