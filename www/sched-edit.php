@@ -263,134 +263,134 @@
 
     echo "</td><td width=50%>";
 
-    echo "<span class='ptitlesub'>Activate Devices</span><br><br>";
 
 
     $sql = "SELECT * FROM devices LEFT JOIN sched_device ON devices.d_id=sched_device.device_id AND sched_device.sched_id=".$SCHED_ID." ORDER BY devices.name asc;";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) == 0) {
-        echo "devices 0 results";
+        #echo "devices 0 results";
+    } else {
+
+        echo "<span class='ptitlesub'>Activate Devices</span><br><br>";
+
+        echo "<table class='ttabsub' >";
+
+        while($row = mysqli_fetch_assoc($result)) {
+            $DEVICE_NAME = $row["name"];
+            $DEVICE_ID = $row["d_id"];
+            $DEVICE_ACTIVE = $row["device_id"];
+
+            if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
+
+            echo "<tr><td>$DEVICE_NAME</td><td><input type='checkbox' name='devices[]' value='$DEVICE_ID' $DEVICE_ACTIVE_CHK /></td></tr>";
+        }
+
+        echo "</table>";
     }
-
-    echo "<table class='ttabsub' >";
-
-    while($row = mysqli_fetch_assoc($result)) {
-        $DEVICE_NAME = $row["name"];
-        $DEVICE_ID = $row["d_id"];
-        $DEVICE_ACTIVE = $row["device_id"];
-
-        if ( $DEVICE_ACTIVE != null ) { $DEVICE_ACTIVE_CHK = 'checked="checked"'; }else{ $DEVICE_ACTIVE_CHK = ''; }
-
-        echo "<tr><td>$DEVICE_NAME</td><td><input type='checkbox' name='devices[]' value='$DEVICE_ID' $DEVICE_ACTIVE_CHK /></td></tr>";
-    }
-
-    echo "</table>";
-
+    
     echo "</td></tr><tr><td>";
-
-
-    echo "<span class='ptitlesub'>When Sensors</span>";
 
     $sql = "SELECT * FROM sensors LEFT JOIN sched_sensor ON sensors.id=sched_sensor.sensor_id AND sched_sensor.sched_id=".$SCHED_ID.";";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) == 0) {
-        echo "sensors 0 results";
+        #echo "sensors 0 results";
+    } else {
+
+        echo "<span class='ptitlesub'>When Sensors</span>";
+
+        echo "<table class='ttabsub' >";
+
+        while($row = mysqli_fetch_assoc($result)) {
+
+            echo "<tr><td>".$row["name"]."</td>";
+
+            $SENSOR_OPP = $row["opp"];
+            if ( $SENSOR_OPP == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+            if ( $SENSOR_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
+            if ( $SENSOR_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
+            if ( $SENSOR_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
+            if ( $SENSOR_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
+
+            echo '<td><select name="sensor_'.$row["id"].'_opp">';
+            echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+            echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
+            echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
+            echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
+            echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
+            echo '</select></td>';
+
+            echo "<td><input type='text' name='sensor_".$row["id"]."_value' value='".$row["value"]."' class='itextboxsub'></td></tr>";
+        }
+        echo '</table>';
     }
-    echo "<table class='ttabsub' >";
-
-    while($row = mysqli_fetch_assoc($result)) {
-
-        echo "<tr><td>".$row["name"]."</td>";
-
-        $SENSOR_OPP = $row["opp"];
-        if ( $SENSOR_OPP == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-        if ( $SENSOR_OPP == "<" ) { $LT_SELECTED = 'selected'; }else{ $LT_SELECTED = ''; }
-        if ( $SENSOR_OPP == "=" ) { $EQ_SELECTED = 'selected'; }else{ $EQ_SELECTED = ''; }
-        if ( $SENSOR_OPP == "!" ) { $NE_SELECTED = 'selected'; }else{ $NE_SELECTED = ''; }
-        if ( $SENSOR_OPP == ">" ) { $GT_SELECTED = 'selected'; }else{ $GT_SELECTED = ''; }
-
-        echo '<td><select name="sensor_'.$row["id"].'_opp">';
-        echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-        echo '<option value="lt" '.$LT_SELECTED.' >IS LESS THAN</option>';
-        echo '<option value="eq" '.$EQ_SELECTED.' >IS EQUAL TO</option>';
-        echo '<option value="ne" '.$NE_SELECTED.' >IS NOT EQUAL TO</option>';
-        echo '<option value="gt" '.$GT_SELECTED.' >IS GREATER THAN</option>';
-        echo '</select></td>';
-
-        echo "<td><input type='text' name='sensor_".$row["id"]."_value' value='".$row["value"]."' class='itextboxsub'></td></tr>";
-    }
-    echo '</table>';
-
+    
     echo '</td><td>';
-
-    echo "<span class='ptitlesub'>AND Modes</span>";
 
     $sql = "SELECT * FROM modes LEFT JOIN sched_mode ON modes.id=sched_mode.mode_id AND sched_mode.sched_id=".$SCHED_ID.";";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) == 0) {
-        echo "sensors 0 results";
+        #echo "sensors 0 results";
+    } else {
+        echo "<span class='ptitlesub'>AND Modes</span>";
+
+        echo "<table class='ttabsub' >";
+
+        while($row = mysqli_fetch_assoc($result)) {
+
+            echo '<tr><td>'.$row["name"].'</td>';
+
+            $MODE_ID = $row["id"];
+            $MODE_VALUE = $row["test_value"];
+
+
+            if ( $MODE_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+            if ( $MODE_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+            if ( $MODE_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
+
+            echo '<td><select name="mode_'.$MODE_ID.'_value">';
+            echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+            echo '<option value="true" '.$T_SELECTED.' >ON</option>';
+            echo '<option value="false" '.$F_SELECTED.' >OFF</option>';;
+            echo '</select></td>';
+
+        }
+        echo '</table>';
     }
-
-    echo "<table class='ttabsub' >";
-
-    while($row = mysqli_fetch_assoc($result)) {
-
-        echo '<tr><td>'.$row["name"].'</td>';
-
-        $MODE_ID = $row["id"];
-        $MODE_VALUE = $row["test_value"];
-
-
-        if ( $MODE_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-        if ( $MODE_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
-        if ( $MODE_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
-
-        echo '<td><select name="mode_'.$MODE_ID.'_value">';
-        echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-        echo '<option value="true" '.$T_SELECTED.' >ON</option>';
-        echo '<option value="false" '.$F_SELECTED.' >OFF</option>';;
-        echo '</select></td>';
-
-    }
-    echo '</table>';
-
-    echo "</td></tr>";   
-
-    echo "<tr><td>";  
-
-    echo "<span class='ptitlesub'>AND Timers</span>";
+    
+    echo "</td></tr><tr><td>";  
 
     $sql = "SELECT * FROM timers LEFT JOIN sched_timer ON timers.id=sched_timer.timer_id AND sched_timer.sched_id=".$SCHED_ID.";";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) == 0) {
-        echo "sensors 0 results";
-    }
-    echo "<table class='ttabsub' >";
+        #echo "sensors 0 results";
+    } else {
+        echo "<span class='ptitlesub'>AND Timers</span>";
 
-    while($row = mysqli_fetch_assoc($result)) {
+        echo "<table class='ttabsub' >";
 
-        echo '<tr><td>'.$row["name"].'</td>';
+        while($row = mysqli_fetch_assoc($result)) {
 
-        $TIMER_ID = $row["id"];
-        $TIMER_VALUE = $row["value"];
+            echo '<tr><td>'.$row["name"].'</td>';
+
+            $TIMER_ID = $row["id"];
+            $TIMER_VALUE = $row["value"];
 
 
-        if ( $TIMER_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-        if ( $TIMER_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
-        if ( $TIMER_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
+            if ( $TIMER_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+            if ( $TIMER_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+            if ( $TIMER_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
 
-        echo '<td><select name="timer_'.$TIMER_ID.'_value">';
-        echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-        echo '<option value="true" '.$T_SELECTED.' >RUNNING</option>';
-        echo '<option value="false" '.$F_SELECTED.' >STOPPED</option>';;
-        echo '</select></td>';
+            echo '<td><select name="timer_'.$TIMER_ID.'_value">';
+            echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+            echo '<option value="true" '.$T_SELECTED.' >RUNNING</option>';
+            echo '<option value="false" '.$F_SELECTED.' >STOPPED</option>';;
+            echo '</select></td>';
+        }
+
+        echo '</table>';   
     }
     
-    echo '</table>';   
-
     echo "</td><td>";   
-
-    echo "<span class='ptitlesub'>AND Who is Connected</span>";
 
     $sql = "SELECT * FROM network LEFT JOIN sched_network ON network.id=sched_network.network_id AND sched_network.sched_id='".$SCHED_ID."';";
 
@@ -398,31 +398,35 @@
 
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) == 0) {
-        #echo "network 0 results";
-    }else{
-        echo "<table class='ttabsub' >";
+        #echo "sensors 0 results";
+    } else {
+      
+      echo "<span class='ptitlesub'>AND Who is Connected</span>";
+      
+      echo "<table class='ttabsub' >";
 
-        while($row = mysqli_fetch_assoc($result)) {
+      while($row = mysqli_fetch_assoc($result)) {
 
-            echo '<tr><td>'.$row["name"].'</td>';
+        echo '<tr><td>'.$row["name"].'</td>';
 
-            $NETWORK_ID = $row["id"];
-            $NETWORK_VALUE = $row["test"];
+        $NETWORK_ID = $row["id"];
+        $NETWORK_VALUE = $row["test"];
 
-            if ( $NETWORK_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
-            if ( $NETWORK_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
-            if ( $NETWORK_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
+        if ( $NETWORK_VALUE == "" ) { $NA_SELECTED = 'selected'; }else{ $NA_SELECTED = ''; }
+        if ( $NETWORK_VALUE == "0" ) { $F_SELECTED = 'selected'; }else{ $F_SELECTED = ''; }
+        if ( $NETWORK_VALUE == "1" ) { $T_SELECTED = 'selected'; }else{ $T_SELECTED = ''; }
 
-            echo '<td><select name="network_'.$NETWORK_ID.'_value">';
-            echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
-            echo '<option value="true" '.$T_SELECTED.' >CONNECTED</option>';
-            echo '<option value="false" '.$F_SELECTED.' >NOT CONNECTED</option>';;
-            echo '</select></td>';
+        echo '<td><select name="network_'.$NETWORK_ID.'_value">';
+        echo '<option value="na" '.$NA_SELECTED.' >(IS IGNORED)</option>';
+        echo '<option value="true" '.$T_SELECTED.' >CONNECTED</option>';
+        echo '<option value="false" '.$F_SELECTED.' >NOT CONNECTED</option>';;
+        echo '</select></td>';
+
         }
     
-        echo '</table>';
+    echo '</table>';
+        
     }
-
     echo '</td></tr>';
 
     echo '</table>';
