@@ -110,7 +110,7 @@ for result in results_schedules:
   
   for result in results_sensors:
     #print( result )
-    if ( result[4] != '' ):
+    if ( result[4] != None ):
     
       SENSOR_VALUE= float(result[4])
       SENSOR_TEST = str(result[9])
