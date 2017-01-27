@@ -110,23 +110,25 @@ for result in results_schedules:
   
   for result in results_sensors:
     #print( result )
-    SENSOR_VALUE= float(result[4])
-    SENSOR_TEST = str(result[9])
-    TEST_VALUE = float(result[10])
+    if ( result[4] != '' ):
     
-    if (  SENSOR_TEST == '<' and SENSOR_VALUE < TEST_VALUE ):
-      TEST = True
-    elif( SENSOR_TEST == '=' and SENSOR_VALUE == TEST_VALUE ):
-      TEST = True
-    elif( SENSOR_TEST == '!' and SENSOR_VALUE != TEST_VALUE ):
-      TEST = True
-    elif( SENSOR_TEST == '>' and SENSOR_VALUE > TEST_VALUE ):
-      TEST = True
-    else:
-      TEST = False
-      
-    if TEST == False:
-      SCHED_TEST_SENSORS = False
+      SENSOR_VALUE= float(result[4])
+      SENSOR_TEST = str(result[9])
+      TEST_VALUE = float(result[10])
+
+      if (  SENSOR_TEST == '<' and SENSOR_VALUE < TEST_VALUE ):
+        TEST = True
+      elif( SENSOR_TEST == '=' and SENSOR_VALUE == TEST_VALUE ):
+        TEST = True
+      elif( SENSOR_TEST == '!' and SENSOR_VALUE != TEST_VALUE ):
+        TEST = True
+      elif( SENSOR_TEST == '>' and SENSOR_VALUE > TEST_VALUE ):
+        TEST = True
+      else:
+        TEST = False
+
+      if TEST == False:
+        SCHED_TEST_SENSORS = False
   
     #print( SENSOR_VALUE, SENSOR_TEST, TEST_VALUE, SCHED_TEST_SENSORS )
 
