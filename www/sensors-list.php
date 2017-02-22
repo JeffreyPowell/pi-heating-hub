@@ -52,7 +52,25 @@
 
             echo '<br>';
 
-            $subnet_scan = shell_exec('nmap -sP 192.168.0.0/24 | grep report | grep -v router | cut -d" " -f5');
+            $subnet_inet = shell_exec('ifconfig wlan0 | grep "inet " | cut -d":" -f2 | cut -d" " -f1');
+            $subnet_mask = shell_exec('ifconfig wlan0 | grep "inet " | cut -d":" -f4 | cut -d" " -f1');
+            
+            $subnet_inet_octets = explode( '.', $subnet_inet );
+            $subnet_mask_octets = explode( '.', $subnet_mask );
+            
+            $subnet_inet_octets_b = [];
+            $subnet_mask_octets_b = [];
+            
+            for ( $n = 1; $n <= 4; $n++ ) {
+                $subnet_inet_octets_b[$n] = decbin($subnet_inet_octets[$n]);
+                $subnet_mask_octets_b[$n] = decbin($subnet_mask_octets[$n]);
+            }
+            
+            
+            
+            $subnet_cidr = '192.168.0.0/24';
+            
+            $subnet_scan = shell_exec('nmap -sP $subnet_cidr | grep report | grep -v router | cut -d" " -f5');
 
             $subnet_devices = explode( "\n", $subnet_scan);
 
