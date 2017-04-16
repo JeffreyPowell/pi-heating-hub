@@ -185,6 +185,8 @@ for result in results_schedules:
     
     if (  TEST_VALUE == True and TIMER_VALUE > 0 ):
       TEST = True
+    elif ( TEST_VALUE == False and TIMER_VALUE == 0 ): ## Thanks to Alan Riley for spotting this.
+      TEST = True
     else:
       TEST = False
       
