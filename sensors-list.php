@@ -62,10 +62,13 @@
             
             
             
-            $subnet_cidr = '192.168.0.0/24';
+            $subnet_cidr = '192.168.1.0/24';
             
             $subnet_scan = shell_exec('nmap -sP $subnet_cidr | grep report | grep -v router | cut -d" " -f5');
             $subnet_devices = explode( "\n", $subnet_scan);
+            
+            $subnet_devices = "192.168.1.65";
+            
             foreach( $subnet_devices as $device_ip ) {
                 set_error_handler(function() { $sensor_count = '0'; });
                 $sensor_count = file_get_contents("http://".$device_ip.":8080/count.php");
